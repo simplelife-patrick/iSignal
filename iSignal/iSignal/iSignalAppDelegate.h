@@ -4,7 +4,7 @@
 //
 //  Created by Patrick Deng on 11-8-20.
 //  Copyright 2011年 CodeAnimal. All rights reserved.
-//
+//  Tests
 
 #import <UIKit/UIKit.h>
 
