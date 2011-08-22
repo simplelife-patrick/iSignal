@@ -70,7 +70,7 @@
     }    
 }
 
--(void) reorganizeSubView:(NSInteger) exceptViewTag
+-(void) reorganizeSubViews:(NSInteger) exceptViewTag
 {
     NSArray *subViews = [self.view subviews];
     UIView *exceptView = nil;
@@ -104,19 +104,19 @@
         case TAG_LITEVIEW:
         {
             [self lazyLoadView:TAG_LITEVIEW];
-            [self reorganizeSubView:TAG_LITEVIEW];
+            [self reorganizeSubViews:TAG_LITEVIEW];
             break;
         }
         case TAG_LITEHELPVIEW:
         {
             [self lazyLoadView:TAG_LITEHELPVIEW];
-            [self reorganizeSubView:TAG_LITEHELPVIEW];
+            [self reorganizeSubViews:TAG_LITEHELPVIEW];
             break;
         }
         case TAG_LITECONFIGVIEW:
         {
             [self lazyLoadView:TAG_LITECONFIGVIEW];
-            [self reorganizeSubView:TAG_LITECONFIGVIEW];
+            [self reorganizeSubViews:TAG_LITECONFIGVIEW];
             break;
         }
         default:
