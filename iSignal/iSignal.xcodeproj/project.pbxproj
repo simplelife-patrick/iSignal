@@ -12,6 +12,7 @@
 		C57329C814009A2F0061D973 /* ISLiteConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57329C614009A2F0061D973 /* ISLiteConfigViewController.m */; };
 		C57329C914009A2F0061D973 /* ISLiteConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C714009A2F0061D973 /* ISLiteConfigViewController.xib */; };
 		C5882A8C140240F900EC29A6 /* GlobalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* GlobalSettings.m */; };
+		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
 		C5B758231401E485004A051E /* ISUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* ISUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* SwitchViewController.m */; };
 		C5BAED86140153B100141ED7 /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BAED84140153B100141ED7 /* SwitchViewController.xib */; };
@@ -37,6 +38,7 @@
 		C57329C714009A2F0061D973 /* ISLiteConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISLiteConfigViewController.xib; sourceTree = "<group>"; };
 		C5882A8A140240F900EC29A6 /* GlobalSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalSettings.h; sourceTree = "<group>"; };
 		C5882A8B140240F900EC29A6 /* GlobalSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSettings.m; sourceTree = "<group>"; };
+		C5882A9614027EA700EC29A6 /* Requiremens.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Requiremens.rtf; sourceTree = "<group>"; };
 		C5B758211401E485004A051E /* ISUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUIUtils.h; sourceTree = "<group>"; };
 		C5B758221401E485004A051E /* ISUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				C5CD42D013FF8826009C5741 /* iSignal-Info.plist */,
 				C5CD42D113FF8826009C5741 /* InfoPlist.strings */,
 				C5CD42D613FF8826009C5741 /* iSignal-Prefix.pch */,
+				C5882A9614027EA700EC29A6 /* Requiremens.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				C57329C914009A2F0061D973 /* ISLiteConfigViewController.xib in Resources */,
 				C5BEB01C1400C32F0083A86A /* ISLiteHelpViewController.xib in Resources */,
 				C5BAED86140153B100141ED7 /* SwitchViewController.xib in Resources */,
+				C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
