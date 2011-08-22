@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ISUIUtils.h"
+
 @interface ISLiteViewController : UIViewController {
     UIButton *helpButton;
     UIButton *configButton;
@@ -16,5 +18,7 @@
 
 @property (nonatomic, retain) IBOutlet UIButton *helpButton;
 
+-(IBAction) switchToHelpView:(id) sender;
+-(IBAction) switchToConfigView:(id) sender;
 
 @end

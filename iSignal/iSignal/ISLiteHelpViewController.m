@@ -8,7 +8,10 @@
 
 #import "ISLiteHelpViewController.h"
 
+#import "SwitchViewController.h"
+
 @implementation ISLiteHelpViewController
+@synthesize backButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +40,7 @@
 
 - (void)viewDidUnload
 {
+    [self setBackButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -46,6 +50,21 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc {
+    [backButton release];
+    [super dealloc];
+}
+
+// Manual Codes
+- (IBAction)switchToLiteView:(id)sender
+{
+    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
+    if([parentViewController isKindOfClass:[SwitchViewController class]])
+    {
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITEVIEW];
+    }  
 }
 
 @end

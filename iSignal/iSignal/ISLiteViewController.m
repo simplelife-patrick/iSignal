@@ -7,8 +7,10 @@
 //
 
 #import "ISLiteViewController.h"
+#import "SwitchViewController.h"
 
 @implementation ISLiteViewController
+
 @synthesize configButton;
 @synthesize helpButton;
 
@@ -60,13 +62,21 @@
 }
 
 // Manual codes
--(void) switchToConfigView:(id)sender
+-(IBAction)switchToHelpView:(id)sender
 {
-
+    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
+    if([parentViewController isKindOfClass:[SwitchViewController class]])
+    {
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITEHELPVIEW];
+    }
 }
 
--(void) switchToHelpView:(id)sender
+-(IBAction)switchToConfigView:(id)sender
 {
-
+    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
+    if([parentViewController isKindOfClass:[SwitchViewController class]])
+    {
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITECONFIGVIEW];
+    }    
 }
 @end

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISLiteConfigViewController : UIViewController
+#import "ISUIUtils.h"
+
+@interface ISLiteConfigViewController : UIViewController {
+    UIButton *backButton;
+}
+
+@property (nonatomic, retain) IBOutlet UIButton *backButton;
+
+-(IBAction)switchToLiteView:(id)sender;
 
 @end

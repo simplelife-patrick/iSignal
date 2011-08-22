@@ -9,14 +9,124 @@
 #import "SwitchViewController.h"
 
 #import "ISLiteViewController.h"
-#import "ISLiteConfigViewController.h"
 #import "ISLiteHelpViewController.h"
+#import "ISLiteConfigViewController.h"
 
 @implementation SwitchViewController
 
 @synthesize isLiteViewController;
 @synthesize isLiteConfigViewController;
 @synthesize isLiteHelpViewController;
+
+// Manual Codes Begins
+
+-(void) lazyLoadView:(NSInteger) viewTag
+{
+    switch (viewTag) 
+    {
+        case TAG_LITEVIEW:
+        {
+            if (nil == self.isLiteViewController)
+            {
+                ISLiteViewController *liteViewController = [[ISLiteViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
+                [liteViewController.view setTag:TAG_LITEVIEW];
+                self.isLiteViewController = liteViewController;
+                [liteViewController release];
+            }
+            [self.view addSubview:self.isLiteViewController.view];
+            
+            break;
+        }
+        case TAG_LITEHELPVIEW:
+        {
+            if (nil == self.isLiteHelpViewController)
+            {
+                ISLiteHelpViewController *helpViewController = [[ISLiteHelpViewController alloc] initWithNibName:@"ISLiteHelpViewController" bundle:nil];
+                [helpViewController.view setTag:TAG_LITEHELPVIEW];
+                self.isLiteHelpViewController = helpViewController;
+                [helpViewController release];
+            }
+            [self.view addSubview:self.isLiteHelpViewController.view];
+            
+            break;
+        }
+        case TAG_LITECONFIGVIEW:
+        {
+            if (nil == self.isLiteConfigViewController)
+            {
+                ISLiteConfigViewController *configViewController = [[ISLiteConfigViewController alloc] initWithNibName:@"ISLiteConfigViewController" bundle:nil];
+                [configViewController.view setTag:TAG_LITECONFIGVIEW];
+                self.isLiteConfigViewController = configViewController;
+                [configViewController release];
+            }
+            [self.view addSubview:self.isLiteConfigViewController.view];                
+
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }    
+}
+
+-(void) reorganizeSubView:(NSInteger) exceptViewTag
+{
+    NSArray *subViews = [self.view subviews];
+    UIView *exceptView = nil;
+    for (id obj in subViews) 
+    {
+        UIView *subView = (UIView*) obj;
+        if(exceptViewTag != [subView tag])
+        {
+            [subView removeFromSuperview];
+        }
+        else
+        {
+            exceptView = subView;
+        }
+    }
+    
+    if(nil != exceptView)
+    {
+        if (nil == exceptView.superview) 
+        {
+            [self.view addSubview:exceptView];
+        }
+        [self.view bringSubviewToFront:exceptView];
+    }
+}
+
+-(void) switchView:(NSInteger) viewTag
+{
+    switch (viewTag) 
+    {
+        case TAG_LITEVIEW:
+        {
+            [self lazyLoadView:TAG_LITEVIEW];
+            [self reorganizeSubView:TAG_LITEVIEW];
+            break;
+        }
+        case TAG_LITEHELPVIEW:
+        {
+            [self lazyLoadView:TAG_LITEHELPVIEW];
+            [self reorganizeSubView:TAG_LITEHELPVIEW];
+            break;
+        }
+        case TAG_LITECONFIGVIEW:
+        {
+            [self lazyLoadView:TAG_LITECONFIGVIEW];
+            [self reorganizeSubView:TAG_LITECONFIGVIEW];
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+}
+
+// Manual Codes Ends
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,24 +149,8 @@
 
 - (void)viewDidLoad
 {
-//    [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    ISLiteViewController *liteViewController = [[ISLiteViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
-    self.isLiteViewController = liteViewController;
-    [liteViewController release];
-    
-    // Below two view controllers shoud not be initialized here immediately, lazy-loading will be better.
-    ISLiteHelpViewController *helpViewController = [[ISLiteHelpViewController alloc] initWithNibName:@"ISLiteHelpViewController" bundle:nil];
-    self.isLiteHelpViewController = helpViewController;
-    [helpViewController release];
-    
-    ISLiteConfigViewController *configViewController = [[ISLiteConfigViewController alloc] initWithNibName:@"ISLiteConfigViewController" bundle:nil];
-    self.isLiteConfigViewController = configViewController;
-    [configViewController release];
-    
-    [self.view insertSubview:self.isLiteViewController.view atIndex:2];
-    [self.view insertSubview:self.isLiteHelpViewController.view atIndex:0];
-    [self.view insertSubview:self.isLiteConfigViewController.view atIndex:1];
+    [self lazyLoadView:TAG_LITEVIEW];
     [super viewDidLoad];
 }
 
@@ -81,26 +175,6 @@
     [isLiteHelpViewController release];
     [isLiteConfigViewController release];
     [super dealloc];
-}
-
-// Manual Codes
--(void) switchView:(id) sender andViewId:NSInteger
-{
-//    - (void) switchView {
-//        if( self.foodlistController == nil ) {
-//            FoodListController *fc = [[FoodListController alloc] initWithNibName:@"FoodListView" bundle:nil];
-//            self.foodlistController = fc;
-//            [fc release];
-//        }
-//        if( self.welcomeController.view.superview != nil ) {
-//            [welcomeController.view removeFromSuperview];
-//            [self.view insertSubview:foodlistController.view atIndex:0];
-//        }
-//        else {
-//            [foodlistController.view removeFromSuperview];
-//            [self.view insertSubview:welcomeController.view atIndex:0];
-//        }
-//    }
 }
 
 @end

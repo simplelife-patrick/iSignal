@@ -198,9 +198,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>isLiteConfigViewController</string>
 							<string>isLiteHelpViewController</string>
+							<string>isLiteViewController</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIViewController</string>
 							<string>UIViewController</string>
 							<string>UIViewController</string>
 						</object>
@@ -211,6 +213,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>isLiteConfigViewController</string>
 							<string>isLiteHelpViewController</string>
+							<string>isLiteViewController</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -220,6 +223,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">isLiteHelpViewController</string>
+								<string key="candidateClassName">UIViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">isLiteViewController</string>
 								<string key="candidateClassName">UIViewController</string>
 							</object>
 						</object>

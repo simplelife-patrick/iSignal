@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#define TAG_LITEVIEW 0
+#define TAG_LITEHELPVIEW 1
+#define TAG_LITECONFIGVIEW 2
+#define COUNT_VIEW_TAG 3
+
 @interface SwitchViewController : UIViewController
 {
     UIViewController *isLiteViewController;
@@ -19,6 +24,6 @@
 @property (nonatomic, retain) IBOutlet UIViewController *isLiteHelpViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *isLiteConfigViewController;
 
--(void) switchView:(id) sender andViewId:NSInteger;
+-(void) switchView:(NSInteger) viewTag;
 
 @end
