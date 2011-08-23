@@ -12,6 +12,7 @@
 		C57329C814009A2F0061D973 /* ISLiteConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57329C614009A2F0061D973 /* ISLiteConfigViewController.m */; };
 		C57329C914009A2F0061D973 /* ISLiteConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C714009A2F0061D973 /* ISLiteConfigViewController.xib */; };
 		C573E5A6140355BF00BB24B3 /* ISMathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C573E5A5140355BF00BB24B3 /* ISMathUtils.m */; };
+		C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C573E5BD1403A91500BB24B3 /* Localizable.strings */; };
 		C5882A8C140240F900EC29A6 /* GlobalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* GlobalSettings.m */; };
 		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
 		C5882A9C14032E9D00EC29A6 /* ISDummnyTelephony.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummnyTelephony.m */; };
@@ -40,6 +41,8 @@
 		C57329C714009A2F0061D973 /* ISLiteConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISLiteConfigViewController.xib; sourceTree = "<group>"; };
 		C573E5A4140355BF00BB24B3 /* ISMathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMathUtils.h; sourceTree = "<group>"; };
 		C573E5A5140355BF00BB24B3 /* ISMathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMathUtils.m; sourceTree = "<group>"; };
+		C573E5BE1403A91500BB24B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C573E5C81403BDBD00BB24B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C5882A8A140240F900EC29A6 /* GlobalSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalSettings.h; sourceTree = "<group>"; };
 		C5882A8B140240F900EC29A6 /* GlobalSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSettings.m; sourceTree = "<group>"; };
 		C5882A9614027EA700EC29A6 /* Requiremens.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Requiremens.rtf; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 		C5CD42CF13FF8826009C5741 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C573E5BD1403A91500BB24B3 /* Localizable.strings */,
 				C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */,
 				C5CD42D013FF8826009C5741 /* iSignal-Info.plist */,
 				C5CD42D113FF8826009C5741 /* InfoPlist.strings */,
@@ -263,6 +267,7 @@
 		C5CD42B913FF8826009C5741 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = CodeAnimal;
 			};
 			buildConfigurationList = C5CD42BC13FF8826009C5741 /* Build configuration list for PBXProject "iSignal" */;
@@ -271,6 +276,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = C5CD42B713FF8826009C5741;
 			productRefGroup = C5CD42C313FF8826009C5741 /* Products */;
@@ -294,6 +300,7 @@
 				C5BEB01C1400C32F0083A86A /* ISLiteHelpViewController.xib in Resources */,
 				C5BAED86140153B100141ED7 /* SwitchViewController.xib in Resources */,
 				C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */,
+				C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +328,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		C573E5BD1403A91500BB24B3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C573E5BE1403A91500BB24B3 /* en */,
+				C573E5C81403BDBD00BB24B3 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		C5CD42D113FF8826009C5741 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -345,7 +361,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -360,6 +377,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -369,7 +387,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -378,6 +397,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -386,10 +406,12 @@
 		C5CD42E313FF8826009C5741 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSignal/iSignal-Prefix.pch";
 				INFOPLIST_FILE = "iSignal/iSignal-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
