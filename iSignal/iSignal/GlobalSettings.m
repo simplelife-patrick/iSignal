@@ -10,6 +10,8 @@
 
 @implementation GlobalSettings
 
+// Manual Codes Begin
+
 static GlobalSettings* instance = nil;
 
 +(GlobalSettings *)singletonInstance
@@ -20,6 +22,13 @@ static GlobalSettings* instance = nil;
     }
     return instance;
 }
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+// Manual Codes End
 
 - (id)init
 {

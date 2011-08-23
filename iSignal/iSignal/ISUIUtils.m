@@ -10,15 +10,7 @@
 
 @implementation ISUIUtils
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
+// Manual Codes Begin
 
 +(UIViewController*) getViewControllerFromView:(UIView *)view
 {
@@ -43,6 +35,23 @@
         
         return nil;
     }
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+// Manual Codes End
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Initialization code here.
+    }
+    
+    return self;
 }
 
 @end
