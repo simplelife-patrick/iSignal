@@ -23,10 +23,12 @@
 {
     id<ISCallbackDelegate> callbackDelegate;
     NSArray *carrierArray;
+    NSThread *signalMonitor;
 }
 
 @property (nonatomic, retain) id<ISCallbackDelegate> callbackDelegate; 
 @property (nonatomic, retain) NSArray *carrierArray;
+@property (nonatomic, retain) NSThread *signalMonitor;
 
 -(NSString*) randomCarrier;
 -(NSInteger) randomCellularSignalStrength;

@@ -45,6 +45,14 @@
     
 }
 
+- (void)dealloc
+{
+    [carrierArray release];
+    [signalMonitor release];
+    [callbackDelegate release];
+    [super dealloc];
+}
+
 // Manual Codes End
 
 - (id)init
