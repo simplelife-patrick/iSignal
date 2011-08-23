@@ -36,6 +36,9 @@
             {
                 return (UIViewController*) nextResponder;
             }
+            
+            [nextView release];
+            [nextResponder release];
         }
         
         return nil;
