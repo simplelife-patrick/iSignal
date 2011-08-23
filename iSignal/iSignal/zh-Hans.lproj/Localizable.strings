@@ -6,4 +6,5 @@
   Copyright 2011年 CodeAnimal. All rights reserved.
 */
 
-
+STR_CMCC = "中国移动";
+STR_CUNI = "中国联通";

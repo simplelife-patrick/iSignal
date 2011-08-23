@@ -6,4 +6,5 @@
   Copyright 2011年 CodeAnimal. All rights reserved.
 */
 
-
+STR_CMCC = "CMCC";
+STR_CUNI = "CUNI";
