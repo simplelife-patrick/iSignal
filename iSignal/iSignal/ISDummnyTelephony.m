@@ -15,18 +15,26 @@
 // Manual Codes Begin
 
 @synthesize callbackDelegate;
-@synthesize carrierArray;
+@synthesize signalMonitor;
+@synthesize signalStrength;
+@synthesize carrier;
 
--(NSString*) randomCarrier
++(NSArray*) getCarrierList
+{
+    NSArray* carrierArray = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
+    return carrierArray;
+}
+
++(NSString*) randomCarrier
 {
     NSInteger min = CARRIER_CMCC;
     NSInteger max = CARRIER_CUNI;
     NSInteger arrayIndex = [ISMathUtils generateRandomNSInteger:min andMax:max];
-
+    NSArray* carrierArray = [ISDummnyTelephony getCarrierList];
     return [carrierArray objectAtIndex:arrayIndex];
 }
 
--(NSInteger) randomCellularSignalStrength
++(NSInteger) randomSignalStrength
 {
     NSInteger loss = CELLULAR_SIGNAL_STRENGTH_LOSS;
     NSInteger low = CELLULAR_SIGNAL_STRENGTH_LOWEST;
@@ -35,9 +43,44 @@
     return [ISMathUtils generateRandomNSInteger:(low - loss) andMax:high];
 }
 
--(void) initCarrierArray
+-(void) startToService
 {
-    carrierArray = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
+    
+}
+
+-(void) stopFromService
+{
+    
+}
+
+-(void) refreshCarrier
+{
+    self.carrier = [ISDummnyTelephony randomCarrier];
+}
+
+-(void) refreshSignalStrength
+{
+    self.signalStrength = [ISDummnyTelephony randomSignalStrength];
+    // Callback delegate to notify listener
+    [self.callbackDelegate messageCallback:[NSNumber numberWithInt:self.signalStrength]];
+}
+
+-(void) signalMonitorRun
+{
+    while (TRUE) 
+    {
+        [self refreshSignalStrength];
+        // Here current thread need to sleep for a small period
+        
+    }
+}
+
+-(void) initSignalMonitor
+{
+    signalMonitor = [[NSThread alloc] initWithTarget:self selector:@selector(updateSignalStrength) object:nil];
+    extern NSString* STR_THREAD_SIGNALMONITOR;
+    [signalMonitor setName:STR_THREAD_SIGNALMONITOR];
+//    [signalMonitor start];
 }
 
 -(void) messageCallback:(id)message
@@ -47,13 +90,12 @@
 
 - (void)dealloc
 {
-    [carrierArray release];
     [signalMonitor release];
     [callbackDelegate release];
+    [carrier release];
+    
     [super dealloc];
 }
-
-// Manual Codes End
 
 - (id)init
 {
@@ -61,10 +103,12 @@
     if (self) 
     {
         // Initialization code here.
-        [self initCarrierArray];
+        [self initSignalMonitor];
     }
     
     return self;
 }
+
+// Manual Codes End
 
 @end

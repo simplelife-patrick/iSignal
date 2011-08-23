@@ -19,18 +19,26 @@
 #define CELLULAR_SIGNAL_STRENGTH_LOWEST -110;
 #define CELLULAR_SIGNAL_STRENGTH_LOSS 20;
 
+static NSString* STR_THREAD_SIGNALMONITOR = @"Thread_SignalMonitor";
+
 @interface ISDummnyTelephony : NSObject <ISCallbackDelegate>
 {
     id<ISCallbackDelegate> callbackDelegate;
-    NSArray *carrierArray;
     NSThread *signalMonitor;
+    NSInteger signalStrength;
+    NSString *carrier;
 }
 
 @property (nonatomic, retain) id<ISCallbackDelegate> callbackDelegate; 
-@property (nonatomic, retain) NSArray *carrierArray;
 @property (nonatomic, retain) NSThread *signalMonitor;
+@property (nonatomic, retain) NSString *carrier;
+@property (nonatomic) NSInteger signalStrength;
 
--(NSString*) randomCarrier;
--(NSInteger) randomCellularSignalStrength;
++(NSString*) randomCarrier;
++(NSInteger) randomSignalStrength;
++(NSArray*) getCarrierList;
+
+-(void) startToService;
+-(void) stopFromService;
 
 @end
