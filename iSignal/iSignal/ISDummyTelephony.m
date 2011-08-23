@@ -18,6 +18,7 @@
 @synthesize signalMonitor;
 @synthesize signalStrength;
 @synthesize carrier;
+@synthesize keepAlive;
 
 +(NSArray*) getCarrierList
 {
@@ -45,12 +46,12 @@
 
 -(void) startToService
 {
-    
+    [signalMonitor start];
 }
 
 -(void) stopFromService
 {
-    
+    self.keepAlive = FALSE;
 }
 
 -(void) refreshCarrier
@@ -67,7 +68,7 @@
 
 -(void) signalMonitorRun
 {
-    while (TRUE) 
+    while (self.keepAlive) 
     {
         [self refreshSignalStrength];
         // Here current thread need to sleep for a small period
@@ -80,7 +81,6 @@
     signalMonitor = [[NSThread alloc] initWithTarget:self selector:@selector(updateSignalStrength) object:nil];
     extern NSString* STR_THREAD_SIGNALMONITOR;
     [signalMonitor setName:STR_THREAD_SIGNALMONITOR];
-//    [signalMonitor start];
 }
 
 -(void) messageCallback:(id)message
@@ -103,6 +103,7 @@
     if (self) 
     {
         // Initialization code here.
+        self.keepAlive = TRUE;
         [self initSignalMonitor];
     }
     
