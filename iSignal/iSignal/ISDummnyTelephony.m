@@ -6,11 +6,11 @@
 //  Copyright 2011年 CodeAnimal. All rights reserved.
 //
 
-#import "ISDummnyTelephony.h"
+#import "ISDummyTelephony.h"
 
 #import "ISMathUtils.h"
 
-@implementation ISDummnyTelephony
+@implementation ISDummyTelephony
 
 // Manual Codes Begin
 
@@ -30,7 +30,7 @@
     NSInteger min = CARRIER_CMCC;
     NSInteger max = CARRIER_CUNI;
     NSInteger arrayIndex = [ISMathUtils generateRandomNSInteger:min andMax:max];
-    NSArray* carrierArray = [ISDummnyTelephony getCarrierList];
+    NSArray* carrierArray = [ISDummyTelephony getCarrierList];
     return [carrierArray objectAtIndex:arrayIndex];
 }
 
@@ -55,12 +55,12 @@
 
 -(void) refreshCarrier
 {
-    self.carrier = [ISDummnyTelephony randomCarrier];
+    self.carrier = [ISDummyTelephony randomCarrier];
 }
 
 -(void) refreshSignalStrength
 {
-    self.signalStrength = [ISDummnyTelephony randomSignalStrength];
+    self.signalStrength = [ISDummyTelephony randomSignalStrength];
     // Callback delegate to notify listener
     [self.callbackDelegate messageCallback:[NSNumber numberWithInt:self.signalStrength]];
 }

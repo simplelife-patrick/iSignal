@@ -21,7 +21,7 @@
 
 static NSString* STR_THREAD_SIGNALMONITOR = @"Thread_SignalMonitor";
 
-@interface ISDummnyTelephony : NSObject <ISCallbackDelegate>
+@interface ISDummyTelephony : NSObject <ISCallbackDelegate>
 {
     id<ISCallbackDelegate> callbackDelegate;
     NSThread *signalMonitor;

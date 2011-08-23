@@ -30,6 +30,7 @@
 		C5CD42D913FF8826009C5741 /* iSignalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */; };
 		C5CD42DC13FF8826009C5741 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5CD42DA13FF8826009C5741 /* MainWindow.xib */; };
 		C5CD42DF13FF8826009C5741 /* iSignal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */; };
+		C5F596051403DDA4004E6CFE /* ISDummnyTelephony.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F596041403DDA4004E6CFE /* ISDummnyTelephony.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSignalAppDelegate.m; sourceTree = "<group>"; };
 		C5CD42DB13FF8826009C5741 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		C5CD42DE13FF8826009C5741 /* iSignal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSignal.xcdatamodel; sourceTree = "<group>"; };
+		C5F596031403DDA4004E6CFE /* ISDummnyTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDummnyTelephony.h; sourceTree = "<group>"; };
+		C5F596041403DDA4004E6CFE /* ISDummnyTelephony.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDummnyTelephony.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 		C5B7581D1401E3AC004A051E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C5F596031403DDA4004E6CFE /* ISDummnyTelephony.h */,
+				C5F596041403DDA4004E6CFE /* ISDummnyTelephony.m */,
 				C5B758211401E485004A051E /* ISUIUtils.h */,
 				C5B758221401E485004A051E /* ISUIUtils.m */,
 				C5882A8A140240F900EC29A6 /* GlobalSettings.h */,
@@ -322,6 +327,7 @@
 				C5882A8C140240F900EC29A6 /* GlobalSettings.m in Sources */,
 				C5882A9C14032E9D00EC29A6 /* ISDummyTelephony.m in Sources */,
 				C573E5A6140355BF00BB24B3 /* ISMathUtils.m in Sources */,
+				C5F596051403DDA4004E6CFE /* ISDummnyTelephony.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
