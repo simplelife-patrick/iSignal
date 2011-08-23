@@ -17,8 +17,9 @@
 
 #define CELLULAR_SIGNAL_STRENGTH_HIGHEST -50;
 #define CELLULAR_SIGNAL_STRENGTH_LOWEST -110;
+#define CELLULAR_SIGNAL_STRENGTH_LOSS 20;
 
-@interface ISDummnyTelephony : NSObject
+@interface ISDummnyTelephony : NSObject <ISCallbackDelegate>
 {
     id<ISCallbackDelegate> callbackDelegate;
     NSArray *carrierArray;

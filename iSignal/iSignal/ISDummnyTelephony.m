@@ -21,17 +21,28 @@
 {
     NSInteger min = CARRIER_CMCC;
     NSInteger max = CARRIER_CUNI;
-    NSInteger carrierArrayIndex = [ISMathUtils generateRandomNSInteger:min andMax:max];
+    NSInteger arrayIndex = [ISMathUtils generateRandomNSInteger:min andMax:max];
 
-    return [carrierArray objectAtIndex:carrierArrayIndex];
+    return [carrierArray objectAtIndex:arrayIndex];
 }
 
 -(NSInteger) randomCellularSignalStrength
 {
-    NSInteger min = CELLULAR_SIGNAL_STRENGTH_LOWEST;
-    NSInteger max = CELLULAR_SIGNAL_STRENGTH_HIGHEST;
+    NSInteger loss = CELLULAR_SIGNAL_STRENGTH_LOSS;
+    NSInteger low = CELLULAR_SIGNAL_STRENGTH_LOWEST;
+    NSInteger high = CELLULAR_SIGNAL_STRENGTH_HIGHEST;
     
-    return [ISMathUtils generateRandomNSInteger:min andMax:max];
+    return [ISMathUtils generateRandomNSInteger:(low - loss) andMax:high];
+}
+
+-(void) initCarrierArray
+{
+    carrierArray = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
+}
+
+-(void) messageCallback:(id)message
+{
+    
 }
 
 // Manual Codes End
@@ -42,7 +53,7 @@
     if (self) 
     {
         // Initialization code here.
-        carrierArray = [NSArray arrayWithObjects:@"CMCC", @"CUNI", nil];
+        [self initCarrierArray];
     }
     
     return self;
