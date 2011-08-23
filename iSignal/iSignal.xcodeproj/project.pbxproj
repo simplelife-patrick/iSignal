@@ -15,7 +15,7 @@
 		C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C573E5BD1403A91500BB24B3 /* Localizable.strings */; };
 		C5882A8C140240F900EC29A6 /* GlobalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* GlobalSettings.m */; };
 		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
-		C5882A9C14032E9D00EC29A6 /* ISDummnyTelephony.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummnyTelephony.m */; };
+		C5882A9C14032E9D00EC29A6 /* ISDummyTelephony.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */; };
 		C5B758231401E485004A051E /* ISUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* ISUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* SwitchViewController.m */; };
 		C5BAED86140153B100141ED7 /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BAED84140153B100141ED7 /* SwitchViewController.xib */; };
@@ -47,8 +47,8 @@
 		C5882A8B140240F900EC29A6 /* GlobalSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSettings.m; sourceTree = "<group>"; };
 		C5882A9614027EA700EC29A6 /* Requiremens.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Requiremens.rtf; sourceTree = "<group>"; };
 		C5882A9914032D4600EC29A6 /* ISCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCallbackDelegate.h; sourceTree = "<group>"; };
-		C5882A9A14032E9D00EC29A6 /* ISDummnyTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDummnyTelephony.h; sourceTree = "<group>"; };
-		C5882A9B14032E9D00EC29A6 /* ISDummnyTelephony.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDummnyTelephony.m; sourceTree = "<group>"; };
+		C5882A9A14032E9D00EC29A6 /* ISDummyTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDummyTelephony.h; sourceTree = "<group>"; };
+		C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDummyTelephony.m; sourceTree = "<group>"; };
 		C5B758211401E485004A051E /* ISUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUIUtils.h; sourceTree = "<group>"; };
 		C5B758221401E485004A051E /* ISUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 				C5882A8A140240F900EC29A6 /* GlobalSettings.h */,
 				C5882A8B140240F900EC29A6 /* GlobalSettings.m */,
 				C5882A9914032D4600EC29A6 /* ISCallbackDelegate.h */,
-				C5882A9A14032E9D00EC29A6 /* ISDummnyTelephony.h */,
-				C5882A9B14032E9D00EC29A6 /* ISDummnyTelephony.m */,
+				C5882A9A14032E9D00EC29A6 /* ISDummyTelephony.h */,
+				C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */,
 				C573E5A4140355BF00BB24B3 /* ISMathUtils.h */,
 				C573E5A5140355BF00BB24B3 /* ISMathUtils.m */,
 			);
@@ -320,7 +320,7 @@
 				C5BAED85140153B100141ED7 /* SwitchViewController.m in Sources */,
 				C5B758231401E485004A051E /* ISUIUtils.m in Sources */,
 				C5882A8C140240F900EC29A6 /* GlobalSettings.m in Sources */,
-				C5882A9C14032E9D00EC29A6 /* ISDummnyTelephony.m in Sources */,
+				C5882A9C14032E9D00EC29A6 /* ISDummyTelephony.m in Sources */,
 				C573E5A6140355BF00BB24B3 /* ISMathUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
