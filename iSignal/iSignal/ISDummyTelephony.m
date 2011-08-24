@@ -63,7 +63,10 @@
 {
     self.signalStrength = [ISDummyTelephony randomSignalStrength];
     // Callback delegate to notify listener
-    [self.callbackDelegate messageCallback:[NSNumber numberWithInt:self.signalStrength]];
+    if(nil != self.callbackDelegate)
+    {
+        [self.callbackDelegate messageCallback:[NSNumber numberWithInt:self.signalStrength]];
+    }
 }
 
 -(void) signalMonitorRun
@@ -81,11 +84,6 @@
     signalMonitor = [[NSThread alloc] initWithTarget:self selector:@selector(updateSignalStrength) object:nil];
     extern NSString* STR_THREAD_SIGNALMONITOR;
     [signalMonitor setName:STR_THREAD_SIGNALMONITOR];
-}
-
--(void) messageCallback:(id)message
-{
-    
 }
 
 - (void)dealloc
