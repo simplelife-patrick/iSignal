@@ -40,7 +40,7 @@
     NSArray *carrierArray = [ISDummyTelephony getCarrierList];
     NSString* carrierVal = [carrierArray objectAtIndex:arrayIndex];
     
-    DLog(@"Random carrier is generated: %@", carrierVal);
+    DLog(@"Dummy telephony generated random carrier: %@", carrierVal);
     return carrierVal;
 }
 
@@ -51,25 +51,25 @@
     NSInteger high = CELLULAR_SIGNAL_STRENGTH_HIGHEST;
     NSInteger signalVal = [ISMathUtils generateRandomNSInteger:(low - loss) andMax:high];
     
-    DLog(@"Random signal strength is generated: %d", signalVal);
+    DLog(@"Dummy telephony generated random signal srength: %d", signalVal);
     return signalVal;
 }
 
 -(void) refreshCarrier
 {
     self.carrier = [ISDummyTelephony randomCarrier];
-    DLog(@"Carrier is refreshed: %@", self.carrier);
+    DLog(@"Dummy telephony's carrier is set to: %@", self.carrier);
 }
 
 -(void) refreshSignalStrength
 {
     self.signalStrength = [ISDummyTelephony randomSignalStrength];
-    DLog(@"Signal strength is refreshed: %d", self.signalStrength);
+    DLog(@"Dummy telephony's signal strength is set to: %d", self.signalStrength);
     // Callback delegate to notify listener
     if(nil != self.callbackDelegate)
     {
         NSNumber *signalVal = [NSNumber numberWithInt:self.signalStrength];
-        DLog(@"Callback with message: %@", signalVal);
+        DLog(@"Callback by signal strength changed: %@", signalVal);
         [self.callbackDelegate messageCallback:signalVal];
         [signalVal release];
     }
@@ -77,7 +77,7 @@
 
 -(void) signalMonitorThreadRun
 {
-    DLog(@"Signal monitor thread started to run.");
+    DLog(@"Dummy telephony's signal monitor thread started to run.");
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
     NSAutoreleasePool *signalMonitorThreadPool = [[NSAutoreleasePool alloc] init];
     while (self.keepAlive && (nil != self.callbackDelegate)) 
@@ -88,12 +88,12 @@
         [NSThread sleepForTimeInterval:interval];
     }
     [signalMonitorThreadPool release];
-    DLog(@"Signal monitor thread stopped to run.");
+    DLog(@"Dummy telephony's signal monitor thread stopped to run.");
 }
 
 -(void) startToService
 {
-    DLog(@"Dummy telephony is running.");
+    DLog(@"Dummy telephony service is running.");
     if (nil == self.signalMonitorThread) 
     {
         self.signalMonitorThread = [[NSThread alloc] initWithTarget:self selector:@selector(signalMonitorThreadRun) object:nil];
@@ -108,7 +108,7 @@
 -(void) stopFromService
 {
     self.keepAlive = FALSE;
-    DLog(@"Dummy telephony stopped.");
+    DLog(@"Dummy telephony service stopped.");
 }
 
 - (void)dealloc

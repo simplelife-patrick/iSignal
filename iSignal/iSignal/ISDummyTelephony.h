@@ -20,7 +20,7 @@
 #define CELLULAR_SIGNAL_STRENGTH_LOSS 20
 
 #define REFRESH_PERIOD_SMALL 0
-#define REFRESH_PERIOD_LONG 1
+#define REFRESH_PERIOD_LONG 5
 
 static NSString* STR_THREAD_SIGNALMONITOR = @"Thread_SignalMonitor";
 static NSArray* CARRIER_LIST = nil;
