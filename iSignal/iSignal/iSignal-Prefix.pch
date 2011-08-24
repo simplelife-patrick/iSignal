@@ -14,5 +14,4 @@
     #import <CoreData/CoreData.h>
 
     #import "ISLog.h"
-    #import "GlobalSettings.h"
 #endif
