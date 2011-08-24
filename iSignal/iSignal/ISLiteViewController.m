@@ -72,6 +72,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // TODO: Multiple delegates should be supported here as notification will be sent to places inlcuding UIView, Sounds and Vibration, etc.
     ISDummyTelephony *dummyTelephony = [[ISDummyTelephony alloc] init];
     [dummyTelephony setCallbackDelegate:self];
     

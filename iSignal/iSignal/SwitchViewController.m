@@ -20,6 +20,15 @@
 
 // Manual Codes Begins
 
+- (void)dealloc 
+{
+    [isLiteViewController release];
+    [isLiteHelpViewController release];
+    [isLiteConfigViewController release];
+    
+    [super dealloc];
+}
+
 -(void) lazyLoadView:(NSInteger) viewTag
 {
     DLog(@"Lazy load view: %d", viewTag);
@@ -81,10 +90,11 @@
     for (id obj in subViews) 
     {
         UIView *subView = (UIView*) obj;
-        if(exceptViewTag != [subView tag])
+        NSInteger subViewTag = [subView tag];
+        if(exceptViewTag != subViewTag)
         {
             [subView removeFromSuperview];
-            DLog(@"Sub view: %@ is removed from super view now.", [subView tag]);
+            DLog(@"Sub view: %d is removed from super view now.", subViewTag);
         }
         else
         {
@@ -94,11 +104,14 @@
     
     if(nil != exceptView)
     {
+        NSInteger exceptViewTag = [exceptView tag];
         if (nil == exceptView.superview) 
         {
             [self.view addSubview:exceptView];
+            DLog(@"Sub view: %d is added into super view now.", exceptViewTag);
         }
         [self.view bringSubviewToFront:exceptView];
+        DLog(@"Sub view: %d is moved to front now.", exceptViewTag);
     }
 }
 
@@ -173,13 +186,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)dealloc {
-    [isLiteViewController release];
-    [isLiteHelpViewController release];
-    [isLiteConfigViewController release];
-    [super dealloc];
 }
 
 @end

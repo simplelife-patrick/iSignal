@@ -11,7 +11,35 @@
 #import "SwitchViewController.h"
 
 @implementation ISLiteHelpViewController
+
+// Manual Codes Begin
+
 @synthesize backButton;
+
+- (void)dealloc 
+{
+    [backButton release];
+    [super dealloc];
+}
+
+- (void)viewDidUnload
+{
+    [self setBackButton:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (IBAction)switchToLiteView:(id)sender
+{
+    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
+    if([parentViewController isKindOfClass:[SwitchViewController class]])
+    {
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITEVIEW];
+    }  
+}
+
+// Manual Codes End
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,33 +66,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)viewDidUnload
-{
-    [self setBackButton:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)dealloc {
-    [backButton release];
-    [super dealloc];
-}
-
-// Manual Codes
-- (IBAction)switchToLiteView:(id)sender
-{
-    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
-    if([parentViewController isKindOfClass:[SwitchViewController class]])
-    {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITEVIEW];
-    }  
 }
 
 @end
