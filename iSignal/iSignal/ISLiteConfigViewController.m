@@ -27,7 +27,7 @@
     UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
     if([parentViewController isKindOfClass:[SwitchViewController class]])
     {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITEVIEW];
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITE_VIEW];
     }  
 }
 

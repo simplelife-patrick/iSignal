@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#define TAG_LITEVIEW 0
-#define TAG_LITEHELPVIEW 1
-#define TAG_LITECONFIGVIEW 2
-#define COUNT_VIEW_TAG 3
+#define TAG_SWITCHVIEW 0
+#define TAG_LITE_VIEW 1
+#define TAG_LITEHELP_VIEW 2
+#define TAG_LITECONFIG_VIEW 3
+#define COUNT_SUB_VIEW_TAG 3
 
 @interface SwitchViewController : UIViewController
 {

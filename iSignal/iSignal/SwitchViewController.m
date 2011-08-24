@@ -34,12 +34,12 @@
     DLog(@"Lazy load view: %d", viewTag);
     switch (viewTag) 
     {
-        case TAG_LITEVIEW:
+        case TAG_LITE_VIEW:
         {
             if (nil == self.isLiteViewController)
             {
                 ISLiteViewController *liteViewController = [[ISLiteViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
-                [liteViewController.view setTag:TAG_LITEVIEW];
+                [liteViewController.view setTag:TAG_LITE_VIEW];
                 self.isLiteViewController = liteViewController;
                 [liteViewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
@@ -48,12 +48,12 @@
             DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
-        case TAG_LITEHELPVIEW:
+        case TAG_LITEHELP_VIEW:
         {
             if (nil == self.isLiteHelpViewController)
             {
                 ISLiteHelpViewController *helpViewController = [[ISLiteHelpViewController alloc] initWithNibName:@"ISLiteHelpViewController" bundle:nil];
-                [helpViewController.view setTag:TAG_LITEHELPVIEW];
+                [helpViewController.view setTag:TAG_LITEHELP_VIEW];
                 self.isLiteHelpViewController = helpViewController;
                 [helpViewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
@@ -62,12 +62,12 @@
             DLog(@"View: %d is on the top now.", viewTag);        
             break;
         }
-        case TAG_LITECONFIGVIEW:
+        case TAG_LITECONFIG_VIEW:
         {
             if (nil == self.isLiteConfigViewController)
             {
                 ISLiteConfigViewController *configViewController = [[ISLiteConfigViewController alloc] initWithNibName:@"ISLiteConfigViewController" bundle:nil];
-                [configViewController.view setTag:TAG_LITECONFIGVIEW];
+                [configViewController.view setTag:TAG_LITECONFIG_VIEW];
                 self.isLiteConfigViewController = configViewController;
                 [configViewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
@@ -119,22 +119,22 @@
 {
     switch (viewTag) 
     {
-        case TAG_LITEVIEW:
+        case TAG_LITE_VIEW:
         {
-            [self lazyLoadView:TAG_LITEVIEW];
-            [self reorganizeSubViews:TAG_LITEVIEW];
+            [self lazyLoadView:TAG_LITE_VIEW];
+            [self reorganizeSubViews:TAG_LITE_VIEW];
             break;
         }
-        case TAG_LITEHELPVIEW:
+        case TAG_LITEHELP_VIEW:
         {
-            [self lazyLoadView:TAG_LITEHELPVIEW];
-            [self reorganizeSubViews:TAG_LITEHELPVIEW];
+            [self lazyLoadView:TAG_LITEHELP_VIEW];
+            [self reorganizeSubViews:TAG_LITEHELP_VIEW];
             break;
         }
-        case TAG_LITECONFIGVIEW:
+        case TAG_LITECONFIG_VIEW:
         {
-            [self lazyLoadView:TAG_LITECONFIGVIEW];
-            [self reorganizeSubViews:TAG_LITECONFIGVIEW];
+            [self lazyLoadView:TAG_LITECONFIG_VIEW];
+            [self reorganizeSubViews:TAG_LITECONFIG_VIEW];
             break;
         }
         default:
@@ -168,7 +168,7 @@
 - (void)viewDidLoad
 {
     // Do any additional setup after loading the view from its nib.
-    [self lazyLoadView:TAG_LITEVIEW];
+    [self lazyLoadView:TAG_LITE_VIEW];
     [super viewDidLoad];
 }
 

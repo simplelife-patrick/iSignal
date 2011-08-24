@@ -48,7 +48,7 @@
     UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
     if([parentViewController isKindOfClass:[SwitchViewController class]])
     {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITEHELPVIEW];
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITEHELP_VIEW];
     }
 }
 
@@ -57,7 +57,7 @@
     UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
     if([parentViewController isKindOfClass:[SwitchViewController class]])
     {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITECONFIGVIEW];
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITECONFIG_VIEW];
     }    
 }
 
