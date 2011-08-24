@@ -33,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C53BFFD51404F3DD000E1EDC /* ISLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLog.h; sourceTree = "<group>"; };
 		C57329C0140096B40061D973 /* ISLiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLiteViewController.h; sourceTree = "<group>"; };
 		C57329C1140096B40061D973 /* ISLiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLiteViewController.m; sourceTree = "<group>"; };
 		C57329C2140096B40061D973 /* ISLiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISLiteViewController.xib; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 				C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */,
 				C573E5A4140355BF00BB24B3 /* ISMathUtils.h */,
 				C573E5A5140355BF00BB24B3 /* ISMathUtils.m */,
+				C53BFFD51404F3DD000E1EDC /* ISLog.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
