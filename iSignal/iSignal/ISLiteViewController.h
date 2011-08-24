@@ -10,7 +10,10 @@
 
 #import "ISUIUtils.h"
 
-@interface ISLiteViewController : UIViewController {
+#import "ISCallbackDelegate.h"
+
+@interface ISLiteViewController : UIViewController <ISCallbackDelegate>
+{
     UIButton *helpButton;
     UIButton *configButton;
 }
