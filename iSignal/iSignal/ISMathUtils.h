@@ -10,8 +10,6 @@
 
 @interface ISMathUtils : NSObject
 
-+(void) swapTwoNSIntegers:(NSInteger) a andAnother:(NSInteger) b;
-
 +(NSInteger) generateRandomNSInteger:(NSInteger) min andMax:(NSInteger) max;
 
 @end

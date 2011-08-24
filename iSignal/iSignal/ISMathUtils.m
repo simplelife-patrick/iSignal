@@ -10,13 +10,6 @@
 
 @implementation ISMathUtils
 
-+(void) swapTwoNSIntegers:(NSInteger) a andAnother:(NSInteger) b
-{
-    NSInteger tmp = b;
-    b = a;
-    a = tmp;
-}
-
 +(NSInteger) generateRandomNSInteger:(NSInteger) min andMax:(NSInteger) max;
 {
     // if scope deifition(min & max) is illegal, then just generate a random number without scope
@@ -29,9 +22,15 @@
     {
         min = -min;
         max = -max;
-        [ISMathUtils swapTwoNSIntegers:min andAnother:max];
-
-        return -(min + arc4random() % (max - min + 1));
+        
+        NSInteger tmp = max;
+        max = min;
+        min = tmp;
+        
+        NSInteger tmp2 = (min + arc4random() % (max - min + 1));
+        tmp2 = -tmp2;
+        
+        return tmp2;
     }
     else
     {
