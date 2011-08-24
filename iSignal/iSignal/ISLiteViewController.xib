@@ -311,7 +311,7 @@
 							<reference ref="473841463"/>
 						</object>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">ISLiteView</string>
+						<string key="objectName">iSLiteView</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">-1</int>
