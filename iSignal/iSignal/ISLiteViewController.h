@@ -35,7 +35,7 @@
 -(IBAction) switchToHelpView:(id) sender;
 -(IBAction) switchToConfigView:(id) sender;
 
--(void) updateSignalStrength:(NSInteger) signalVal;
+-(void) updateSignalStrength:(NSNumber*) signalVal;
 -(void) updateCarrier:(NSString*) carrierStr;
 
 @end

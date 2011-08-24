@@ -6,6 +6,8 @@
 //  Copyright 2011年 CodeAnimal. All rights reserved.
 //
 
+#include <Foundation/Foundation.h>
+
 #import "ISLiteViewController.h"
 #import "SwitchViewController.h"
 
@@ -31,17 +33,31 @@
     [super dealloc];
 }
 
--(void)updateSignalStrength:(NSInteger) signalVal
+-(void)updateSignalStrength:(NSNumber*) signalVal
 {
-    NSString* signalText = [NSString stringWithFormat:@"%d", signalVal];
-    [self.signalStrengthLabel setText:signalText];
-    DLog(@"Label signalStrength is set to: %@", signalText);
+    if (nil != signalVal)
+    {
+        [self.signalStrengthLabel setText:[signalVal stringValue]];
+        DLog(@"Label signalStrength is set to: %d", [signalVal intValue]);       
+    }
+    else
+    {
+        DLog(@"Can not set Label signalStrength to nil.");
+    }
+
 }
 
 -(void)updateCarrier:(NSString *)carrierStr
 {
-    [self.carrierLabel setText:carrierStr];
-    DLog(@"Label carrier is set to: %@", carrierStr);
+    if (nil != carrierStr)
+    {
+        [self.carrierLabel setText:carrierStr];
+        DLog(@"Label carrier is set to: %@", carrierStr);
+    }
+    else
+    {
+        DLog(@"Can not set Label carrier to nil.");
+    }
 }
 
 -(IBAction)switchToHelpView:(id)sender
@@ -66,6 +82,7 @@
 {
     DLog(@"CallbackDelegate(ISLiteViewController) received a message: %@", message);
     NSNumber *signalVal = (NSNumber*)message;
+    DLog(@"Message is casted to: %@", signalVal);
     [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
 }
 
