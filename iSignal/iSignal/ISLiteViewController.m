@@ -34,13 +34,14 @@
 -(void)updateSignalStrength:(NSInteger) signalVal
 {
     NSString* signalText = [NSString stringWithFormat:@"%d", signalVal];
-    
     [self.signalStrengthLabel setText:signalText];
+    DLog(@"Label signalStrength is set to: %@", signalText);
 }
 
 -(void)updateCarrier:(NSString *)carrierStr
 {
     [self.carrierLabel setText:carrierStr];
+    DLog(@"Label carrier is set to: %@", carrierStr);
 }
 
 -(IBAction)switchToHelpView:(id)sender
@@ -63,8 +64,8 @@
 
 -(void) messageCallback:(id)message
 {
+    DLog(@"CallbackDelegate(ISLiteViewController) received a message: %@", message);
     NSNumber *signalVal = (NSNumber*)message;
-    
     [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
 }
 
