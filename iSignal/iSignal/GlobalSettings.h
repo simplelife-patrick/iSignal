@@ -20,5 +20,10 @@
 #endif
 
 @interface GlobalSettings : NSObject
+{
+    
+}
+
++(GlobalSettings *)singletonInstance;
 
 @end

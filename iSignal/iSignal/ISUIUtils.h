@@ -11,6 +11,9 @@
 
 
 @interface ISUIUtils : NSObject
+{
+    
+}
 
 +(UIViewController*) getViewControllerFromView:(UIView*) view;
 

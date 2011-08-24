@@ -10,6 +10,8 @@
 
 @implementation ISMathUtils
 
+// Manual Codes Begin
+
 +(NSInteger) generateRandomNSInteger:(NSInteger) min andMax:(NSInteger) max;
 {
     // if scope deifition(min & max) is illegal, then just generate a random number without scope
@@ -37,6 +39,8 @@
         return min + arc4random() % (max - min + 1);
     }
 }
+
+// Manual Codes End
 
 - (id)init
 {

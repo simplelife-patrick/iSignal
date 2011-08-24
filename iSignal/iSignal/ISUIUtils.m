@@ -16,6 +16,7 @@
 {
     if(nil == view)
     {
+        DLog(@"Parameter UIView* view is nil.");
         return nil;
     }
     else
@@ -32,7 +33,7 @@
             [nextView release];
             [nextResponder release];
         }
-        
+        DLog(@"Can't find controller for this view: %@", view);
         return nil;
     }
 }
@@ -47,7 +48,8 @@
 - (id)init
 {
     self = [super init];
-    if (self) {
+    if (self) 
+    {
         // Initialization code here.
     }
     

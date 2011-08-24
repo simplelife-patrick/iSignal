@@ -22,6 +22,7 @@
 
 -(void) lazyLoadView:(NSInteger) viewTag
 {
+    DLog(@"Lazy load view: %d", viewTag);
     switch (viewTag) 
     {
         case TAG_LITEVIEW:
@@ -32,9 +33,10 @@
                 [liteViewController.view setTag:TAG_LITEVIEW];
                 self.isLiteViewController = liteViewController;
                 [liteViewController release];
+                DLog(@"View: %d and its controller are initialized", viewTag);
             }
             [self.view addSubview:self.isLiteViewController.view];
-            
+            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         case TAG_LITEHELPVIEW:
@@ -45,9 +47,10 @@
                 [helpViewController.view setTag:TAG_LITEHELPVIEW];
                 self.isLiteHelpViewController = helpViewController;
                 [helpViewController release];
+                DLog(@"View: %d and its controller are initialized", viewTag);
             }
             [self.view addSubview:self.isLiteHelpViewController.view];
-            
+            DLog(@"View: %d is on the top now.", viewTag);        
             break;
         }
         case TAG_LITECONFIGVIEW:
@@ -58,9 +61,10 @@
                 [configViewController.view setTag:TAG_LITECONFIGVIEW];
                 self.isLiteConfigViewController = configViewController;
                 [configViewController release];
+                DLog(@"View: %d and its controller are initialized", viewTag);
             }
-            [self.view addSubview:self.isLiteConfigViewController.view];                
-
+            [self.view addSubview:self.isLiteConfigViewController.view];
+            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         default:
@@ -80,6 +84,7 @@
         if(exceptViewTag != [subView tag])
         {
             [subView removeFromSuperview];
+            DLog(@"Sub view: %@ is removed from super view now.", [subView tag]);
         }
         else
         {

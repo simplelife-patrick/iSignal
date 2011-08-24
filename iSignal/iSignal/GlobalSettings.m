@@ -8,6 +8,13 @@
 
 #import "GlobalSettings.h"
 
+@interface GlobalSettings (privateMethods)
+
+-(void)realRelease;
+
+@end
+
+
 @implementation GlobalSettings
 
 // Manual Codes Begin
@@ -16,19 +23,66 @@ static GlobalSettings* instance = nil;
 
 +(GlobalSettings *)singletonInstance
 {
-    if (nil == instance) 
+    @synchronized(self)
     {
-        instance = [[self alloc] init];
+        if (nil == instance) 
+        {
+            instance = [[self alloc] init];
+            DLog(@"Singleton instance created: %@", instance);
+        }
     }
+    
     return instance;
 }
 
-- (void)dealloc
++ (id)allocWithZone:(NSZone *)zone
 {
-    [super dealloc];
+    DLog(@"Singleton instance created or returned: %@", instance);
+    @synchronized(self) 
+    {
+        if (nil == instance) 
+        {
+            instance = [super allocWithZone:zone];
+            return instance;
+        }
+    }
+    return nil;
 }
 
-// Manual Codes End
+- (id)copyWithZone:(NSZone *)zone
+{
+    DLog(@"Singleton instance returned: %@", instance);
+    return self;
+}
+
+- (id)retain
+{
+    DLog(@"Singleton instance returned: %@", instance);
+    return self;
+}
+
+- (unsigned)retainCount
+{
+    DLog(@"Singleton instance's retainCount is always 1");
+    return 1;
+}
+
+- (void)release
+{
+    DLog(@"Singleton instance release nothing here.");
+}
+
+- (id)autorelease
+{
+    DLog(@"Singleton instance returned: %@", instance);
+    return self;
+}
+
+-(void)realRelease
+{
+    DLog(@"Singleton instance real release itself here: %@", instance);    
+    [super release];
+}
 
 - (id)init
 {
@@ -40,5 +94,12 @@ static GlobalSettings* instance = nil;
     
     return self;
 }
+
+-(void)dealloc
+{
+    [super dealloc];
+}
+
+// Manual Codes End
 
 @end
