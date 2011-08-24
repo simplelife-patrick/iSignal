@@ -24,14 +24,14 @@ static NSString* STR_THREAD_SIGNALMONITOR = @"Thread_SignalMonitor";
 @interface ISDummyTelephony : NSObject
 {
     id<ISCallbackDelegate> callbackDelegate;
-    NSThread *signalMonitor;
+    NSThread *signalMonitorThread;
     NSInteger signalStrength;
     NSString *carrier;
     BOOL keepAlive;
 }
 
 @property (nonatomic, retain) id<ISCallbackDelegate> callbackDelegate; 
-@property (nonatomic, retain) NSThread *signalMonitor;
+@property (nonatomic, retain) NSThread *signalMonitorThread;
 @property (nonatomic, retain) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;
 @property (nonatomic) BOOL keepAlive;

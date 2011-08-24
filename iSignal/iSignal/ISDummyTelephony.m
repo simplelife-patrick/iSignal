@@ -15,7 +15,7 @@
 // Manual Codes Begin
 
 @synthesize callbackDelegate;
-@synthesize signalMonitor;
+@synthesize signalMonitorThread;
 @synthesize signalStrength;
 @synthesize carrier;
 @synthesize keepAlive;
@@ -44,16 +44,6 @@
     return [ISMathUtils generateRandomNSInteger:(low - loss) andMax:high];
 }
 
--(void) startToService
-{
-    [signalMonitor start];
-}
-
--(void) stopFromService
-{
-    self.keepAlive = FALSE;
-}
-
 -(void) refreshCarrier
 {
     self.carrier = [ISDummyTelephony randomCarrier];
@@ -65,31 +55,47 @@
     // Callback delegate to notify listener
     if(nil != self.callbackDelegate)
     {
-        [self.callbackDelegate messageCallback:[NSNumber numberWithInt:self.signalStrength]];
+        NSNumber *signalVal = [NSNumber numberWithInt:self.signalStrength];
+        [self.callbackDelegate messageCallback:signalVal];
+        [signalVal release];
     }
 }
 
--(void) signalMonitorRun
+-(void) signalMonitorThreadRun
 {
-    while (self.keepAlive) 
+    // Every NSThread need an individual NSAutoreleasePool to manage memory.
+    NSAutoreleasePool *signalMonitorThreadPool = [[NSAutoreleasePool alloc] init];
+    while (self.keepAlive && (nil != self.callbackDelegate)) 
     {
         [self refreshSignalStrength];
         // Here current thread need to sleep for a small period
         NSInteger interval = [ISMathUtils generateRandomNSInteger:1 andMax:10];
         [NSThread sleepForTimeInterval:interval];
     }
+    [signalMonitorThreadPool release];
 }
 
--(void) initSignalMonitor
+-(void) startToService
 {
-    signalMonitor = [[NSThread alloc] initWithTarget:self selector:@selector(updateSignalStrength) object:nil];
-    extern NSString* STR_THREAD_SIGNALMONITOR;
-    [signalMonitor setName:STR_THREAD_SIGNALMONITOR];
+    if (nil == self.signalMonitorThread) 
+    {
+        self.signalMonitorThread = [[NSThread alloc] initWithTarget:self selector:@selector(signalMonitorThreadRun) object:nil];
+        extern NSString* STR_THREAD_SIGNALMONITOR;
+        [signalMonitorThread setName:STR_THREAD_SIGNALMONITOR];      
+    }
+    self.keepAlive = TRUE;
+    
+    [signalMonitorThread start];
+}
+
+-(void) stopFromService
+{
+    self.keepAlive = FALSE;
 }
 
 - (void)dealloc
 {
-    [signalMonitor release];
+    [signalMonitorThread release];
     [callbackDelegate release];
     [carrier release];
     
@@ -102,8 +108,7 @@
     if (self) 
     {
         // Initialization code here.
-        self.keepAlive = TRUE;
-        [self initSignalMonitor];
+        [self refreshCarrier];
     }
     
     return self;

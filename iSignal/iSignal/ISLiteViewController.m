@@ -15,11 +15,32 @@
 
 @synthesize configButton;
 @synthesize helpButton;
+@synthesize signLabel;
+@synthesize unitLabel;
+@synthesize carrierLabel;
+@synthesize signalStrengthLabel;
 
-- (void)dealloc {
+- (void)dealloc 
+{
     [helpButton release];
     [configButton release];
+    [signLabel release];
+    [unitLabel release];
+    [carrierLabel release];
+    [signalStrengthLabel release];
     [super dealloc];
+}
+
+-(void)updateSignalStrength:(NSInteger) signalVal
+{
+    NSString* signalText = [NSString stringWithFormat:@"%d", signalVal];
+    
+    [self.signalStrengthLabel setText:signalText];
+}
+
+-(void)updateCarrier:(NSString *)carrierStr
+{
+    [self.carrierLabel setText:carrierStr];
 }
 
 -(IBAction)switchToHelpView:(id)sender
@@ -40,16 +61,35 @@
     }    
 }
 
-
 -(void) messageCallback:(id)message
 {
+    NSNumber *signalVal = (NSNumber*)message;
     
+    [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    ISDummyTelephony *dummyTelephony = [[ISDummyTelephony alloc] init];
+    [dummyTelephony setCallbackDelegate:self];
+    
+    [self.carrierLabel setText:dummyTelephony.carrier];
+    
+    [dummyTelephony startToService];
+    [dummyTelephony release];
 }
 
 - (void)viewDidUnload
 {
     [self setHelpButton:nil];
     [self setConfigButton:nil];
+    [self setSignLabel:nil];
+    [self setUnitLabel:nil];
+    [self setCarrierLabel:nil];
+    [self setSignLabel:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -75,12 +115,6 @@
 }
 
 #pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
