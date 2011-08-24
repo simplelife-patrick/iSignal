@@ -75,7 +75,8 @@
     {
         [self refreshSignalStrength];
         // Here current thread need to sleep for a small period
-        
+        NSInteger interval = [ISMathUtils generateRandomNSInteger:1 andMax:10];
+        [NSThread sleepForTimeInterval:interval];
     }
 }
 
