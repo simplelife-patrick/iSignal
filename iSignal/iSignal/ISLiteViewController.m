@@ -11,9 +11,51 @@
 
 @implementation ISLiteViewController
 
+// Manual Codes Begin
+
 @synthesize configButton;
 @synthesize helpButton;
 
+- (void)dealloc {
+    [helpButton release];
+    [configButton release];
+    [super dealloc];
+}
+
+-(IBAction)switchToHelpView:(id)sender
+{
+    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
+    if([parentViewController isKindOfClass:[SwitchViewController class]])
+    {
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITEHELPVIEW];
+    }
+}
+
+-(IBAction)switchToConfigView:(id)sender
+{
+    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
+    if([parentViewController isKindOfClass:[SwitchViewController class]])
+    {
+        [((SwitchViewController*)parentViewController) switchView:TAG_LITECONFIGVIEW];
+    }    
+}
+
+
+-(void) messageCallback:(id)message
+{
+    
+}
+
+- (void)viewDidUnload
+{
+    [self setHelpButton:nil];
+    [self setConfigButton:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+// Manual Codes End
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,43 +82,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)viewDidUnload
-{
-    [self setHelpButton:nil];
-    [self setConfigButton:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-    [helpButton release];
-    [configButton release];
-    [super dealloc];
-}
-
-// Manual codes
--(IBAction)switchToHelpView:(id)sender
-{
-    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
-    if([parentViewController isKindOfClass:[SwitchViewController class]])
-    {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITEHELPVIEW];
-    }
-}
-
--(IBAction)switchToConfigView:(id)sender
-{
-    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
-    if([parentViewController isKindOfClass:[SwitchViewController class]])
-    {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITECONFIGVIEW];
-    }    
-}
 @end
