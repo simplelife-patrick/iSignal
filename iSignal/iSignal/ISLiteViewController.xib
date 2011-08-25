@@ -99,10 +99,9 @@
 					<object class="IBUIButton" id="531537351">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{257, 413}, {29, 31}}</string>
+						<string key="NSFrame">{{274, 413}, {29, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -130,7 +129,7 @@
 					<object class="IBUIButton" id="967080294">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{54, 419}, {18, 19}}</string>
+						<string key="NSFrame">{{282, 19}, {18, 19}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="106313615"/>
@@ -177,7 +176,7 @@
 					<object class="IBUIButton" id="106313615">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{146, 414}, {29, 29}}</string>
+						<string key="NSFrame">{{17, 415}, {29, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="531537351"/>
@@ -316,13 +315,13 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="531537351"/>
-							<reference ref="967080294"/>
 							<reference ref="562647856"/>
-							<reference ref="106313615"/>
 							<reference ref="473841463"/>
 							<reference ref="786036710"/>
 							<reference ref="752918747"/>
+							<reference ref="967080294"/>
+							<reference ref="106313615"/>
+							<reference ref="531537351"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">iSLiteView</string>
