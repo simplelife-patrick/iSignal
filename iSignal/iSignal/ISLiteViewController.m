@@ -22,6 +22,8 @@
 @synthesize carrierLabel;
 @synthesize signalStrengthLabel;
 
+@synthesize audioPlayer;
+
 - (void)dealloc 
 {
     [helpButton release];
@@ -30,6 +32,8 @@
     [unitLabel release];
     [carrierLabel release];
     [signalStrengthLabel release];
+    [audioPlayer release];
+    
     [super dealloc];
 }
 
@@ -44,6 +48,9 @@
         {
             strVal = NSLocalizedString(@"STR_NOSIGNAL",nil);
             DLog(@"Translate received signal strength: %d to text: %@", intVal, strVal);
+            
+            [self.audioPlayer play];
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         }
         [self.signalStrengthLabel setText:strVal];
         DLog(@"Finish to set Label signalStrength to %@", strVal);
@@ -106,6 +113,16 @@
     
     [dummyTelephony startToService];
     [dummyTelephony release];
+    
+    if (audioPlayer) 
+    { 
+        [audioPlayer release]; 
+    }
+    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"knockx3" ofType:@"mp3"]; 
+    NSURL *soundUrl=[[NSURL alloc] initFileURLWithPath:soundPath]; 
+    audioPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil]; 
+    [audioPlayer prepareToPlay]; 
+    [soundUrl release];     
 }
 
 - (void)viewDidUnload
@@ -116,6 +133,7 @@
     [self setUnitLabel:nil];
     [self setCarrierLabel:nil];
     [self setSignLabel:nil];
+    [self setAudioPlayer:nil];
     
     [super viewDidUnload];
     // Release any retained subviews of the main view.

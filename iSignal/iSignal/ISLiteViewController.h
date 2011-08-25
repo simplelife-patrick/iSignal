@@ -16,6 +16,9 @@
 #import "ISDummyTelephony.h"
 #import "ISTelephonyUtils.h"
 
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 @interface ISLiteViewController : UIViewController <ISCallbackDelegate>
 {
     UIButton *helpButton;
@@ -24,6 +27,8 @@
     UILabel *unitLabel;
     UILabel *carrierLabel;
     UILabel *signalStrengthLabel;
+    
+    AVAudioPlayer *audioPlayer;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *configButton;
@@ -32,6 +37,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *unitLabel;
 @property (nonatomic, retain) IBOutlet UILabel *carrierLabel;
 @property (nonatomic, retain) IBOutlet UILabel *signalStrengthLabel;
+
+@property (nonatomic, retain) AVAudioPlayer *audioPlayer;
 
 -(IBAction) switchToHelpView:(id) sender;
 -(IBAction) switchToConfigView:(id) sender;
