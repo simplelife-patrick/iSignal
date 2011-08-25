@@ -38,13 +38,13 @@
 #define QUALITY_SIGNAL_5 5
 #define QUALITY_SIGNAL_BEST QUALITY_SIGNAL_5
 
-typedef NSInteger QUALITY_SIGNAL;
+typedef NSInteger SIGNAL_QUALITY;
 
 @interface ISTelephonyUtils : NSObject
 {
     
 }
 
-+(QUALITY_SIGNAL) evaluateSignalQuality:(NSInteger) signalStrength;
++(SIGNAL_QUALITY) evaluateSignalQuality:(NSInteger) signalStrength;
 
 @end
