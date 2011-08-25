@@ -43,9 +43,10 @@
         if (qualityGrade == QUALITY_SIGNAL_LOSS) 
         {
             strVal = NSLocalizedString(@"STR_NOSIGNAL",nil);
+            DLog(@"Translate received signal strength: %d to text: %@", intVal, strVal);
         }
-        DLog(@"Translate received signal strength: %@ to text", strVal);
-        [self.signalStrengthLabel setText:strVal];    
+        [self.signalStrengthLabel setText:strVal];
+        DLog(@"Finish to set Label signalStrength to %@", strVal);
     }
     else
     {
