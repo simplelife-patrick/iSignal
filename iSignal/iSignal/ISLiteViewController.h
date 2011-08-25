@@ -14,6 +14,7 @@
 
 #import "ISCallbackDelegate.h"
 #import "ISDummyTelephony.h"
+#import "ISTelephonyUtils.h"
 
 @interface ISLiteViewController : UIViewController <ISCallbackDelegate>
 {

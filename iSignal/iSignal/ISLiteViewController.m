@@ -37,14 +37,20 @@
 {
     if (nil != signalVal)
     {
-        [self.signalStrengthLabel setText:[signalVal stringValue]];
-        DLog(@"Label signalStrength is set to: %d", [signalVal intValue]);       
+        NSInteger intVal = [signalVal intValue];
+        NSString* strVal = [signalVal stringValue];
+        SIGNAL_QUALITY qualityGrade = [ISTelephonyUtils evaluateSignalQuality:intVal];
+        if (qualityGrade == QUALITY_SIGNAL_LOSS) 
+        {
+            strVal = NSLocalizedString(@"STR_NOSIGNAL",nil);
+        }
+        DLog(@"Translate received signal strength: %@ to text", strVal);
+        [self.signalStrengthLabel setText:strVal];    
     }
     else
     {
         DLog(@"Can not set Label signalStrength to nil.");
     }
-
 }
 
 -(void)updateCarrier:(NSString *)carrierStr
