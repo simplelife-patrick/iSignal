@@ -67,7 +67,7 @@ static GlobalSettings* instance = nil;
     return 1;
 }
 
-- (void)release
+- (oneway void)release
 {
     DLog(@"Singleton instance release nothing here.");
 }
