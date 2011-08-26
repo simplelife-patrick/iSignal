@@ -22,7 +22,10 @@
 @interface ISLiteViewController : UIViewController <ISCallbackDelegate>
 {
     UIButton *helpButton;
+    UIButton *historyButton;
     UIButton *configButton;
+    UIButton *mapButton;
+    
     UILabel *signLabel;
     UILabel *unitLabel;
     UILabel *carrierLabel;
@@ -32,9 +35,12 @@
     AVAudioPlayer *audioPlayer;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *qualityGradeLabel;
+@property (nonatomic, retain) IBOutlet UIButton *historyButton;
 @property (nonatomic, retain) IBOutlet UIButton *configButton;
 @property (nonatomic, retain) IBOutlet UIButton *helpButton;
+@property (nonatomic, retain) IBOutlet UIButton *mapButton;
+
+@property (nonatomic, retain) IBOutlet UILabel *qualityGradeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *signLabel;
 @property (nonatomic, retain) IBOutlet UILabel *unitLabel;
 @property (nonatomic, retain) IBOutlet UILabel *carrierLabel;

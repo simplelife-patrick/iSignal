@@ -15,7 +15,9 @@
 
 // Manual Codes Begin
 
+@synthesize mapButton;
 @synthesize qualityGradeLabel;
+@synthesize historyButton;
 @synthesize configButton;
 @synthesize helpButton;
 @synthesize signLabel;
@@ -29,12 +31,17 @@
 {
     [helpButton release];
     [configButton release];
+    [mapButton release];
+    [historyButton release];
+ 
+    [qualityGradeLabel release];
     [signLabel release];
     [unitLabel release];
     [carrierLabel release];
     [signalStrengthLabel release];
+    
     [audioPlayer release];
-    [qualityGradeLabel release];
+ 
     [super dealloc];
 }
 
@@ -53,6 +60,7 @@
             [self.audioPlayer play];
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         }
+        
         [self.signalStrengthLabel setText:strVal];
         DLog(@"Finish to set Label signalStrength to %@", strVal);
     }
@@ -132,12 +140,17 @@
 {
     [self setHelpButton:nil];
     [self setConfigButton:nil];
+    [self setMapButton:nil];
+    [self setHistoryButton:nil];
+    
     [self setSignLabel:nil];
     [self setUnitLabel:nil];
     [self setCarrierLabel:nil];
     [self setSignLabel:nil];
-    [self setAudioPlayer:nil];
     [self setQualityGradeLabel:nil];
+
+    [self setAudioPlayer:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
