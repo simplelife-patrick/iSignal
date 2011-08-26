@@ -12,6 +12,29 @@
 
 // Manual Codes Begin
 
++(UIWindow*) getWindow:(UIView *)view
+{
+    if (nil == view) 
+    {
+        DLog(@"Parameter UIView* view is nil");
+        return nil;
+    }
+    else
+    {
+        for (UIView* nextView = view; nextView; nextView = nextView.superview)
+        {
+            if([nextView isKindOfClass:[UIWindow class]])
+            {
+                return (UIWindow*) nextView;
+            }
+            
+            [nextView release];
+        }
+        DLog(@"Can't find window for this view: %@", view);
+        return nil;        
+    }
+}
+
 +(UIViewController*) getViewControllerFromView:(UIView *)view
 {
     if(nil == view)

@@ -17,4 +17,6 @@
 
 +(UIViewController*) getViewControllerFromView:(UIView*) view;
 
++(UIWindow*) getWindow:(UIView*) view;
+
 @end
