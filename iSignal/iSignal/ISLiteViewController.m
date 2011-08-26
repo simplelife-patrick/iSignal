@@ -15,6 +15,7 @@
 
 // Manual Codes Begin
 
+@synthesize qualityGradeLabel;
 @synthesize configButton;
 @synthesize helpButton;
 @synthesize signLabel;
@@ -33,7 +34,7 @@
     [carrierLabel release];
     [signalStrengthLabel release];
     [audioPlayer release];
-    
+    [qualityGradeLabel release];
     [super dealloc];
 }
 
@@ -111,6 +112,8 @@
     
     [self.carrierLabel setText:dummyTelephony.carrier];
     
+    [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
+    
     [dummyTelephony startToService];
     [dummyTelephony release];
     
@@ -134,7 +137,7 @@
     [self setCarrierLabel:nil];
     [self setSignLabel:nil];
     [self setAudioPlayer:nil];
-    
+    [self setQualityGradeLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
