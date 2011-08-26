@@ -343,6 +343,7 @@
 							<bytes key="NSWhite">MQA</bytes>
 							<reference key="NSCustomColorSpace" ref="943392809"/>
 						</object>
+						<float key="IBUIAlpha">0.0</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</object>
@@ -746,6 +747,7 @@
 							<string>gradeIndicator02View</string>
 							<string>gradeIndicator03View</string>
 							<string>gradeIndicator04View</string>
+							<string>gradeIndicator05View</string>
 							<string>helpButton</string>
 							<string>historyButton</string>
 							<string>mapButton</string>
@@ -758,6 +760,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UILabel</string>
 							<string>UIButton</string>
+							<string>UIImageView</string>
 							<string>UIImageView</string>
 							<string>UIImageView</string>
 							<string>UIImageView</string>
@@ -781,6 +784,7 @@
 							<string>gradeIndicator02View</string>
 							<string>gradeIndicator03View</string>
 							<string>gradeIndicator04View</string>
+							<string>gradeIndicator05View</string>
 							<string>helpButton</string>
 							<string>historyButton</string>
 							<string>mapButton</string>
@@ -813,6 +817,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">gradeIndicator04View</string>
+								<string key="candidateClassName">UIImageView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">gradeIndicator05View</string>
 								<string key="candidateClassName">UIImageView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
