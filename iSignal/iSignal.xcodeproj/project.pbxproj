@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				C5CD42E513FF886F009C5741 /* Header Files */,
-				C5BEB01E1400C3500083A86A /* Implementation Files */,
+				C5BEB01E1400C3500083A86A /* Class Files */,
 				C5CD42E613FF8879009C5741 /* UI Files */,
 			);
 			name = Lite;
@@ -170,7 +170,7 @@
 			name = "Header Files";
 			sourceTree = "<group>";
 		};
-		C5BEB01E1400C3500083A86A /* Implementation Files */ = {
+		C5BEB01E1400C3500083A86A /* Class Files */ = {
 			isa = PBXGroup;
 			children = (
 				C5BAED83140153B100141ED7 /* SwitchViewController.m */,
@@ -178,7 +178,7 @@
 				C5BEB0191400C32F0083A86A /* ISLiteHelpViewController.m */,
 				C57329C614009A2F0061D973 /* ISLiteConfigViewController.m */,
 			);
-			name = "Implementation Files";
+			name = "Class Files";
 			sourceTree = "<group>";
 		};
 		C5CD42B713FF8826009C5741 = {
