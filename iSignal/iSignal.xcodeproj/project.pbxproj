@@ -11,6 +11,8 @@
 		C569E3BD14068B7700BE938D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BC14068B7700BE938D /* AVFoundation.framework */; };
 		C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BF14068B7F00BE938D /* AudioToolbox.framework */; };
 		C569E3C614068D5600BE938D /* knockx3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C569E3C514068D5600BE938D /* knockx3.mp3 */; };
+		C569E3DC14072B5B00BE938D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C569E3DA14072B5B00BE938D /* SplashViewController.m */; };
+		C569E3DD14072B5B00BE938D /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C569E3DB14072B5B00BE938D /* SplashViewController.xib */; };
 		C57329C3140096B40061D973 /* ISLiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57329C1140096B40061D973 /* ISLiteViewController.m */; };
 		C57329C4140096B40061D973 /* ISLiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C2140096B40061D973 /* ISLiteViewController.xib */; };
 		C57329C814009A2F0061D973 /* ISLiteConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57329C614009A2F0061D973 /* ISLiteConfigViewController.m */; };
@@ -43,6 +45,9 @@
 		C569E3BC14068B7700BE938D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C569E3BF14068B7F00BE938D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C569E3C514068D5600BE938D /* knockx3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = knockx3.mp3; path = ../../../../Tests/TalkingDemo/TalkingDemo/knockx3.mp3; sourceTree = "<group>"; };
+		C569E3D914072B5B00BE938D /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		C569E3DA14072B5B00BE938D /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		C569E3DB14072B5B00BE938D /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		C57329C0140096B40061D973 /* ISLiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLiteViewController.h; sourceTree = "<group>"; };
 		C57329C1140096B40061D973 /* ISLiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLiteViewController.m; sourceTree = "<group>"; };
 		C57329C2140096B40061D973 /* ISLiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISLiteViewController.xib; sourceTree = "<group>"; };
@@ -144,7 +149,10 @@
 				C5CD42D413FF8826009C5741 /* main.m */,
 				C5CD42D713FF8826009C5741 /* iSignalAppDelegate.h */,
 				C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */,
+				C569E3D914072B5B00BE938D /* SplashViewController.h */,
+				C569E3DA14072B5B00BE938D /* SplashViewController.m */,
 				C5CD42DA13FF8826009C5741 /* MainWindow.xib */,
+				C569E3DB14072B5B00BE938D /* SplashViewController.xib */,
 			);
 			name = Entry;
 			sourceTree = "<group>";
@@ -320,6 +328,7 @@
 				C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */,
 				C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */,
 				C569E3C614068D5600BE938D /* knockx3.mp3 in Resources */,
+				C569E3DD14072B5B00BE938D /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +351,7 @@
 				C5882A9C14032E9D00EC29A6 /* ISDummyTelephony.m in Sources */,
 				C573E5A6140355BF00BB24B3 /* ISMathUtils.m in Sources */,
 				C52D7C991406481F00B7B0DA /* ISTelephonyUtils.m in Sources */,
+				C569E3DC14072B5B00BE938D /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

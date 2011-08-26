@@ -11,19 +11,38 @@
 @implementation iSignalAppDelegate
 
 @synthesize window = _window;
-@synthesize switchViewController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
+// Manual Codes Begin
+
+@synthesize switchViewController;
+@synthesize splashViewController;
+
+- (void)dealloc
+{
+    [self.switchViewController release];
+    [self.splashViewController release];
+    
+    [_window release];
+    [__managedObjectContext release];
+    [__managedObjectModel release];
+    [__persistentStoreCoordinator release];
+    [super dealloc];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    self.window.rootViewController = switchViewController;
-    [self.window addSubview:switchViewController.view];
+    [self.window addSubview:splashViewController.view];
+    
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
+
+// Manual Codes End
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -59,15 +78,6 @@
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
-}
-
-- (void)dealloc
-{
-    [_window release];
-    [__managedObjectContext release];
-    [__managedObjectModel release];
-    [__persistentStoreCoordinator release];
-    [super dealloc];
 }
 
 - (void)awakeFromNib

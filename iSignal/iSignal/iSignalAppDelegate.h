@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SplashViewController.h"
+
 @interface iSignalAppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @property (nonatomic, retain) IBOutlet UIViewController *switchViewController;
+
+@property (nonatomic, retain) IBOutlet SplashViewController *splashViewController;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

@@ -14,4 +14,5 @@
     #import <CoreData/CoreData.h>
 
     #import "ISLog.h"
+    #import "ISUIUtils.h"
 #endif
