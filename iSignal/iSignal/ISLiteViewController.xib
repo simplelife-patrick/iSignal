@@ -262,6 +262,7 @@
 								<int key="NSID">2</int>
 							</object>
 						</object>
+						<float key="IBUIAlpha">0.0</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<object class="IBUIView" id="969122242">

@@ -196,6 +196,7 @@
 						<int key="objectID">9</int>
 						<reference key="object" ref="874227705"/>
 						<reference key="parent" ref="191373211"/>
+						<string key="objectName">textView</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
