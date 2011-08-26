@@ -9,4 +9,4 @@
 STR_CMCC = "中国移动";
 STR_CUNI = "中国联通";
 STR_NOSIGNAL = "无信号";
-STR_SIGNALGRADE = "信号等级";
+STR_SIGNALGRADE = "信号质量";

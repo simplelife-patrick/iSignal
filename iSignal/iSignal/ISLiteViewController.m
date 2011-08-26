@@ -15,15 +15,22 @@
 
 // Manual Codes Begin
 
+@synthesize gradeIndicator01View;
+@synthesize gradeIndicator02View;
+@synthesize gradeIndicator03View;
+@synthesize gradeIndicator04View;
+@synthesize gradeIndicator05View;
+
 @synthesize mapButton;
-@synthesize qualityGradeLabel;
 @synthesize historyButton;
 @synthesize configButton;
 @synthesize helpButton;
+
 @synthesize signLabel;
 @synthesize unitLabel;
 @synthesize carrierLabel;
 @synthesize signalStrengthLabel;
+@synthesize qualityGradeLabel;
 
 @synthesize audioPlayer;
 
@@ -42,7 +49,74 @@
     
     [audioPlayer release];
  
+    [gradeIndicator01View release];
+    [gradeIndicator02View release];
+    [gradeIndicator03View release];
+    [gradeIndicator04View release];
+    [gradeIndicator05View release];
     [super dealloc];
+}
+
+-(void)updateSignalQualityGrade:(SIGNAL_QUALITY) quality
+{
+    BOOL b1 = FALSE;
+    BOOL b2 = FALSE;
+    BOOL b3 = FALSE;
+    BOOL b4 = FALSE;
+    BOOL b5 = FALSE;
+    
+    switch (quality) 
+    {
+        case QUALITY_SIGNAL_LOSS:
+        {
+            break;
+        }
+        case QUALITY_SIGNAL_1:
+        {
+            b1 = TRUE;
+            break;
+        }
+        case QUALITY_SIGNAL_2:
+        {
+            b1 = TRUE;
+            b2 = TRUE;
+            break;
+        }
+        case QUALITY_SIGNAL_3:
+        {
+            b1 = TRUE;
+            b2 = TRUE;
+            b3 = TRUE;
+            break;
+        }
+        case QUALITY_SIGNAL_4:
+        {
+            b1 = TRUE;
+            b2 = TRUE;
+            b3 = TRUE;            
+            b4 = TRUE;
+            break;
+        }
+        case QUALITY_SIGNAL_BEST:
+        {
+            b1 = TRUE;
+            b2 = TRUE;
+            b3 = TRUE;            
+            b4 = TRUE;            
+            b5 = TRUE;
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+    
+    [self.gradeIndicator01View setHighlighted:b1];
+    [self.gradeIndicator02View setHighlighted:b2];
+    [self.gradeIndicator03View setHighlighted:b3];
+    [self.gradeIndicator04View setHighlighted:b4];            
+    [self.gradeIndicator05View setHighlighted:b5];     
 }
 
 -(void)updateSignalStrength:(NSNumber*) signalVal
@@ -60,7 +134,7 @@
             [self.audioPlayer play];
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         }
-        
+        [self updateSignalQualityGrade:qualityGrade];
         [self.signalStrengthLabel setText:strVal];
         DLog(@"Finish to set Label signalStrength to %@", strVal);
     }
@@ -151,6 +225,11 @@
 
     [self setAudioPlayer:nil];
     
+    [self setGradeIndicator01View:nil];
+    [self setGradeIndicator02View:nil];
+    [self setGradeIndicator03View:nil];
+    [self setGradeIndicator04View:nil];
+    [self setGradeIndicator05View:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

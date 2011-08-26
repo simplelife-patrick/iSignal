@@ -33,7 +33,19 @@
     UILabel *qualityGradeLabel;
     
     AVAudioPlayer *audioPlayer;
+    
+    UIImageView *gradeIndicator01View;
+    UIImageView *gradeIndicator02View;
+    UIImageView *gradeIndicator03View;
+    UIImageView *gradeIndicator04View;
+    UIImageView *gradeIndicator05View;
 }
+
+@property (nonatomic, retain) IBOutlet UIImageView *gradeIndicator01View;
+@property (nonatomic, retain) IBOutlet UIImageView *gradeIndicator02View;
+@property (nonatomic, retain) IBOutlet UIImageView *gradeIndicator03View;
+@property (nonatomic, retain) IBOutlet UIImageView *gradeIndicator04View;
+@property (nonatomic, retain) IBOutlet UIImageView *gradeIndicator05View;
 
 @property (nonatomic, retain) IBOutlet UIButton *historyButton;
 @property (nonatomic, retain) IBOutlet UIButton *configButton;
