@@ -26,4 +26,6 @@
 
 +(GlobalSettings *)singletonInstance;
 
++(BOOL) isBackgroundRunningEnabled;
+
 @end

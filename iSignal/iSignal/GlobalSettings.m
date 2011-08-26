@@ -100,6 +100,17 @@ static GlobalSettings* instance = nil;
     [super dealloc];
 }
 
++(BOOL) isBackgroundRunningEnabled
+{
+    UIDevice* device = [UIDevice currentDevice];  
+    BOOL backgroundSupported = NO;  
+    if ([device respondsToSelector:@selector(isMultitaskingSupported)])  
+    {
+        backgroundSupported = device.multitaskingSupported;        
+    }
+    return backgroundSupported;
+}
+
 // Manual Codes End
 
 @end
