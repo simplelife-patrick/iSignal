@@ -14,17 +14,25 @@
 
 // Manual Codes Begin
 
+@synthesize suggestButton;
 @synthesize backButton;
+
+- (void)onSuggest:(id)sender
+{
+    
+}
 
 - (void)dealloc 
 {
     [backButton release];
+    [suggestButton release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
     [self setBackButton:nil];
+    [self setSuggestButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

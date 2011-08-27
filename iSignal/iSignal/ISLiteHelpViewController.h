@@ -10,12 +10,16 @@
 
 #import "ISUIUtils.h"
 
-@interface ISLiteHelpViewController : UIViewController {
+@interface ISLiteHelpViewController : UIViewController 
+{
     UIButton *backButton;
+    UIButton *suggestButton;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
+@property (nonatomic, retain) IBOutlet UIButton *suggestButton;
 
 -(IBAction)switchToLiteView:(id)sender;
+-(IBAction)onSuggest:(id)sender;
 
 @end
