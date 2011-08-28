@@ -10,11 +10,19 @@
 
 #import "ISUIUtils.h"
 
-@interface ISLiteConfigViewController : UIViewController {
+#import "ConfigSwitcherCell.h"
+
+@interface ISLiteConfigViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
     UIButton *backButton;
+    NSArray *configItemArray;
+    NSArray *configSectionArray;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
+
+@property (nonatomic, retain) NSArray *configItemArray;
+@property (nonatomic, retain) NSArray *configSectionArray;
 
 -(IBAction)switchToLiteView:(id)sender;
 

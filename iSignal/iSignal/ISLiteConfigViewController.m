@@ -16,8 +16,13 @@
 
 @synthesize backButton;
 
+@synthesize configItemArray;
+@synthesize configSectionArray;
+
 - (void)dealloc 
 {
+    [configSectionArray release];
+    [configItemArray release];
     [backButton release];
     [super dealloc];
 }
@@ -29,6 +34,66 @@
     {
         [((SwitchViewController*)parentViewController) switchView:TAG_LITE_VIEW];
     }  
+}
+
+// Customize the number of rows in the table view.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+    // TODO: Need to be updated once here are more than one section.
+    return [self.configItemArray count];
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{    
+//    static NSString *CellIdentifier = @"Cell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) 
+//    {
+//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+//    }
+//    
+//    // Configure the cell.
+//    cell.textLabel.text = [self.configItemArray objectAtIndex: [indexPath row]];
+    
+    static NSString *CustomCellIdentifier = @"CustomCellIdentifier";
+    ConfigSwitcherCell *cell = (ConfigSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
+    if (nil == cell) 
+    {  
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSArray *array = [mainBundle loadNibNamed:@"ConfigSwitcherCell" owner:self options:nil];
+        cell = [array objectAtIndex:0];  
+        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];  
+    }  
+
+    cell.switcherLabel.text = [self.configItemArray objectAtIndex:[indexPath row]];
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [configSectionArray objectAtIndex:section];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    self.configItemArray = [[NSArray alloc]initWithObjects:NSLocalizedString(@"STR_RING" , nil), NSLocalizedString(@"STR_VIBRATE", nil) ,nil];
+    
+    self.configSectionArray = [[NSArray alloc]initWithObjects:NSLocalizedString(@"STR_CONFIG", nil), nil];
+}
+
+- (void)viewDidUnload
+{
+    [self setBackButton:nil];
+    [self setConfigSectionArray:nil];
+    [self setConfigItemArray:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 // Manual Codes End
@@ -51,20 +116,6 @@
 }
 
 #pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [self setBackButton:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

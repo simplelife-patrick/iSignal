@@ -10,5 +10,6 @@ STR_CMCC = "中国移动";
 STR_CUNI = "中国联通";
 STR_NOSIGNAL = "无信号";
 STR_SIGNALGRADE = "信号质量";
+STR_CONFIG = "配置";
 STR_RING = "铃声";
 STR_VIBRATE = "震动";

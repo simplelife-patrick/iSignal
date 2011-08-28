@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C52D7C991406481F00B7B0DA /* ISTelephonyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52D7C981406481F00B7B0DA /* ISTelephonyUtils.m */; };
+		C547B44C1409D3690037B63F /* ConfigSwitcherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */; };
+		C547B44F1409D3C70037B63F /* ConfigSwitcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */; };
 		C569E3BD14068B7700BE938D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BC14068B7700BE938D /* AVFoundation.framework */; };
 		C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BF14068B7F00BE938D /* AudioToolbox.framework */; };
 		C569E3C614068D5600BE938D /* knockx3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C569E3C514068D5600BE938D /* knockx3.mp3 */; };
@@ -46,6 +48,9 @@
 		C52D7C971406481F00B7B0DA /* ISTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* ISTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTelephonyUtils.m; sourceTree = "<group>"; };
 		C53BFFD51404F3DD000E1EDC /* ISLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLog.h; sourceTree = "<group>"; };
+		C547B44A1409D3690037B63F /* ConfigSwitcherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ConfigSwitcherCell.h; sourceTree = "<group>"; };
+		C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigSwitcherCell.m; sourceTree = "<group>"; };
+		C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigSwitcherCell.xib; sourceTree = "<group>"; };
 		C569E3BC14068B7700BE938D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C569E3BF14068B7F00BE938D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C569E3C514068D5600BE938D /* knockx3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = knockx3.mp3; path = ../../../../Tests/TalkingDemo/TalkingDemo/knockx3.mp3; sourceTree = "<group>"; };
@@ -138,6 +143,9 @@
 				C573E5A4140355BF00BB24B3 /* ISMathUtils.h */,
 				C573E5A5140355BF00BB24B3 /* ISMathUtils.m */,
 				C53BFFD51404F3DD000E1EDC /* ISLog.h */,
+				C547B44A1409D3690037B63F /* ConfigSwitcherCell.h */,
+				C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */,
+				C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -353,6 +361,7 @@
 				C591DDC01407810700CB2C63 /* iSignalX2.png in Resources */,
 				C591DDC21407840F00CB2C63 /* Star32.png in Resources */,
 				C591DDC41407846600CB2C63 /* Star32Highlight.png in Resources */,
+				C547B44F1409D3C70037B63F /* ConfigSwitcherCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +385,7 @@
 				C573E5A6140355BF00BB24B3 /* ISMathUtils.m in Sources */,
 				C52D7C991406481F00B7B0DA /* ISTelephonyUtils.m in Sources */,
 				C569E3DC14072B5B00BE938D /* SplashViewController.m in Sources */,
+				C547B44C1409D3690037B63F /* ConfigSwitcherCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
