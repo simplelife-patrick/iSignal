@@ -17,12 +17,10 @@
 
 // Manual Codes Begin
 
-@synthesize switchViewController;
 @synthesize splashViewController;
 
 - (void)dealloc
 {
-    [self.switchViewController release];
     [self.splashViewController release];
     
     [_window release];
