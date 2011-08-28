@@ -16,14 +16,10 @@
 
 @synthesize backButton;
 
-@synthesize configItemArray;
-@synthesize configSectionArray;
-
 - (void)dealloc 
 {
-    [configSectionArray release];
-    [configItemArray release];
     [backButton release];
+
     [super dealloc];
 }
 
@@ -40,7 +36,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
     // TODO: Need to be updated once here are more than one section.
-    return [self.configItemArray count];
+
+    // Only one section's item here
+    return CONFIG_TABLE_SECTION_0_ITEM_COUNT;
 }
 
 // Customize the appearance of table view cells.
@@ -65,32 +63,70 @@
         NSArray *array = [mainBundle loadNibNamed:@"ConfigSwitcherCell" owner:self options:nil];
         cell = [array objectAtIndex:0];  
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];  
-    }  
 
-    cell.switcherLabel.text = [self.configItemArray objectAtIndex:[indexPath row]];
+        NSInteger rowIndex = [indexPath row];
+        switch (rowIndex) 
+        {
+            case CONFIG_TABLE_SECTION_0_ITEM_0_INDEX:
+            {
+                cell.switcherLabel.text = NSLocalizedString(@"STR_RING" , nil);
+                [cell.switcher addTarget:self action:@selector(ringAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
+                break;
+            }
+            case CONFIG_TABLE_SECTION_0_ITEM_1_INDEX:
+            {
+                cell.switcherLabel.text = NSLocalizedString(@"STR_VIBRATE", nil);
+                [cell.switcher addTarget:self action:@selector(vibrateAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
+                break;
+            }
+            default:
+                break;
+        }
+        
+
+    }
     
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [configSectionArray objectAtIndex:section];
+    // Only one section here
+    return CONFIG_TABLE_SECTION_0_NAME;
+}
+
+- (void)ringAlarmStateChanged:(id) sender
+{
+    if(nil != sender && ([sender isKindOfClass:[UISwitch class]]))
+    {
+        UISwitch *switcher = (UISwitch*) sender;
+        [ISAppConfigs setRingAlarmOn:[switcher isSelected]];
+    }
+}
+
+- (void)vibrateAlarmStateChanged:(id) sender
+{
+    if(nil != sender && ([sender isKindOfClass:[UISwitch class]]))
+    {
+        UISwitch *switcher = (UISwitch*) sender;
+        [ISAppConfigs setVibrateAlarmOn:[switcher isSelected]];
+    }   
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.configItemArray = [[NSArray alloc]initWithObjects:NSLocalizedString(@"STR_RING" , nil), NSLocalizedString(@"STR_VIBRATE", nil) ,nil];
     
-    self.configSectionArray = [[NSArray alloc]initWithObjects:NSLocalizedString(@"STR_CONFIG", nil), nil];
+    // Initialize table data
+    
+    // Initialize config data
 }
 
 - (void)viewDidUnload
 {
     [self setBackButton:nil];
-    [self setConfigSectionArray:nil];
-    [self setConfigItemArray:nil];
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

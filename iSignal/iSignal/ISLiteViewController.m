@@ -131,8 +131,20 @@
             strVal = NSLocalizedString(@"STR_NOSIGNAL",nil);
             DLog(@"Translate received signal strength: %d to text: %@", intVal, strVal);
             
-            [self.audioPlayer play];
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            // TODO: Here should be different listeners which are used to observer signal changed.
+            BOOL ringAlarmOn = [ISAppConfigs isRingAlarmOn];
+            DLog(@"App config of ring alarm is %@.", ringAlarmOn?@"YES":@"NO");
+            if(ringAlarmOn)
+            {
+                [self.audioPlayer play];                
+            }
+            
+            BOOL vibrateAlarmOn = [ISAppConfigs isVibrateAlarmOn];
+            DLog(@"App config of vibrate alarm is %@.", vibrateAlarmOn?@"YES":@"NO"); 
+            if(vibrateAlarmOn)
+            {
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);                
+            }
         }
         [self updateSignalQualityGrade:qualityGrade];
         [self.signalStrengthLabel setText:strVal];

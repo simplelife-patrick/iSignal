@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ISTelephonyUtils.h"
+
 int main(int argc, char *argv[])
 {
     DLog(@"Login app main entry.");
@@ -16,4 +18,5 @@ int main(int argc, char *argv[])
     [pool release];
     return retVal;
     DLog(@"Logout app main entry.");
+    [ISTelephonyUtils evaluateSignalQuality:98];
 }

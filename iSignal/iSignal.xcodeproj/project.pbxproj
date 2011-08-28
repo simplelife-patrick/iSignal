@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = C5027274140A2BA40013175B /* ISAppConfigs.m */; };
 		C50F9D6B1409E44B000589BB /* iSignal.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDBD1407810700CB2C63 /* iSignal.png */; };
 		C50F9D6C1409E450000589BB /* iSignalX2.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDBE1407810700CB2C63 /* iSignalX2.png */; };
 		C52D7C991406481F00B7B0DA /* ISTelephonyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52D7C981406481F00B7B0DA /* ISTelephonyUtils.m */; };
@@ -45,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C5027274140A2BA40013175B /* ISAppConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAppConfigs.m; sourceTree = "<group>"; };
+		C50F9D75140A1FA9000589BB /* ISAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAppConfigs.h; sourceTree = "<group>"; };
 		C52D7C971406481F00B7B0DA /* ISTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* ISTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTelephonyUtils.m; sourceTree = "<group>"; };
 		C53BFFD51404F3DD000E1EDC /* ISLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLog.h; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				C547B44A1409D3690037B63F /* ConfigSwitcherCell.h */,
 				C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */,
 				C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */,
+				C50F9D75140A1FA9000589BB /* ISAppConfigs.h */,
+				C5027274140A2BA40013175B /* ISAppConfigs.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				C52D7C991406481F00B7B0DA /* ISTelephonyUtils.m in Sources */,
 				C569E3DC14072B5B00BE938D /* SplashViewController.m in Sources */,
 				C547B44C1409D3690037B63F /* ConfigSwitcherCell.m in Sources */,
+				C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

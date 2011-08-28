@@ -10,6 +10,8 @@
 
 #import <TargetConditionals.h>
 
+#import "iSignalAppDelegate.h"
+
 #define SIMULATOR 0
 #define IPHONE 1
 
@@ -27,5 +29,7 @@
 +(GlobalSettings *)singletonInstance;
 
 +(BOOL) isBackgroundRunningEnabled;
+
++(id<UIApplicationDelegate>) getAppDelegate;
 
 @end

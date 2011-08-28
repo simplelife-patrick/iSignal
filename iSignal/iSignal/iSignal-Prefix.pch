@@ -15,4 +15,6 @@
 
     #import "ISLog.h"
     #import "ISUIUtils.h"
+    #import "ISAppConfigs.h"
+    #import "GlobalSettings.h"
 #endif

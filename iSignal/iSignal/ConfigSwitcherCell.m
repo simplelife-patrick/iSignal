@@ -19,6 +19,7 @@
 {
     [switcherLabel release];
     [switcher release];
+
     [super dealloc];
 }
 

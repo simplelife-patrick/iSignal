@@ -111,6 +111,11 @@ static GlobalSettings* instance = nil;
     return backgroundSupported;
 }
 
++(id<UIApplicationDelegate>) getAppDelegate
+{
+    return [[UIApplication sharedApplication] delegate];
+}
+
 // Manual Codes End
 
 @end
