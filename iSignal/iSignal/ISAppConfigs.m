@@ -12,7 +12,7 @@
 
 // Manual Codes Begin
 
-+(void) initConfigs
++(void) initConfigsIfNecessary
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
         

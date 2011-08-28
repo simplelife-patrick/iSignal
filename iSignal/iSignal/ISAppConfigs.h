@@ -16,7 +16,7 @@
 
 }
 
-+(void) initConfigs;
++(void) initConfigsIfNecessary;
 
 +(BOOL) isRingAlarmOn;
 +(void) setRingAlarmOn:(BOOL) flag;
