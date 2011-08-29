@@ -215,7 +215,7 @@
     { 
         [audioPlayer release]; 
     }
-    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"knockx3" ofType:@"mp3"]; 
+    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"signalLost" ofType:@"caf"]; 
     NSURL *soundUrl=[[NSURL alloc] initFileURLWithPath:soundPath]; 
     audioPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil]; 
     [audioPlayer prepareToPlay]; 
