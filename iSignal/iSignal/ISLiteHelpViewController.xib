@@ -59,7 +59,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIPagingEnabled">YES</bool>
 						<bool key="IBUIEditable">NO</bool>
-						<string key="IBUIText">iSignal is an iOS application which can be used for your iPhone cellular signal monitor and alarm. Once your iPhone lost signal kinds of alarms including ring, vibrate and so on will be sent out. By using it you can be very clear about when and where the cellular signal of your carrier is out of service.</string>
+						<string key="IBUIText"/>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<bool key="IBUIEnablesReturnKeyAutomatically">YES</bool>
@@ -76,7 +76,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{274, -4}, {29, 31}}</string>
 								<reference key="NSSuperview" ref="795914146"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:222</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -193,6 +192,14 @@
 					</object>
 					<int key="connectionID">13</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">textView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="874227705"/>
+					</object>
+					<int key="connectionID">14</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -295,7 +302,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">13</int>
+			<int key="maxID">14</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

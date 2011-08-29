@@ -14,7 +14,9 @@
 {
     UIButton *backButton;
     UIButton *suggestButton;
+    UITextView *textView;
 }
+@property (nonatomic, retain) IBOutlet UITextView *textView;
 
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
 @property (nonatomic, retain) IBOutlet UIButton *suggestButton;

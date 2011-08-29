@@ -15,6 +15,7 @@
 // Manual Codes Begin
 
 @synthesize suggestButton;
+@synthesize textView;
 @synthesize backButton;
 
 - (void)onSuggest:(id)sender
@@ -26,6 +27,7 @@
 {
     [backButton release];
     [suggestButton release];
+    [textView release];
     [super dealloc];
 }
 
@@ -33,6 +35,7 @@
 {
     [self setBackButton:nil];
     [self setSuggestButton:nil];
+    [self setTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -72,6 +75,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.textView setText:NSLocalizedString(@"STR_HELP_INRO", nil)];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
