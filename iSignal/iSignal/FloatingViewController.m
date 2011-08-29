@@ -10,6 +10,31 @@
 
 @implementation FloatingViewController
 
+// Manual Codes Begin
+
++(void) initialize
+{    
+    s_viewLocation_retract = CGPointMake(POINT_X_RETRACT, POINT_Y_RETRACT);    
+    s_viewLocation_popup = CGPointMake(POINT_X_POPUP, POINT_Y_POPUP);
+
+    s_viewSize_normal = CGSizeMake(SIZE_WIDTH_NORAML, SIZE_HEIGHT_NORMAL);
+}
+
+@synthesize toggleButton;
+
+- (void)dealloc 
+{
+    [toggleButton release];
+    [super dealloc];
+}
+
+-(IBAction)onToggle:(id)sender
+{
+    
+}
+
+// Manual Codes End
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,6 +62,7 @@
 
 - (void)viewDidUnload
 {
+    [self setToggleButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
