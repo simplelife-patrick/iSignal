@@ -10,6 +10,8 @@
 		C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = C5027274140A2BA40013175B /* ISAppConfigs.m */; };
 		C50F9D6B1409E44B000589BB /* iSignal.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDBD1407810700CB2C63 /* iSignal.png */; };
 		C50F9D6C1409E450000589BB /* iSignalX2.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDBE1407810700CB2C63 /* iSignalX2.png */; };
+		C514FE2E140B75F200FF0857 /* FloatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C514FE2C140B75F200FF0857 /* FloatingViewController.m */; };
+		C514FE2F140B75F200FF0857 /* FloatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C514FE2D140B75F200FF0857 /* FloatingViewController.xib */; };
 		C52D7C991406481F00B7B0DA /* ISTelephonyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52D7C981406481F00B7B0DA /* ISTelephonyUtils.m */; };
 		C531221D140B18560046CD7F /* signalLost.caf in Resources */ = {isa = PBXBuildFile; fileRef = C531221C140B18560046CD7F /* signalLost.caf */; };
 		C547B44C1409D3690037B63F /* ConfigSwitcherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */; };
@@ -48,6 +50,9 @@
 /* Begin PBXFileReference section */
 		C5027274140A2BA40013175B /* ISAppConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAppConfigs.m; sourceTree = "<group>"; };
 		C50F9D75140A1FA9000589BB /* ISAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAppConfigs.h; sourceTree = "<group>"; };
+		C514FE2B140B75F200FF0857 /* FloatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingViewController.h; sourceTree = "<group>"; };
+		C514FE2C140B75F200FF0857 /* FloatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingViewController.m; sourceTree = "<group>"; };
+		C514FE2D140B75F200FF0857 /* FloatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingViewController.xib; sourceTree = "<group>"; };
 		C52D7C971406481F00B7B0DA /* ISTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* ISTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
@@ -152,6 +157,9 @@
 				C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */,
 				C50F9D75140A1FA9000589BB /* ISAppConfigs.h */,
 				C5027274140A2BA40013175B /* ISAppConfigs.m */,
+				C514FE2B140B75F200FF0857 /* FloatingViewController.h */,
+				C514FE2C140B75F200FF0857 /* FloatingViewController.m */,
+				C514FE2D140B75F200FF0857 /* FloatingViewController.xib */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -367,6 +375,7 @@
 				C50F9D6B1409E44B000589BB /* iSignal.png in Resources */,
 				C50F9D6C1409E450000589BB /* iSignalX2.png in Resources */,
 				C531221D140B18560046CD7F /* signalLost.caf in Resources */,
+				C514FE2F140B75F200FF0857 /* FloatingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +401,7 @@
 				C569E3DC14072B5B00BE938D /* SplashViewController.m in Sources */,
 				C547B44C1409D3690037B63F /* ConfigSwitcherCell.m in Sources */,
 				C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */,
+				C514FE2E140B75F200FF0857 /* FloatingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
