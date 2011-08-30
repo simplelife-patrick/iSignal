@@ -12,31 +12,54 @@
 
 // Manual Codes Begin
 
+@synthesize floatingViewController;
 @synthesize switchViewController;
 @synthesize splashImageView;
 @synthesize timer;
 
+- (void)relayoutFloatingView
+{
+    UIView *floatingView = floatingViewController.view;
+    floatingView.frame = CGRectMake(0, 440, 320, 40);
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];
+}
+
+- (void)viewDidUnload
+{
+    [self setFloatingViewController:nil];
+    [self setSwitchViewController:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
 - (void)dealloc
 {
     [self.timer release];
+    [self.splashImageView release];    
     [self.switchViewController release];
-    [self.splashImageView release];
-    
+    [self.floatingViewController release];
     [super dealloc];
 }
 
-- (void)fadeScreen
+- (void)startFadingSplashScreen
 {
 	[UIView beginAnimations:nil context:nil]; // begins animation block
 	[UIView setAnimationDuration:0.75];        // sets animation duration
 	[UIView setAnimationDelegate:self];        // sets delegate for this block
-	[UIView setAnimationDidStopSelector:@selector(finishedFading)];   // calls the finishedFading method when the animation is done (or done fading out)	
+	[UIView setAnimationDidStopSelector:@selector(finishedFadingSplashScreen)];   // calls the finishedFadingSplashScreen method when the animation is done (or done fading out)	
 	self.view.alpha = 0.0;       // Fades the alpha channel of this view to "0.0" over the animationDuration of "0.75" seconds
 	[UIView commitAnimations];   // commits the animation block.  This Block is done.
 }
 
-
-- (void) finishedFading
+- (void) finishedFadingSplashScreen
 {
 	[splashImageView removeFromSuperview];
     UIWindow* window = [ISUIUtils getWindow:self.view];
@@ -44,6 +67,8 @@
     {
         [self.view removeFromSuperview];
         [window addSubview:switchViewController.view];
+        [window addSubview:floatingViewController.view];
+        [self relayoutFloatingView];
     }
 }
 
@@ -53,7 +78,7 @@
     // TODO:
     DLog(@"Finished the load operation.");
     // Switch back to Splash UI
-    [self performSelectorOnMainThread:@selector(fadeScreen) withObject:self waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:NO];
 }
 
 // Manual Codes End
@@ -76,21 +101,6 @@
 }
 
 #pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
-    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
