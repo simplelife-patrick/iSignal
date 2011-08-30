@@ -22,9 +22,6 @@
 #define REFRESH_PERIOD_SMALL 1
 #define REFRESH_PERIOD_LONG 5
 
-static NSString* STR_THREAD_SIGNALMONITOR = @"Thread_SignalMonitor";
-static NSArray* CARRIER_LIST = nil;
-
 @interface ISDummyTelephony : NSObject
 {
     id<ISCallbackDelegate> callbackDelegate;

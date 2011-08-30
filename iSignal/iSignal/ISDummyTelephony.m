@@ -14,15 +14,23 @@
 
 // Manual Codes Begin
 
+static NSString* STR_THREAD_SIGNALMONITOR;
+static NSArray* CARRIER_LIST;
+
 @synthesize callbackDelegate;
 @synthesize signalMonitorThread;
 @synthesize signalStrength;
 @synthesize carrier;
 @synthesize keepAlive;
 
++(void) initialize
+{
+    STR_THREAD_SIGNALMONITOR = @"Thread_SignalMonitor";
+    CARRIER_LIST = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
+}
+
 +(NSArray*) getCarrierList
 {
-    static NSArray* CARRIER_LIST;
     if(nil == CARRIER_LIST)
     {
         CARRIER_LIST = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
