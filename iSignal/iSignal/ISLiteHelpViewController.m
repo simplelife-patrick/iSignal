@@ -14,40 +14,20 @@
 
 // Manual Codes Begin
 
-@synthesize suggestButton;
 @synthesize textView;
-@synthesize backButton;
-
-- (void)onSuggest:(id)sender
-{
-    
-}
 
 - (void)dealloc 
 {
-    [backButton release];
-    [suggestButton release];
     [textView release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
-    [self setBackButton:nil];
-    [self setSuggestButton:nil];
     [self setTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-}
-
-- (IBAction)switchToLiteView:(id)sender
-{
-    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
-    if([parentViewController isKindOfClass:[SwitchViewController class]])
-    {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITE_VIEW];
-    }  
 }
 
 // Manual Codes End

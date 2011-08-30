@@ -27,11 +27,7 @@
 
 @interface ISLiteConfigViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    UIButton *backButton;
+
 }
-
-@property (nonatomic, retain) IBOutlet UIButton *backButton;
-
--(IBAction)switchToLiteView:(id)sender;
 
 @end

@@ -21,11 +21,6 @@
 @synthesize gradeIndicator04View;
 @synthesize gradeIndicator05View;
 
-@synthesize mapButton;
-@synthesize historyButton;
-@synthesize configButton;
-@synthesize helpButton;
-
 @synthesize signLabel;
 @synthesize unitLabel;
 @synthesize carrierLabel;
@@ -36,11 +31,6 @@
 
 - (void)dealloc 
 {
-    [helpButton release];
-    [configButton release];
-    [mapButton release];
-    [historyButton release];
- 
     [qualityGradeLabel release];
     [signLabel release];
     [unitLabel release];
@@ -169,24 +159,6 @@
     }
 }
 
--(IBAction)switchToHelpView:(id)sender
-{
-    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
-    if([parentViewController isKindOfClass:[SwitchViewController class]])
-    {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITEHELP_VIEW];
-    }
-}
-
--(IBAction)switchToConfigView:(id)sender
-{
-    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
-    if([parentViewController isKindOfClass:[SwitchViewController class]])
-    {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITECONFIG_VIEW];
-    }    
-}
-
 -(void) messageCallback:(id)message
 {
     DLog(@"CallbackDelegate(ISLiteViewController) received a message: %@", message);
@@ -224,11 +196,6 @@
 
 - (void)viewDidUnload
 {
-    [self setHelpButton:nil];
-    [self setConfigButton:nil];
-    [self setMapButton:nil];
-    [self setHistoryButton:nil];
-    
     [self setSignLabel:nil];
     [self setUnitLabel:nil];
     [self setCarrierLabel:nil];

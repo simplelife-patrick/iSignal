@@ -14,22 +14,9 @@
 
 // Manual Codes Begin
 
-@synthesize backButton;
-
 - (void)dealloc 
 {
-    [backButton release];
-
     [super dealloc];
-}
-
-- (IBAction)switchToLiteView:(id)sender
-{
-    UIViewController* parentViewController = [ISUIUtils getViewControllerFromView:[self.view superview]];
-    if([parentViewController isKindOfClass:[SwitchViewController class]])
-    {
-        [((SwitchViewController*)parentViewController) switchView:TAG_LITE_VIEW];
-    }  
 }
 
 // Customize the number of rows in the table view.
@@ -127,8 +114,6 @@
 
 - (void)viewDidUnload
 {
-    [self setBackButton:nil];
-
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
