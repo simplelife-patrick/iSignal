@@ -13,6 +13,10 @@
 // Manual Codes Begin
 
 @synthesize toggleButton;
+@synthesize isViewRected;
+
+@synthesize retractRect;
+@synthesize popupRect;
 
 - (void)dealloc 
 {
@@ -22,7 +26,18 @@
 
 -(IBAction)onToggle:(id)sender
 {
+    if(self.isViewRected)
+    {
+        DLog(@"Floating view is in rect state");
+        self.view.frame = self.retractRect;
+    }
+    else
+    {
+        DLog(@"Floating view is in popup state");
+        self.view.frame = self.popupRect;
+    }
     
+    self.isViewRected = !self.isViewRected;
 }
 
 // Manual Codes End

@@ -8,6 +8,9 @@
 
 #import "SplashViewController.h"
 
+static CGRect s_floatingView_retract;
+static CGRect s_floatingView_popup;
+
 @implementation SplashViewController
 
 // Manual Codes Begin
@@ -17,10 +20,10 @@
 @synthesize splashImageView;
 @synthesize timer;
 
-- (void)relayoutFloatingView
++(void) initialize
 {
-    UIView *floatingView = floatingViewController.view;
-    floatingView.frame = CGRectMake(0, 440, 320, 40);
+    s_floatingView_retract = CGRectMake(240, 440, 280, 40);
+    s_floatingView_popup = CGRectMake(0, 440, 280, 40);
 }
 
 - (void)viewDidLoad
@@ -28,11 +31,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];
+    // Init floatingViewController
+    [self.floatingViewController setIsViewRected:TRUE];
+    [self.floatingViewController setPopupRect:s_floatingView_popup];
+    [self.floatingViewController setRetractRect:s_floatingView_retract];
+    self.floatingViewController.view.frame = s_floatingView_retract;
+    // Init timer
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];
 }
 
 - (void)viewDidUnload
 {
+    [self setTimer:nil];
+    [self setSplashImageView:nil];
     [self setFloatingViewController:nil];
     [self setSwitchViewController:nil];
     [super viewDidUnload];
@@ -68,7 +79,6 @@
         [self.view removeFromSuperview];
         [window addSubview:switchViewController.view];
         [window addSubview:floatingViewController.view];
-        [self relayoutFloatingView];
     }
 }
 

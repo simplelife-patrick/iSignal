@@ -10,11 +10,20 @@
 
 @interface FloatingViewController : UIViewController
 {
-
     UIButton *toggleButton;
+
+    BOOL isViewRetracted;
+    
+    CGRect retractRect;
+    CGRect popupRect;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *toggleButton;
+
+@property BOOL isViewRected;
+
+@property (nonatomic) CGRect retractRect;
+@property (nonatomic) CGRect popupRect;
 
 - (IBAction)onToggle:(id)sender;
 
