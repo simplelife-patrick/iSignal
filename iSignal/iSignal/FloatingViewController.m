@@ -29,12 +29,12 @@
     if(self.isViewRected)
     {
         DLog(@"Floating view is in rect state");
-        self.view.frame = self.retractRect;
+        self.view.frame = self.popupRect;
     }
     else
     {
         DLog(@"Floating view is in popup state");
-        self.view.frame = self.popupRect;
+        self.view.frame = self.retractRect;
     }
     
     self.isViewRected = !self.isViewRected;
