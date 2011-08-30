@@ -31,6 +31,8 @@
 		C5882A9C14032E9D00EC29A6 /* ISDummyTelephony.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */; };
 		C591DDC21407840F00CB2C63 /* Star32.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC11407840F00CB2C63 /* Star32.png */; };
 		C591DDC41407846600CB2C63 /* Star32Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC31407846600CB2C63 /* Star32Highlight.png */; };
+		C5B66186140CFE92000B1F74 /* ISLocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */; };
+		C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B66188140D0249000B1F74 /* CoreLocation.framework */; };
 		C5B758231401E485004A051E /* ISUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* ISUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* SwitchViewController.m */; };
 		C5BAED86140153B100141ED7 /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BAED84140153B100141ED7 /* SwitchViewController.xib */; };
@@ -85,6 +87,9 @@
 		C591DDBE1407810700CB2C63 /* iSignalX2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iSignalX2.png; sourceTree = SOURCE_ROOT; };
 		C591DDC11407840F00CB2C63 /* Star32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32.png; sourceTree = SOURCE_ROOT; };
 		C591DDC31407846600CB2C63 /* Star32Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32Highlight.png; sourceTree = SOURCE_ROOT; };
+		C5B66184140CFE92000B1F74 /* ISLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLocationDelegate.h; sourceTree = "<group>"; };
+		C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLocationDelegate.m; sourceTree = "<group>"; };
+		C5B66188140D0249000B1F74 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5B758211401E485004A051E /* ISUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUIUtils.h; sourceTree = "<group>"; };
 		C5B758221401E485004A051E /* ISUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */,
 				C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */,
 				C569E3BD14068B7700BE938D /* AVFoundation.framework in Frameworks */,
 				C5CD42C713FF8826009C5741 /* UIKit.framework in Frameworks */,
@@ -160,6 +166,8 @@
 				C514FE2B140B75F200FF0857 /* FloatingViewController.h */,
 				C514FE2C140B75F200FF0857 /* FloatingViewController.m */,
 				C514FE2D140B75F200FF0857 /* FloatingViewController.xib */,
+				C5B66184140CFE92000B1F74 /* ISLocationDelegate.h */,
+				C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -233,6 +241,7 @@
 		C5CD42B713FF8826009C5741 = {
 			isa = PBXGroup;
 			children = (
+				C5B66188140D0249000B1F74 /* CoreLocation.framework */,
 				C5CD42CE13FF8826009C5741 /* iSignal */,
 				C5CD42C513FF8826009C5741 /* Frameworks */,
 				C5CD42C313FF8826009C5741 /* Products */,
@@ -402,6 +411,7 @@
 				C547B44C1409D3690037B63F /* ConfigSwitcherCell.m in Sources */,
 				C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */,
 				C514FE2E140B75F200FF0857 /* FloatingViewController.m in Sources */,
+				C5B66186140CFE92000B1F74 /* ISLocationDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
