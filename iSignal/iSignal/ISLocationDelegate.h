@@ -10,16 +10,38 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+#define EVENT_AVAILABLE_TIME_DIFFERENCE 15.0
+
+#define REGION_RADIUS_DEFAULT 100.0
+
 @interface ISLocationDelegate : NSObject <CLLocationManagerDelegate>
 {
     CLLocationManager *locationManager;
-    CLLocationCoordinate2D curLocation;    
+    CLLocation *lastLocation;
+    CLLocation *currentLocation;
+    CLLocationDegrees regionRadius;
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
-@property (nonatomic) CLLocationCoordinate2D curLocation;
+@property (nonatomic, retain) CLLocation *lastLocation;
+@property (nonatomic, retain) CLLocation *currentLocation;
+@property (nonatomic) CLLocationDegrees regionRadius;
 
-//-(void) getCurLocation;
++(BOOL) isLocationServiceEnabled;
+
++(BOOL) isRegionMonitoringAvailable;
++(BOOL) isRegionMonitoringEnabled;
+
+-(void) setDistanceFilter:(CLLocationDistance) distance;
+-(void) setAccuracy:(CLLocationAccuracy) accuracy;
+
+-(void) initLocationManagerIfNecessary;
+-(void) initLocationManagerIfNecessary:(CLLocationAccuracy) accuracy andDistance:(CLLocationDistance) distance;
+
+-(void) startStandardUpdate;
+-(void) startSignificantChangeUpdates;
+
+-(BOOL)registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier;
 
 @end
