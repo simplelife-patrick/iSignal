@@ -47,7 +47,7 @@
     if (nil == cell) 
     {  
         NSBundle *mainBundle = [NSBundle mainBundle];
-        NSArray *array = [mainBundle loadNibNamed:@"ConfigSwitcherCell" owner:self options:nil];
+        NSArray *array = [mainBundle loadNibNamed:@"ISConfigSwitcherCell" owner:self options:nil];
         cell = [array objectAtIndex:0];  
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];  
 
