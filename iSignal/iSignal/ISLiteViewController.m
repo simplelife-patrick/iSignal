@@ -115,7 +115,7 @@
     {
         NSInteger intVal = [signalVal intValue];
         NSString* strVal = [signalVal stringValue];
-        SIGNAL_QUALITY qualityGrade = [ISTelephonyUtils evaluateSignalQuality:intVal];
+        SIGNAL_QUALITY qualityGrade = [CBTelephonyUtils evaluateSignalQuality:intVal];
         if (qualityGrade == QUALITY_SIGNAL_LOSS) 
         {
             strVal = NSLocalizedString(@"STR_NOSIGNAL",nil);

@@ -14,7 +14,7 @@
 
 #import "ISCallbackDelegate.h"
 #import "ISDummyTelephony.h"
-#import "ISTelephonyUtils.h"
+#import "CBTelephonyUtils.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
