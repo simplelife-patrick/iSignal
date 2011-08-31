@@ -44,6 +44,6 @@
 -(void) startStandardUpdate;
 -(void) startSignificantChangeUpdates;
 
--(BOOL)registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier;
+-(BOOL) registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier;
 
 @end
