@@ -12,6 +12,12 @@
 
 // Manual Codes Begin
 
++(id<UIApplicationDelegate>) getAppDelegate
+{
+    return [[UIApplication sharedApplication] delegate];
+}
+
+
 +(UIWindow*) getWindow:(UIView *)view
 {
     if (nil == view) 

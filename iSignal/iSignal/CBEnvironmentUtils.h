@@ -31,6 +31,4 @@
 
 +(BOOL) isBackgroundRunningEnabled;
 
-+(id<UIApplicationDelegate>) getAppDelegate;
-
 @end
