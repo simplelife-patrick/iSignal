@@ -58,7 +58,6 @@
 		C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
-		C53BFFD51404F3DD000E1EDC /* ISLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLog.h; sourceTree = "<group>"; };
 		C547B44A1409D3690037B63F /* ConfigSwitcherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ConfigSwitcherCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ConfigSwitcherCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigSwitcherCell.xib; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		C591DDC11407840F00CB2C63 /* Star32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32.png; sourceTree = SOURCE_ROOT; };
 		C591DDC31407846600CB2C63 /* Star32Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32Highlight.png; sourceTree = SOURCE_ROOT; };
 		C5B590BC140E456F00A56CF0 /* CBCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCallbackDelegate.h; sourceTree = "<group>"; };
+		C5B590BD140E488700A56CF0 /* CBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLog.h; sourceTree = "<group>"; };
 		C5B66184140CFE92000B1F74 /* ISLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLocationDelegate.h; sourceTree = "<group>"; };
 		C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLocationDelegate.m; sourceTree = "<group>"; };
 		C5B66188140D0249000B1F74 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -147,6 +147,7 @@
 		C5B7581D1401E3AC004A051E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C5B590BD140E488700A56CF0 /* CBLog.h */,
 				C5B590BC140E456F00A56CF0 /* CBCallbackDelegate.h */,
 				C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */,
 				C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */,
@@ -156,7 +157,6 @@
 				C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */,
 				C573E5A4140355BF00BB24B3 /* CBMathUtils.h */,
 				C573E5A5140355BF00BB24B3 /* CBMathUtils.m */,
-				C53BFFD51404F3DD000E1EDC /* ISLog.h */,
 				C547B44A1409D3690037B63F /* ConfigSwitcherCell.h */,
 				C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */,
 				C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */,

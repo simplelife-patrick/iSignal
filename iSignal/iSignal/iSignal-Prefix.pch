@@ -13,7 +13,7 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
 
-    #import "ISLog.h"
+    #import "CBLog.h"
     #import "CBUIUtils.h"
     #import "ISAppConfigs.h"
     #import "CBEnvironmentUtils.h"
