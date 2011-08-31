@@ -63,7 +63,7 @@
 		C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISConfigSwitcherCell.xib; sourceTree = "<group>"; };
 		C569E3BC14068B7700BE938D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C569E3BF14068B7F00BE938D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		C569E3D914072B5B00BE938D /* ISSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ISSplashViewController.h; sourceTree = "<group>"; };
+		C569E3D914072B5B00BE938D /* ISSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSplashViewController.h; sourceTree = "<group>"; };
 		C569E3DA14072B5B00BE938D /* ISSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSplashViewController.m; sourceTree = "<group>"; };
 		C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSplashViewController.xib; sourceTree = "<group>"; };
 		C57329C0140096B40061D973 /* ISLiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLiteViewController.h; sourceTree = "<group>"; };
