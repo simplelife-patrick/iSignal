@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ISFloatingViewController.h"
+#import "FloatingViewController.h"
 
 @interface ISSplashViewController : UIViewController
 {
     UIViewController *switchViewController;
     UIImageView *splashImageView;
     NSTimer *timer;
-    ISFloatingViewController *floatingViewController;
+    FloatingViewController *floatingViewController;
 }
 
-@property (nonatomic, retain) IBOutlet ISFloatingViewController *floatingViewController;
+@property (nonatomic, retain) IBOutlet FloatingViewController *floatingViewController;
 @property (nonatomic, retain) IBOutlet UIViewController *switchViewController;
 @property (nonatomic, retain) IBOutlet UIImageView *splashImageView;
 

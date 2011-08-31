@@ -9,7 +9,7 @@
 #include <Foundation/Foundation.h>
 
 #import "ISLiteViewController.h"
-#import "ISSwitchViewController.h"
+#import "SwitchViewController.h"
 
 @implementation ISLiteViewController
 

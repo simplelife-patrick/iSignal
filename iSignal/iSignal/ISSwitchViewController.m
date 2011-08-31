@@ -6,13 +6,13 @@
 //  Copyright 2011 CodeBeaver. All rights reserved.
 //
 
-#import "ISSwitchViewController.h"
+#import "SwitchViewController.h"
 
 #import "ISLiteViewController.h"
 #import "ISLiteHelpViewController.h"
 #import "ISLiteConfigViewController.h"
 
-@implementation ISSwitchViewController
+@implementation SwitchViewController
 
 @synthesize isLiteViewController;
 @synthesize isLiteConfigViewController;
