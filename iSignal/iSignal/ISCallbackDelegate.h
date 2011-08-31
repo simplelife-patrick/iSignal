@@ -1,5 +1,5 @@
 //
-//  ISCallbackDelegate.h
+//  CBCallbackDelegate.h
 //  iSignal
 //
 //  Created by Patrick Deng on 11-8-23.
@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ISCallbackDelegate <NSObject>
+@protocol 
+<NSObject>
 
 -(void) messageCallback:(id) message;
 

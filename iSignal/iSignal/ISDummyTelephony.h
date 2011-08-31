@@ -10,7 +10,7 @@
 
 #import <Foundation/NSArray.h>
 
-#import "ISCallbackDelegate.h"
+#import "CBCallbackDelegate.h"
 
 #import "CBModule.h"
 
@@ -28,13 +28,13 @@
 
 @interface ISDummyTelephony : NSObject <CBModule>
 {
-    id<ISCallbackDelegate> callbackDelegate;
+    id<CBCallbackDelegate> callbackDelegate;
     NSInteger signalStrength;
     NSString *carrier;
     BOOL keepAlive;
 }
 
-@property (nonatomic, retain) id<ISCallbackDelegate> callbackDelegate;
+@property (nonatomic, retain) id<CBCallbackDelegate> callbackDelegate;
 @property (nonatomic, retain) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;
 @property (nonatomic) BOOL keepAlive;
