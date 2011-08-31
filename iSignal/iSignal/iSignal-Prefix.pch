@@ -16,5 +16,5 @@
     #import "ISLog.h"
     #import "CBUIUtils.h"
     #import "ISAppConfigs.h"
-    #import "GlobalSettings.h"
+    #import "CBEnvironmentUtils.h"
 #endif
