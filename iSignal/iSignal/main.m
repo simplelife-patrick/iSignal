@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ISTelephonyUtils.h"
-
 int main(int argc, char *argv[])
 {
     DLog(@"Login app main entry.");
