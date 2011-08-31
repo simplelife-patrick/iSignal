@@ -166,20 +166,11 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
-		C5BAED8A140158D800141ED7 /* Entry */ = {
+		C5BEB01E1400C3500083A86A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				C5CD42D413FF8826009C5741 /* main.m */,
-				C5CD42D713FF8826009C5741 /* iSignalAppDelegate.h */,
 				C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */,
-				C5CD42DA13FF8826009C5741 /* MainWindow.xib */,
-			);
-			name = Entry;
-			sourceTree = "<group>";
-		};
-		C5BEB01E1400C3500083A86A /* Class Files */ = {
-			isa = PBXGroup;
-			children = (
 				C5720666140E60D900FD108F /* ISFloatingViewController.m */,
 				C5720659140E602C00FD108F /* ISLiteConfigViewController.m */,
 				C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */,
@@ -189,7 +180,7 @@
 				C5BEB0191400C32F0083A86A /* ISLiteHelpViewController.m */,
 				C569E3DA14072B5B00BE938D /* ISSplashViewController.m */,
 			);
-			name = "Class Files";
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		C5CD42B713FF8826009C5741 = {
@@ -226,18 +217,17 @@
 		C5CD42CE13FF8826009C5741 /* iSignal */ = {
 			isa = PBXGroup;
 			children = (
-				C5CD42E513FF886F009C5741 /* Header Files */,
-				C5BEB01E1400C3500083A86A /* Class Files */,
-				C5CD42E613FF8879009C5741 /* UI Files */,
-				C5BAED8A140158D800141ED7 /* Entry */,
+				C5CD42E513FF886F009C5741 /* Headers */,
+				C5BEB01E1400C3500083A86A /* Classes */,
+				C5CD42E613FF8879009C5741 /* UI */,
 				C5B7581D1401E3AC004A051E /* Common */,
-				C5CD42CF13FF8826009C5741 /* Supporting Files */,
+				C5CD42CF13FF8826009C5741 /* Configs */,
 				C591DDB01407723100CB2C63 /* Resources */,
 			);
 			path = iSignal;
 			sourceTree = "<group>";
 		};
-		C5CD42CF13FF8826009C5741 /* Supporting Files */ = {
+		C5CD42CF13FF8826009C5741 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
 				C573E5BD1403A91500BB24B3 /* Localizable.strings */,
@@ -247,12 +237,13 @@
 				C5CD42D613FF8826009C5741 /* iSignal-Prefix.pch */,
 				C5882A9614027EA700EC29A6 /* Requiremens.rtf */,
 			);
-			name = "Supporting Files";
+			name = Configs;
 			sourceTree = "<group>";
 		};
-		C5CD42E513FF886F009C5741 /* Header Files */ = {
+		C5CD42E513FF886F009C5741 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				C5CD42D713FF8826009C5741 /* iSignalAppDelegate.h */,
 				C5720667140E60DA00FD108F /* ISFloatingViewController.h */,
 				C5882A9A14032E9D00EC29A6 /* ISDummyTelephony.h */,
 				C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */,
@@ -262,12 +253,13 @@
 				C57329C514009A2F0061D973 /* ISLiteConfigViewController.h */,
 				C569E3D914072B5B00BE938D /* ISSplashViewController.h */,
 			);
-			name = "Header Files";
+			name = Headers;
 			sourceTree = "<group>";
 		};
-		C5CD42E613FF8879009C5741 /* UI Files */ = {
+		C5CD42E613FF8879009C5741 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C5CD42DA13FF8826009C5741 /* MainWindow.xib */,
 				C572066C140E66DD00FD108F /* ISSwitchViewController.xib */,
 				C5720665140E60D900FD108F /* ISFloatingViewController.xib */,
 				C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */,
@@ -276,7 +268,7 @@
 				C57329C714009A2F0061D973 /* ISLiteConfigViewController.xib */,
 				C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */,
 			);
-			name = "UI Files";
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
