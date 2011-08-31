@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ISSwitchViewController.h"
+
 @interface ISFloatingViewController : UIViewController
 {
     UIButton *toggleButton;

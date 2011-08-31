@@ -8,10 +8,6 @@
 
 #import "ISSwitchViewController.h"
 
-#import "ISLiteViewController.h"
-#import "ISLiteHelpViewController.h"
-#import "ISLiteConfigViewController.h"
-
 @implementation ISSwitchViewController
 
 @synthesize isLiteViewController;
@@ -76,6 +72,16 @@
             DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
+        case TAG_LITEMAP_VIEW:
+        {
+            // TODO:
+            break;
+        }
+        case TAG_LITERECORDS_VIEW:
+        {
+            // TODO:
+            break;
+        }
         default:
         {
             break;
@@ -135,6 +141,18 @@
         {
             [self lazyLoadView:TAG_LITECONFIG_VIEW];
             [self reorganizeSubViews:TAG_LITECONFIG_VIEW];
+            break;
+        }
+        case TAG_LITEMAP_VIEW:
+        {
+            [self lazyLoadView:TAG_LITEMAP_VIEW];
+            [self reorganizeSubViews:TAG_LITEMAP_VIEW];
+            break;
+        }
+        case TAG_LITERECORDS_VIEW:
+        {
+            [self lazyLoadView:TAG_LITERECORDS_VIEW];
+            [self reorganizeSubViews:TAG_LITERECORDS_VIEW];
             break;
         }
         default:
