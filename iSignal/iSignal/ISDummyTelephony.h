@@ -24,17 +24,17 @@
 #define REFRESH_PERIOD_SMALL 1
 #define REFRESH_PERIOD_LONG 5
 
+#define MODULE_IDENTITY_DUMMYTEPLEPHONY @"DummyTelephony"
+
 @interface ISDummyTelephony : NSObject <CBModule>
 {
     id<ISCallbackDelegate> callbackDelegate;
-    NSThread *signalMonitorThread;
     NSInteger signalStrength;
     NSString *carrier;
     BOOL keepAlive;
 }
 
-@property (nonatomic, retain) id<ISCallbackDelegate> callbackDelegate; 
-@property (nonatomic, retain) NSThread *signalMonitorThread;
+@property (nonatomic, retain) id<ISCallbackDelegate> callbackDelegate;
 @property (nonatomic, retain) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;
 @property (nonatomic) BOOL keepAlive;

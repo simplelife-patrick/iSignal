@@ -173,16 +173,16 @@
     // Do any additional setup after loading the view from its nib.
     
     // TODO: Multiple delegates should be supported here as notification will be sent to places inlcuding UIView, Sounds and Vibration, etc.
+    
+    // Dummny Telephony module is initializing
     ISDummyTelephony *dummyTelephony = [[ISDummyTelephony alloc] init];
     [dummyTelephony setCallbackDelegate:self];
-    
     [self.carrierLabel setText:dummyTelephony.carrier];
-    
     [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
-    
-    [dummyTelephony startToService];
+    [dummyTelephony startService];
     [dummyTelephony release];
     
+    // Audioplayer is initializing
     if (audioPlayer) 
     { 
         [audioPlayer release]; 
@@ -219,7 +219,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self) 
+    {
         // Custom initialization
     }
     return self;

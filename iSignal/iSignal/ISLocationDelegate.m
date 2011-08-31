@@ -12,8 +12,10 @@
 
 // Manual Codes Begin
 
-@synthesize locationManager;
+@synthesize serviceThread;
+@synthesize moduleIdentity;
 
+@synthesize locationManager;
 @synthesize lastLocation;
 @synthesize currentLocation;
 @synthesize regionRadius;
@@ -31,6 +33,13 @@
 +(BOOL) isRegionMonitoringEnabled
 {
     return [CLLocationManager regionMonitoringEnabled];
+}
+
+-(void) dealloc
+{
+    [self.locationManager release];
+    
+    [super dealloc];
 }
 
 -(void) setDistanceFilter:(CLLocationDistance) distance
@@ -153,11 +162,22 @@
     DLog(@"Failed to monitor this region: %@ with error: %@", region, error);
 }
 
--(void) dealloc
+// Implemented from CBModule protocol.
+-(void) startService
 {
-    [self.locationManager release];
+    // TODO:
+}
 
-    [super dealloc];
+// Implemented from CBModule protocol.
+-(void) processService
+{
+    // TODO:
+}
+
+// Implemented from CBModule protocol.
+-(void) stopService
+{
+    // TODO:
 }
 
 // Manual Coes End

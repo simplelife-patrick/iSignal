@@ -10,7 +10,11 @@
 
 @protocol CBModule <NSObject>
 
--(void) startToService;
--(void) stopFromService;
+@property (nonatomic, retain) NSString *moduleIdentity;
+@property (nonatomic, retain) NSThread *serviceThread;
+
+-(void) startService;
+-(void) processService;
+-(void) stopService;
 
 @end

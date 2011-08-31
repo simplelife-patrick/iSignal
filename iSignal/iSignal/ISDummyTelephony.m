@@ -14,18 +14,17 @@
 
 // Manual Codes Begin
 
-static NSString* STR_THREAD_SIGNALMONITOR;
 static NSArray* CARRIER_LIST;
 
 @synthesize callbackDelegate;
-@synthesize signalMonitorThread;
+@synthesize moduleIdentity;
+@synthesize serviceThread;
 @synthesize signalStrength;
 @synthesize carrier;
 @synthesize keepAlive;
 
 +(void) initialize
 {
-    STR_THREAD_SIGNALMONITOR = @"Thread_SignalMonitor";
     CARRIER_LIST = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
 }
 
@@ -34,7 +33,7 @@ static NSArray* CARRIER_LIST;
     if(nil == CARRIER_LIST)
     {
         CARRIER_LIST = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
-        DLog(@"CARRIER_LIST initialized: %@", CARRIER_LIST);
+        DLog(@"CARRIER_LIST is initialized: %@", CARRIER_LIST);
     }
     
     return CARRIER_LIST;
@@ -48,7 +47,7 @@ static NSArray* CARRIER_LIST;
     NSArray *carrierArray = [ISDummyTelephony getCarrierList];
     NSString* carrierVal = [carrierArray objectAtIndex:arrayIndex];
     
-    DLog(@"Dummy telephony generated random carrier: %@", carrierVal);
+    DLog(@"Random carrier is generated: %@", carrierVal);
     return carrierVal;
 }
 
@@ -59,20 +58,18 @@ static NSArray* CARRIER_LIST;
     NSInteger high = CELLULAR_SIGNAL_STRENGTH_HIGHEST;
     NSInteger signalVal = [ISMathUtils generateRandomNSInteger:(low - loss) andMax:high];
     
-    DLog(@"Dummy telephony generated random signal srength: %d", signalVal);
+    DLog(@"Random signal srength is generated: %d", signalVal);
     return signalVal;
 }
 
 -(void) refreshCarrier
 {
     self.carrier = [ISDummyTelephony randomCarrier];
-    DLog(@"Dummy telephony's carrier is set to: %@", self.carrier);
 }
 
 -(void) refreshSignalStrength
 {
     self.signalStrength = [ISDummyTelephony randomSignalStrength];
-    DLog(@"Dummy telephony's signal strength is set to: %d", self.signalStrength);
     // Callback delegate to notify listener
     if(nil != self.callbackDelegate)
     {
@@ -83,11 +80,10 @@ static NSArray* CARRIER_LIST;
     }
 }
 
--(void) signalMonitorThreadRun
+-(void) processService
 {
-    DLog(@"Dummy telephony's signal monitor thread started to run.");
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
-    NSAutoreleasePool *signalMonitorThreadPool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool *serviceThreadPool = [[NSAutoreleasePool alloc] init];
     while (self.keepAlive && (nil != self.callbackDelegate)) 
     {
         [self refreshSignalStrength];
@@ -95,35 +91,31 @@ static NSArray* CARRIER_LIST;
         NSInteger interval = [ISMathUtils generateRandomNSInteger:REFRESH_PERIOD_SMALL andMax:REFRESH_PERIOD_LONG];
         [NSThread sleepForTimeInterval:interval];
     }
-    [signalMonitorThreadPool release];
-    DLog(@"Dummy telephony's signal monitor thread stopped to run.");
+    [serviceThreadPool release];
 }
 
--(void) startToService
+-(void) startService
 {
-    DLog(@"Dummy telephony service is running.");
-    if (nil == self.signalMonitorThread) 
+    if (nil == self.serviceThread) 
     {
-        self.signalMonitorThread = [[NSThread alloc] initWithTarget:self selector:@selector(signalMonitorThreadRun) object:nil];
-        extern NSString* STR_THREAD_SIGNALMONITOR;
-        [signalMonitorThread setName:STR_THREAD_SIGNALMONITOR];      
+        self.serviceThread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
     }
     self.keepAlive = TRUE;
     
-    [signalMonitorThread start];
+    [self.serviceThread start];
 }
 
--(void) stopFromService
+-(void) stopService
 {
     self.keepAlive = FALSE;
-    DLog(@"Dummy telephony service stopped.");
 }
 
 - (void)dealloc
 {
-    [signalMonitorThread release];
+    [serviceThread release];
     [callbackDelegate release];
     [carrier release];
+    [moduleIdentity release];
     
     [super dealloc];
 }
@@ -135,6 +127,7 @@ static NSArray* CARRIER_LIST;
     {
         // Initialization code here.
         [self refreshCarrier];
+        [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
     }
     
     return self;

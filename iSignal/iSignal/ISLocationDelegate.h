@@ -10,11 +10,13 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+#import "CBModule.h"
+
 #define EVENT_AVAILABLE_TIME_DIFFERENCE 15.0
 
 #define REGION_RADIUS_DEFAULT 100.0
 
-@interface ISLocationDelegate : NSObject <CLLocationManagerDelegate>
+@interface ISLocationDelegate : NSObject <CLLocationManagerDelegate, CBModule>
 {
     CLLocationManager *locationManager;
     CLLocation *lastLocation;
