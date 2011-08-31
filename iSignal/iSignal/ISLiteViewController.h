@@ -12,14 +12,14 @@
 
 #import "CBUIUtils.h"
 
-#import "ISCallbackDelegate.h"
+#import "CBCallbackDelegate.h"
 #import "ISDummyTelephony.h"
 #import "CBTelephonyUtils.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface ISLiteViewController : UIViewController <ISCallbackDelegate>
+@interface ISLiteViewController : UIViewController <CBCallbackDelegate>
 {
     UILabel *signLabel;
     UILabel *unitLabel;
