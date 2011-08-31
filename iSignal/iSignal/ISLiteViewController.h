@@ -19,6 +19,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+#import "ISSwitchViewController.h"
+
 @interface ISLiteViewController : UIViewController <CBCallbackDelegate>
 {
     UILabel *signLabel;

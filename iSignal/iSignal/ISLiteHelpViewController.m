@@ -8,7 +8,7 @@
 
 #import "ISLiteHelpViewController.h"
 
-#import "SwitchViewController.h"
+#import "ISSwitchViewController.h"
 
 @implementation ISLiteHelpViewController
 

@@ -11,14 +11,25 @@
 @interface ISFloatingViewController : UIViewController
 {
     UIButton *toggleButton;
+    UIButton *homeButton;
+    UIButton *recordsButton;
+    UIButton *mapButton;
+    UIButton *configButton;
+    UIButton *helpButton;
     
     BOOL isViewRetracted;
     
     CGRect retractRect;
     CGRect popupRect;
+    UIButton *onMap;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *toggleButton;
+@property (nonatomic, retain) IBOutlet UIButton *homeButton;
+@property (nonatomic, retain) IBOutlet UIButton *recordsButton;
+@property (nonatomic, retain) IBOutlet UIButton *mapButton;
+@property (nonatomic, retain) IBOutlet UIButton *configButton;
+@property (nonatomic, retain) IBOutlet UIButton *helpButton;
 
 @property (nonatomic) BOOL isViewRected;
 
@@ -26,5 +37,12 @@
 @property (nonatomic) CGRect popupRect;
 
 - (IBAction)onToggle:(id)sender;
+- (IBAction)onHome:(id)sender;
+- (IBAction)onRecords:(id)sender;
+- (IBAction)onMap:(id)sender;
+- (IBAction)onConfig:(id)sender;
+- (IBAction)onHelp:(id)sender;
+
+
 
 @end

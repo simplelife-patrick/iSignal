@@ -8,7 +8,7 @@
 
 #import "ISLiteConfigViewController.h"
 
-#import "SwitchViewController.h"
+#import "ISSwitchViewController.h"
 
 @implementation ISLiteConfigViewController
 

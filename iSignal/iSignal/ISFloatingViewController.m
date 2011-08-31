@@ -13,6 +13,12 @@
 // Manual Codes Begin
 
 @synthesize toggleButton;
+@synthesize homeButton;
+@synthesize recordsButton;
+@synthesize mapButton;
+@synthesize configButton;
+@synthesize helpButton;
+
 @synthesize isViewRected;
 
 @synthesize retractRect;
@@ -21,6 +27,12 @@
 - (void)dealloc 
 {
     [toggleButton release];
+    [homeButton release];
+    [recordsButton release];
+    [mapButton release];
+    [onMap release];
+    [configButton release];
+    [helpButton release];
     [super dealloc];
 }
 
@@ -38,6 +50,31 @@
     }
     
     self.isViewRected = !self.isViewRected;
+}
+
+- (IBAction)onRecords:(id)sender 
+{
+    
+}
+
+- (IBAction)onMap:(id)sender 
+{
+    
+}
+
+- (IBAction)onConfig:(id)sender 
+{
+    
+}
+
+- (IBAction)onHelp:(id)sender 
+{
+    
+}
+
+- (IBAction)onHome:(id)sender 
+{
+    
 }
 
 // Manual Codes End
@@ -70,6 +107,11 @@
 - (void)viewDidUnload
 {
     [self setToggleButton:nil];
+    [self setHomeButton:nil];
+    [self setRecordsButton:nil];
+    [self setMapButton:nil];
+    [self setConfigButton:nil];
+    [self setHelpButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
