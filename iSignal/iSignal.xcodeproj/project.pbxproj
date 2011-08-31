@@ -90,6 +90,7 @@
 		C5B66184140CFE92000B1F74 /* ISLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLocationDelegate.h; sourceTree = "<group>"; };
 		C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLocationDelegate.m; sourceTree = "<group>"; };
 		C5B66188140D0249000B1F74 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C5B6618E140E2CDB000B1F74 /* CBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBModule.h; sourceTree = "<group>"; };
 		C5B758211401E485004A051E /* ISUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUIUtils.h; sourceTree = "<group>"; };
 		C5B758221401E485004A051E /* ISUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 				C514FE2D140B75F200FF0857 /* FloatingViewController.xib */,
 				C5B66184140CFE92000B1F74 /* ISLocationDelegate.h */,
 				C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */,
+				C5B6618E140E2CDB000B1F74 /* CBModule.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -241,7 +243,6 @@
 		C5CD42B713FF8826009C5741 = {
 			isa = PBXGroup;
 			children = (
-				C5B66188140D0249000B1F74 /* CoreLocation.framework */,
 				C5CD42CE13FF8826009C5741 /* iSignal */,
 				C5CD42C513FF8826009C5741 /* Frameworks */,
 				C5CD42C313FF8826009C5741 /* Products */,
@@ -259,6 +260,7 @@
 		C5CD42C513FF8826009C5741 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5B66188140D0249000B1F74 /* CoreLocation.framework */,
 				C569E3BF14068B7F00BE938D /* AudioToolbox.framework */,
 				C569E3BC14068B7700BE938D /* AVFoundation.framework */,
 				C5CD42C613FF8826009C5741 /* UIKit.framework */,

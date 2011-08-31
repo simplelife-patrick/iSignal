@@ -12,6 +12,8 @@
 
 #import "ISCallbackDelegate.h"
 
+#import "CBModule.h"
+
 #define CARRIER_CMCC 0
 #define CARRIER_CUNI 1
 
@@ -22,7 +24,7 @@
 #define REFRESH_PERIOD_SMALL 1
 #define REFRESH_PERIOD_LONG 5
 
-@interface ISDummyTelephony : NSObject
+@interface ISDummyTelephony : NSObject <CBModule>
 {
     id<ISCallbackDelegate> callbackDelegate;
     NSThread *signalMonitorThread;
@@ -40,8 +42,5 @@
 +(NSString*) randomCarrier;
 +(NSInteger) randomSignalStrength;
 +(NSArray*) getCarrierList;
-
--(void) startToService;
--(void) stopFromService;
 
 @end
