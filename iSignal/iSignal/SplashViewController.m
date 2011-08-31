@@ -73,7 +73,7 @@ static CGRect s_floatingView_popup;
 - (void) finishedFadingSplashScreen
 {
 	[splashImageView removeFromSuperview];
-    UIWindow* window = [ISUIUtils getWindow:self.view];
+    UIWindow* window = [CBUIUtils getWindow:self.view];
     if(nil != window)
     {
         [self.view removeFromSuperview];

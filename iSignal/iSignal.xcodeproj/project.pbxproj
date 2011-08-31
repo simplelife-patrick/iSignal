@@ -33,7 +33,7 @@
 		C591DDC41407846600CB2C63 /* Star32Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC31407846600CB2C63 /* Star32Highlight.png */; };
 		C5B66186140CFE92000B1F74 /* ISLocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */; };
 		C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B66188140D0249000B1F74 /* CoreLocation.framework */; };
-		C5B758231401E485004A051E /* ISUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* ISUIUtils.m */; };
+		C5B758231401E485004A051E /* CBUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* CBUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* SwitchViewController.m */; };
 		C5BAED86140153B100141ED7 /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BAED84140153B100141ED7 /* SwitchViewController.xib */; };
 		C5BEB01B1400C32F0083A86A /* ISLiteHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BEB0191400C32F0083A86A /* ISLiteHelpViewController.m */; };
@@ -91,8 +91,8 @@
 		C5B66185140CFE92000B1F74 /* ISLocationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLocationDelegate.m; sourceTree = "<group>"; };
 		C5B66188140D0249000B1F74 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5B6618E140E2CDB000B1F74 /* CBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBModule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		C5B758211401E485004A051E /* ISUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUIUtils.h; sourceTree = "<group>"; };
-		C5B758221401E485004A051E /* ISUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUIUtils.m; sourceTree = "<group>"; };
+		C5B758211401E485004A051E /* CBUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CBUIUtils.h; sourceTree = "<group>"; };
+		C5B758221401E485004A051E /* CBUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		C5BAED83140153B100141ED7 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		C5BAED84140153B100141ED7 /* SwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 			children = (
 				C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */,
 				C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */,
-				C5B758211401E485004A051E /* ISUIUtils.h */,
-				C5B758221401E485004A051E /* ISUIUtils.m */,
+				C5B758211401E485004A051E /* CBUIUtils.h */,
+				C5B758221401E485004A051E /* CBUIUtils.m */,
 				C5882A8A140240F900EC29A6 /* GlobalSettings.h */,
 				C5882A8B140240F900EC29A6 /* GlobalSettings.m */,
 				C5882A9914032D4600EC29A6 /* ISCallbackDelegate.h */,
@@ -404,7 +404,7 @@
 				C57329C814009A2F0061D973 /* ISLiteConfigViewController.m in Sources */,
 				C5BEB01B1400C32F0083A86A /* ISLiteHelpViewController.m in Sources */,
 				C5BAED85140153B100141ED7 /* SwitchViewController.m in Sources */,
-				C5B758231401E485004A051E /* ISUIUtils.m in Sources */,
+				C5B758231401E485004A051E /* CBUIUtils.m in Sources */,
 				C5882A8C140240F900EC29A6 /* GlobalSettings.m in Sources */,
 				C5882A9C14032E9D00EC29A6 /* ISDummyTelephony.m in Sources */,
 				C573E5A6140355BF00BB24B3 /* ISMathUtils.m in Sources */,

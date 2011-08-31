@@ -14,7 +14,7 @@
     #import <CoreData/CoreData.h>
 
     #import "ISLog.h"
-    #import "ISUIUtils.h"
+    #import "CBUIUtils.h"
     #import "ISAppConfigs.h"
     #import "GlobalSettings.h"
 #endif
