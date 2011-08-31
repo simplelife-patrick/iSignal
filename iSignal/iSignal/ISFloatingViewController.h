@@ -11,7 +11,7 @@
 @interface ISFloatingViewController : UIViewController
 {
     UIButton *toggleButton;
-
+    
     BOOL isViewRetracted;
     
     CGRect retractRect;

@@ -6,9 +6,9 @@
 //  Copyright 2011 CodeBeaver. All rights reserved.
 //
 
-#import "ISFloatingViewController.h"
+#import "FloatingViewController.h"
 
-@implementation ISFloatingViewController
+@implementation FloatingViewController
 
 // Manual Codes Begin
 
