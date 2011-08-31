@@ -8,7 +8,7 @@
 
 #import "ISDummyTelephony.h"
 
-#import "ISMathUtils.h"
+#import "CBMathUtils.h"
 
 @implementation ISDummyTelephony
 
@@ -43,7 +43,7 @@ static NSArray* CARRIER_LIST;
 {
     NSInteger min = CARRIER_CMCC;
     NSInteger max = CARRIER_CUNI;
-    NSInteger arrayIndex = [ISMathUtils generateRandomNSInteger:min andMax:max];
+    NSInteger arrayIndex = [CBMathUtils generateRandomNSInteger:min andMax:max];
     NSArray *carrierArray = [ISDummyTelephony getCarrierList];
     NSString* carrierVal = [carrierArray objectAtIndex:arrayIndex];
     
@@ -56,7 +56,7 @@ static NSArray* CARRIER_LIST;
     NSInteger loss = CELLULAR_SIGNAL_STRENGTH_LOSS;
     NSInteger low = CELLULAR_SIGNAL_STRENGTH_LOWEST;
     NSInteger high = CELLULAR_SIGNAL_STRENGTH_HIGHEST;
-    NSInteger signalVal = [ISMathUtils generateRandomNSInteger:(low - loss) andMax:high];
+    NSInteger signalVal = [CBMathUtils generateRandomNSInteger:(low - loss) andMax:high];
     
     DLog(@"Random signal srength is generated: %d", signalVal);
     return signalVal;
@@ -88,7 +88,7 @@ static NSArray* CARRIER_LIST;
     {
         [self refreshSignalStrength];
         // Here current thread need to sleep for a small period
-        NSInteger interval = [ISMathUtils generateRandomNSInteger:REFRESH_PERIOD_SMALL andMax:REFRESH_PERIOD_LONG];
+        NSInteger interval = [CBMathUtils generateRandomNSInteger:REFRESH_PERIOD_SMALL andMax:REFRESH_PERIOD_LONG];
         [NSThread sleepForTimeInterval:interval];
     }
     [serviceThreadPool release];
