@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ISUIUtils.h"
+#import "CBUIUtils.h"
 
 @interface ISLiteHelpViewController : UIViewController 
 {

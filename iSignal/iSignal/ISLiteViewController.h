@@ -10,7 +10,7 @@
 
 #import <CoreFoundation/CoreFoundation.h>
 
-#import "ISUIUtils.h"
+#import "CBUIUtils.h"
 
 #import "ISCallbackDelegate.h"
 #import "ISDummyTelephony.h"
