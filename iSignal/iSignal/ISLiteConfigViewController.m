@@ -8,7 +8,7 @@
 
 #import "ISLiteConfigViewController.h"
 
-#import "SwitchViewController.h"
+#import "ISSwitchViewController.h"
 
 @implementation ISLiteConfigViewController
 
@@ -43,7 +43,7 @@
 //    cell.textLabel.text = [self.configItemArray objectAtIndex: [indexPath row]];
     
     static NSString *CustomCellIdentifier = @"CustomCellIdentifier";
-    ConfigSwitcherCell *cell = (ConfigSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
+    ISConfigSwitcherCell *cell = (ISConfigSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
     if (nil == cell) 
     {  
         NSBundle *mainBundle = [NSBundle mainBundle];

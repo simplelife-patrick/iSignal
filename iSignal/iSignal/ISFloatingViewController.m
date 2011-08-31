@@ -1,33 +1,43 @@
 //
-//  ISLiteHelpViewController.m
+//  ISFloatingViewController.m
 //  iSignal
 //
-//  Created by Patrick Deng on 11-8-21.
+//  Created by Patrick Deng on 11-8-29.
 //  Copyright 2011 CodeBeaver. All rights reserved.
 //
 
-#import "ISLiteHelpViewController.h"
+#import "ISFloatingViewController.h"
 
-#import "ISSwitchViewController.h"
-
-@implementation ISLiteHelpViewController
+@implementation ISFloatingViewController
 
 // Manual Codes Begin
 
-@synthesize textView;
+@synthesize toggleButton;
+@synthesize isViewRected;
+
+@synthesize retractRect;
+@synthesize popupRect;
 
 - (void)dealloc 
 {
-    [textView release];
+    [toggleButton release];
     [super dealloc];
 }
 
-- (void)viewDidUnload
+-(IBAction)onToggle:(id)sender
 {
-    [self setTextView:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    if(self.isViewRected)
+    {
+        DLog(@"Floating view is in rect state");
+        self.view.frame = self.popupRect;
+    }
+    else
+    {
+        DLog(@"Floating view is in popup state");
+        self.view.frame = self.retractRect;
+    }
+    
+    self.isViewRected = !self.isViewRected;
 }
 
 // Manual Codes End
@@ -55,7 +65,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.textView setText:NSLocalizedString(@"STR_HELP_INRO", nil)];
+}
+
+- (void)viewDidUnload
+{
+    [self setToggleButton:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
