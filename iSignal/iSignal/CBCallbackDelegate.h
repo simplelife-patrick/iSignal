@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol 
-<NSObject>
+@protocol CBCallbackDelegate <NSObject>
 
 -(void) messageCallback:(id) message;
 
