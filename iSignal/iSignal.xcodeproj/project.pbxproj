@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = C5027274140A2BA40013175B /* ISAppConfigs.m */; };
+		C5027275140A2BA40013175B /* CBAppConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = C5027274140A2BA40013175B /* CBAppConfigs.m */; };
 		C50F9D6B1409E44B000589BB /* iSignal.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDBD1407810700CB2C63 /* iSignal.png */; };
 		C50F9D6C1409E450000589BB /* iSignalX2.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDBE1407810700CB2C63 /* iSignalX2.png */; };
 		C514FE2E140B75F200FF0857 /* FloatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C514FE2C140B75F200FF0857 /* FloatingViewController.m */; };
@@ -50,8 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C5027274140A2BA40013175B /* ISAppConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ISAppConfigs.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C50F9D75140A1FA9000589BB /* ISAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISAppConfigs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5027274140A2BA40013175B /* CBAppConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBAppConfigs.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C50F9D75140A1FA9000589BB /* CBAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBAppConfigs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C514FE2B140B75F200FF0857 /* FloatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FloatingViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C514FE2C140B75F200FF0857 /* FloatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FloatingViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C514FE2D140B75F200FF0857 /* FloatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingViewController.xib; sourceTree = "<group>"; };
@@ -157,11 +157,8 @@
 				C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */,
 				C573E5A4140355BF00BB24B3 /* CBMathUtils.h */,
 				C573E5A5140355BF00BB24B3 /* CBMathUtils.m */,
-				C547B44A1409D3690037B63F /* ConfigSwitcherCell.h */,
-				C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */,
-				C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */,
-				C50F9D75140A1FA9000589BB /* ISAppConfigs.h */,
-				C5027274140A2BA40013175B /* ISAppConfigs.m */,
+				C50F9D75140A1FA9000589BB /* CBAppConfigs.h */,
+				C5027274140A2BA40013175B /* CBAppConfigs.m */,
 				C514FE2B140B75F200FF0857 /* FloatingViewController.h */,
 				C514FE2C140B75F200FF0857 /* FloatingViewController.m */,
 				C514FE2D140B75F200FF0857 /* FloatingViewController.xib */,
@@ -190,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */,
+				C547B44B1409D3690037B63F /* ConfigSwitcherCell.m */,
 				C5BAED83140153B100141ED7 /* SwitchViewController.m */,
 				C57329C1140096B40061D973 /* ISLiteViewController.m */,
 				C5BEB0191400C32F0083A86A /* ISLiteHelpViewController.m */,
@@ -260,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				C5882A9A14032E9D00EC29A6 /* ISDummyTelephony.h */,
+				C547B44A1409D3690037B63F /* ConfigSwitcherCell.h */,
 				C5BAED82140153B100141ED7 /* SwitchViewController.h */,
 				C57329C0140096B40061D973 /* ISLiteViewController.h */,
 				C5BEB0181400C32F0083A86A /* ISLiteHelpViewController.h */,
@@ -271,6 +270,7 @@
 		C5CD42E613FF8879009C5741 /* UI Files */ = {
 			isa = PBXGroup;
 			children = (
+				C547B44E1409D3C70037B63F /* ConfigSwitcherCell.xib */,
 				C5BAED84140153B100141ED7 /* SwitchViewController.xib */,
 				C57329C2140096B40061D973 /* ISLiteViewController.xib */,
 				C5BEB01A1400C32F0083A86A /* ISLiteHelpViewController.xib */,
@@ -371,7 +371,7 @@
 				C52D7C991406481F00B7B0DA /* CBTelephonyUtils.m in Sources */,
 				C569E3DC14072B5B00BE938D /* SplashViewController.m in Sources */,
 				C547B44C1409D3690037B63F /* ConfigSwitcherCell.m in Sources */,
-				C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */,
+				C5027275140A2BA40013175B /* CBAppConfigs.m in Sources */,
 				C514FE2E140B75F200FF0857 /* FloatingViewController.m in Sources */,
 				C5B66186140CFE92000B1F74 /* ISLocationDelegate.m in Sources */,
 			);

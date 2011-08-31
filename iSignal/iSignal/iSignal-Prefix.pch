@@ -15,6 +15,6 @@
 
     #import "CBLog.h"
     #import "CBUIUtils.h"
-    #import "ISAppConfigs.h"
+    #import "CBAppConfigs.h"
     #import "CBEnvironmentUtils.h"
 #endif

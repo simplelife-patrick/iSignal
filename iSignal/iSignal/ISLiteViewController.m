@@ -122,14 +122,14 @@
             DLog(@"Translate received signal strength: %d to text: %@", intVal, strVal);
             
             // TODO: Here should be different listeners which are used to observer signal changed.
-            BOOL ringAlarmOn = [ISAppConfigs isRingAlarmOn];
+            BOOL ringAlarmOn = [CBAppConfigs isRingAlarmOn];
             DLog(@"App config of ring alarm is %@.", ringAlarmOn?@"YES":@"NO");
             if(ringAlarmOn)
             {
                 [self.audioPlayer play];                
             }
             
-            BOOL vibrateAlarmOn = [ISAppConfigs isVibrateAlarmOn];
+            BOOL vibrateAlarmOn = [CBAppConfigs isVibrateAlarmOn];
             DLog(@"App config of vibrate alarm is %@.", vibrateAlarmOn?@"YES":@"NO"); 
             if(vibrateAlarmOn)
             {
