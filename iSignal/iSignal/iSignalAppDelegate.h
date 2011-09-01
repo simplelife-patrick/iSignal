@@ -9,18 +9,25 @@
 #import <UIKit/UIKit.h>
 
 #import "ISSplashViewController.h"
+#import "ISDummyTelephony.h"
 
 @interface iSignalAppDelegate : NSObject <UIApplicationDelegate>
-
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-
-@property (nonatomic, retain) IBOutlet ISSplashViewController *splashViewController;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+// Manual Codes Begin
+
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+
+@property (nonatomic, retain) IBOutlet ISSplashViewController *splashViewController;
+
+@property (nonatomic, retain) ISDummyTelephony* dummnyTelephonyModule;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+// Manual Codes End
 
 @end

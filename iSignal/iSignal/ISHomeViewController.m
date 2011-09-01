@@ -173,13 +173,11 @@
     
     // TODO: Multiple delegates should be supported here as notification will be sent to places inlcuding UIView, Sounds and Vibration, etc.
     
-    // Dummny Telephony module is initializing
-    ISDummyTelephony *dummyTelephony = [[ISDummyTelephony alloc] init];
-    [dummyTelephony setCallbackDelegate:self];
-    [self.carrierLabel setText:dummyTelephony.carrier];
+    // Load data from ISDummyTelephony module
+    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+    [appDelegate.dummnyTelephonyModule setCallbackDelegate:self]; // Register callback delegate to module
+    [self.carrierLabel setText:appDelegate.dummnyTelephonyModule.carrier];
     [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
-    [dummyTelephony startService];
-    [dummyTelephony release];
     
     // Audioplayer is initializing
     if (audioPlayer) 
