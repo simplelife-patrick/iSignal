@@ -20,6 +20,8 @@
 		C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BF14068B7F00BE938D /* AudioToolbox.framework */; };
 		C569E3DC14072B5B00BE938D /* ISSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C569E3DA14072B5B00BE938D /* ISSplashViewController.m */; };
 		C569E3DD14072B5B00BE938D /* ISSplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */; };
+		C571BFAA140F8FDC0099519D /* ISRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C571BFA8140F8FDC0099519D /* ISRecordsViewController.m */; };
+		C571BFAB140F8FDC0099519D /* ISRecordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C571BFA9140F8FDC0099519D /* ISRecordsViewController.xib */; };
 		C572065A140E602C00FD108F /* ISConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5720659140E602C00FD108F /* ISConfigViewController.m */; };
 		C572066A140E60DA00FD108F /* ISFloatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5720665140E60D900FD108F /* ISFloatingViewController.xib */; };
 		C572066B140E60DA00FD108F /* ISFloatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5720666140E60D900FD108F /* ISFloatingViewController.m */; };
@@ -69,6 +71,9 @@
 		C569E3D914072B5B00BE938D /* ISSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSplashViewController.h; sourceTree = "<group>"; };
 		C569E3DA14072B5B00BE938D /* ISSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSplashViewController.m; sourceTree = "<group>"; };
 		C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSplashViewController.xib; sourceTree = "<group>"; };
+		C571BFA7140F8FDC0099519D /* ISRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISRecordsViewController.h; path = ../ISRecordsViewController.h; sourceTree = "<group>"; };
+		C571BFA8140F8FDC0099519D /* ISRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISRecordsViewController.m; path = ../ISRecordsViewController.m; sourceTree = "<group>"; };
+		C571BFA9140F8FDC0099519D /* ISRecordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ISRecordsViewController.xib; path = ../ISRecordsViewController.xib; sourceTree = "<group>"; };
 		C5720659140E602C00FD108F /* ISConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISConfigViewController.m; sourceTree = "<group>"; };
 		C5720665140E60D900FD108F /* ISFloatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISFloatingViewController.xib; sourceTree = "<group>"; };
 		C5720666140E60D900FD108F /* ISFloatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISFloatingViewController.m; sourceTree = "<group>"; };
@@ -188,6 +193,7 @@
 				C5BEB0191400C32F0083A86A /* ISHelpViewController.m */,
 				C569E3DA14072B5B00BE938D /* ISSplashViewController.m */,
 				C540250C140F74CD0047ABE3 /* ISMapViewController.m */,
+				C571BFA8140F8FDC0099519D /* ISRecordsViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -254,15 +260,16 @@
 			isa = PBXGroup;
 			children = (
 				C5CD42D713FF8826009C5741 /* iSignalAppDelegate.h */,
-				C5720667140E60DA00FD108F /* ISFloatingViewController.h */,
-				C5882A9A14032E9D00EC29A6 /* ISDummyTelephony.h */,
 				C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */,
+				C5882A9A14032E9D00EC29A6 /* ISDummyTelephony.h */,
+				C5720667140E60DA00FD108F /* ISFloatingViewController.h */,
 				C5BAED82140153B100141ED7 /* ISSwitchViewController.h */,
 				C57329C0140096B40061D973 /* ISHomeViewController.h */,
 				C5BEB0181400C32F0083A86A /* ISHelpViewController.h */,
 				C57329C514009A2F0061D973 /* ISConfigViewController.h */,
 				C569E3D914072B5B00BE938D /* ISSplashViewController.h */,
 				C540250B140F74CD0047ABE3 /* ISMapViewController.h */,
+				C571BFA7140F8FDC0099519D /* ISRecordsViewController.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 				C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */,
 				C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */,
 				C540250D140F74CD0047ABE3 /* ISMapViewController.xib */,
+				C571BFA9140F8FDC0099519D /* ISRecordsViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -352,6 +360,7 @@
 				C572066A140E60DA00FD108F /* ISFloatingViewController.xib in Resources */,
 				C572066D140E66DD00FD108F /* ISSwitchViewController.xib in Resources */,
 				C540250F140F74CD0047ABE3 /* ISMapViewController.xib in Resources */,
+				C571BFAB140F8FDC0099519D /* ISRecordsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +389,7 @@
 				C572065A140E602C00FD108F /* ISConfigViewController.m in Sources */,
 				C572066B140E60DA00FD108F /* ISFloatingViewController.m in Sources */,
 				C540250E140F74CD0047ABE3 /* ISMapViewController.m in Sources */,
+				C571BFAA140F8FDC0099519D /* ISRecordsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
