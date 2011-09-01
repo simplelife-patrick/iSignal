@@ -11,20 +11,6 @@
 #import "ISSwitchViewController.h"
 
 @interface ISFloatingViewController : UIViewController
-{
-    UIButton *toggleButton;
-    UIButton *homeButton;
-    UIButton *recordsButton;
-    UIButton *mapButton;
-    UIButton *configButton;
-    UIButton *helpButton;
-    
-    BOOL isViewRetracted;
-    
-    CGRect retractRect;
-    CGRect popupRect;
-    UIButton *onMap;
-}
 
 @property (nonatomic, retain) IBOutlet UIButton *toggleButton;
 @property (nonatomic, retain) IBOutlet UIButton *homeButton;

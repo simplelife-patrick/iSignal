@@ -30,7 +30,6 @@
     [homeButton release];
     [recordsButton release];
     [mapButton release];
-    [onMap release];
     [configButton release];
     [helpButton release];
     [super dealloc];
