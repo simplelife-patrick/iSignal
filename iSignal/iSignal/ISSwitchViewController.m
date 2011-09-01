@@ -168,12 +168,6 @@
 - (void)viewDidLoad
 {
     // Do any additional setup after loading the view from its nib.
-    [self.homeViewController.view setTag:TAG_HOMEVIEW];
-    [self.helpViewController.view setTag:TAG_HELPVIEW];
-//    [self.configViewController.view setTag:TAG_CONFIGVIEW];
-//    [self.mapViewController.view setTag:TAG_MAPVIEW];
-//    [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
-    
     [self lazyLoadView:TAG_HOMEVIEW];
     [super viewDidLoad];
 }
