@@ -25,11 +25,6 @@
 #define MODULE_IDENTITY_DUMMYTEPLEPHONY @"DummyTelephony"
 
 @interface ISDummyTelephony : NSObject <CBModule>
-{
-    NSInteger signalStrength;
-    NSString *carrier;
-    BOOL keepAlive;
-}
 
 @property (nonatomic, retain) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;
