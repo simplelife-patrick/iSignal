@@ -47,6 +47,7 @@
 		C5CD42D913FF8826009C5741 /* iSignalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */; };
 		C5CD42DC13FF8826009C5741 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5CD42DA13FF8826009C5741 /* MainWindow.xib */; };
 		C5CD42DF13FF8826009C5741 /* iSignal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */; };
+		C5E6C8BC140F2D9400D81647 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E6C8BB140F2D9400D81647 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSignalAppDelegate.m; sourceTree = "<group>"; };
 		C5CD42DB13FF8826009C5741 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		C5CD42DE13FF8826009C5741 /* iSignal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSignal.xcdatamodel; sourceTree = "<group>"; };
+		C5E6C8BB140F2D9400D81647 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E6C8BC140F2D9400D81647 /* MapKit.framework in Frameworks */,
 				C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */,
 				C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */,
 				C569E3BD14068B7700BE938D /* AVFoundation.framework in Frameworks */,
@@ -203,6 +206,7 @@
 		C5CD42C513FF8826009C5741 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5E6C8BB140F2D9400D81647 /* MapKit.framework */,
 				C5B66188140D0249000B1F74 /* CoreLocation.framework */,
 				C569E3BF14068B7F00BE938D /* AudioToolbox.framework */,
 				C569E3BC14068B7700BE938D /* AVFoundation.framework */,
