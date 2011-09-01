@@ -20,11 +20,13 @@
 @synthesize splashViewController;
 
 @synthesize dummnyTelephonyModule;
+@synthesize locationMoudle;
 
 - (void)dealloc
 {
     [self.splashViewController release];
     [self.dummnyTelephonyModule release];
+    [self.locationMoudle release];
     
     [_window release];
     [__managedObjectContext release];
@@ -43,6 +45,10 @@
     // ISDummyTelephony module start
     self.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];
     [self.dummnyTelephonyModule startService];
+    
+    // Location module start
+    self.locationMoudle = [[CBLocationDelegate alloc] init];
+    [self.locationMoudle startService];
     
     // UI load
     [self.window addSubview:splashViewController.view];

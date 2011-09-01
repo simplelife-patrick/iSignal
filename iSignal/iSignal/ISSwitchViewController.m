@@ -77,12 +77,30 @@
         }
         case TAG_MAPVIEW:
         {
-            // TODO:
+            if (nil == self.mapViewController)
+            {
+                ISMapViewController *viewController = [[ISMapViewController alloc] initWithNibName:NIB_MAPVIEW_CONTROLLER bundle:nil];
+                [viewController.view setTag:TAG_MAPVIEW];
+                self.mapViewController = viewController;
+                [viewController release];
+                DLog(@"View: %d and its controller are initialized", viewTag);
+            }
+            [self.view addSubview:self.mapViewController.view];
+            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         case TAG_RECORDSVIEW:
         {
-            // TODO:
+            if (nil == self.recordsViewController)
+            {
+                ISRecordsViewController *viewController = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
+                [viewController.view setTag:TAG_RECORDSVIEW];
+                self.recordsViewController = viewController;
+                [viewController release];
+                DLog(@"View: %d and its controller are initialized", viewTag);
+            }
+            [self.view addSubview:self.recordsViewController.view];
+            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         default:
