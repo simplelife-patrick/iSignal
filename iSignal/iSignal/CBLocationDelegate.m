@@ -235,7 +235,7 @@
     NSAutoreleasePool *serviceThreadPool = [[NSAutoreleasePool alloc] init];
     
     [self initLocationManagerIfNecessary];
-    while (self.keepAlive && (nil != self.callbackDelegate)) 
+    while (self.keepAlive) 
     {
         switch (self.workMode) 
         {

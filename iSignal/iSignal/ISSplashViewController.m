@@ -31,6 +31,9 @@ static CGRect s_floatingView_popup;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // App Configs init
+    [CBAppConfigs initConfigsIfNecessary];    
+    
     // Init floatingViewController
     [self.floatingViewController setIsViewRected:TRUE];
     [self.floatingViewController setPopupRect:s_floatingView_popup];
@@ -85,7 +88,17 @@ static CGRect s_floatingView_popup;
 - (void) loadAnyNecessaryStuff
 {
     DLog(@"Start to load anything necessary for this app.");
-    // TODO:
+
+    // All CBModules should start here
+    // ISDummyTelephony module start
+    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+    appDelegate.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];
+    [appDelegate.dummnyTelephonyModule startService];
+    
+    // Location module start
+    appDelegate.locationMoudle = [[CBLocationDelegate alloc] init];
+    [appDelegate.locationMoudle startService];
+    
     DLog(@"Finished the load operation.");
     // Switch back to Splash UI
     [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:NO];

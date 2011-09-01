@@ -38,17 +38,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-
-    // App Configs init
-    [CBAppConfigs initConfigsIfNecessary];
-    
-    // ISDummyTelephony module start
-    self.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];
-    [self.dummnyTelephonyModule startService];
-    
-    // Location module start
-    self.locationMoudle = [[CBLocationDelegate alloc] init];
-    [self.locationMoudle startService];
     
     // UI load
     [self.window addSubview:splashViewController.view];
