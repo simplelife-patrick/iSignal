@@ -10,7 +10,7 @@
 
 @implementation ISSwitchViewController
 
-@synthesize isLiteViewController;
+@synthesize isHomeViewController;
 @synthesize isLiteConfigViewController;
 @synthesize isLiteHelpViewController;
 
@@ -18,7 +18,7 @@
 
 - (void)dealloc 
 {
-    [isLiteViewController release];
+    [isHomeViewController release];
     [isLiteHelpViewController release];
     [isLiteConfigViewController release];
     
@@ -30,17 +30,17 @@
     DLog(@"Lazy load view: %d", viewTag);
     switch (viewTag) 
     {
-        case TAG_LITE_VIEW:
+        case TAG_HOMEVIEW:
         {
-            if (nil == self.isLiteViewController)
+            if (nil == self.isHomeViewController)
             {
-                ISLiteViewController *liteViewController = [[ISLiteViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
-                [liteViewController.view setTag:TAG_LITE_VIEW];
-                self.isLiteViewController = liteViewController;
+                ISHomeViewController *liteViewController = [[ISHomeViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
+                [liteViewController.view setTag:TAG_HOMEVIEW];
+                self.isHomeViewController = liteViewController;
                 [liteViewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
             }
-            [self.view addSubview:self.isLiteViewController.view];
+            [self.view addSubview:self.isHomeViewController.view];
             DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
@@ -125,10 +125,10 @@
 {
     switch (viewTag) 
     {
-        case TAG_LITE_VIEW:
+        case TAG_HOMEVIEW:
         {
-            [self lazyLoadView:TAG_LITE_VIEW];
-            [self reorganizeSubViews:TAG_LITE_VIEW];
+            [self lazyLoadView:TAG_HOMEVIEW];
+            [self reorganizeSubViews:TAG_HOMEVIEW];
             break;
         }
         case TAG_LITEHELP_VIEW:
@@ -186,13 +186,13 @@
 - (void)viewDidLoad
 {
     // Do any additional setup after loading the view from its nib.
-    [self lazyLoadView:TAG_LITE_VIEW];
+    [self lazyLoadView:TAG_HOMEVIEW];
     [super viewDidLoad];
 }
 
 - (void)viewDidUnload
 {
-    [self setIsLiteViewController:nil];
+    [self setIsHomeViewController:nil];
     [self setIsLiteHelpViewController:nil];
     [self setIsLiteConfigViewController:nil];
     [super viewDidUnload];

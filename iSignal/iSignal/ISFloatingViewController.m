@@ -78,7 +78,7 @@
 - (IBAction)onHome:(id)sender 
 {
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.splashViewController.switchViewController switchView: TAG_LITE_VIEW];    
+    [appDelegate.splashViewController.switchViewController switchView: TAG_HOMEVIEW];    
 }
 
 // Manual Codes End
