@@ -84,7 +84,7 @@ static NSArray* CARRIER_LIST;
 {
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
     NSAutoreleasePool *serviceThreadPool = [[NSAutoreleasePool alloc] init];
-    while (self.keepAlive && (nil != self.callbackDelegate)) 
+    while (self.keepAlive) 
     {
         [self refreshSignalStrength];
         // Here current thread need to sleep for a small period
