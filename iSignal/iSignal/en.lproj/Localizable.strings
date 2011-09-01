@@ -13,4 +13,4 @@ STR_SIGNALGRADE = "QUALITY";
 STR_CONFIG = "Config";
 STR_RING = "Ring";
 STR_VIBRATE = "Vibrate";
-STR_HELP_INRO = "iSignal is an application which can be used for your iPhone cellular signal monitor and alarm. Once your iPhone lost signal kinds of alarms including ring, vibrate and so on will be sent out. By using it you can be very clear about when and where the cellular signal of your carrier is out of service. Please keep it running in foreground if you want to get real-time signal monitor and alarm.";
+STR_HELP_INFO = "iSignal is an application which can be used for your iPhone cellular signal monitor and alarm. Once your iPhone lost signal kinds of alarms including ring, vibrate and so on will be sent out. By using it you can be very clear about when and where the cellular signal of your carrier is out of service. Please keep it running in foreground if you want to get real-time signal monitor and alarm.";

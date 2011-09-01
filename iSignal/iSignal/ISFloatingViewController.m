@@ -72,7 +72,7 @@
 - (IBAction)onHelp:(id)sender 
 {
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.splashViewController.switchViewController switchView: TAG_LITEHELP_VIEW];    
+    [appDelegate.splashViewController.switchViewController switchView: TAG_HELPVIEW];    
 }
 
 - (IBAction)onHome:(id)sender 

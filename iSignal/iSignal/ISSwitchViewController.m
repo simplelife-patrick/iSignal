@@ -10,16 +10,16 @@
 
 @implementation ISSwitchViewController
 
-@synthesize isHomeViewController;
+@synthesize homeViewController;
 @synthesize isLiteConfigViewController;
-@synthesize isLiteHelpViewController;
+@synthesize helpViewController;
 
 // Manual Codes Begins
 
 - (void)dealloc 
 {
-    [isHomeViewController release];
-    [isLiteHelpViewController release];
+    [homeViewController release];
+    [helpViewController release];
     [isLiteConfigViewController release];
     
     [super dealloc];
@@ -32,29 +32,29 @@
     {
         case TAG_HOMEVIEW:
         {
-            if (nil == self.isHomeViewController)
+            if (nil == self.homeViewController)
             {
-                ISHomeViewController *liteViewController = [[ISHomeViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
-                [liteViewController.view setTag:TAG_HOMEVIEW];
-                self.isHomeViewController = liteViewController;
-                [liteViewController release];
+                ISHomeViewController *viewController = [[ISHomeViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
+                [viewController.view setTag:TAG_HOMEVIEW];
+                self.homeViewController = viewController;
+                [viewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
             }
-            [self.view addSubview:self.isHomeViewController.view];
+            [self.view addSubview:self.homeViewController.view];
             DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
-        case TAG_LITEHELP_VIEW:
+        case TAG_HELPVIEW:
         {
-            if (nil == self.isLiteHelpViewController)
+            if (nil == self.helpViewController)
             {
-                ISLiteHelpViewController *helpViewController = [[ISLiteHelpViewController alloc] initWithNibName:@"ISLiteHelpViewController" bundle:nil];
-                [helpViewController.view setTag:TAG_LITEHELP_VIEW];
-                self.isLiteHelpViewController = helpViewController;
-                [helpViewController release];
+                ISHelpViewController *viewController = [[ISHelpViewController alloc] initWithNibName:@"ISHelpViewController" bundle:nil];
+                [self.helpViewController.view setTag:TAG_HELPVIEW];
+                self.helpViewController = viewController;
+                [self.helpViewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
             }
-            [self.view addSubview:self.isLiteHelpViewController.view];
+            [self.view addSubview:self.helpViewController.view];
             DLog(@"View: %d is on the top now.", viewTag);        
             break;
         }
@@ -62,10 +62,10 @@
         {
             if (nil == self.isLiteConfigViewController)
             {
-                ISLiteConfigViewController *configViewController = [[ISLiteConfigViewController alloc] initWithNibName:@"ISLiteConfigViewController" bundle:nil];
-                [configViewController.view setTag:TAG_LITECONFIG_VIEW];
-                self.isLiteConfigViewController = configViewController;
-                [configViewController release];
+                ISLiteConfigViewController *viewController = [[ISLiteConfigViewController alloc] initWithNibName:@"ISLiteConfigViewController" bundle:nil];
+                [viewController.view setTag:TAG_LITECONFIG_VIEW];
+                self.isLiteConfigViewController = viewController;
+                [viewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
             }
             [self.view addSubview:self.isLiteConfigViewController.view];
@@ -131,10 +131,10 @@
             [self reorganizeSubViews:TAG_HOMEVIEW];
             break;
         }
-        case TAG_LITEHELP_VIEW:
+        case TAG_HELPVIEW:
         {
-            [self lazyLoadView:TAG_LITEHELP_VIEW];
-            [self reorganizeSubViews:TAG_LITEHELP_VIEW];
+            [self lazyLoadView:TAG_HELPVIEW];
+            [self reorganizeSubViews:TAG_HELPVIEW];
             break;
         }
         case TAG_LITECONFIG_VIEW:
@@ -192,8 +192,8 @@
 
 - (void)viewDidUnload
 {
-    [self setIsHomeViewController:nil];
-    [self setIsLiteHelpViewController:nil];
+    [self setHomeViewController:nil];
+    [self setHelpViewController:nil];
     [self setIsLiteConfigViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.

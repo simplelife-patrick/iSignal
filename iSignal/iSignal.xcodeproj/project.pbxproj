@@ -38,8 +38,8 @@
 		C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B66188140D0249000B1F74 /* CoreLocation.framework */; };
 		C5B758231401E485004A051E /* CBUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* CBUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* ISSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* ISSwitchViewController.m */; };
-		C5BEB01B1400C32F0083A86A /* ISLiteHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BEB0191400C32F0083A86A /* ISLiteHelpViewController.m */; };
-		C5BEB01C1400C32F0083A86A /* ISLiteHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BEB01A1400C32F0083A86A /* ISLiteHelpViewController.xib */; };
+		C5BEB01B1400C32F0083A86A /* ISHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BEB0191400C32F0083A86A /* ISHelpViewController.m */; };
+		C5BEB01C1400C32F0083A86A /* ISHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */; };
 		C5CD42C713FF8826009C5741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42C613FF8826009C5741 /* UIKit.framework */; };
 		C5CD42C913FF8826009C5741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42C813FF8826009C5741 /* Foundation.framework */; };
 		C5CD42CB13FF8826009C5741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42CA13FF8826009C5741 /* CoreGraphics.framework */; };
@@ -102,9 +102,9 @@
 		C5B758221401E485004A051E /* CBUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* ISSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSwitchViewController.h; sourceTree = "<group>"; };
 		C5BAED83140153B100141ED7 /* ISSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSwitchViewController.m; sourceTree = "<group>"; };
-		C5BEB0181400C32F0083A86A /* ISLiteHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLiteHelpViewController.h; sourceTree = "<group>"; };
-		C5BEB0191400C32F0083A86A /* ISLiteHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLiteHelpViewController.m; sourceTree = "<group>"; };
-		C5BEB01A1400C32F0083A86A /* ISLiteHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISLiteHelpViewController.xib; sourceTree = "<group>"; };
+		C5BEB0181400C32F0083A86A /* ISHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ISHelpViewController.h; sourceTree = "<group>"; };
+		C5BEB0191400C32F0083A86A /* ISHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewController.m; sourceTree = "<group>"; };
+		C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHelpViewController.xib; sourceTree = "<group>"; };
 		C5CD42C213FF8826009C5741 /* iSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CD42C613FF8826009C5741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5CD42C813FF8826009C5741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -185,7 +185,7 @@
 				C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */,
 				C5BAED83140153B100141ED7 /* ISSwitchViewController.m */,
 				C57329C1140096B40061D973 /* ISHomeViewController.m */,
-				C5BEB0191400C32F0083A86A /* ISLiteHelpViewController.m */,
+				C5BEB0191400C32F0083A86A /* ISHelpViewController.m */,
 				C569E3DA14072B5B00BE938D /* ISSplashViewController.m */,
 				C540250C140F74CD0047ABE3 /* ISMapViewController.m */,
 			);
@@ -259,7 +259,7 @@
 				C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */,
 				C5BAED82140153B100141ED7 /* ISSwitchViewController.h */,
 				C57329C0140096B40061D973 /* ISHomeViewController.h */,
-				C5BEB0181400C32F0083A86A /* ISLiteHelpViewController.h */,
+				C5BEB0181400C32F0083A86A /* ISHelpViewController.h */,
 				C57329C514009A2F0061D973 /* ISLiteConfigViewController.h */,
 				C569E3D914072B5B00BE938D /* ISSplashViewController.h */,
 				C540250B140F74CD0047ABE3 /* ISMapViewController.h */,
@@ -275,7 +275,7 @@
 				C5720665140E60D900FD108F /* ISFloatingViewController.xib */,
 				C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */,
 				C57329C2140096B40061D973 /* ISHomeViewController.xib */,
-				C5BEB01A1400C32F0083A86A /* ISLiteHelpViewController.xib */,
+				C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */,
 				C57329C714009A2F0061D973 /* ISLiteConfigViewController.xib */,
 				C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */,
 				C540250D140F74CD0047ABE3 /* ISMapViewController.xib */,
@@ -339,7 +339,7 @@
 				C5CD42DC13FF8826009C5741 /* MainWindow.xib in Resources */,
 				C57329C4140096B40061D973 /* ISHomeViewController.xib in Resources */,
 				C57329C914009A2F0061D973 /* ISLiteConfigViewController.xib in Resources */,
-				C5BEB01C1400C32F0083A86A /* ISLiteHelpViewController.xib in Resources */,
+				C5BEB01C1400C32F0083A86A /* ISHelpViewController.xib in Resources */,
 				C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */,
 				C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */,
 				C569E3DD14072B5B00BE938D /* ISSplashViewController.xib in Resources */,
@@ -366,7 +366,7 @@
 				C5CD42D913FF8826009C5741 /* iSignalAppDelegate.m in Sources */,
 				C5CD42DF13FF8826009C5741 /* iSignal.xcdatamodeld in Sources */,
 				C57329C3140096B40061D973 /* ISHomeViewController.m in Sources */,
-				C5BEB01B1400C32F0083A86A /* ISLiteHelpViewController.m in Sources */,
+				C5BEB01B1400C32F0083A86A /* ISHelpViewController.m in Sources */,
 				C5BAED85140153B100141ED7 /* ISSwitchViewController.m in Sources */,
 				C5B758231401E485004A051E /* CBUIUtils.m in Sources */,
 				C5882A8C140240F900EC29A6 /* CBEnvironmentUtils.m in Sources */,
