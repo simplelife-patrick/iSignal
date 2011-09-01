@@ -20,6 +20,12 @@
 #define TAG_RECORDSVIEW 5
 #define TAG_COUNT_VIEWS 5
 
+#define NIB_HOMEVIEW_CONTROLLER @"ISHomeViewController"
+#define NIB_HELPVIEW_CONTROLLER @"ISHelpViewController"
+#define NIB_CONFIGVIEW_CONTROLLER @"ISConfigViewController"
+#define NIB_MAPVIEW_CONTROLLER @"ISMapViewController"
+#define NIB_RECORDSVIEW_CONTROLLER @"ISRecordsViewController"
+
 @interface ISSwitchViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet ISHomeViewController *homeViewController;

@@ -74,10 +74,10 @@
 		C5720666140E60D900FD108F /* ISFloatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISFloatingViewController.m; sourceTree = "<group>"; };
 		C5720667140E60DA00FD108F /* ISFloatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISFloatingViewController.h; sourceTree = "<group>"; };
 		C572066C140E66DD00FD108F /* ISSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSwitchViewController.xib; sourceTree = "<group>"; };
-		C57329C0140096B40061D973 /* ISHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ISHomeViewController.h; sourceTree = "<group>"; };
+		C57329C0140096B40061D973 /* ISHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHomeViewController.h; sourceTree = "<group>"; };
 		C57329C1140096B40061D973 /* ISHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHomeViewController.m; sourceTree = "<group>"; };
 		C57329C2140096B40061D973 /* ISHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHomeViewController.xib; sourceTree = "<group>"; };
-		C57329C514009A2F0061D973 /* ISConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ISConfigViewController.h; sourceTree = "<group>"; };
+		C57329C514009A2F0061D973 /* ISConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISConfigViewController.h; sourceTree = "<group>"; };
 		C57329C714009A2F0061D973 /* ISConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISConfigViewController.xib; sourceTree = "<group>"; };
 		C573E5A4140355BF00BB24B3 /* CBMathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMathUtils.h; sourceTree = "<group>"; };
 		C573E5A5140355BF00BB24B3 /* CBMathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMathUtils.m; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		C5B758221401E485004A051E /* CBUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* ISSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSwitchViewController.h; sourceTree = "<group>"; };
 		C5BAED83140153B100141ED7 /* ISSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSwitchViewController.m; sourceTree = "<group>"; };
-		C5BEB0181400C32F0083A86A /* ISHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ISHelpViewController.h; sourceTree = "<group>"; };
+		C5BEB0181400C32F0083A86A /* ISHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHelpViewController.h; sourceTree = "<group>"; };
 		C5BEB0191400C32F0083A86A /* ISHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewController.m; sourceTree = "<group>"; };
 		C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHelpViewController.xib; sourceTree = "<group>"; };
 		C5CD42C213FF8826009C5741 /* iSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,8 +275,8 @@
 				C5720665140E60D900FD108F /* ISFloatingViewController.xib */,
 				C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */,
 				C57329C2140096B40061D973 /* ISHomeViewController.xib */,
-				C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */,
 				C57329C714009A2F0061D973 /* ISConfigViewController.xib */,
+				C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */,
 				C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */,
 				C540250D140F74CD0047ABE3 /* ISMapViewController.xib */,
 			);

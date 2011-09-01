@@ -34,7 +34,7 @@
         {
             if (nil == self.homeViewController)
             {
-                ISHomeViewController *viewController = [[ISHomeViewController alloc] initWithNibName:@"ISLiteViewController" bundle:nil];
+                ISHomeViewController *viewController = [[ISHomeViewController alloc] initWithNibName:NIB_HOMEVIEW_CONTROLLER bundle:nil];
                 [viewController.view setTag:TAG_HOMEVIEW];
                 self.homeViewController = viewController;
                 [viewController release];
@@ -48,7 +48,7 @@
         {
             if (nil == self.helpViewController)
             {
-                ISHelpViewController *viewController = [[ISHelpViewController alloc] initWithNibName:@"ISHelpViewController" bundle:nil];
+                ISHelpViewController *viewController = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
                 [self.helpViewController.view setTag:TAG_HELPVIEW];
                 self.helpViewController = viewController;
                 [self.helpViewController release];
@@ -62,7 +62,7 @@
         {
             if (nil == self.configViewController)
             {
-                ISConfigViewController *viewController = [[ISConfigViewController alloc] initWithNibName:@"ISConfigViewController" bundle:nil];
+                ISConfigViewController *viewController = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
                 [viewController.view setTag:TAG_CONFIGVIEW];
                 self.configViewController = viewController;
                 [viewController release];
@@ -186,6 +186,10 @@
 - (void)viewDidLoad
 {
     // Do any additional setup after loading the view from its nib.
+    [self.homeViewController.view setTag:TAG_HOMEVIEW];
+    [self.helpViewController.view setTag:TAG_HELPVIEW];
+    [self.configViewController.view setTag:TAG_CONFIGVIEW];
+    
     [self lazyLoadView:TAG_HOMEVIEW];
     [super viewDidLoad];
 }
