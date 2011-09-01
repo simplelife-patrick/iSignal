@@ -10,21 +10,21 @@
 
 #import "ISHomeViewController.h"
 #import "ISHelpViewController.h"
-#import "ISLiteConfigViewController.h"
+#import "ISConfigViewController.h"
 
 #define TAG_SWITCHVIEW 0
 #define TAG_HOMEVIEW 1
 #define TAG_HELPVIEW 2
-#define TAG_LITECONFIG_VIEW 3
-#define TAG_LITEMAP_VIEW 4
-#define TAG_LITERECORDS_VIEW 5
-#define COUNT_SUB_VIEW_TAG 5
+#define TAG_CONFIGVIEW 3
+#define TAG_MAPVIEW 4
+#define TAG_RECORDSVIEW 5
+#define TAG_COUNT_VIEWS 5
 
 @interface ISSwitchViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet ISHomeViewController *homeViewController;
 @property (nonatomic, retain) IBOutlet ISHelpViewController *helpViewController;
-@property (nonatomic, retain) IBOutlet ISLiteConfigViewController *isLiteConfigViewController;
+@property (nonatomic, retain) IBOutlet ISConfigViewController *configViewController;
 
 -(void) switchView:(NSInteger) viewTag;
 

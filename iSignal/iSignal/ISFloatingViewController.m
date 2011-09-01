@@ -54,19 +54,19 @@
 - (IBAction)onRecords:(id)sender 
 {
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.splashViewController.switchViewController switchView: TAG_LITERECORDS_VIEW];
+    [appDelegate.splashViewController.switchViewController switchView: TAG_RECORDSVIEW];
 }
 
 - (IBAction)onMap:(id)sender 
 {
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.splashViewController.switchViewController switchView: TAG_LITEMAP_VIEW];    
+    [appDelegate.splashViewController.switchViewController switchView: TAG_MAPVIEW];    
 }
 
 - (IBAction)onConfig:(id)sender 
 {
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.splashViewController.switchViewController switchView: TAG_LITECONFIG_VIEW];    
+    [appDelegate.splashViewController.switchViewController switchView: TAG_CONFIGVIEW];    
 }
 
 - (IBAction)onHelp:(id)sender 

@@ -11,7 +11,7 @@
 @implementation ISSwitchViewController
 
 @synthesize homeViewController;
-@synthesize isLiteConfigViewController;
+@synthesize configViewController;
 @synthesize helpViewController;
 
 // Manual Codes Begins
@@ -20,7 +20,7 @@
 {
     [homeViewController release];
     [helpViewController release];
-    [isLiteConfigViewController release];
+    [configViewController release];
     
     [super dealloc];
 }
@@ -58,26 +58,26 @@
             DLog(@"View: %d is on the top now.", viewTag);        
             break;
         }
-        case TAG_LITECONFIG_VIEW:
+        case TAG_CONFIGVIEW:
         {
-            if (nil == self.isLiteConfigViewController)
+            if (nil == self.configViewController)
             {
-                ISLiteConfigViewController *viewController = [[ISLiteConfigViewController alloc] initWithNibName:@"ISLiteConfigViewController" bundle:nil];
-                [viewController.view setTag:TAG_LITECONFIG_VIEW];
-                self.isLiteConfigViewController = viewController;
+                ISConfigViewController *viewController = [[ISConfigViewController alloc] initWithNibName:@"ISConfigViewController" bundle:nil];
+                [viewController.view setTag:TAG_CONFIGVIEW];
+                self.configViewController = viewController;
                 [viewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
             }
-            [self.view addSubview:self.isLiteConfigViewController.view];
+            [self.view addSubview:self.configViewController.view];
             DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
-        case TAG_LITEMAP_VIEW:
+        case TAG_MAPVIEW:
         {
             // TODO:
             break;
         }
-        case TAG_LITERECORDS_VIEW:
+        case TAG_RECORDSVIEW:
         {
             // TODO:
             break;
@@ -137,22 +137,22 @@
             [self reorganizeSubViews:TAG_HELPVIEW];
             break;
         }
-        case TAG_LITECONFIG_VIEW:
+        case TAG_CONFIGVIEW:
         {
-            [self lazyLoadView:TAG_LITECONFIG_VIEW];
-            [self reorganizeSubViews:TAG_LITECONFIG_VIEW];
+            [self lazyLoadView:TAG_CONFIGVIEW];
+            [self reorganizeSubViews:TAG_CONFIGVIEW];
             break;
         }
-        case TAG_LITEMAP_VIEW:
+        case TAG_MAPVIEW:
         {
-            [self lazyLoadView:TAG_LITEMAP_VIEW];
-            [self reorganizeSubViews:TAG_LITEMAP_VIEW];
+            [self lazyLoadView:TAG_MAPVIEW];
+            [self reorganizeSubViews:TAG_MAPVIEW];
             break;
         }
-        case TAG_LITERECORDS_VIEW:
+        case TAG_RECORDSVIEW:
         {
-            [self lazyLoadView:TAG_LITERECORDS_VIEW];
-            [self reorganizeSubViews:TAG_LITERECORDS_VIEW];
+            [self lazyLoadView:TAG_RECORDSVIEW];
+            [self reorganizeSubViews:TAG_RECORDSVIEW];
             break;
         }
         default:
@@ -194,7 +194,7 @@
 {
     [self setHomeViewController:nil];
     [self setHelpViewController:nil];
-    [self setIsLiteConfigViewController:nil];
+    [self setConfigViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
