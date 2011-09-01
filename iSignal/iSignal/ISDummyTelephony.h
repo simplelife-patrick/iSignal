@@ -10,8 +10,6 @@
 
 #import <Foundation/NSArray.h>
 
-#import "CBCallbackDelegate.h"
-
 #import "CBModule.h"
 
 #define CARRIER_CMCC 0
@@ -28,16 +26,13 @@
 
 @interface ISDummyTelephony : NSObject <CBModule>
 {
-    id<CBCallbackDelegate> callbackDelegate;
     NSInteger signalStrength;
     NSString *carrier;
     BOOL keepAlive;
 }
 
-@property (nonatomic, retain) id<CBCallbackDelegate> callbackDelegate;
 @property (nonatomic, retain) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;
-@property (nonatomic) BOOL keepAlive;
 
 +(NSString*) randomCarrier;
 +(NSInteger) randomSignalStrength;
