@@ -22,8 +22,8 @@ static CGRect s_floatingView_popup;
 
 +(void) initialize
 {
-    s_floatingView_retract = CGRectMake(240, 440, 280, 40);
-    s_floatingView_popup = CGRectMake(0, 440, 280, 40);
+    s_floatingView_retract = CGRectMake(280, 435, 280, 40);
+    s_floatingView_popup = CGRectMake(0, 435, 280, 40);
 }
 
 - (void)viewDidLoad
