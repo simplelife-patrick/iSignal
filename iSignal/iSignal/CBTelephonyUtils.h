@@ -41,9 +41,6 @@
 typedef NSInteger SIGNAL_QUALITY;
 
 @interface CBTelephonyUtils : NSObject
-{
-    
-}
 
 +(SIGNAL_QUALITY) evaluateSignalQuality:(NSInteger) signalStrength;
 

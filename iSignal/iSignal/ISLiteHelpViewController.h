@@ -11,9 +11,7 @@
 #import "CBUIUtils.h"
 
 @interface ISLiteHelpViewController : UIViewController 
-{
-    UITextView *textView;
-}
+
 @property (nonatomic, retain) IBOutlet UITextView *textView;
 
 @end

@@ -11,9 +11,7 @@
 
 
 @interface CBUIUtils : NSObject
-{
-    
-}
+
 +(id<UIApplicationDelegate>) getAppDelegate;
 
 +(UIViewController*) getViewControllerFromView:(UIView*) view;

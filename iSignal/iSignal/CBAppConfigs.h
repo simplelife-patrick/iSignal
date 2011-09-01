@@ -12,9 +12,6 @@
 #define CONFIG_ALARM_VIBRATE @"cfg_alarm_vibrate"
 
 @interface CBAppConfigs : NSObject
-{
-
-}
 
 +(void) initConfigsIfNecessary;
 

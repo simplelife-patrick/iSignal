@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISConfigSwitcherCell : UITableViewCell 
-{
-    UILabel *switcherLabel;
-    UISwitch *switcher;
-}
+@interface ISConfigSwitcherCell : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet UISwitch *switcher;
 

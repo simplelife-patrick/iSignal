@@ -12,12 +12,6 @@
 #import "ISSwitchViewController.h"
 
 @interface ISSplashViewController : UIViewController
-{
-    ISSwitchViewController *switchViewController;
-    UIImageView *splashImageView;
-    NSTimer *timer;
-    ISFloatingViewController *floatingViewController;
-}
 
 @property (nonatomic, retain) IBOutlet ISFloatingViewController *floatingViewController;
 @property (nonatomic, retain) IBOutlet ISSwitchViewController *switchViewController;

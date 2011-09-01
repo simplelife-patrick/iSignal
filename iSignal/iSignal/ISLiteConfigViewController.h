@@ -26,8 +26,5 @@
 #define CONFIG_TABLE_SECTION_0_ITEM_1_NAME NSLocalizedString(@"STR_VIBRATE", nil)
 
 @interface ISLiteConfigViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-{
-
-}
 
 @end
