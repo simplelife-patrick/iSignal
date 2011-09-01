@@ -52,7 +52,7 @@
             if (nil == self.helpViewController)
             {
                 ISHelpViewController *viewController = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
-                [self.helpViewController.view setTag:TAG_HELPVIEW];
+                [viewController.view setTag:TAG_HELPVIEW];
                 self.helpViewController = viewController;
                 [self.helpViewController release];
                 DLog(@"View: %d and its controller are initialized", viewTag);
@@ -170,9 +170,9 @@
     // Do any additional setup after loading the view from its nib.
     [self.homeViewController.view setTag:TAG_HOMEVIEW];
     [self.helpViewController.view setTag:TAG_HELPVIEW];
-    [self.configViewController.view setTag:TAG_CONFIGVIEW];
-    [self.mapViewController.view setTag:TAG_MAPVIEW];
-    [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
+//    [self.configViewController.view setTag:TAG_CONFIGVIEW];
+//    [self.mapViewController.view setTag:TAG_MAPVIEW];
+//    [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
     
     [self lazyLoadView:TAG_HOMEVIEW];
     [super viewDidLoad];
