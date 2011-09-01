@@ -14,7 +14,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-
 @property (nonatomic, retain) IBOutlet ISSplashViewController *splashViewController;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
