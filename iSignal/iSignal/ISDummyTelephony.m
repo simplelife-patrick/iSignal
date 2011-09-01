@@ -70,6 +70,7 @@ static NSArray* CARRIER_LIST;
 -(void) refreshSignalStrength
 {
     self.signalStrength = [ISDummyTelephony randomSignalStrength];
+    DLog(@"Received new signal strength value: %@", self.signalStrength);
     // Callback delegate to notify listener
     if(nil != self.callbackDelegate)
     {
