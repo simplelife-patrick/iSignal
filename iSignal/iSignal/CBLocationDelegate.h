@@ -13,19 +13,21 @@
 
 #import "CBModule.h"
 
+#define WORKMODE_STANDARD 0
+#define WORKMODE_SIGNIFICANT 1
+
 #define EVENT_AVAILABLE_TIME_DIFFERENCE 15.0
 
 #define REGION_RADIUS_DEFAULT 100.0
 
+#define ACCURACY_DEFAULT kCLLocationAccuracyBest
+#define DISTANCE_DEFAULT 100
+
 @interface CBLocationDelegate : NSObject <CLLocationManagerDelegate, MKReverseGeocoderDelegate, CBModule>
-{
-    CLLocationManager *locationManager;
-    CLLocation *lastLocation;
-    CLLocation *currentLocation;
-    CLLocationDegrees regionRadius;
-    
-    MKReverseGeocoder *reverseGeocoder;
-}
+
+typedef NSInteger CBLocationWorkMode;
+
+@property (nonatomic) CBLocationWorkMode workMode; 
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
@@ -44,11 +46,15 @@
 -(void) setAccuracy:(CLLocationAccuracy) accuracy;
 
 -(void) initLocationManagerIfNecessary;
--(void) initLocationManagerIfNecessary:(CLLocationAccuracy) accuracy andDistance:(CLLocationDistance) distance;
+-(void) initLocationManagerIfNecessary:(CLLocationAccuracy) accuracy andDistance:(CLLocationDistance) distance andWorkMode:(CBLocationWorkMode) mode;
 
 -(void) startStandardUpdate;
--(void) startSignificantChangeUpdates;
+-(void) stopStandardUpdate;
 
+-(void) startSignificantChangeUpdates;
+-(void) stopSignificantChangeUpdates;
+
+-(BOOL) registerRegionWithSpecificLocationAndCircularOverlay:(NSString*)identifier andLocation:(CLLocation*) location andCircleRadius:(CLLocationDegrees) radius andAccuracy:(CLLocationAccuracy) accuracy;
 -(BOOL) registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier;
 
 @end
