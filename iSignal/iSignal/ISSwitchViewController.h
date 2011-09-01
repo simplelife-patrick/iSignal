@@ -11,6 +11,8 @@
 #import "ISHomeViewController.h"
 #import "ISHelpViewController.h"
 #import "ISConfigViewController.h"
+#import "ISMapViewController.h"
+#import "ISRecordsViewController.h"
 
 #define TAG_SWITCHVIEW 0
 #define TAG_HOMEVIEW 1
@@ -31,6 +33,8 @@
 @property (nonatomic, retain) IBOutlet ISHomeViewController *homeViewController;
 @property (nonatomic, retain) IBOutlet ISHelpViewController *helpViewController;
 @property (nonatomic, retain) IBOutlet ISConfigViewController *configViewController;
+@property (nonatomic, retain) IBOutlet ISMapViewController *mapViewController;
+@property (nonatomic, retain) IBOutlet ISRecordsViewController *recordsViewController;
 
 -(void) switchView:(NSInteger) viewTag;
 

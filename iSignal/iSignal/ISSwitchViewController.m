@@ -12,6 +12,8 @@
 
 @synthesize homeViewController;
 @synthesize configViewController;
+@synthesize mapViewController;
+@synthesize recordsViewController;
 @synthesize helpViewController;
 
 // Manual Codes Begins
@@ -21,7 +23,8 @@
     [homeViewController release];
     [helpViewController release];
     [configViewController release];
-    
+    [mapViewController release];
+    [recordsViewController release];
     [super dealloc];
 }
 
@@ -168,6 +171,8 @@
     [self.homeViewController.view setTag:TAG_HOMEVIEW];
     [self.helpViewController.view setTag:TAG_HELPVIEW];
     [self.configViewController.view setTag:TAG_CONFIGVIEW];
+    [self.mapViewController.view setTag:TAG_MAPVIEW];
+    [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
     
     [self lazyLoadView:TAG_HOMEVIEW];
     [super viewDidLoad];
@@ -178,6 +183,8 @@
     [self setHomeViewController:nil];
     [self setHelpViewController:nil];
     [self setConfigViewController:nil];
+    [self setMapViewController:nil];
+    [self setRecordsViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
