@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 #import "CBModule.h"
 
@@ -16,12 +17,14 @@
 
 #define REGION_RADIUS_DEFAULT 100.0
 
-@interface CBLocationDelegate : NSObject <CLLocationManagerDelegate, CBModule>
+@interface CBLocationDelegate : NSObject <CLLocationManagerDelegate, MKReverseGeocoderDelegate, CBModule>
 {
     CLLocationManager *locationManager;
     CLLocation *lastLocation;
     CLLocation *currentLocation;
     CLLocationDegrees regionRadius;
+    
+    MKReverseGeocoder *reverseGeocoder;
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
@@ -29,6 +32,8 @@
 @property (nonatomic, retain) CLLocation *lastLocation;
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic) CLLocationDegrees regionRadius;
+
+@property (nonatomic, retain) MKReverseGeocoder *reverseGeocoder;
 
 +(BOOL) isLocationServiceEnabled;
 

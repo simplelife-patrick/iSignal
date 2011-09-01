@@ -20,6 +20,8 @@
 @synthesize currentLocation;
 @synthesize regionRadius;
 
+@synthesize reverseGeocoder;
+
 +(BOOL) isLocationServiceEnabled
 {
     return [CLLocationManager locationServicesEnabled];
@@ -38,6 +40,9 @@
 -(void) dealloc
 {
     [self.locationManager release];
+    [self.reverseGeocoder release];
+    [self.lastLocation release];
+    [self.currentLocation release];
     
     [super dealloc];
 }
@@ -160,6 +165,18 @@
 {
     // TODO:
     DLog(@"Failed to monitor this region: %@ with error: %@", region, error);
+}
+
+// Delegate method from the MKReverseGeocoderDelegate protocol.
+- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
+{
+    // TODO:
+}
+
+// Delegate method from the MKReverseGeocoderDelegate protocol.
+- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
+{
+    // TODO:
 }
 
 // Implemented from CBModule protocol.
