@@ -145,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C50B2B8E141122A700FA8D38 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		C591DDB01407723100CB2C63 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +243,7 @@
 			children = (
 				C5CD42E513FF886F009C5741 /* Headers */,
 				C5BEB01E1400C3500083A86A /* Classes */,
+				C50B2B8E141122A700FA8D38 /* CoreData */,
 				C5CD42E613FF8879009C5741 /* UI */,
 				C5B7581D1401E3AC004A051E /* Common */,
 				C5CD42CF13FF8826009C5741 /* Configs */,
@@ -247,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				C573E5BD1403A91500BB24B3 /* Localizable.strings */,
-				C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */,
 				C5CD42D013FF8826009C5741 /* iSignal-Info.plist */,
 				C5CD42D113FF8826009C5741 /* InfoPlist.strings */,
 				C5CD42D613FF8826009C5741 /* iSignal-Prefix.pch */,
