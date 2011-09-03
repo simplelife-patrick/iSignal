@@ -121,19 +121,24 @@
             DLog(@"Translate received signal strength: %d to text: %@", intVal, strVal);
             
             // TODO: Here should be different listeners which are used to observer signal changed.
+            // Ring
             BOOL ringAlarmOn = [CBAppConfigs isRingAlarmOn];
             DLog(@"App config of ring alarm is %@.", ringAlarmOn?@"YES":@"NO");
             if(ringAlarmOn)
             {
                 [self.audioPlayer play];                
             }
-            
+            // Vibrate
             BOOL vibrateAlarmOn = [CBAppConfigs isVibrateAlarmOn];
             DLog(@"App config of vibrate alarm is %@.", vibrateAlarmOn?@"YES":@"NO"); 
             if(vibrateAlarmOn)
             {
                 AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);                
             }
+            // TODO: Location
+            
+            // TODO: Record
+            
         }
         [self updateSignalQualityGrade:qualityGrade];
         [self.signalStrengthLabel setText:strVal];
