@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISRecordsViewController : UIViewController
+#import <CoreData/CoreData.h>
+
+@interface ISRecordsViewController : UIViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, retain) IBOutlet UITableViewController *recordsTableViewController;
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end
