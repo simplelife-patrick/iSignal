@@ -214,9 +214,10 @@
 -(void) startService
 {
     // Do not create regions if support is unavailable or disabled.
-    if ( ![CBLocationDelegate isRegionMonitoringAvailable] ||
+    if ( ![CBLocationDelegate isLocationServiceEnabled] || ![CBLocationDelegate isRegionMonitoringAvailable] ||
         ![CBLocationDelegate isRegionMonitoringEnabled] )
     {
+        DLog(@"Current running environment does not support location service.");
         return;
     }    
     

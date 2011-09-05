@@ -97,6 +97,7 @@ static CGRect s_floatingView_popup;
     [appDelegate.dummnyTelephonyModule startService];
     
     // Location module start
+    // TODO: Location module should not be inited if location service is not supported or disabled currently.
     appDelegate.locationModule = [[CBLocationDelegate alloc] init];
     if ([ISAppConfigs isLocationOn])
     {

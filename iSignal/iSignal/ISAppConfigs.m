@@ -27,11 +27,19 @@
     {
         [configs setBool:TRUE forKey:CONFIG_ALARM_VIBRATE];
     }
-    
-    id locationVal = [configs valueForKey:CONFIG_LOCATION];
-    if (nil == locationVal)
+
+    BOOL isLocationServiceEnabled = [CBLocationDelegate isLocationServiceEnabled];
+    if(isLocationServiceEnabled)
     {
-        [configs setBool:TRUE forKey:CONFIG_LOCATION];
+        id locationVal = [configs valueForKey:CONFIG_LOCATION];
+        if(nil == locationVal)
+        {
+            [configs setBool:isLocationServiceEnabled forKey:CONFIG_LOCATION];
+        }
+    }
+    else
+    {
+        [configs setBool:FALSE forKey:CONFIG_LOCATION];
     }
 }
 
