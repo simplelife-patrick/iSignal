@@ -25,7 +25,7 @@
     // TODO: Need to be updated once here are more than one section.
 
     // Only one section's item here
-    return CONFIG_TABLE_SECTION_0_ITEM_COUNT;
+    return CONFIG_TABLE_SECTION_CONFIG_ITEM_COUNT;
 }
 
 // Customize the appearance of table view cells.
@@ -54,23 +54,23 @@
         NSInteger rowIndex = [indexPath row];
         switch (rowIndex) 
         {
-            case CONFIG_TABLE_SECTION_0_ITEM_0_INDEX:
+            case CONFIG_TABLE_SECTION_CONFIG_ITEM_RING_INDEX:
             {
-                cell.switcherLabel.text = CONFIG_TABLE_SECTION_0_ITEM_0_NAME;
+                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_RING_NAME;
                 [cell.switcher setOn:[ISAppConfigs isRingAlarmOn]];
                 [cell.switcher addTarget:self action:@selector(ringAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
                 break;
             }
-            case CONFIG_TABLE_SECTION_0_ITEM_1_INDEX:
+            case CONFIG_TABLE_SECTION_CONFIG_ITEM_VIBRATE_INDEX:
             {
-                cell.switcherLabel.text = CONFIG_TABLE_SECTION_0_ITEM_1_NAME;
+                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_VIBRATE_NAME;
                 [cell.switcher setOn:[ISAppConfigs isVibrateAlarmOn]];
                 [cell.switcher addTarget:self action:@selector(vibrateAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
                 break;
             }
-            case CONFIG_TABLE_SECTION_0_ITEM_2_INDEX:
+            case CONFIG_TABLE_SECTION_CONFIG_ITEM_LOCATION_INDEX:
             {
-                cell.switcherLabel.text = CONFIG_TABLE_SECTION_0_ITEM_2_NAME;
+                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_LOCATION_NAME;
                 [cell.switcher setOn:[ISAppConfigs isLocationOn]];
                 [cell.switcher addTarget:self action:@selector(locationStateChanged) forControlEvents:UIControlEventValueChanged];
             }
@@ -87,7 +87,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     // Only one section here
-    return CONFIG_TABLE_SECTION_0_NAME;
+    return CONFIG_TABLE_SECTION_NAME_CONFIG;
 }
 
 - (void)ringAlarmStateChanged:(id) sender
