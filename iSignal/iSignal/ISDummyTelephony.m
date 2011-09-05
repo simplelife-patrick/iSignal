@@ -127,6 +127,7 @@ static NSArray* CARRIER_LIST;
     if (self) 
     {
         // Initialization code here.
+        [self setKeepAlive:FALSE];
         [self refreshCarrier];
         [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
         [self.serviceThread setName:MODULE_IDENTITY_DUMMYTEPLEPHONY];

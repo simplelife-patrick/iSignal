@@ -98,7 +98,10 @@ static CGRect s_floatingView_popup;
     
     // Location module start
     appDelegate.locationModule = [[CBLocationDelegate alloc] init];
-    [appDelegate.locationModule startService];
+    if ([ISAppConfigs isLocationOn])
+    {
+        [appDelegate.locationModule startService];
+    }
     
     DLog(@"Finished the load operation.");
     // Switch back to Splash UI

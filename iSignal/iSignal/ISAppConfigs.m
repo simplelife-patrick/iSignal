@@ -70,6 +70,24 @@
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
     [configs setBool:flag forKey:CONFIG_LOCATION];
+    
+    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+    if(flag)
+    {
+        if(!appDelegate.locationModule.keepAlive)
+        {
+            DLog(@"Location service is going to restart as user disabled config.");
+            [appDelegate.locationModule startService];            
+        }
+    }
+    else
+    {
+        if(appDelegate.locationModule.keepAlive)
+        {
+            DLog(@"Location service is going to stop as user disabled config.");        
+            [appDelegate.locationModule stopService];
+        }
+    }
 }
 
 - (void)dealloc 

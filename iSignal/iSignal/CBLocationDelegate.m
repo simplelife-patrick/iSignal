@@ -46,6 +46,7 @@
     if (self) 
     {
         // Initialization code here.
+        [self setKeepAlive:FALSE];
         [self setWorkMode:WORKMODE_STANDARD];
         [self setAccuracy:ACCURACY_DEFAULT];
         [self setDistanceFilter:DISTANCE_DEFAULT];
