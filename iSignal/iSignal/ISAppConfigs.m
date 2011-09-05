@@ -27,6 +27,12 @@
     {
         [configs setBool:TRUE forKey:CONFIG_ALARM_VIBRATE];
     }
+    
+    id locationVal = [configs valueForKey:CONFIG_LOCATION];
+    if (nil == locationVal)
+    {
+        [configs setBool:TRUE forKey:CONFIG_LOCATION];
+    }
 }
 
 +(BOOL) isRingAlarmOn
