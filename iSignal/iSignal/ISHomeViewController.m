@@ -136,10 +136,15 @@
                 AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);                
             }
             // TODO: Location
-            iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-            CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
-            CLLocationDegrees latitude = currentLocation.coordinate.latitude;
-            CLLocationDegrees longitude = currentLocation.coordinate.longitude;
+            BOOL locationOn = [ISAppConfigs isLocationOn];
+            DLog(@"App config of location service is %@.", locationOn?@"YES":@"NO");
+            if(locationOn)
+            {
+                iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+                CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
+                CLLocationDegrees latitude = currentLocation.coordinate.latitude;
+                CLLocationDegrees longitude = currentLocation.coordinate.longitude;
+            }
             // TODO: Record
             
         }

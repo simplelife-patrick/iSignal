@@ -56,17 +56,23 @@
         {
             case CONFIG_TABLE_SECTION_0_ITEM_0_INDEX:
             {
-                cell.switcherLabel.text = NSLocalizedString(@"STR_RING" , nil);
+                cell.switcherLabel.text = CONFIG_TABLE_SECTION_0_ITEM_0_NAME;
                 [cell.switcher setOn:[ISAppConfigs isRingAlarmOn]];
                 [cell.switcher addTarget:self action:@selector(ringAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
                 break;
             }
             case CONFIG_TABLE_SECTION_0_ITEM_1_INDEX:
             {
-                cell.switcherLabel.text = NSLocalizedString(@"STR_VIBRATE", nil);
+                cell.switcherLabel.text = CONFIG_TABLE_SECTION_0_ITEM_1_NAME;
                 [cell.switcher setOn:[ISAppConfigs isVibrateAlarmOn]];
                 [cell.switcher addTarget:self action:@selector(vibrateAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
                 break;
+            }
+            case CONFIG_TABLE_SECTION_0_ITEM_2_INDEX:
+            {
+                cell.switcherLabel.text = CONFIG_TABLE_SECTION_0_ITEM_2_NAME;
+                [cell.switcher setOn:[ISAppConfigs isLocationOn]];
+                [cell.switcher addTarget:self action:@selector(locationStateChanged) forControlEvents:UIControlEventValueChanged];
             }
             default:
                 break;
@@ -100,6 +106,15 @@
         UISwitch *switcher = (UISwitch*) sender;
         [ISAppConfigs setVibrateAlarmOn:[switcher isOn]];
     }   
+}
+
+- (void)locationStateChanged:(id) sender
+{
+    if(nil != sender && ([sender isKindOfClass:[UISwitch class]]))
+    {
+        UISwitch *switcher = (UISwitch*) sender;
+        [ISAppConfigs setLocationOn:[switcher isOn]];
+    }
 }
 
 - (void)viewDidLoad
