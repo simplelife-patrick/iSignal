@@ -37,7 +37,7 @@
 		C5882A9C14032E9D00EC29A6 /* ISDummyTelephony.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummyTelephony.m */; };
 		C591DDC21407840F00CB2C63 /* Star32.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC11407840F00CB2C63 /* Star32.png */; };
 		C591DDC41407846600CB2C63 /* Star32Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC31407846600CB2C63 /* Star32Highlight.png */; };
-		C5B66186140CFE92000B1F74 /* CBLocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B66185140CFE92000B1F74 /* CBLocationDelegate.m */; };
+		C5B66186140CFE92000B1F74 /* CBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B66185140CFE92000B1F74 /* CBLocationManager.m */; };
 		C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B66188140D0249000B1F74 /* CoreLocation.framework */; };
 		C5B758231401E485004A051E /* CBUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* CBUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* ISSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* ISSwitchViewController.m */; };
@@ -102,8 +102,8 @@
 		C591DDC31407846600CB2C63 /* Star32Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32Highlight.png; sourceTree = SOURCE_ROOT; };
 		C5B590BC140E456F00A56CF0 /* CBCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCallbackDelegate.h; sourceTree = "<group>"; };
 		C5B590BD140E488700A56CF0 /* CBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLog.h; sourceTree = "<group>"; };
-		C5B66184140CFE92000B1F74 /* CBLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLocationDelegate.h; sourceTree = "<group>"; };
-		C5B66185140CFE92000B1F74 /* CBLocationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLocationDelegate.m; sourceTree = "<group>"; };
+		C5B66184140CFE92000B1F74 /* CBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CBLocationManager.h; sourceTree = "<group>"; };
+		C5B66185140CFE92000B1F74 /* CBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLocationManager.m; sourceTree = "<group>"; };
 		C5B66188140D0249000B1F74 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5B6618E140E2CDB000B1F74 /* CBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBModule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C5B758211401E485004A051E /* CBUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUIUtils.h; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 				C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */,
 				C573E5A4140355BF00BB24B3 /* CBMathUtils.h */,
 				C573E5A5140355BF00BB24B3 /* CBMathUtils.m */,
-				C5B66184140CFE92000B1F74 /* CBLocationDelegate.h */,
-				C5B66185140CFE92000B1F74 /* CBLocationDelegate.m */,
+				C5B66184140CFE92000B1F74 /* CBLocationManager.h */,
+				C5B66185140CFE92000B1F74 /* CBLocationManager.m */,
 				C5B6618E140E2CDB000B1F74 /* CBModule.h */,
 			);
 			name = Common;
@@ -398,7 +398,7 @@
 				C569E3DC14072B5B00BE938D /* ISSplashViewController.m in Sources */,
 				C547B44C1409D3690037B63F /* ISConfigSwitcherCell.m in Sources */,
 				C5027275140A2BA40013175B /* ISAppConfigs.m in Sources */,
-				C5B66186140CFE92000B1F74 /* CBLocationDelegate.m in Sources */,
+				C5B66186140CFE92000B1F74 /* CBLocationManager.m in Sources */,
 				C572065A140E602C00FD108F /* ISConfigViewController.m in Sources */,
 				C572066B140E60DA00FD108F /* ISFloatingViewController.m in Sources */,
 				C540250E140F74CD0047ABE3 /* ISMapViewController.m in Sources */,

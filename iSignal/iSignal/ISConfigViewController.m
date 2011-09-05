@@ -73,7 +73,7 @@
                 cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_LOCATION_NAME;
                 [cell.switcher setOn:[ISAppConfigs isLocationOn]];
                 [cell.switcher addTarget:self action:@selector(locationStateChanged:) forControlEvents:UIControlEventValueChanged];
-                if (![CBLocationDelegate isLocationServiceEnabled]) 
+                if (![CBLocationManager isLocationServiceEnabled]) 
                 {
                     [cell.switcher setEnabled:FALSE];
                 }

@@ -28,7 +28,7 @@
         [configs setBool:TRUE forKey:CONFIG_ALARM_VIBRATE];
     }
 
-    BOOL isLocationServiceEnabled = [CBLocationDelegate isLocationServiceEnabled];
+    BOOL isLocationServiceEnabled = [CBLocationManager isLocationServiceEnabled];
     if(isLocationServiceEnabled)
     {
         id locationVal = [configs valueForKey:CONFIG_LOCATION];

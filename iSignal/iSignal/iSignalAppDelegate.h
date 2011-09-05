@@ -10,7 +10,7 @@
 
 #import "ISSplashViewController.h"
 #import "ISDummyTelephony.h"
-#import "CBLocationDelegate.h"
+#import "CBLocationManager.h"
 
 @interface iSignalAppDelegate : NSObject <UIApplicationDelegate>
 
@@ -25,7 +25,7 @@
 @property (nonatomic, retain) IBOutlet ISSplashViewController *splashViewController;
 
 @property (nonatomic, retain) ISDummyTelephony* dummnyTelephonyModule;
-@property (nonatomic, retain) CBLocationDelegate* locationModule;
+@property (nonatomic, retain) CBLocationManager* locationModule;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
