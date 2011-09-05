@@ -12,20 +12,14 @@
 
 // Manual Codes Begin
 
-@synthesize recordsTableViewController = _recordsTableViewController;
-@synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize managedObjectContext = __managedObjectContext;
+@synthesize recordsTableViewController;
+@synthesize fetchedResultsController;
+@synthesize managedObjectContext;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    [addButton release];
 }
 
 - (void)viewDidUnload
@@ -38,10 +32,10 @@
 
 - (void)dealloc 
 {
-    [_recordsTableViewController release];
+    [self.recordsTableViewController release];
     
-    [__fetchedResultsController release];
-    [__managedObjectContext release];
+    [self.fetchedResultsController release];
+    [self.managedObjectContext release];
     
     [super dealloc];
 }
@@ -81,7 +75,7 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = KEY_CELL_IDENTIFIER;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -136,7 +130,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"time"] description];
+    cell.textLabel.text = [[managedObject valueForKey:DB_TABLE_SIGNALRECORD_FIELD_TIME] description];
 }
 
 - (void)insertNewObject
@@ -148,7 +142,7 @@
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"time"];
+    [newManagedObject setValue:[NSDate date] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
     
     // Save the context.
     NSError *error = nil;
@@ -166,9 +160,9 @@
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (__fetchedResultsController != nil)
+    if (self.fetchedResultsController != nil)
     {
-        return __fetchedResultsController;
+        return self.fetchedResultsController;
     }
     
     /*
@@ -177,21 +171,21 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SignalRecord" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:DB_TABLE_SIGNALRECORD inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:DB_TABLE_SIGNALRECORD_FIELD_TIME ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"iSignal_CoreData_Cache"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:DB_TABLE_SIGNALRECORD_CACHE];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -212,7 +206,7 @@
 	    abort();
 	}
     
-    return __fetchedResultsController;
+    return self.fetchedResultsController;
 }    
 
 // Implement method derived from NSFetchedResultsControllerDelegate protocol.

@@ -10,6 +10,14 @@
 
 #import <CoreData/CoreData.h>
 
+#define KEY_CELL_IDENTIFIER @"Cell"
+#define KEY_CELL_CUSTOMER_IDENTIFIER @"CustomCellIdentifier"
+
+#define DB_TABLE_SIGNALRECORD_CACHE @"SignalRecord_CoreData_Cache"
+#define DB_TABLE_SIGNALRECORD @"SignalRecord"
+#define DB_TABLE_SIGNALRECORD_FIELD_TIME @"time"
+
+
 @interface ISRecordsViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableViewController *recordsTableViewController;
