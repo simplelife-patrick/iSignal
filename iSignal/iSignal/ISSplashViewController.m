@@ -96,8 +96,8 @@ static CGRect s_floatingView_popup;
     [appDelegate.dummnyTelephonyModule startService];
     
     // Location module start
-    appDelegate.locationMoudle = [[CBLocationDelegate alloc] init];
-    [appDelegate.locationMoudle startService];
+    appDelegate.locationModule = [[CBLocationDelegate alloc] init];
+    [appDelegate.locationModule startService];
     
     DLog(@"Finished the load operation.");
     // Switch back to Splash UI

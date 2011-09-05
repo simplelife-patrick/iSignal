@@ -136,6 +136,7 @@
                 AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);                
             }
             // TODO: Location
+            iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
             
             // TODO: Record
             

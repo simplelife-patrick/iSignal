@@ -20,13 +20,13 @@
 @synthesize splashViewController;
 
 @synthesize dummnyTelephonyModule;
-@synthesize locationMoudle;
+@synthesize locationModule;
 
 - (void)dealloc
 {
     [self.splashViewController release];
     [self.dummnyTelephonyModule release];
-    [self.locationMoudle release];
+    [self.locationModule release];
     
     [_window release];
     [__managedObjectContext release];
