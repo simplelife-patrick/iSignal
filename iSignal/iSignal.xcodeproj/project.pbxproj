@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		C5027274140A2BA40013175B /* ISAppConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ISAppConfigs.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C50F9D75140A1FA9000589BB /* ISAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lineEnding = 0; path = ISAppConfigs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C50F9D75140A1FA9000589BB /* ISAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISAppConfigs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
@@ -183,8 +183,6 @@
 				C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */,
 				C573E5A4140355BF00BB24B3 /* CBMathUtils.h */,
 				C573E5A5140355BF00BB24B3 /* CBMathUtils.m */,
-				C50F9D75140A1FA9000589BB /* ISAppConfigs.h */,
-				C5027274140A2BA40013175B /* ISAppConfigs.m */,
 				C5B66184140CFE92000B1F74 /* CBLocationDelegate.h */,
 				C5B66185140CFE92000B1F74 /* CBLocationDelegate.m */,
 				C5B6618E140E2CDB000B1F74 /* CBModule.h */,
@@ -195,6 +193,7 @@
 		C5BEB01E1400C3500083A86A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C5027274140A2BA40013175B /* ISAppConfigs.m */,
 				C5CD42D413FF8826009C5741 /* main.m */,
 				C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */,
 				C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */,
@@ -272,6 +271,7 @@
 		C5CD42E513FF886F009C5741 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				C50F9D75140A1FA9000589BB /* ISAppConfigs.h */,
 				C5CD42D713FF8826009C5741 /* iSignalAppDelegate.h */,
 				C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */,
 				C5882A9A14032E9D00EC29A6 /* ISDummyTelephony.h */,
