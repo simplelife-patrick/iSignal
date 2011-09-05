@@ -89,7 +89,7 @@ static CGRect s_floatingView_popup;
     // All CBModules should start here
     
     // App Configs module start
-    [CBAppConfigs initConfigsIfNecessary];
+    [ISAppConfigs initConfigsIfNecessary];
     
     // ISDummyTelephony module start
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
