@@ -54,6 +54,18 @@
     [configs setBool:flag forKey:CONFIG_ALARM_VIBRATE];
 }
 
++(BOOL) isLocationOn
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
+    return [configs boolForKey:CONFIG_LOCATION];
+}
+
++(void) setLocationOn:(BOOL)flag
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
+    [configs setBool:flag forKey:CONFIG_LOCATION];
+}
+
 - (void)dealloc 
 {
     [super dealloc];

@@ -31,9 +31,6 @@ static CGRect s_floatingView_popup;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // App Configs init
-    [CBAppConfigs initConfigsIfNecessary];    
-    
     // Init floatingViewController
     [self.floatingViewController setIsViewRected:TRUE];
     [self.floatingViewController setPopupRect:s_floatingView_popup];
@@ -90,6 +87,10 @@ static CGRect s_floatingView_popup;
     DLog(@"Start to load anything necessary for this app.");
 
     // All CBModules should start here
+    
+    // App Configs module start
+    [CBAppConfigs initConfigsIfNecessary];
+    
     // ISDummyTelephony module start
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     appDelegate.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];

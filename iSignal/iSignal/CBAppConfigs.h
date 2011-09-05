@@ -10,6 +10,7 @@
 
 #define CONFIG_ALARM_RING @"cfg_alarm_ring"
 #define CONFIG_ALARM_VIBRATE @"cfg_alarm_vibrate"
+#define CONFIG_LOCATION @"cfg_location"
 
 @interface CBAppConfigs : NSObject
 
@@ -20,5 +21,8 @@
 
 +(BOOL) isVibrateAlarmOn;
 +(void) setVibrateAlarmOn:(BOOL) flag;
+
++(BOOL) isLocationOn;
++(void) setLocationOn:(BOOL) flag;
 
 @end

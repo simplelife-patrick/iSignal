@@ -137,7 +137,9 @@
             }
             // TODO: Location
             iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-            
+            CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
+            CLLocationDegrees latitude = currentLocation.coordinate.latitude;
+            CLLocationDegrees longitude = currentLocation.coordinate.longitude;
             // TODO: Record
             
         }
