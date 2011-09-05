@@ -179,7 +179,7 @@
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
+    [fetchRequest setFetchBatchSize:DB_FETCH_BTACH_SIZE];
     
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:DB_TABLE_SIGNALRECORD_FIELD_TIME ascending:NO];

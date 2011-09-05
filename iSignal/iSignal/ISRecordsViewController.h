@@ -17,6 +17,7 @@
 #define DB_TABLE_SIGNALRECORD @"SignalRecord"
 #define DB_TABLE_SIGNALRECORD_FIELD_TIME @"time"
 
+#define DB_FETCH_BTACH_SIZE 20
 
 @interface ISRecordsViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
