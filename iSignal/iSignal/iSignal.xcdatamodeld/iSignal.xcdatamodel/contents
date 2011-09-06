@@ -2,8 +2,8 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="SignalRecord" representedClassName="SignalRecord">
         <attribute name="isSync" optional="YES" attributeType="Boolean"/>
-        <attribute name="latitude" optional="YES" attributeType="Integer 64" defaultValueString="0"/>
-        <attribute name="longitude" optional="YES" attributeType="Integer 64" defaultValueString="0"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0"/>
         <attribute name="tag" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Date"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>

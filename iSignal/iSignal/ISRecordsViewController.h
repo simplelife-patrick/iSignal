@@ -16,6 +16,14 @@
 #define DB_TABLE_SIGNALRECORD_CACHE @"SignalRecord_CoreData_Cache"
 #define DB_TABLE_SIGNALRECORD @"SignalRecord"
 #define DB_TABLE_SIGNALRECORD_FIELD_TIME @"time"
+#define DB_TABLE_SIGNALRECORD_FIELD_ISSYNC @"isSync"
+#define DB_TABLE_SIGNALRECORD_FIELD_LATITUDE @"latitude"
+#define DB_TABLE_SIGNALRECORD_FIELD_LONGITUDE @"longitude"
+#define DB_TABLE_SIGNALRECORD_FIELD_TAG @"tag"
+#define DB_TABLE_SIGNALRECORD_FIELD_TYPE @"type"
+
+#define DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS 0
+
 
 #define DB_FETCH_BTACH_SIZE 20
 
@@ -27,5 +35,7 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+- (NSFetchedResultsController *)initFetchedResultsController;
 
 @end

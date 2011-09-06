@@ -16,7 +16,6 @@
 		C540250F140F74CD0047ABE3 /* ISMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C540250D140F74CD0047ABE3 /* ISMapViewController.xib */; };
 		C547B44C1409D3690037B63F /* ISConfigSwitcherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */; };
 		C547B44F1409D3C70037B63F /* ISConfigSwitcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */; };
-		C5621EDE14144AAA00D9AF21 /* SignalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C5621EDD14144AAA00D9AF21 /* SignalRecord.m */; };
 		C569E3BD14068B7700BE938D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BC14068B7700BE938D /* AVFoundation.framework */; };
 		C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BF14068B7F00BE938D /* AudioToolbox.framework */; };
 		C569E3DC14072B5B00BE938D /* ISSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C569E3DA14072B5B00BE938D /* ISSplashViewController.m */; };
@@ -67,8 +66,6 @@
 		C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISConfigSwitcherCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ISConfigSwitcherCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISConfigSwitcherCell.xib; sourceTree = "<group>"; };
-		C5621EDC14144AAA00D9AF21 /* SignalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalRecord.h; sourceTree = "<group>"; };
-		C5621EDD14144AAA00D9AF21 /* SignalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalRecord.m; sourceTree = "<group>"; };
 		C569E3BC14068B7700BE938D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C569E3BF14068B7F00BE938D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C569E3D914072B5B00BE938D /* ISSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSplashViewController.h; sourceTree = "<group>"; };
@@ -102,7 +99,7 @@
 		C591DDC31407846600CB2C63 /* Star32Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32Highlight.png; sourceTree = SOURCE_ROOT; };
 		C5B590BC140E456F00A56CF0 /* CBCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCallbackDelegate.h; sourceTree = "<group>"; };
 		C5B590BD140E488700A56CF0 /* CBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLog.h; sourceTree = "<group>"; };
-		C5B66184140CFE92000B1F74 /* CBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CBLocationManager.h; sourceTree = "<group>"; };
+		C5B66184140CFE92000B1F74 /* CBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLocationManager.h; sourceTree = "<group>"; };
 		C5B66185140CFE92000B1F74 /* CBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLocationManager.m; sourceTree = "<group>"; };
 		C5B66188140D0249000B1F74 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5B6618E140E2CDB000B1F74 /* CBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBModule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -152,8 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */,
-				C5621EDC14144AAA00D9AF21 /* SignalRecord.h */,
-				C5621EDD14144AAA00D9AF21 /* SignalRecord.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -403,7 +398,6 @@
 				C572066B140E60DA00FD108F /* ISFloatingViewController.m in Sources */,
 				C540250E140F74CD0047ABE3 /* ISMapViewController.m in Sources */,
 				C56F97DD141065F5002FC302 /* ISRecordsViewController.m in Sources */,
-				C5621EDE14144AAA00D9AF21 /* SignalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

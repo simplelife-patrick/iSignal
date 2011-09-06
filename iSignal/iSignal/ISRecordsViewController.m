@@ -162,7 +162,7 @@
     }
 }
 
-- (NSFetchedResultsController *)fetchedResultsController
+- (NSFetchedResultsController *)initFetchedResultsController
 {
     if (self.fetchedResultsController != nil)
     {
