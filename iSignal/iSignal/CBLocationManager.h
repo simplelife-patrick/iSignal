@@ -13,6 +13,8 @@
 
 #import "CBModule.h"
 
+#define MODULE_IDENTITY_LOCATION_MANAGER @"LocationManager"
+
 #define WORKMODE_STANDARD 0
 #define WORKMODE_SIGNIFICANT 1
 

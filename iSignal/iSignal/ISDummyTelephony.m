@@ -16,12 +16,16 @@
 
 static NSArray* CARRIER_LIST;
 
-@synthesize callbackDelegate;
+// Members of CBModule protocol.
+
 @synthesize moduleIdentity;
 @synthesize serviceThread;
+@synthesize keepAlive;
+@synthesize callbackDelegate;
+
+// Members of ISDummyTelephony
 @synthesize signalStrength;
 @synthesize carrier;
-@synthesize keepAlive;
 
 +(void) initialize
 {
@@ -113,10 +117,12 @@ static NSArray* CARRIER_LIST;
 
 - (void)dealloc
 {
-    [serviceThread release];
-    [callbackDelegate release];
-    [carrier release];
-    [moduleIdentity release];
+    [self.callbackDelegate release];
+    
+    [self.serviceThread release];
+    [self.callbackDelegate release];
+    [self.carrier release];
+    [self.moduleIdentity release];
     
     [super dealloc];
 }
@@ -127,10 +133,12 @@ static NSArray* CARRIER_LIST;
     if (self) 
     {
         // Initialization code here.
-        [self setKeepAlive:FALSE];
-        [self refreshCarrier];
         [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
         [self.serviceThread setName:MODULE_IDENTITY_DUMMYTEPLEPHONY];
+        
+        [self setKeepAlive:FALSE];
+        
+        [self refreshCarrier];        
     }
     
     return self;

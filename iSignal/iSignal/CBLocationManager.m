@@ -12,11 +12,13 @@
 
 // Manual Codes Begin
 
+// Members of CBMoudle protocol.
 @synthesize keepAlive;
 @synthesize serviceThread;
 @synthesize moduleIdentity;
 @synthesize callbackDelegate;
 
+// Members of CBLocationManager
 @synthesize workMode;
 @synthesize locationManager;
 @synthesize lastLocation;
@@ -46,7 +48,11 @@
     if (self) 
     {
         // Initialization code here.
+        [self setModuleIdentity:MODULE_IDENTITY_LOCATION_MANAGER];
+        [self.serviceThread setName:MODULE_IDENTITY_LOCATION_MANAGER];
+        
         [self setKeepAlive:FALSE];
+        
         [self setWorkMode:WORKMODE_STANDARD];
         [self setAccuracy:ACCURACY_DEFAULT];
         [self setDistanceFilter:DISTANCE_DEFAULT];
@@ -58,7 +64,9 @@
 
 -(void) dealloc
 {
+    [self.serviceThread release];
     [self.callbackDelegate release];
+    
     [self.locationManager release];
     [self.reverseGeocoder release];
     [self.lastLocation release];
@@ -110,7 +118,7 @@
     [self.locationManager stopUpdatingLocation];
 }
 
--(void)startSignificantChangeUpdates
+-(void) startSignificantChangeUpdates
 {
     [self initLocationManagerIfNecessary];
     
@@ -122,7 +130,7 @@
     [self.locationManager stopMonitoringSignificantLocationChanges];
 }
 
-- (BOOL)registerRegionWithSpecificLocationAndCircularOverlay:(NSString *)identifier andLocation:(CLLocation*)location andCircleRadius:(CLLocationDegrees)radius andAccuracy:(CLLocationAccuracy)accuracy
+- (BOOL) registerRegionWithSpecificLocationAndCircularOverlay:(NSString *)identifier andLocation:(CLLocation*)location andCircleRadius:(CLLocationDegrees)radius andAccuracy:(CLLocationAccuracy)accuracy
 {
     // Do not create regions if support is unavailable or disabled.
     if ( ![CBLocationManager isRegionMonitoringAvailable] ||
@@ -151,13 +159,13 @@
     return YES;    
 }
 
-- (BOOL)registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier
+- (BOOL) registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier
 {
     return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:self.currentLocation andCircleRadius:self.regionRadius andAccuracy:self.locationManager.desiredAccuracy];
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.
-- (void)locationManager:(CLLocationManager *)manager
+- (void) locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
@@ -177,19 +185,19 @@
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+- (void) locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
     // TODO:
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+- (void) locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
     // TODO:
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.
-- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
+- (void) locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
 {
     // TODO:
     DLog(@"Failed to monitor this region: %@ with error: %@", region, error);
@@ -204,7 +212,7 @@
 }
 
 // Delegate method from the MKReverseGeocoderDelegate protocol.
-- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
+- (void) reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
 {
     // TODO:
  
