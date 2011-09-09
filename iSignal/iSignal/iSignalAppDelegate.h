@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CBLocationManager.h"
+#import "CBEnvironmentUtils.h"
+
 #import "ISSplashViewController.h"
 #import "ISDummyTelephony.h"
-#import "CBLocationManager.h"
 
 @interface iSignalAppDelegate : NSObject <UIApplicationDelegate>
 

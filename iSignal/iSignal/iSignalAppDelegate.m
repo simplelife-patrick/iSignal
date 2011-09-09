@@ -51,8 +51,12 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
     
-    // ISDummyTelephony module stop
+    // TODO: Stop all modules' serive here.
+    // ISDummyTelephony module stops
     [self.dummnyTelephonyModule stopService];
+    // CBLocation module stops 
+    [self.locationModule stopService];
+    // CBCoreDataManager stops
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -224,7 +228,7 @@
  */
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [CBEnvironmentUtils applicationDocumentsDirectory];
 }
 
 @end
