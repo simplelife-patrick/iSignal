@@ -36,6 +36,6 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
-- (NSFetchedResultsController *)initFetchedResultsController;
+- (NSFetchedResultsController *)fetchedResultsController;
 
 @end

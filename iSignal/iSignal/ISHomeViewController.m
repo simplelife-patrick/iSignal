@@ -142,7 +142,7 @@
 
             // TODO: Record
             // Create a new instance of the entity managed by the fetched results controller.
-            NSFetchedResultsController *fetchedResultsController = [appDelegate.splashViewController.switchViewController.recordsViewController initFetchedResultsController];
+            NSFetchedResultsController *fetchedResultsController = [appDelegate.splashViewController.switchViewController.recordsViewController fetchedResultsController];
             NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
             NSFetchRequest *fetchRequest = [fetchedResultsController fetchRequest];
             NSEntityDescription *entity = [fetchRequest entity];
@@ -216,7 +216,8 @@
     // Load data from ISDummyTelephony module
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     [appDelegate.dummnyTelephonyModule setCallbackDelegate:self]; // Register callback delegate to module
-    [self.carrierLabel setText:appDelegate.dummnyTelephonyModule.carrier];
+
+    [self updateCarrier:appDelegate.dummnyTelephonyModule.carrier];
     [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
     
     // Audioplayer is initializing
