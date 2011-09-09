@@ -28,6 +28,6 @@
 
 +(BOOL) isBackgroundRunningEnabled;
 
--(NSURL*) applicationDocumentsDirectory;
++(NSURL*) applicationDocumentsDirectory;
 
 @end
