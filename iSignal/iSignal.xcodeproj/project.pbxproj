@@ -12,6 +12,7 @@
 		C50F9D6C1409E450000589BB /* iSignalX2.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDBE1407810700CB2C63 /* iSignalX2.png */; };
 		C52D7C991406481F00B7B0DA /* CBTelephonyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */; };
 		C531221D140B18560046CD7F /* signalLost.caf in Resources */ = {isa = PBXBuildFile; fileRef = C531221C140B18560046CD7F /* signalLost.caf */; };
+		C53386E01419A3D20000A553 /* CBCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C53386DF1419A3D20000A553 /* CBCoreDataManager.m */; };
 		C540250E140F74CD0047ABE3 /* ISMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C540250C140F74CD0047ABE3 /* ISMapViewController.m */; };
 		C540250F140F74CD0047ABE3 /* ISMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C540250D140F74CD0047ABE3 /* ISMapViewController.xib */; };
 		C547B44C1409D3690037B63F /* ISConfigSwitcherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */; };
@@ -60,6 +61,8 @@
 		C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
+		C53386DE1419A3D20000A553 /* CBCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCoreDataManager.h; sourceTree = "<group>"; };
+		C53386DF1419A3D20000A553 /* CBCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCoreDataManager.m; sourceTree = "<group>"; };
 		C540250B140F74CD0047ABE3 /* ISMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMapViewController.h; sourceTree = "<group>"; };
 		C540250C140F74CD0047ABE3 /* ISMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMapViewController.m; sourceTree = "<group>"; };
 		C540250D140F74CD0047ABE3 /* ISMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISMapViewController.xib; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				C573E5A5140355BF00BB24B3 /* CBMathUtils.m */,
 				C5B66184140CFE92000B1F74 /* CBLocationManager.h */,
 				C5B66185140CFE92000B1F74 /* CBLocationManager.m */,
+				C53386DE1419A3D20000A553 /* CBCoreDataManager.h */,
+				C53386DF1419A3D20000A553 /* CBCoreDataManager.m */,
 				C5B6618E140E2CDB000B1F74 /* CBModule.h */,
 			);
 			name = Common;
@@ -398,6 +403,7 @@
 				C572066B140E60DA00FD108F /* ISFloatingViewController.m in Sources */,
 				C540250E140F74CD0047ABE3 /* ISMapViewController.m in Sources */,
 				C56F97DD141065F5002FC302 /* ISRecordsViewController.m in Sources */,
+				C53386E01419A3D20000A553 /* CBCoreDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
