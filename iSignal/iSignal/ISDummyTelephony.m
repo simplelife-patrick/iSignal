@@ -85,6 +85,20 @@ static NSArray* CARRIER_LIST;
     }
 }
 
+-(void) initModule
+{
+    [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
+    [self.serviceThread setName:MODULE_IDENTITY_DUMMYTEPLEPHONY];
+    
+    [self setKeepAlive:FALSE];    
+}
+
+-(void) releaseModule
+{
+    [self.serviceThread release];
+    [self.moduleIdentity release];
+}
+
 -(void) processService
 {
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
@@ -117,12 +131,10 @@ static NSArray* CARRIER_LIST;
 
 - (void)dealloc
 {
-    [self.callbackDelegate release];
+    [self releaseModule];
     
-    [self.serviceThread release];
     [self.callbackDelegate release];
     [self.carrier release];
-    [self.moduleIdentity release];
     
     [super dealloc];
 }
@@ -133,10 +145,7 @@ static NSArray* CARRIER_LIST;
     if (self) 
     {
         // Initialization code here.
-        [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
-        [self.serviceThread setName:MODULE_IDENTITY_DUMMYTEPLEPHONY];
-        
-        [self setKeepAlive:FALSE];
+        [self initModule];
         
         [self refreshCarrier];        
     }

@@ -19,8 +19,10 @@
 @property (nonatomic, retain) NSString *moduleIdentity;
 @property (nonatomic, retain) NSThread *serviceThread;
 
+-(void) initModule;
 -(void) startService;
 -(void) processService;
 -(void) stopService;
+-(void) releaseModule;
 
 @end

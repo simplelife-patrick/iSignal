@@ -48,10 +48,7 @@
     if (self) 
     {
         // Initialization code here.
-        [self setModuleIdentity:MODULE_IDENTITY_LOCATION_MANAGER];
-        [self.serviceThread setName:MODULE_IDENTITY_LOCATION_MANAGER];
-        
-        [self setKeepAlive:FALSE];
+        [self initModule];
         
         [self setWorkMode:WORKMODE_STANDARD];
         [self setAccuracy:ACCURACY_DEFAULT];
@@ -64,9 +61,9 @@
 
 -(void) dealloc
 {
-    [self.serviceThread release];
-    [self.callbackDelegate release];
+    [self releaseModule];
     
+    [self.callbackDelegate release];
     [self.locationManager release];
     [self.reverseGeocoder release];
     [self.lastLocation release];
@@ -219,6 +216,20 @@
 }
 
 // Implemented from CBModule protocol.
+-(void) initModule
+{
+    [self setModuleIdentity:MODULE_IDENTITY_LOCATION_MANAGER];
+    [self.serviceThread setName:MODULE_IDENTITY_LOCATION_MANAGER];
+    
+    [self setKeepAlive:FALSE];    
+}
+
+-(void) releaseModule
+{
+    [self.serviceThread release];
+    [self.moduleIdentity release];
+}
+
 -(void) startService
 {
     // Do not create regions if support is unavailable or disabled.

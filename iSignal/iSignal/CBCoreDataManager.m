@@ -30,10 +30,7 @@
     if (self) 
     {
         // Initialization code here.
-        [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
-        [self.serviceThread setName:MODULE_IDENTITY_COREDATA_MANAGER];
-        
-        [self setKeepAlive:FALSE];        
+        [self initModule];     
     }
     
     return self;
@@ -41,9 +38,9 @@
 
 -(void) dealloc
 {
-    [self.serviceThread release];
-    [self.callbackDelegate release];
+    [self releaseModule];
     
+    [self.callbackDelegate release];
     [self.persistentStoreCoordinator release];
     [self.managedObjectContext release];
     [self.managedObjectModel release];
@@ -52,6 +49,20 @@
 }
 
 // Methods derived from CBModule protocol
+-(void) initModule
+{
+    [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
+    [self.serviceThread setName:MODULE_IDENTITY_COREDATA_MANAGER];
+    
+    [self setKeepAlive:FALSE];    
+}
+
+-(void) releaseModule
+{
+    [self.serviceThread release];
+    [self.moduleIdentity release];
+}
+
 -(void) startService
 {
     DLog(@"Module:%@ is going to start.", self.moduleIdentity);
