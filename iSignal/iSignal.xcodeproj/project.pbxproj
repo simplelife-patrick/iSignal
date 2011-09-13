@@ -113,6 +113,7 @@
 		C5BAED83140153B100141ED7 /* ISSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSwitchViewController.m; sourceTree = "<group>"; };
 		C5BD38F6141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFetchedResultsControllerIdentifier.h; sourceTree = "<group>"; };
 		C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBFetchedResultsControllerIdentifier.m; sourceTree = "<group>"; };
+		C5BD38FE141FA76300A1D4E6 /* CBObservable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBObservable.h; sourceTree = "<group>"; };
 		C5BEB0181400C32F0083A86A /* ISHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHelpViewController.h; sourceTree = "<group>"; };
 		C5BEB0191400C32F0083A86A /* ISHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewController.m; sourceTree = "<group>"; };
 		C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHelpViewController.xib; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 				C5B6618E140E2CDB000B1F74 /* CBModule.h */,
 				C5BD38F6141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.h */,
 				C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */,
+				C5BD38FE141FA76300A1D4E6 /* CBObservable.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
