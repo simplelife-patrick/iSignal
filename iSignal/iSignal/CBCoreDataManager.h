@@ -10,8 +10,8 @@
 #import <CoreData/CoreData.h>
 
 #import "CBModule.h"
-
 #import "CBEnvironmentUtils.h"
+#import "CBFetchedResultsControllerIdentifier.h"
 
 #define MODULE_IDENTITY_COREDATA_MANAGER @"CoreDataManager"
 
@@ -20,5 +20,9 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (nonatomic, retain, readonly) NSMutableDictionary* fetchResultsControllerMap;
+
+-(NSFetchedResultsController*) getFetchedResultsController:(CBFetchedResultsControllerIdentifier*) identifier;
 
 @end

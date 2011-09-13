@@ -41,6 +41,7 @@
 		C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B66188140D0249000B1F74 /* CoreLocation.framework */; };
 		C5B758231401E485004A051E /* CBUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* CBUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* ISSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* ISSwitchViewController.m */; };
+		C5BD38F8141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */; };
 		C5BEB01B1400C32F0083A86A /* ISHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BEB0191400C32F0083A86A /* ISHelpViewController.m */; };
 		C5BEB01C1400C32F0083A86A /* ISHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */; };
 		C5CD42C713FF8826009C5741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42C613FF8826009C5741 /* UIKit.framework */; };
@@ -110,6 +111,8 @@
 		C5B758221401E485004A051E /* CBUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* ISSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSwitchViewController.h; sourceTree = "<group>"; };
 		C5BAED83140153B100141ED7 /* ISSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSwitchViewController.m; sourceTree = "<group>"; };
+		C5BD38F6141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFetchedResultsControllerIdentifier.h; sourceTree = "<group>"; };
+		C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBFetchedResultsControllerIdentifier.m; sourceTree = "<group>"; };
 		C5BEB0181400C32F0083A86A /* ISHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHelpViewController.h; sourceTree = "<group>"; };
 		C5BEB0191400C32F0083A86A /* ISHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewController.m; sourceTree = "<group>"; };
 		C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHelpViewController.xib; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				C53386DE1419A3D20000A553 /* CBCoreDataManager.h */,
 				C53386DF1419A3D20000A553 /* CBCoreDataManager.m */,
 				C5B6618E140E2CDB000B1F74 /* CBModule.h */,
+				C5BD38F6141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.h */,
+				C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 				C540250E140F74CD0047ABE3 /* ISMapViewController.m in Sources */,
 				C56F97DD141065F5002FC302 /* ISRecordsViewController.m in Sources */,
 				C53386E01419A3D20000A553 /* CBCoreDataManager.m in Sources */,
+				C5BD38F8141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
