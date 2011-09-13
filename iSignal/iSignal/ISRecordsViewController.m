@@ -13,8 +13,8 @@
 // Manual Codes Begin
 
 @synthesize recordsTableViewController;
+
 @synthesize fetchedResultsController;
-@synthesize managedObjectContext;
 
 - (void)viewDidLoad
 {
@@ -27,7 +27,6 @@
     [self setRecordsTableViewController:nil];
     
     [self setFetchedResultsController:nil];
-    [self setManagedObjectContext:nil];
     
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -39,7 +38,6 @@
     [self.recordsTableViewController release];
     
     [self.fetchedResultsController release];
-    [self.managedObjectContext release];
     
     [super dealloc];
 }
@@ -162,57 +160,6 @@
     }
 }
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (self.fetchedResultsController != nil)
-    {
-        return self.fetchedResultsController;
-    }
-    
-    /*
-     Set up the fetched results controller.
-     */
-    // Create the fetch request for the entity.
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:DB_TABLE_SIGNALRECORD inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:DB_FETCH_BTACH_SIZE];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:DB_TABLE_SIGNALRECORD_FIELD_TIME ascending:NO];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:DB_TABLE_SIGNALRECORD_CACHE];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-    [aFetchedResultsController release];
-    [fetchRequest release];
-    [sortDescriptor release];
-    [sortDescriptors release];
-    
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error])
-    {
-	    /*
-	     Replace this implementation with code to handle the error appropriately.
-         
-	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-	     */
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return self.fetchedResultsController;
-}    
-
 // Implement method derived from NSFetchedResultsControllerDelegate protocol.
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -289,6 +236,7 @@
     if (self) 
     {
         // Custom initialization
+        
     }
     return self;
 }

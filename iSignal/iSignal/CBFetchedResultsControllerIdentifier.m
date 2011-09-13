@@ -30,6 +30,18 @@
     return self;
 }
 
+- (id)initWithTableName:(NSString*) table fetchBatchSize:(NSInteger) size ascending:(BOOL) isAscending descriptorName:(NSString*) descriptor tableCacheName:(NSString*) tableCache delegate:(id<NSFetchedResultsControllerDelegate>) frcDelegate
+{
+    self.tableName = table;
+    self.fetchBatchSize = size;
+    self.ascending = isAscending;
+    self.descriptorName = descriptor;
+    self.tableCacheName = tableCache;
+    self.delegate = frcDelegate;
+    
+    return [self init];
+}
+
 - (void) dealloc
 {
     [self.tableName release];

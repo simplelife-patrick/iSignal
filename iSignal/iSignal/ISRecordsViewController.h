@@ -31,11 +31,8 @@
 
 @property (nonatomic, retain) IBOutlet UITableViewController *recordsTableViewController;
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-
-- (NSFetchedResultsController *)fetchedResultsController;
 
 @end

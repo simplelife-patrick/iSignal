@@ -13,12 +13,11 @@
 
 #import "ISSplashViewController.h"
 #import "ISDummyTelephony.h"
+#import "CBCoreDataManager.h"
 
 @interface iSignalAppDelegate : NSObject <UIApplicationDelegate>
 
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
 
 // Manual Codes Begin
 
@@ -28,6 +27,7 @@
 
 @property (nonatomic, retain) ISDummyTelephony* dummnyTelephonyModule;
 @property (nonatomic, retain) CBLocationManager* locationModule;
+@property (nonatomic, retain) CBCoreDataManager* coreDataModule;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

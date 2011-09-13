@@ -58,6 +58,8 @@
     [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
     [self.serviceThread setName:MODULE_IDENTITY_COREDATA_MANAGER];
     
+    // TODO: Init a NSFetchedResultsController object here and put it into map.
+    
     [self setKeepAlive:FALSE];    
 }
 
