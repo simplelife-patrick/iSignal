@@ -11,6 +11,8 @@
 #import "ISFloatingViewController.h"
 #import "ISSwitchViewController.h"
 
+#import "CBFetchedResultsControllerIdentifier.h"
+
 @interface ISSplashViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet ISFloatingViewController *floatingViewController;

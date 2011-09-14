@@ -84,9 +84,8 @@ static CGRect s_floatingView_popup;
 
 - (void) loadAnyNecessaryStuff
 {
+    // All CBModules should start here    
     DLog(@"Start to load anything necessary for this app.");
-
-    // All CBModules should start here
     
     // App Configs module start
     [ISAppConfigs initConfigsIfNecessary];
@@ -94,6 +93,7 @@ static CGRect s_floatingView_popup;
     // ISDummyTelephony module start
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     appDelegate.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];
+    [appDelegate.dummnyTelephonyModule initModule];
     [appDelegate.dummnyTelephonyModule startService];
     
     // Location module start
@@ -101,8 +101,14 @@ static CGRect s_floatingView_popup;
     appDelegate.locationModule = [[CBLocationManager alloc] init];
     if ([ISAppConfigs isLocationOn])
     {
+        [appDelegate.locationModule initModule];
         [appDelegate.locationModule startService];
     }
+    
+    // CoreData module start
+    appDelegate.coreDataModule = [[CBCoreDataManager alloc] init];
+    [appDelegate.coreDataModule initModule];
+    [appDelegate.coreDataModule startService];
     
     DLog(@"Finished the load operation.");
     // Switch back to Splash UI

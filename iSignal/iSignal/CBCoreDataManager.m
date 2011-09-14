@@ -25,6 +25,11 @@
 
 @synthesize fetchResultsControllerMap = _fetchResultsControllerMap;
 
++(void) initialize
+{
+    s_fetchedResultsControllerIdentifier_signalRecord = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
+}
+
 // Methods derived from NSObject
 - (id)init
 {
@@ -58,7 +63,7 @@
     [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
     [self.serviceThread setName:MODULE_IDENTITY_COREDATA_MANAGER];
     
-    // TODO: Init a NSFetchedResultsController object here and put it into map.
+    [self getFetchedResultsController:s_fetchedResultsControllerIdentifier_signalRecord];
     
     [self setKeepAlive:FALSE];    
 }

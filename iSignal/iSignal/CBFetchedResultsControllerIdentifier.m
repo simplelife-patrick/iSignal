@@ -30,14 +30,13 @@
     return self;
 }
 
-- (id)initWithTableName:(NSString*) table fetchBatchSize:(NSInteger) size ascending:(BOOL) isAscending descriptorName:(NSString*) descriptor tableCacheName:(NSString*) tableCache delegate:(id<NSFetchedResultsControllerDelegate>) frcDelegate
+- (id)initWithTableName:(NSString*) table fetchBatchSize:(NSInteger) size ascending:(BOOL) isAscending descriptorName:(NSString*) descriptor tableCacheName:(NSString*) tableCache
 {
     self.tableName = table;
     self.fetchBatchSize = size;
     self.ascending = isAscending;
     self.descriptorName = descriptor;
     self.tableCacheName = tableCache;
-    self.delegate = frcDelegate;
     
     return [self init];
 }
@@ -54,7 +53,7 @@
 
 - (NSUInteger) hash
 {
-    return [tableName hash] ^ fetchBatchSize ^ ascending ^[descriptorName hash] ^ [tableCacheName hash] ^ [(NSObject*)delegate hash]; // TODO: How to clear this warning?
+    return [tableName hash] ^ fetchBatchSize ^ ascending ^[descriptorName hash] ^ [tableCacheName hash];
 }
 
 - (BOOL) isEqual:(id)object
@@ -62,7 +61,7 @@
     if (!object && [object isKindOfClass:[CBFetchedResultsControllerIdentifier class]]) 
     {
         CBFetchedResultsControllerIdentifier *identifier = (CBFetchedResultsControllerIdentifier*)object;
-        if ([self.tableCacheName isEqual:identifier.tableCacheName] && (self.fetchBatchSize == identifier.fetchBatchSize) && (self.ascending == identifier.ascending) && [self.descriptorName isEqual:identifier.descriptorName] && [self.tableCacheName isEqual:identifier.tableCacheName] && (self.delegate == identifier.delegate))
+        if ([self.tableCacheName isEqual:identifier.tableCacheName] && (self.fetchBatchSize == identifier.fetchBatchSize) && (self.ascending == identifier.ascending) && [self.descriptorName isEqual:identifier.descriptorName] && [self.tableCacheName isEqual:identifier.tableCacheName])
         {
             return YES;
         }
