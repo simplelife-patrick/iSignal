@@ -16,22 +16,23 @@
 
 static NSArray* CARRIER_LIST;
 
-// Members of CBModule protocol.
-
+// Members of CBModule protocol
 @synthesize moduleIdentity;
 @synthesize serviceThread;
 @synthesize keepAlive;
-@synthesize callbackDelegate;
+@synthesize delegateList;
 
 // Members of ISDummyTelephony
 @synthesize signalStrength;
 @synthesize carrier;
 
+// Static block
 +(void) initialize
 {
     CARRIER_LIST = [NSArray arrayWithObjects:NSLocalizedString(@"STR_CMCC",nil), NSLocalizedString(@"STR_CUNI", nil), nil];
 }
 
+// Static method
 +(NSArray*) getCarrierList
 {
     if(nil == CARRIER_LIST)
@@ -43,18 +44,20 @@ static NSArray* CARRIER_LIST;
     return CARRIER_LIST;
 }
 
+// Static method
 +(NSString*) randomCarrier
 {
     NSInteger min = CARRIER_CMCC;
     NSInteger max = CARRIER_CUNI;
     NSInteger arrayIndex = [CBMathUtils generateRandomNSInteger:min andMax:max];
-    NSArray *carrierArray = [ISDummyTelephony getCarrierList];
+    NSArray* carrierArray = [ISDummyTelephony getCarrierList];
     NSString* carrierVal = [carrierArray objectAtIndex:arrayIndex];
     
     DLog(@"Random carrier is generated: %@", carrierVal);
     return carrierVal;
 }
 
+// Static method
 +(NSInteger) randomSignalStrength
 {
     NSInteger loss = CELLULAR_SIGNAL_STRENGTH_LOSS;
@@ -66,39 +69,96 @@ static NSArray* CARRIER_LIST;
     return signalVal;
 }
 
+// Method of CBModule protocol
+-(void) registerDelegate:(id<CBListenable>) delegate
+{
+    if(nil == delegate)
+    {
+        DLog(@"The delegate to be registered can not be nil.");
+        return;
+    }
+    
+    for (id<CBListenable> tmpDelegate in self.delegateList)
+    {
+        if (tmpDelegate == delegate) 
+        {
+            DLog(@"The delegate: %@ is already in registered list.", delegate);
+            return;
+        }
+    }
+    
+    [self.delegateList addObject:delegate];
+}
+
+// Method of CBModule protocol
+-(void) unregisterDelegate:(id<CBListenable>) delegate
+{
+    if(nil == delegate)
+    {
+        DLog(@"The delegate to be registered can not be nil.");
+        return;
+    }
+    
+    for (id<CBListenable> tmpDelegate in self.delegateList)
+    {
+        if (tmpDelegate == delegate) 
+        {
+            [self.delegateList removeObject:delegate];
+            DLog(@"The delegate: %@ has been removed out from registered list.", delegate);
+            return;
+        }
+    }    
+}
+
+// Method of CBModule protocol
+-(void) unregisterAllDelegates
+{
+    [self.delegateList removeAllObjects];
+}
+
+// Method of CBModule protocol
+-(void) notifyAllDelegates:(id) message
+{
+    for (id<CBListenable> tmpDelegate in self.delegateList)
+    {
+        [tmpDelegate messageCallback: message];
+    }
+}
+
+// Private method
 -(void) refreshCarrier
 {
     self.carrier = [ISDummyTelephony randomCarrier];
 }
 
+// Private method
 -(void) refreshSignalStrength
 {
     self.signalStrength = [ISDummyTelephony randomSignalStrength];
     DLog(@"Received new signal strength value: %d", self.signalStrength);
-    // Callback delegate to notify listener
-    if(nil != self.callbackDelegate)
-    {
-        NSNumber *signalVal = [NSNumber numberWithInt:self.signalStrength];
-        DLog(@"Callback by signal strength changed: %@", signalVal);
-        [self.callbackDelegate messageCallback:signalVal];
-        [signalVal release];
-    }
+    // Notify listeners
+    NSNumber *signalVal = [NSNumber numberWithInt:self.signalStrength];
+    [self notifyAllDelegates:signalVal];
+    [signalVal release];    
 }
 
+// Method of CBModule protocol
 -(void) initModule
 {
     [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
     [self.serviceThread setName:MODULE_IDENTITY_DUMMYTEPLEPHONY];
     
-    [self setKeepAlive:FALSE];    
+    [self setKeepAlive:FALSE];
 }
 
+// Method of CBModule protocol
 -(void) releaseModule
 {
     [self.serviceThread release];
     [self.moduleIdentity release];
 }
 
+// Method of CBModule protocol
 -(void) processService
 {
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
@@ -113,6 +173,7 @@ static NSArray* CARRIER_LIST;
     [serviceThreadPool release];
 }
 
+// Method of CBModule protocol
 -(void) startService
 {
     if (nil == self.serviceThread) 
@@ -124,17 +185,24 @@ static NSArray* CARRIER_LIST;
     [self.serviceThread start];
 }
 
+// Method of CBModule protocol
 -(void) stopService
 {
     self.keepAlive = FALSE;
 }
 
+// Method of CBModule protocol
+-(void) messageCallback:(id) message
+{
+    
+}
+
 - (void)dealloc
 {
     [self releaseModule];
-    
-    [self.callbackDelegate release];
     [self.carrier release];
+    
+    [self.delegateList release];
     
     [super dealloc];
 }
@@ -145,7 +213,7 @@ static NSArray* CARRIER_LIST;
     if (self) 
     {
         // Initialization code here.
-        [self initModule];
+        self.delegateList = [[NSMutableArray alloc] init];
         
         [self refreshCarrier];        
     }

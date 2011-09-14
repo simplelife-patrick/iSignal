@@ -89,12 +89,8 @@ static CGRect s_floatingView_popup;
     
     // App Configs module start
     [ISAppConfigs initConfigsIfNecessary];
-    
-    // ISDummyTelephony module start
+        
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    appDelegate.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];
-    [appDelegate.dummnyTelephonyModule initModule];
-    [appDelegate.dummnyTelephonyModule startService];
     
     // Location module start
     // TODO: Location module should not be inited if location service is not supported or disabled currently.
@@ -109,6 +105,14 @@ static CGRect s_floatingView_popup;
     appDelegate.coreDataModule = [[CBCoreDataManager alloc] init];
     [appDelegate.coreDataModule initModule];
     [appDelegate.coreDataModule startService];
+    
+    // ISDummyTelephony module start
+    appDelegate.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];
+    [appDelegate.dummnyTelephonyModule initModule];
+    [appDelegate.dummnyTelephonyModule registerDelegate:appDelegate.locationModule];
+    [appDelegate.dummnyTelephonyModule registerDelegate:appDelegate.coreDataModule];
+    [appDelegate.dummnyTelephonyModule startService];  
+    
     
     DLog(@"Finished the load operation.");
     // Switch back to Splash UI

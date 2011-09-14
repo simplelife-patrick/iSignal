@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 #import "CBModule.h"
+
 #import "CBEnvironmentUtils.h"
 #import "CBFetchedResultsControllerIdentifier.h"
 

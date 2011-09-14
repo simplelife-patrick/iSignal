@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CBFetchedResultsControllerIdentifier : NSObject
+@interface CBFetchedResultsControllerIdentifier : NSObject <NSCopying>
 
 @property (nonatomic, retain) NSString* tableName;
 @property (nonatomic) NSInteger fetchBatchSize;

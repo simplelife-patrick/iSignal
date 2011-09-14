@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CBCallbackDelegate.h"
+#import "CBListenable.h"
 
 @protocol CBObservable <NSObject>
 
-@property NSArray *delegateList;
+@property (nonatomic, retain) NSMutableArray *delegateList;
 
--(void) registerDelegate:(CBCallbackDelegate*) delegate;
--(void) unregisterDelegate:(CBCallbackDelegate*) delegate;
+-(void) registerDelegate:(id<CBListenable>) delegate;
+-(void) unregisterDelegate:(id<CBListenable>) delegate;
 -(void) unregisterAllDelegates;
--(void) notifyAllDelegates;
+-(void) notifyAllDelegates:(id) message;
 
 @end

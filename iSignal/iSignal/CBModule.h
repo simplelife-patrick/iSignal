@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CBCallbackDelegate.h"
+#import "CBListenable.h"
+#import "CBObservable.h"
 
-@protocol CBModule <NSObject>
+@protocol CBModule <NSObject, CBListenable, CBObservable>
 
 @property BOOL keepAlive;
-
-@property (nonatomic, retain) id<CBCallbackDelegate> callbackDelegate;
 
 @property (nonatomic, retain) NSString *moduleIdentity;
 @property (nonatomic, retain) NSThread *serviceThread;

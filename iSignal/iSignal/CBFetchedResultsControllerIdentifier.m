@@ -70,6 +70,20 @@
     return NO;
 }
 
+// Method of NSCopying protocol
+- (id)copyWithZone:(NSZone *)zone
+{
+    CBFetchedResultsControllerIdentifier *copy = [[[self class] allocWithZone: zone] init];
+    copy.tableName = [[self.tableName copyWithZone:zone] autorelease];
+    copy.fetchBatchSize = self.fetchBatchSize;
+    copy.ascending = self.ascending;
+    copy.descriptorName = [[self.descriptorName copyWithZone:zone] autorelease];
+    copy.tableCacheName = [[self.tableCacheName copyWithZone:zone] autorelease];
+    copy.delegate = self.delegate; 
+    
+    return copy;
+}
+
 // Manual Codes End
 
 @end

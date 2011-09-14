@@ -50,11 +50,13 @@
     [self saveContext];
     
     // TODO: Stop all modules' serive here.
+    
     // ISDummyTelephony module stops
     [self.dummnyTelephonyModule stopService];
     // CBLocation module stops 
     [self.locationModule stopService];
     // CBCoreDataManager stops
+    [self.coreDataModule stopService];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

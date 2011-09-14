@@ -12,11 +12,11 @@
 
 // Manual Codes Begin
 
-// Members of CBMoudle protocol.
-@synthesize keepAlive;
-@synthesize serviceThread;
+// Members of CBModule protocol
 @synthesize moduleIdentity;
-@synthesize callbackDelegate;
+@synthesize serviceThread;
+@synthesize keepAlive;
+@synthesize delegateList;
 
 // Members of CBLocationManager
 @synthesize workMode;
@@ -27,16 +27,19 @@
 
 @synthesize reverseGeocoder;
 
+// Static method
 +(BOOL) isLocationServiceEnabled
 {
     return [CLLocationManager locationServicesEnabled];
 }
 
+// Static method
 +(BOOL) isRegionMonitoringAvailable
 {
     return [CLLocationManager regionMonitoringAvailable];
 }
 
+// Static method
 +(BOOL) isRegionMonitoringEnabled
 {
     return [CLLocationManager regionMonitoringEnabled];
@@ -47,9 +50,7 @@
     self = [super init];
     if (self) 
     {
-        // Initialization code here.
-        [self initModule];
-        
+        // Initialization code here.        
         [self setWorkMode:WORKMODE_STANDARD];
         [self setAccuracy:ACCURACY_DEFAULT];
         [self setDistanceFilter:DISTANCE_DEFAULT];
@@ -63,7 +64,6 @@
 {
     [self releaseModule];
     
-    [self.callbackDelegate release];
     [self.locationManager release];
     [self.reverseGeocoder release];
     [self.lastLocation release];
@@ -161,7 +161,7 @@
     return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:self.currentLocation andCircleRadius:self.regionRadius andAccuracy:self.locationManager.desiredAccuracy];
 }
 
-// Delegate method from the CLLocationManagerDelegate protocol.
+// Method of CLLocationManagerDelegate protocol
 - (void) locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
@@ -181,26 +181,26 @@
     // else skip the event and process the next one.
 }
 
-// Delegate method from the CLLocationManagerDelegate protocol.
+// Method of CLLocationManagerDelegate protocol
 - (void) locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
     // TODO:
 }
 
-// Delegate method from the CLLocationManagerDelegate protocol.
+// Method of CLLocationManagerDelegate protocol
 - (void) locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
     // TODO:
 }
 
-// Delegate method from the CLLocationManagerDelegate protocol.
+// Method of CLLocationManagerDelegate protocol
 - (void) locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
 {
     // TODO:
     DLog(@"Failed to monitor this region: %@ with error: %@", region, error);
 }
 
-// Delegate method from the MKReverseGeocoderDelegate protocol.
+// Method of MKReverseGeocoderDelegate protocol
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
 {
     // TODO:
@@ -208,14 +208,14 @@
     [geocoder  release];
 }
 
-// Delegate method from the MKReverseGeocoderDelegate protocol.
+// Method of MKReverseGeocoderDelegate protocol
 - (void) reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
 {
     // TODO:
  
 }
 
-// Implemented from CBModule protocol.
+// Method of CBModule protocol
 -(void) initModule
 {
     [self setModuleIdentity:MODULE_IDENTITY_LOCATION_MANAGER];
@@ -224,12 +224,14 @@
     [self setKeepAlive:FALSE];    
 }
 
+// Method of CBModule protocol
 -(void) releaseModule
 {
     [self.serviceThread release];
     [self.moduleIdentity release];
 }
 
+// Method of CBModule protocol
 -(void) startService
 {
     // Do not create regions if support is unavailable or disabled.
@@ -249,7 +251,7 @@
     [self.serviceThread start];
 }
 
-// Implemented from CBModule protocol.
+// Method of CBModule protocol
 -(void) processService
 {
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
@@ -302,10 +304,72 @@
     [serviceThreadPool release];
 }
 
-// Implemented from CBModule protocol.
+// Method of CBModule protocol
 -(void) stopService
 {
     self.keepAlive = FALSE;
+}
+
+// Method of CBModule protocol
+-(void) registerDelegate:(id<CBListenable>) delegate
+{
+    if(nil == delegate)
+    {
+        DLog(@"The delegate to be registered can not be nil.");
+        return;
+    }
+    
+    for (id<CBListenable> tmpDelegate in self.delegateList)
+    {
+        if (tmpDelegate == delegate) 
+        {
+            DLog(@"The delegate: %@ is already in registered list.", delegate);
+            return;
+        }
+    }
+    
+    [self.delegateList addObject:delegate];
+}
+
+// Method of CBModule protocol
+-(void) unregisterDelegate:(id<CBListenable>) delegate
+{
+    if(nil == delegate)
+    {
+        DLog(@"The delegate to be registered can not be nil.");
+        return;
+    }
+    
+    for (id<CBListenable> tmpDelegate in self.delegateList)
+    {
+        if (tmpDelegate == delegate) 
+        {
+            [self.delegateList removeObject:delegate];
+            DLog(@"The delegate: %@ has been removed out from registered list.", delegate);
+            return;
+        }
+    }    
+}
+
+// Method of CBModule protocol
+-(void) unregisterAllDelegates
+{
+    [self.delegateList removeAllObjects];
+}
+
+// Method of CBModule protocol
+-(void) notifyAllDelegates:(id) message
+{
+    for (id<CBListenable> tmpDelegate in self.delegateList)
+    {
+        [tmpDelegate messageCallback: message];
+    }
+}
+
+// Method of CBModule protocol
+-(void) messageCallback:(id) message
+{
+    
 }
 
 // Manual Coes End
