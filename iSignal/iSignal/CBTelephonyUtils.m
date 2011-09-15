@@ -14,7 +14,6 @@
 
 +(SIGNAL_QUALITY) evaluateSignalQuality:(NSInteger) signalStrength;
 {
-    DLog(@"Start to evaluate signal quality with: %d dbm.", signalStrength);
     SIGNAL_QUALITY quality = QUALITY_SIGNAL_5;
     if(QUALITY_SIGNAL_0_UPPERLIMIT >= signalStrength)
     {
@@ -36,8 +35,7 @@
     {
         quality = QUALITY_SIGNAL_4;
     }
- 
-    DLog(@"Finish to evaluate signal quality: %d", quality);
+
     return quality;
 }
 
