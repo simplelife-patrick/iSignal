@@ -28,9 +28,6 @@
 +(void) initialize
 {
     gFetchedResultsControllerIdentifier_signalRecord = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
-    g2 = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
-    DLog(@"g1 isEquals g2: %@", [gFetchedResultsControllerIdentifier_signalRecord isEqual:g2]? @"YES" : @"NO");
-    DLog(@"g1's hash: %d == g2's hash: %d", [gFetchedResultsControllerIdentifier_signalRecord hash], [g2 hash]);
 }
 
 - (id)init

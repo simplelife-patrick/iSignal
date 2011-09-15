@@ -30,7 +30,6 @@
 #define DB_ASCENDING NO
 
 CBFetchedResultsControllerIdentifier* gFetchedResultsControllerIdentifier_signalRecord;
-CBFetchedResultsControllerIdentifier* g2;
 
 @interface CBCoreDataManager : NSObject <CBModule>
 
