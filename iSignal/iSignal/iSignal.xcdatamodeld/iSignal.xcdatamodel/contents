@@ -7,7 +7,7 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0"/>
         <attribute name="tag" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Date"/>
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
     <fetchRequest name="FetchRequest" entity="SignalRecord"/>
     <elements>
