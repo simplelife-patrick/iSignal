@@ -173,9 +173,12 @@
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
+    [newManagedObject setValue:0 forKey:DB_TABLE_SIGNALRECORD_FIELD_DURATION];
     [newManagedObject setValue:FALSE forKey:DB_TABLE_SIGNALRECORD_FIELD_ISSYNC];
+    [newManagedObject setValue:[NSDate date] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
+    [newManagedObject setValue:@"N/A" forKey:DB_TABLE_SIGNALRECORD_FIELD_TAG];
     [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS forKey:DB_TABLE_SIGNALRECORD_FIELD_TYPE];
+    
     if(locationOn)
     {
         CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
