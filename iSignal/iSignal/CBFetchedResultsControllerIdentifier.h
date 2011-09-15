@@ -15,6 +15,7 @@
 @property (nonatomic) BOOL ascending;
 @property (nonatomic, retain) NSString* descriptorName;
 @property (nonatomic, retain) NSString* tableCacheName;
+
 @property (nonatomic, retain) id<NSFetchedResultsControllerDelegate> delegate;
 
 - (id)initWithTableName:(NSString*) table fetchBatchSize:(NSInteger) size ascending:(BOOL) isAscending descriptorName:(NSString*) descriptor tableCacheName:(NSString*) tableCache;

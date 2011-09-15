@@ -29,7 +29,8 @@
 #define DB_FETCH_BTACH_SIZE 20
 #define DB_ASCENDING NO
 
-CBFetchedResultsControllerIdentifier* s_fetchedResultsControllerIdentifier_signalRecord;
+CBFetchedResultsControllerIdentifier* gFetchedResultsControllerIdentifier_signalRecord;
+CBFetchedResultsControllerIdentifier* g2;
 
 @interface CBCoreDataManager : NSObject <CBModule>
 

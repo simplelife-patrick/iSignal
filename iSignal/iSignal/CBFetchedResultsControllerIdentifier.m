@@ -58,7 +58,7 @@
 
 - (BOOL) isEqual:(id)object
 {
-    if (!object && [object isKindOfClass:[CBFetchedResultsControllerIdentifier class]]) 
+    if (object && [object isKindOfClass:[CBFetchedResultsControllerIdentifier class]]) 
     {
         CBFetchedResultsControllerIdentifier *identifier = (CBFetchedResultsControllerIdentifier*)object;
         if ([self.tableCacheName isEqual:identifier.tableCacheName] && (self.fetchBatchSize == identifier.fetchBatchSize) && (self.ascending == identifier.ascending) && [self.descriptorName isEqual:identifier.descriptorName] && [self.tableCacheName isEqual:identifier.tableCacheName])

@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
-    self.fetchedResultsController = [appDelegate.coreDataModule getFetchedResultsController: s_fetchedResultsControllerIdentifier_signalRecord];
+    self.fetchedResultsController = [appDelegate.coreDataModule getFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
     self.fetchedResultsController.delegate = self;
 }
 

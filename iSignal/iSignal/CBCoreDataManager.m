@@ -27,7 +27,10 @@
 // Static block
 +(void) initialize
 {
-    s_fetchedResultsControllerIdentifier_signalRecord = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
+    gFetchedResultsControllerIdentifier_signalRecord = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
+    g2 = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
+    DLog(@"g1 isEquals g2: %@", [gFetchedResultsControllerIdentifier_signalRecord isEqual:g2]? @"YES" : @"NO");
+    DLog(@"g1's hash: %d == g2's hash: %d", [gFetchedResultsControllerIdentifier_signalRecord hash], [g2 hash]);
 }
 
 - (id)init
@@ -36,7 +39,6 @@
     if (self) 
     {
         // Initialization code here.
-        _fetchResultsControllerMap = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -59,8 +61,6 @@
 {    
     [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
     [self.serviceThread setName:MODULE_IDENTITY_COREDATA_MANAGER];
-    
-    [self getFetchedResultsController:s_fetchedResultsControllerIdentifier_signalRecord];
     
     [self setKeepAlive:FALSE]; 
 }
@@ -168,7 +168,7 @@
     
     // TODO: Record
     // Create a new instance of the entity managed by the fetched results controller.
-    NSFetchedResultsController *fetchedResultsController = [appDelegate.coreDataModule getFetchedResultsController:s_fetchedResultsControllerIdentifier_signalRecord];
+    NSFetchedResultsController *fetchedResultsController = [appDelegate.coreDataModule getFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
     NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
     NSFetchRequest *fetchRequest = [fetchedResultsController fetchRequest];
     NSEntityDescription *entity = [fetchRequest entity];
@@ -199,10 +199,21 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
 }
 
 // Methods derived from CBCoreDataManager
+- (NSMutableDictionary *) fetchResultsControllerMap
+{
+    if (nil != _fetchResultsControllerMap) 
+    {
+        return _fetchResultsControllerMap;
+    }
+    
+    _fetchResultsControllerMap = [NSMutableDictionary dictionary];
+    return _fetchResultsControllerMap;
+}
+
 /**
  Returns the managed object context for the application.
  If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
@@ -293,7 +304,7 @@
     
     if (nil != identifier)
     {
-        frController = [_fetchResultsControllerMap objectForKey:identifier];
+        frController = [self.fetchResultsControllerMap objectForKey:identifier];
         
         if (!frController) 
         {
@@ -320,9 +331,8 @@
             tempController.delegate = identifier.delegate;
             frController = tempController;
             
-            [_fetchResultsControllerMap setObject:frController forKey:identifier];
+            [self.fetchResultsControllerMap setObject:frController forKey:identifier];
             
-
             [tempController release];
             [fetchRequest release];
             [sortDescriptor release];
