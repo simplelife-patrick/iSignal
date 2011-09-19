@@ -55,13 +55,21 @@
 	[super viewDidDisappear:animated];
 }
 
-// Customize the number of sections in the table view.
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [[managedObject valueForKey:DB_TABLE_SIGNALRECORD_FIELD_TIME] description];
+    DLog(@"Cell's value: %@", cell.textLabel.text);
+}
+
+// Method of UITableViewController
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSArray* sectionArray = [_fetchedResultsController sections];
     return [sectionArray count];
 }
 
+// Method of UITableViewController
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSArray* sectionArray = [_fetchedResultsController sections];
@@ -70,7 +78,7 @@
     return numberOfObjects;
 }
 
-// Customize the appearance of table view cells.
+// Method of UITableViewController
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = KEY_CELL_IDENTIFIER;
@@ -85,6 +93,7 @@
     return cell;
 }
 
+// Method of UITableViewController
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -108,12 +117,14 @@
     }   
 }
 
+// Method of UITableViewController
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // The table view should not be re-orderable.
     return NO;
 }
 
+// Method of UITableViewController
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     /*
@@ -125,20 +136,13 @@
      */
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:DB_TABLE_SIGNALRECORD_FIELD_TIME] description];
-    DLog(@"Cell's value: %@", cell.textLabel.text);
-}
-
-// Implement method derived from NSFetchedResultsControllerDelegate protocol.
+// Method of NSFetchedResultsControllerDelegate protocol
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
 }
 
-// Implement method derived from NSFetchedResultsControllerDelegate protocol.
+// Method of NSFetchedResultsControllerDelegate protocol
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
@@ -154,7 +158,7 @@
     }
 }
 
-// Implement method derived from NSFetchedResultsControllerDelegate protocol.
+// Method of NSFetchedResultsControllerDelegate protocol
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
@@ -187,22 +191,14 @@
     }
 }
 
-// Implement method derived from NSFetchedResultsControllerDelegate protocol.
+// Method of NSFetchedResultsControllerDelegate protocol
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
+// In the simplest, most efficient, case, reload the table view.
+//    [self.tableView reloadData];
 }
-
-/*
- // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- // Implement method derived from NSFetchedResultsControllerDelegate protocol.
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
- {
- // In the simplest, most efficient, case, reload the table view.
- [self.tableView reloadData];
- }
- */
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
