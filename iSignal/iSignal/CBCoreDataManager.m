@@ -177,7 +177,7 @@
     [newManagedObject setValue:0 forKey:DB_TABLE_SIGNALRECORD_FIELD_DURATION];
     [newManagedObject setValue:FALSE forKey:DB_TABLE_SIGNALRECORD_FIELD_ISSYNC];
     [newManagedObject setValue:[NSDate date] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
-    [newManagedObject setValue:@"N/A" forKey:DB_TABLE_SIGNALRECORD_FIELD_TAG];
+    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_NULL forKey:DB_TABLE_SIGNALRECORD_FIELD_TAG];
     [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS forKey:DB_TABLE_SIGNALRECORD_FIELD_TYPE];
     
     if(locationOn)
@@ -247,7 +247,7 @@
         return _managedObjectModel;
     }
     
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"iSignal" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:DB_ISIGNAL_MANAGEMENT_MODEL_NAME withExtension:DB_ISIGNAL_MANAGEMENT_MODEL_EXTENSION];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
     return _managedObjectModel;
 }
@@ -263,7 +263,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[CBEnvironmentUtils applicationDocumentsDirectory] URLByAppendingPathComponent:@"iSignal.sqlite"];
+    NSURL *storeURL = [[CBEnvironmentUtils applicationDocumentsDirectory] URLByAppendingPathComponent:DB_ISIGNAL_PATH_COMPONENT];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
