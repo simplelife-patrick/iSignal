@@ -38,8 +38,8 @@ CBFetchedResultsControllerIdentifier* gFetchedResultsControllerIdentifier_signal
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, retain, readonly) NSMutableDictionary* fetchResultsControllerMap;
+@property (nonatomic, retain, readonly) NSMutableDictionary* fetchedResultsControllerMap;
 
--(NSFetchedResultsController*) getFetchedResultsController:(CBFetchedResultsControllerIdentifier*) identifier;
+-(NSFetchedResultsController*) obtainFetchedResultsController:(CBFetchedResultsControllerIdentifier*) identifier;
 
 @end

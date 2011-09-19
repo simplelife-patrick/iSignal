@@ -22,7 +22,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize fetchResultsControllerMap = _fetchResultsControllerMap;
+@synthesize fetchedResultsControllerMap = _fetchedResultsControllerMap;
 
 // Static block
 +(void) initialize
@@ -48,7 +48,7 @@
     [_persistentStoreCoordinator release];
     [_managedObjectContext release];
     [_managedObjectModel release];
-    [_fetchResultsControllerMap release];
+    [_fetchedResultsControllerMap release];
     
     [super dealloc];
 }
@@ -58,8 +58,7 @@
 {    
     [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
     [self.serviceThread setName:MODULE_IDENTITY_COREDATA_MANAGER];
-    
-    [self setKeepAlive:FALSE]; 
+    [self setKeepAlive:FALSE];
 }
 
 // Method of CBModule protocol
@@ -73,6 +72,7 @@
 -(void) startService
 {
     DLog(@"Module:%@ is going to start.", self.moduleIdentity);
+    [NSFetchedResultsController deleteCacheWithName:DB_TABLE_SIGNALRECORD_CACHE];    
 }
 
 // Method of CBModule protocol
@@ -84,7 +84,8 @@
 // Method of CBModule protocol
 -(void) stopService;
 {
-    DLog(@"Module:%@ is going to stop.", self.moduleIdentity);    
+    DLog(@"Module:%@ is going to stop.", self.moduleIdentity);
+    [NSFetchedResultsController deleteCacheWithName:DB_TABLE_SIGNALRECORD_CACHE];
 }
 
 // Method of CBModule protocol
@@ -165,7 +166,7 @@
     
     // TODO: Record
     // Create a new instance of the entity managed by the fetched results controller.
-    NSFetchedResultsController *fetchedResultsController = [appDelegate.coreDataModule getFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
+    NSFetchedResultsController *fetchedResultsController = [self obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
     NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
     NSFetchRequest *fetchRequest = [fetchedResultsController fetchRequest];
     NSEntityDescription *entity = [fetchRequest entity];
@@ -203,15 +204,16 @@
 }
 
 // Methods derived from CBCoreDataManager
-- (NSMutableDictionary *) fetchResultsControllerMap
+- (NSMutableDictionary *) fetchedResultsControllerMap
 {
-    if (nil != _fetchResultsControllerMap) 
+    if (nil != _fetchedResultsControllerMap) 
     {
-        return _fetchResultsControllerMap;
+        return _fetchedResultsControllerMap;
     }
     
-    _fetchResultsControllerMap = [NSMutableDictionary dictionary];
-    return _fetchResultsControllerMap;
+//    _fetchResultsControllerMap = [NSMutableDictionary dictionary];
+    _fetchedResultsControllerMap = [[NSMutableDictionary alloc] initWithCapacity:1];
+    return _fetchedResultsControllerMap;
 }
 
 /**
@@ -298,13 +300,13 @@
     return _persistentStoreCoordinator;
 }
 
--(NSFetchedResultsController*) getFetchedResultsController:(CBFetchedResultsControllerIdentifier *)identifier
+-(NSFetchedResultsController*) obtainFetchedResultsController:(CBFetchedResultsControllerIdentifier *)identifier
 {
     NSFetchedResultsController* frController = nil;
     
     if (nil != identifier)
     {
-        frController = [self.fetchResultsControllerMap objectForKey:identifier];
+        frController = [self.fetchedResultsControllerMap objectForKey:identifier];
         
         if (!frController) 
         {
@@ -329,14 +331,14 @@
             // nil for section name key path means "no sections".
             NSFetchedResultsController *tempController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:identifier.tableCacheName];
             tempController.delegate = identifier.delegate;
-            frController = tempController;
+            frController = [tempController retain];
             
-            [self.fetchResultsControllerMap setObject:frController forKey:identifier];
+            [self.fetchedResultsControllerMap setObject:frController forKey:identifier];
             
             [tempController release];
             [fetchRequest release];
             [sortDescriptor release];
-            [sortDescriptors release];            
+            [sortDescriptors release];
             
             NSError *error = nil;
             if (![frController performFetch:&error])

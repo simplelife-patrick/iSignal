@@ -12,37 +12,27 @@
 
 // Manual Codes Begin
 
-@synthesize recordsTableViewController;
-
-@synthesize fetchedResultsController;
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // Attach object reference of NSFetchedResultsController
     iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
-    self.fetchedResultsController = [appDelegate.coreDataModule getFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
-    self.fetchedResultsController.delegate = self;
+    _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
+    // Inject delegate(self) to NSFetchedResultsController object
+    _fetchedResultsController.delegate = self;
 }
 
 - (void)viewDidUnload
 {
-    [self setRecordsTableViewController:nil];
-    
-    [self setFetchedResultsController:nil];
+    _fetchedResultsController = nil;
     
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-}
-
-- (void)dealloc 
-{
-    [self.recordsTableViewController release];
-    
-    [self.fetchedResultsController release];
-    
-    [super dealloc];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -68,13 +58,16 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    NSArray* sectionArray = [_fetchedResultsController sections];
+    return [sectionArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    NSArray* sectionArray = [_fetchedResultsController sections];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];
+    NSInteger numberOfObjects = [sectionInfo numberOfObjects];
+    return numberOfObjects;
 }
 
 // Customize the appearance of table view cells.
@@ -97,8 +90,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete the managed object for the given index path
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];
+        [context deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
         
         // Save the context.
         NSError *error = nil;
@@ -134,39 +127,15 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[managedObject valueForKey:DB_TABLE_SIGNALRECORD_FIELD_TIME] description];
-}
-
-- (void)insertNewObject
-{
-    // Create a new instance of the entity managed by the fetched results controller.
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error])
-    {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
+    DLog(@"Cell's value: %@", cell.textLabel.text);
 }
 
 // Implement method derived from NSFetchedResultsControllerDelegate protocol.
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.recordsTableViewController.tableView beginUpdates];
+    [self.tableView beginUpdates];
 }
 
 // Implement method derived from NSFetchedResultsControllerDelegate protocol.
@@ -176,11 +145,11 @@
     switch(type)
     {
         case NSFetchedResultsChangeInsert:
-            [self.recordsTableViewController.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
-            [self.recordsTableViewController.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }
@@ -190,34 +159,38 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-    UITableView *tableView = self.recordsTableViewController.tableView;
+    UITableView *tableView = self.tableView;
     
     switch(type)
     {
-            
         case NSFetchedResultsChangeInsert:
+        {
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+        }   
         case NSFetchedResultsChangeDelete:
+        {
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+        }   
         case NSFetchedResultsChangeUpdate:
+        {
             [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
-            
+        }   
         case NSFetchedResultsChangeMove:
+        {
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
             break;
+        }
     }
 }
 
 // Implement method derived from NSFetchedResultsControllerDelegate protocol.
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.recordsTableViewController.tableView endUpdates];
+    [self.tableView endUpdates];
 }
 
 /*
@@ -231,8 +204,6 @@
  }
  */
 
-// Manual Codes End
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -243,6 +214,15 @@
     }
     return self;
 }
+
+- (void)dealloc 
+{  
+    [_fetchedResultsController release];
+    
+    [super dealloc];
+}
+
+// Manual Codes End
 
 - (void)didReceiveMemoryWarning
 {
