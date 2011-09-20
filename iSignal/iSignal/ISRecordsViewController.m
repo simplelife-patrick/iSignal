@@ -38,6 +38,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    UIViewController* superViewController = [CBUIUtils getViewControllerFromView:self.view.superview];
+    if(nil != superViewController)
+    {
+        [superViewController viewWillAppear:animated];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -169,23 +174,28 @@
     {
         case NSFetchedResultsChangeInsert:
         {
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            NSArray* newObjectArray = [NSArray arrayWithObject:newIndexPath];
+            [tableView insertRowsAtIndexPaths:newObjectArray withRowAnimation:UITableViewRowAnimationFade];
             break;
         }   
         case NSFetchedResultsChangeDelete:
         {
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            NSArray* existObjectArray = [NSArray arrayWithObject:indexPath];
+            [tableView deleteRowsAtIndexPaths:existObjectArray withRowAnimation:UITableViewRowAnimationFade];
             break;
         }   
         case NSFetchedResultsChangeUpdate:
         {
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            UITableViewCell* updateCell = [tableView cellForRowAtIndexPath:indexPath];
+            [self configureCell:updateCell atIndexPath:indexPath];
             break;
         }   
         case NSFetchedResultsChangeMove:
         {
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
+            NSArray* existObjectArray = [NSArray arrayWithObject:indexPath];
+            [tableView deleteRowsAtIndexPaths:existObjectArray withRowAnimation:UITableViewRowAnimationFade];
+            NSArray* newObjectArray = [NSArray arrayWithObject:newIndexPath];
+            [tableView insertRowsAtIndexPaths:newObjectArray withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
     }
