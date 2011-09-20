@@ -140,7 +140,6 @@
         }
         [self updateSignalQualityGrade:qualityGrade];
         [self.signalStrengthLabel setText:strVal];
-        DLog(@"Finish to set Label signalStrength to %@", strVal);
     }
     else
     {
@@ -165,7 +164,6 @@
 {
     DLog(@"CallbackDelegate(ISHomeViewController) received a message: %@", message);
     NSNumber *signalVal = (NSNumber*)message;
-    DLog(@"Message is casted to: %@", signalVal);
     [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
 }
 
