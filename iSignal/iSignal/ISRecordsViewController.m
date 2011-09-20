@@ -38,11 +38,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    UIViewController* superViewController = [CBUIUtils getViewControllerFromView:self.view.superview];
-    if(nil != superViewController)
-    {
-        [superViewController viewWillAppear:animated];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
