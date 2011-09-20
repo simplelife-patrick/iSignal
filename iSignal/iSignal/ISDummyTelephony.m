@@ -65,7 +65,6 @@ static NSArray* CARRIER_LIST;
     NSInteger high = CELLULAR_SIGNAL_STRENGTH_HIGHEST;
     NSInteger signalVal = [CBMathUtils generateRandomNSInteger:(low - loss) andMax:high];
     
-    DLog(@"Random signal srength is generated: %d", signalVal);
     return signalVal;
 }
 
