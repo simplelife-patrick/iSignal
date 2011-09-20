@@ -17,6 +17,10 @@
     return [[UIApplication sharedApplication] delegate];
 }
 
++(UIWindow*) getKeyWindow
+{
+    return [UIApplication sharedApplication].keyWindow;
+}
 
 +(UIWindow*) getWindow:(UIView *)view
 {

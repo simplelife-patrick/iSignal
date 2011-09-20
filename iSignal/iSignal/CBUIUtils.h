@@ -18,4 +18,6 @@
 
 +(UIWindow*) getWindow:(UIView*) view;
 
++(UIWindow*) getKeyWindow;
+
 @end
