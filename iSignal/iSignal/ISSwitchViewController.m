@@ -30,7 +30,6 @@
 
 -(void) lazyLoadView:(NSInteger) viewTag
 {
-    DLog(@"Lazy load view: %d", viewTag);
     switch (viewTag) 
     {
         case TAG_HOMEVIEW:
@@ -41,10 +40,8 @@
                 [viewController.view setTag:TAG_HOMEVIEW];
                 self.homeViewController = viewController;
                 [viewController release];
-                DLog(@"View: %d and its controller are initialized", viewTag);
             }
             [self.view addSubview:self.homeViewController.view];
-            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         case TAG_HELPVIEW:
@@ -55,10 +52,8 @@
                 [viewController.view setTag:TAG_HELPVIEW];
                 self.helpViewController = viewController;
                 [self.helpViewController release];
-                DLog(@"View: %d and its controller are initialized", viewTag);
             }
-            [self.view addSubview:self.helpViewController.view];
-            DLog(@"View: %d is on the top now.", viewTag);        
+            [self.view addSubview:self.helpViewController.view];      
             break;
         }
         case TAG_CONFIGVIEW:
@@ -69,10 +64,8 @@
                 [viewController.view setTag:TAG_CONFIGVIEW];
                 self.configViewController = viewController;
                 [viewController release];
-                DLog(@"View: %d and its controller are initialized", viewTag);
             }
             [self.view addSubview:self.configViewController.view];
-            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         case TAG_MAPVIEW:
@@ -83,10 +76,8 @@
                 [viewController.view setTag:TAG_MAPVIEW];
                 self.mapViewController = viewController;
                 [viewController release];
-                DLog(@"View: %d and its controller are initialized", viewTag);
             }
             [self.view addSubview:self.mapViewController.view];
-            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         case TAG_RECORDSVIEW:
@@ -97,10 +88,8 @@
                 [viewController.view setTag:TAG_RECORDSVIEW];
                 self.recordsViewController = viewController;
                 [viewController release];
-                DLog(@"View: %d and its controller are initialized", viewTag);
             }
             [self.view addSubview:self.recordsViewController.view];
-            DLog(@"View: %d is on the top now.", viewTag);
             break;
         }
         default:
@@ -112,34 +101,30 @@
 
 -(void) reorganizeSubViews:(NSInteger) exceptViewTag
 {
-    NSArray *subViews = [self.view subviews];
-    UIView *exceptView = nil;
-    for (id obj in subViews) 
-    {
-        UIView *subView = (UIView*) obj;
-        NSInteger subViewTag = [subView tag];
-        if(exceptViewTag != subViewTag)
-        {
-            [subView removeFromSuperview];
-            DLog(@"Sub view: %d is removed from super view now.", subViewTag);
-        }
-        else
-        {
-            exceptView = subView;
-        }
-    }
-    
-    if(nil != exceptView)
-    {
-        NSInteger exceptViewTag = [exceptView tag];
-        if (nil == exceptView.superview) 
-        {
-            [self.view addSubview:exceptView];
-            DLog(@"Sub view: %d is added into super view now.", exceptViewTag);
-        }
-        [self.view bringSubviewToFront:exceptView];
-        DLog(@"Sub view: %d is moved to front now.", exceptViewTag);
-    }
+//    NSArray *subViews = [self.view subviews];
+//    UIView *exceptView = nil;
+//    for (id obj in subViews) 
+//    {
+//        UIView *subView = (UIView*) obj;
+//        NSInteger subViewTag = [subView tag];
+//        if(exceptViewTag != subViewTag)
+//        {
+//            [subView removeFromSuperview];
+//        }
+//        else
+//        {
+//            exceptView = subView;
+//        }
+//    }
+//    
+//    if(nil != exceptView)
+//    {
+//        if (nil == exceptView.superview) 
+//        {
+//            [self.view addSubview:exceptView];
+//        }
+//        [self.view bringSubviewToFront:exceptView];
+//    }
 }
 
 -(void) switchView:(NSInteger) viewTag
