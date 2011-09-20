@@ -38,6 +38,7 @@
     // Override point for customization after application launch.
     
     // UI load
+    self.window.rootViewController = splashViewController.switchViewController;
     [self.window addSubview:splashViewController.view];
     [self.window makeKeyAndVisible];
     
