@@ -28,7 +28,7 @@
 #define NIB_MAPVIEW_CONTROLLER @"ISMapViewController"
 #define NIB_RECORDSVIEW_CONTROLLER @"ISRecordsViewController"
 
-@interface ISSwitchViewController : UIViewController
+@interface ISSwitchViewController : UITabBarController <UITabBarControllerDelegate>
 
 @property (nonatomic, retain) IBOutlet ISHomeViewController *homeViewController;
 @property (nonatomic, retain) IBOutlet ISHelpViewController *helpViewController;

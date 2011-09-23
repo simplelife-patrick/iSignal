@@ -28,7 +28,28 @@
     [super dealloc];
 }
 
--(void) lazyLoadView:(NSInteger) viewTag
+- (void)loadTabViews
+{
+    self.homeViewController = [[ISHomeViewController alloc] initWithNibName:NIB_HOMEVIEW_CONTROLLER bundle:nil];
+    [self.homeViewController.view setTag:TAG_HOMEVIEW];
+    
+    self.helpViewController = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
+    [self.helpViewController.view setTag:TAG_HELPVIEW];
+    
+    self.configViewController = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
+    [self.configViewController.view setTag:TAG_CONFIGVIEW];
+    
+    self.mapViewController = [[ISMapViewController alloc] initWithNibName:NIB_MAPVIEW_CONTROLLER bundle:nil];
+    [self.mapViewController.view setTag:TAG_MAPVIEW];
+    
+    self.recordsViewController = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
+    [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
+    
+    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewController, self.mapViewController, self.configViewController, self.helpViewController, nil] animated:TRUE];
+}
+
+// Obsoleted
+- (void)lazyLoadView:(NSInteger) viewTag
 {
     switch (viewTag) 
     {
@@ -99,34 +120,36 @@
     }    
 }
 
+// Obsoleted
 -(void) reorganizeSubViews:(NSInteger) exceptViewTag
 {
-//    NSArray *subViews = [self.view subviews];
-//    UIView *exceptView = nil;
-//    for (id obj in subViews) 
-//    {
-//        UIView *subView = (UIView*) obj;
-//        NSInteger subViewTag = [subView tag];
-//        if(exceptViewTag != subViewTag)
-//        {
-//            [subView removeFromSuperview];
-//        }
-//        else
-//        {
-//            exceptView = subView;
-//        }
-//    }
-//    
-//    if(nil != exceptView)
-//    {
-//        if (nil == exceptView.superview) 
-//        {
-//            [self.view addSubview:exceptView];
-//        }
-//        [self.view bringSubviewToFront:exceptView];
-//    }
+    NSArray *subViews = [self.view subviews];
+    UIView *exceptView = nil;
+    for (id obj in subViews) 
+    {
+        UIView *subView = (UIView*) obj;
+        NSInteger subViewTag = [subView tag];
+        if(exceptViewTag != subViewTag)
+        {
+            [subView removeFromSuperview];
+        }
+        else
+        {
+            exceptView = subView;
+        }
+    }
+    
+    if(nil != exceptView)
+    {
+        if (nil == exceptView.superview) 
+        {
+            [self.view addSubview:exceptView];
+        }
+        [self.view bringSubviewToFront:exceptView];
+    }
 }
 
+// Obsoleted
 -(void) switchView:(NSInteger) viewTag
 {
     switch (viewTag) 
@@ -171,7 +194,7 @@
 - (void)viewDidLoad
 {
     // Do any additional setup after loading the view from its nib.
-    [self lazyLoadView:TAG_HOMEVIEW];
+    [self loadTabViews];
     [super viewDidLoad];
 }
 
@@ -187,12 +210,57 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
+// Method of UITabBarControllerDelegate protocol
+- (void) tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
+{
+    
+}
+
+// Method of UITabBarControllerDelegate protocol
+- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    
+}
+
+// Method of UITabBarControllerDelegate protocol
+- (void) tabBarController:(UITabBarController *)tabBarController willBeginCustomizingViewControllers:(NSArray *)viewControllers
+{
+    
+}
+
+// Method of UITabBarControllerDelegate protocol
+- (void) tabBarController:(UITabBarController *)tabBarController willEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
+{
+    
+}
+
 // Manual Codes Ends
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self) 
+    {
         // Custom initialization
     }
     return self;
