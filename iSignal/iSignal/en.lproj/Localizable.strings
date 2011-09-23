@@ -6,6 +6,11 @@
   Copyright 2011 CodeBeaver. All rights reserved.
 */
 
+STR_HOME = "HOME";
+STR_MAP = "MAP";
+STR_CONFIG = "CONFIG";
+STR_RECORDS = "RECORDS";
+STR_HELP = "HELP";
 STR_CMCC = "CMCC";
 STR_CUNI = "CUNI";
 STR_NOSIGNAL = "NO SIGNAL";
