@@ -10,6 +10,7 @@
 
 #import "ISSwitchViewController.h"
 
+// Obsoleted
 @interface ISFloatingViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet UIButton *toggleButton;

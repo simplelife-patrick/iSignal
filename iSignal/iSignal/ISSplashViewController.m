@@ -78,7 +78,7 @@ static CGRect s_floatingView_popup;
     {
         [self.view removeFromSuperview];
         [window addSubview:switchViewController.view];
-        [window addSubview:floatingViewController.view];
+//        [window addSubview:floatingViewController.view];
     }
 }
 
