@@ -14,6 +14,26 @@
 
 @synthesize mapView;
 
+- (void)initTabBarItem
+{
+    //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
+    UIImage* itemImage = nil;
+    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_MAP", nil) image:itemImage tag:TAG_MAPVIEW];
+    self.tabBarItem = theItem;
+    [theItem release];    
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) 
+    {
+        // Custom initialization
+        [self initTabBarItem];
+    }
+    return self;
+}
+
 - (void)viewDidUnload
 {
     [self setMapView:nil];
@@ -29,15 +49,6 @@
 }
 
 // Manual Codes End
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)didReceiveMemoryWarning
 {

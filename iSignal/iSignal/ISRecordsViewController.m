@@ -14,6 +14,33 @@
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
+- (void)initTabBarItem
+{
+    //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
+    UIImage* itemImage = nil;
+    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_RECORDS", nil) image:itemImage tag:TAG_RECORDSVIEW];
+    self.tabBarItem = theItem;
+    [theItem release];    
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) 
+    {
+        // Custom initialization
+        [self initTabBarItem];
+    }
+    return self;
+}
+
+- (void)dealloc 
+{  
+    [_fetchedResultsController release];
+    
+    [super dealloc];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -203,24 +230,6 @@
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
 // In the simplest, most efficient, case, reload the table view.
 //    [self.tableView reloadData];
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) 
-    {
-        // Custom initialization
-        
-    }
-    return self;
-}
-
-- (void)dealloc 
-{  
-    [_fetchedResultsController release];
-    
-    [super dealloc];
 }
 
 // Manual Codes End
