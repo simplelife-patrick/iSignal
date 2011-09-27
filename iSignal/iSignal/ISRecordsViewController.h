@@ -13,7 +13,7 @@
 #define KEY_CELL_IDENTIFIER @"Cell"
 #define KEY_CELL_CUSTOMER_IDENTIFIER @"CustomCellIdentifier"
 
-@interface ISRecordsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface ISRecordsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain, readonly) NSFetchedResultsController* fetchedResultsController;
 
