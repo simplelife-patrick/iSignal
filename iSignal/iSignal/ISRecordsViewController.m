@@ -191,6 +191,11 @@
 {
     UITableView *tableView = self.tableView;
     
+    if (tableView.editing) 
+    {
+        [tableView setEditing:FALSE animated:FALSE];
+    }
+    
     switch(type)
     {
         case NSFetchedResultsChangeInsert:
