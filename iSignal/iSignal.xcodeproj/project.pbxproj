@@ -298,9 +298,9 @@
 			isa = PBXGroup;
 			children = (
 				C5CD42DA13FF8826009C5741 /* MainWindow.xib */,
+				C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */,
 				C572066C140E66DD00FD108F /* ISSwitchViewController.xib */,
 				C5720665140E60D900FD108F /* ISFloatingViewController.xib */,
-				C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */,
 				C57329C2140096B40061D973 /* ISHomeViewController.xib */,
 				C57329C714009A2F0061D973 /* ISConfigViewController.xib */,
 				C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */,

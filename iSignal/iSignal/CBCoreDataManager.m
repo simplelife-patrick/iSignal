@@ -53,6 +53,52 @@
     [super dealloc];
 }
 
+- (void) insertNewRecord
+{
+    // TODO: Location
+    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];           
+    BOOL locationOn = [ISAppConfigs isLocationOn];
+    DLog(@"App config of location service is %@.", locationOn?@"YES":@"NO");
+    
+    // TODO: Record
+    // Create a new instance of the entity managed by the fetched results controller.
+    NSFetchedResultsController *fetchedResultsController = [self obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
+    NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
+    NSFetchRequest *fetchRequest = [fetchedResultsController fetchRequest];
+    NSEntityDescription *entity = [fetchRequest entity];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    // If appropriate, configure the new managed object.
+    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+    [newManagedObject setValue:0 forKey:DB_TABLE_SIGNALRECORD_FIELD_DURATION];
+    [newManagedObject setValue:FALSE forKey:DB_TABLE_SIGNALRECORD_FIELD_ISSYNC];
+    [newManagedObject setValue:[NSDate date] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
+    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_NULL forKey:DB_TABLE_SIGNALRECORD_FIELD_TAG];
+    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS forKey:DB_TABLE_SIGNALRECORD_FIELD_TYPE];
+    
+    if(locationOn)
+    {
+        CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
+        CLLocationDegrees latitude = currentLocation.coordinate.latitude;
+        CLLocationDegrees longitude = currentLocation.coordinate.longitude;
+        [newManagedObject setValue:[NSNumber numberWithDouble:latitude] forKey:DB_TABLE_SIGNALRECORD_FIELD_LATITUDE];
+        [newManagedObject setValue:[NSNumber numberWithDouble:longitude] forKey:DB_TABLE_SIGNALRECORD_FIELD_LONGITUDE];
+    }
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }    
+}
+
 // Method of CBModule protocol
 -(void) initModule
 {    
@@ -154,52 +200,9 @@
     
     NSNumber *signalVal = (NSNumber*)message;
     SIGNAL_QUALITY qualityGrade = [CBTelephonyUtils evaluateSignalQuality:[signalVal intValue]];
-    if (qualityGrade != QUALITY_SIGNAL_LOSS) 
+    if (qualityGrade == QUALITY_SIGNAL_LOSS) 
     {
-        return;
-    }
-    
-    // TODO: Location
-    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];           
-    BOOL locationOn = [ISAppConfigs isLocationOn];
-    DLog(@"App config of location service is %@.", locationOn?@"YES":@"NO");
-    
-    // TODO: Record
-    // Create a new instance of the entity managed by the fetched results controller.
-    NSFetchedResultsController *fetchedResultsController = [self obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
-    NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
-    NSFetchRequest *fetchRequest = [fetchedResultsController fetchRequest];
-    NSEntityDescription *entity = [fetchRequest entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:0 forKey:DB_TABLE_SIGNALRECORD_FIELD_DURATION];
-    [newManagedObject setValue:FALSE forKey:DB_TABLE_SIGNALRECORD_FIELD_ISSYNC];
-    [newManagedObject setValue:[NSDate date] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
-    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_NULL forKey:DB_TABLE_SIGNALRECORD_FIELD_TAG];
-    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS forKey:DB_TABLE_SIGNALRECORD_FIELD_TYPE];
-    
-    if(locationOn)
-    {
-        CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
-        CLLocationDegrees latitude = currentLocation.coordinate.latitude;
-        CLLocationDegrees longitude = currentLocation.coordinate.longitude;
-        [newManagedObject setValue:[NSNumber numberWithDouble:latitude] forKey:DB_TABLE_SIGNALRECORD_FIELD_LATITUDE];
-        [newManagedObject setValue:[NSNumber numberWithDouble:longitude] forKey:DB_TABLE_SIGNALRECORD_FIELD_LONGITUDE];
-    }
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error])
-    {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        [self performSelectorOnMainThread:@selector(insertNewRecord) withObject:nil waitUntilDone:TRUE];
     }
 }
 
