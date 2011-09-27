@@ -39,6 +39,7 @@
     [super dealloc];
 }
 
+// Method of UITableViewDataSource protocol
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
@@ -48,6 +49,7 @@
     return CONFIG_TABLE_SECTION_CONFIG_ITEM_COUNT;
 }
 
+// Method of UITableViewDataSource protocol
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {    
@@ -108,6 +110,7 @@
     return cell;
 }
 
+// Method of UITableViewDataSource protocol
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     // Only one section here
