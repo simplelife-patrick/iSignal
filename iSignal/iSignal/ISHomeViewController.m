@@ -182,7 +182,7 @@
 
 -(void) messageCallback:(id)message
 {
-    DLog(@"CallbackDelegate(ISHomeViewController) received a message: %@", message);
+//    DLog(@"CallbackDelegate(ISHomeViewController) received a message: %@", message);
     NSNumber *signalVal = (NSNumber*)message;
     [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
 }
