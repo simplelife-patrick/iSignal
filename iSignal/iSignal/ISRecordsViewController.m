@@ -65,6 +65,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -86,7 +88,6 @@
 {
     NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[managedObject valueForKey:DB_TABLE_SIGNALRECORD_FIELD_TIME] description];
-    DLog(@"Cell's value: %@", cell.textLabel.text);
 }
 
 // Method of UITableViewController
@@ -166,7 +167,7 @@
 // Method of NSFetchedResultsControllerDelegate protocol
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView beginUpdates];
+//    [self.tableView beginUpdates];
 }
 
 // Method of NSFetchedResultsControllerDelegate protocol
@@ -226,10 +227,10 @@
 // Method of NSFetchedResultsControllerDelegate protocol
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView endUpdates];
+//    [self.tableView endUpdates];
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
 // In the simplest, most efficient, case, reload the table view.
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 // Manual Codes End
