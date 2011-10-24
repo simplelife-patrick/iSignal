@@ -10,6 +10,9 @@
 
 #import <MapKit/MapKit.h>
 
+#define SPAN_LONGITUDE 2000
+#define SPAN_LATITUDE 2000
+
 @interface ISMapViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
