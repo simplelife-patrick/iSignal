@@ -102,7 +102,7 @@ static CGRect s_floatingView_popup;
     }
     
     // CoreData module start
-    appDelegate.coreDataModule = [[CBCoreDataManager alloc] init];
+    appDelegate.coreDataModule = [[ISCoreDataManager alloc] init];
     [appDelegate.coreDataModule initModule];
     [appDelegate.coreDataModule startService];
     

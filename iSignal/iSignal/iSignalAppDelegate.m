@@ -56,7 +56,7 @@
     [self.dummnyTelephonyModule stopService];
     // CBLocation module stops 
     [self.locationModule stopService];
-    // CBCoreDataManager stops
+    // ISCoreDataManager stops
     [self.coreDataModule stopService];
 }
 
