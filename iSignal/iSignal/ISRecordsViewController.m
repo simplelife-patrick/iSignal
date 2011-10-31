@@ -12,6 +12,10 @@
 
 // Manual Codes Begin
 
+@synthesize leftBarButton = _leftBarButton;
+@synthesize rightBarButton = _rightBarButton;
+@synthesize tableView = _tableView;
+@synthesize deletingRecords = _deletingRecords;
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)initTabBarItem
@@ -20,7 +24,7 @@
     UIImage* itemImage = nil;
     UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_RECORDS", nil) image:itemImage tag:TAG_RECORDSVIEW];
     self.tabBarItem = theItem;
-    [theItem release];    
+    [theItem release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,6 +42,11 @@
 {  
     [_fetchedResultsController release];
     
+    [_tableView release];
+    [_leftBarButton release];
+    [_rightBarButton release];
+    [_deletingRecords release];
+    
     [super dealloc];
 }
 
@@ -45,6 +54,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _deletingRecords = [[NSMutableDictionary alloc] init];
+    _rightBarButton.title = NSLocalizedString(@"STR_EDIT", nil);
     
     // Attach object reference of NSFetchedResultsController
     iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
@@ -57,26 +69,35 @@
 {
     _fetchedResultsController = nil;
     
+    _tableView = nil;
+    _leftBarButton = nil;
+    _rightBarButton = nil;
+    _deletingRecords = nil;
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
+// Method of UIViewController
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 }
 
+// Method of UIViewController
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
 }
 
+// Method of UIViewController
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
 }
 
+// Method of UIViewController
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
@@ -150,7 +171,7 @@
     return NO;
 }
 
-// Method of UITableViewController
+// Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     /*
@@ -160,7 +181,32 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil)) 
+    {
+//		[_deletingRecords setObject:indexPath forKey:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        [_deletingRecords setObject:indexPath forKey:indexPath];
+	}
+	else 
+    {
+		
+	}    
 }
+
+// Method of UITableViewDelegate protocol
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil)) 
+    {
+//        [_deletingRecords removeObjectForKey:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        [_deletingRecords removeObjectForKey:indexPath];
+	}    
+}
+
+// Method of UITableViewDelegate protocol
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
+{ 
+    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert; 
+} 
 
 // Method of NSFetchedResultsControllerDelegate protocol
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
@@ -234,6 +280,47 @@
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
 // In the simplest, most efficient, case, reload the table view.
 //    [self.tableView reloadData];
+}
+
+- (IBAction)selectRecords:(id)sender
+{
+	if (_rightBarButton.title == NSLocalizedString(@"STR_EDIT", nil)) 
+    {
+		_rightBarButton.title = NSLocalizedString(@"STR_OK", nil);
+		[_tableView setEditing:YES animated:YES];
+	}
+	else 
+    {
+		_rightBarButton.title = NSLocalizedString(@"STR_EDIT", nil);
+        [_deletingRecords removeAllObjects];
+		[_tableView setEditing:NO animated:YES];
+	}    
+}
+
+- (IBAction)deleteRecords:(id)sender
+{
+    NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];
+    NSArray* deletingRecordIndexPathes = [_deletingRecords allValues];
+    for (NSInteger i = 0; i < deletingRecordIndexPathes.count; i++) 
+    {
+        NSIndexPath* indexPath = [deletingRecordIndexPathes objectAtIndex:i];
+        [context deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];    
+    }
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }    
+        
+    [_deletingRecords removeAllObjects];
 }
 
 // Manual Codes End

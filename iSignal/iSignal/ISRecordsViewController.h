@@ -13,9 +13,18 @@
 #define KEY_CELL_IDENTIFIER @"Cell"
 #define KEY_CELL_CUSTOMER_IDENTIFIER @"CustomCellIdentifier"
 
-@interface ISRecordsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface ISRecordsViewController : UIViewController <UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, retain, readonly) NSFetchedResultsController* fetchedResultsController;
+@property (retain, nonatomic, readonly) IBOutlet UIBarButtonItem *leftBarButton;
+@property (retain, nonatomic, readonly) IBOutlet UIBarButtonItem *rightBarButton;
+@property (retain, nonatomic, readonly) IBOutlet UITableView *tableView;
+
+@property (retain, nonatomic, readonly)	NSMutableDictionary *deletingRecords;
+
+@property (retain, nonatomic, readonly) NSFetchedResultsController* fetchedResultsController;
+
+- (IBAction) deleteRecords:(id) sender;
+- (IBAction) selectRecords:(id) sender;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
