@@ -25,7 +25,7 @@
 #define ACCURACY_DEFAULT kCLLocationAccuracyBest
 #define DISTANCE_DEFAULT 100
 
-@interface CBLocationManager : NSObject <CLLocationManagerDelegate, MKReverseGeocoderDelegate, CBModule>
+@interface CBLocationManager : NSObject <CLLocationManagerDelegate, CBModule>
 
 typedef NSInteger CBLocationWorkMode;
 
@@ -36,8 +36,6 @@ typedef NSInteger CBLocationWorkMode;
 @property (nonatomic, retain) CLLocation *lastLocation;
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic) CLLocationDegrees regionRadius;
-
-@property (nonatomic, retain) MKReverseGeocoder *reverseGeocoder;
 
 +(BOOL) isLocationServiceEnabled;
 
