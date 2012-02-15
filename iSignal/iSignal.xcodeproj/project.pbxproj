@@ -53,6 +53,7 @@
 		C5CD42D913FF8826009C5741 /* iSignalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */; };
 		C5CD42DC13FF8826009C5741 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5CD42DA13FF8826009C5741 /* MainWindow.xib */; };
 		C5CD42DF13FF8826009C5741 /* iSignal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */; };
+		C5E5D77214EBE786007E0F2D /* CBDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E5D77114EBE786007E0F2D /* CBDateUtils.m */; };
 		C5E6C8BC140F2D9400D81647 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E6C8BB140F2D9400D81647 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,8 @@
 		C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSignalAppDelegate.m; sourceTree = "<group>"; };
 		C5CD42DB13FF8826009C5741 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		C5CD42DE13FF8826009C5741 /* iSignal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSignal.xcdatamodel; sourceTree = "<group>"; };
+		C5E5D77014EBE786007E0F2D /* CBDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDateUtils.h; sourceTree = "<group>"; };
+		C5E5D77114EBE786007E0F2D /* CBDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBDateUtils.m; sourceTree = "<group>"; };
 		C5E6C8BB140F2D9400D81647 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -191,6 +194,8 @@
 				C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */,
 				C5BD38FE141FA76300A1D4E6 /* CBObservable.h */,
 				C5A36EE8142070AD00C9E4D0 /* CBListenable.h */,
+				C5E5D77014EBE786007E0F2D /* CBDateUtils.h */,
+				C5E5D77114EBE786007E0F2D /* CBDateUtils.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				C56F97DD141065F5002FC302 /* ISRecordsViewController.m in Sources */,
 				C53386E01419A3D20000A553 /* ISCoreDataManager.m in Sources */,
 				C5BD38F8141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m in Sources */,
+				C5E5D77214EBE786007E0F2D /* CBDateUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

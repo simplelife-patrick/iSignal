@@ -14,6 +14,8 @@
 #import "CBEnvironmentUtils.h"
 #import "CBFetchedResultsControllerIdentifier.h"
 
+#import "CBDateUtils.h"
+
 #define MODULE_IDENTITY_COREDATA_MANAGER @"CoreDataManager"
 
 #define DB_ISIGNAL_PATH_COMPONENT @"iSignal.sqlite"
