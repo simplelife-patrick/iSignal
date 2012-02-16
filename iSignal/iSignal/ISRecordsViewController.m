@@ -26,7 +26,6 @@
 -(void) setDeleteEnabled:(BOOL) flag
 {
     _deleteEnabled = flag;
-    
     [_leftBarButton setEnabled:_deleteEnabled];
 }
 
@@ -218,10 +217,8 @@
 // Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil)) 
     if (!_multiselectEnabled)
     {
-//        [_deletingRecords removeObjectForKey:[_fetchedResultsController objectAtIndexPath:indexPath]];
         [_deletingRecords removeObjectForKey:indexPath];
 	}    
 }
@@ -301,6 +298,11 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+    
+    // Once update sent from data resource, below condition need to be reset.
+    [_deletingRecords removeAllObjects];
+    [self setDeleteEnabled:FALSE];
+    _multiselectEnabled = FALSE;
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
 // In the simplest, most efficient, case, reload the table view.
 //    [self.tableView reloadData];

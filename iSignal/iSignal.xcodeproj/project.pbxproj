@@ -203,8 +203,8 @@
 		C5BEB01E1400C3500083A86A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C5027274140A2BA40013175B /* ISAppConfigs.m */,
 				C5CD42D413FF8826009C5741 /* main.m */,
+				C5027274140A2BA40013175B /* ISAppConfigs.m */,
 				C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */,
 				C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */,
 				C53386DF1419A3D20000A553 /* ISCoreDataManager.m */,
