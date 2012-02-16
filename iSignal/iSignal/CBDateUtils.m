@@ -25,16 +25,26 @@
     return localTime;
 }
 
-+(NSString*) dateStringWithLocalTimeZone:(NSString*) format andDate:(NSDate*) date
++(NSString*) dateStringInLocalTimeZone:(NSString*) format andDate:(NSDate*) date
 {
     NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
     return [CBDateUtils dateString: localTimeZone andFormat:STANDARD_DATE_FORMAT andDate: date];
 }
 
-+(NSString*) dateStringWithStandardFormatAndLocalTimeZone:(NSDate*) date
++(NSString*) dateStringInLocalTimeZoneWithStandardFormat:(NSDate*) date
 {
     NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
     return [CBDateUtils dateString:localTimeZone andFormat:STANDARD_DATE_FORMAT andDate:date];
+}
+
++(NSDate *) dateFromStringWithFormat:(NSString *)dateString andFormat:(NSString *) formatString
+{    
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat: formatString];
+	NSDate *date = [dateFormatter dateFromString:dateString];
+    [dateFormatter release];
+    
+	return date;
 }
 
 @end

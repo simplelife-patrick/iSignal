@@ -14,8 +14,12 @@
 
 +(NSString*) dateString:(NSTimeZone*) timeZone andFormat:(NSString*) format andDate:(NSDate*) date;
 
-+(NSString*) dateStringWithLocalTimeZone:(NSString*) format andDate:(NSDate*) date;
++(NSString*) dateStringInLocalTimeZone:(NSString*) format andDate:(NSDate*) date;
 
-+(NSString*) dateStringWithStandardFormatAndLocalTimeZone:(NSDate*) date;
++(NSString*) dateStringInLocalTimeZoneWithStandardFormat:(NSDate*) date;
+
++(NSString*) dateStringInLocalTimeZoneWithStandardFormat:(NSDate*) date;
+
++(NSDate *) dateFromStringWithFormat:(NSString *)dateString andFormat:(NSString *) formatString;
 
 @end
