@@ -1,4 +1,4 @@
-//
+	//
 //  ISCoreDataManager.m
 //  iSignal
 //
@@ -73,7 +73,8 @@
     [newManagedObject setValue:0 forKey:DB_TABLE_SIGNALRECORD_FIELD_DURATION];
     [newManagedObject setValue:FALSE forKey:DB_TABLE_SIGNALRECORD_FIELD_ISSYNC];
     
-    [newManagedObject setValue:[CBDateUtils dateStringWithStandardFormatAndLocalTimeZone:[NSDate date]] forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
+    NSDate *time = [NSDate date];
+    [newManagedObject setValue:time forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
     
     [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_NULL forKey:DB_TABLE_SIGNALRECORD_FIELD_TAG];
     [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS forKey:DB_TABLE_SIGNALRECORD_FIELD_TYPE];
