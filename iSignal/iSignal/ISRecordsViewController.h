@@ -17,6 +17,10 @@
 
 @property (retain, nonatomic, readonly) IBOutlet UIBarButtonItem *leftBarButton;
 @property (retain, nonatomic, readonly) IBOutlet UIBarButtonItem *rightBarButton;
+
+@property (nonatomic) BOOL deleteEnabled;
+@property (nonatomic) BOOL multiselectEnabled;
+
 @property (retain, nonatomic, readonly) IBOutlet UITableView *tableView;
 
 @property (retain, nonatomic, readonly)	NSMutableDictionary *deletingRecords;

@@ -14,9 +14,21 @@
 
 @synthesize leftBarButton = _leftBarButton;
 @synthesize rightBarButton = _rightBarButton;
+
+@synthesize deleteEnabled = _deleteEnabled;
+@synthesize multiselectEnabled = _multiselectEnabled;
+
 @synthesize tableView = _tableView;
+
 @synthesize deletingRecords = _deletingRecords;
 @synthesize fetchedResultsController = _fetchedResultsController;
+
+-(void) setDeleteEnabled:(BOOL) flag
+{
+    _deleteEnabled = flag;
+    
+    [_leftBarButton setEnabled:_deleteEnabled];
+}
 
 - (void)initTabBarItem
 {
@@ -56,7 +68,9 @@
     // Do any additional setup after loading the view from its nib.
     
     _deletingRecords = [[NSMutableDictionary alloc] init];
-    _rightBarButton.title = NSLocalizedString(@"STR_EDIT", nil);
+
+    [self setDeleteEnabled:FALSE];
+    _multiselectEnabled = FALSE;
     
     // Attach object reference of NSFetchedResultsController
     iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
@@ -186,10 +200,14 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
-	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil)) 
+//	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil))
+    if (_multiselectEnabled)
     {
-//		[_deletingRecords setObject:indexPath forKey:[_fetchedResultsController objectAtIndexPath:indexPath]];
         [_deletingRecords setObject:indexPath forKey:indexPath];
+        if (0 < _deletingRecords.count) 
+        {
+            [self setDeleteEnabled:TRUE];
+        }
 	}
 	else 
     {
@@ -200,7 +218,8 @@
 // Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil)) 
+//	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil)) 
+    if (!_multiselectEnabled)
     {
 //        [_deletingRecords removeObjectForKey:[_fetchedResultsController objectAtIndexPath:indexPath]];
         [_deletingRecords removeObjectForKey:indexPath];
@@ -289,16 +308,19 @@
 
 - (IBAction)selectRecords:(id)sender
 {
-	if (_rightBarButton.title == NSLocalizedString(@"STR_EDIT", nil)) 
+//	if (_rightBarButton.title == NSLocalizedString(@"STR_EDIT", nil))
+    if (_multiselectEnabled)
     {
-		_rightBarButton.title = NSLocalizedString(@"STR_OK", nil);
-		[_tableView setEditing:YES animated:YES];
+        [_deletingRecords removeAllObjects];
+		[_tableView setEditing:NO animated:YES];
+        
+        _multiselectEnabled = FALSE;
 	}
 	else 
     {
-		_rightBarButton.title = NSLocalizedString(@"STR_EDIT", nil);
-        [_deletingRecords removeAllObjects];
-		[_tableView setEditing:NO animated:YES];
+		[_tableView setEditing:YES animated:YES];        
+
+        _multiselectEnabled = TRUE;        
 	}    
 }
 
@@ -326,6 +348,9 @@
     }    
         
     [_deletingRecords removeAllObjects];
+    
+    [self setDeleteEnabled:FALSE];
+    _multiselectEnabled = FALSE;
 }
 
 // Manual Codes End
