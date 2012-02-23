@@ -58,7 +58,6 @@
     // TODO: Location
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];           
     BOOL locationOn = [ISAppConfigs isLocationOn];
-    DLog(@"App config of location service is %@.", locationOn?@"YES":@"NO");
     
     // TODO: Record
     // Create a new instance of the entity managed by the fetched results controller.
