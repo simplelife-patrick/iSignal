@@ -143,7 +143,7 @@
             // TODO: Should be moved to a single module
             // Ring
             BOOL ringAlarmOn = [ISAppConfigs isRingAlarmOn];
-            DLog(@"App config of ring alarm is %@.", ringAlarmOn?@"YES":@"NO");
+
             if(ringAlarmOn)
             {
                 [self.audioPlayer play];                
@@ -152,7 +152,7 @@
             // TODO: Should be moved to a single module            
             // Vibrate
             BOOL vibrateAlarmOn = [ISAppConfigs isVibrateAlarmOn];
-            DLog(@"App config of vibrate alarm is %@.", vibrateAlarmOn?@"YES":@"NO"); 
+
             if(vibrateAlarmOn)
             {
                 AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);                
