@@ -199,7 +199,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
-//	if (_rightBarButton.title == NSLocalizedString(@"STR_OK", nil))
+
     if (_multiselectEnabled)
     {
         [_deletingRecords setObject:indexPath forKey:indexPath];
@@ -207,20 +207,28 @@
         {
             [self setDeleteEnabled:TRUE];
         }
+        else 
+        {
+            [self setDeleteEnabled:FALSE];
+        }
 	}
-	else 
-    {
-		
-	}    
 }
 
 // Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!_multiselectEnabled)
+    if (_multiselectEnabled)
     {
         [_deletingRecords removeObjectForKey:indexPath];
-	}    
+        if (0 < _deletingRecords.count) 
+        {
+            [self setDeleteEnabled:TRUE];
+        }
+        else 
+        {
+            [self setDeleteEnabled:FALSE];
+        }
+	}   
 }
 
 // Method of UITableViewDelegate protocol
@@ -261,6 +269,10 @@
     if (tableView.editing) 
     {
         [tableView setEditing:FALSE animated:FALSE];
+        
+        [_deletingRecords removeAllObjects];
+        [self setDeleteEnabled:FALSE];
+        _multiselectEnabled = FALSE;
     }
     
     switch(type)
@@ -310,18 +322,18 @@
 
 - (IBAction)selectRecords:(id)sender
 {
-//	if (_rightBarButton.title == NSLocalizedString(@"STR_EDIT", nil))
+    [_deletingRecords removeAllObjects];
+    
+    [self setDeleteEnabled:FALSE];
+    
     if (_multiselectEnabled)
     {
-        [_deletingRecords removeAllObjects];
 		[_tableView setEditing:NO animated:YES];
-        
         _multiselectEnabled = FALSE;
 	}
 	else 
     {
-		[_tableView setEditing:YES animated:YES];        
-
+		[_tableView setEditing:YES animated:YES];
         _multiselectEnabled = TRUE;        
 	}    
 }
