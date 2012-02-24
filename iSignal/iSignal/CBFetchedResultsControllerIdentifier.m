@@ -46,7 +46,7 @@
     [self.tableName release];
     [self.descriptorName release];
     [self.tableCacheName release];
-    [(NSObject*)self.delegate release]; // TODO: How to clear this warning?
+    [(NSObject*)self.delegate release]; 
     
     [super dealloc];
 }
