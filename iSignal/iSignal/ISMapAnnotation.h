@@ -10,6 +10,8 @@
 
 #import <MapKit/MapKit.h>
 
+static NSString* ISMapAnnotationIdentifier = @"ISMapAnnotationIdentifier";
+
 @interface ISMapAnnotation : NSObject <MKAnnotation>
 {
     UIImage *image;

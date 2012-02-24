@@ -80,7 +80,8 @@
     
     if(locationOn)
     {
-        CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
+        CLLocation *currentLocation = [appDelegate.locationModule currentLocation];
+        
         CLLocationDegrees latitude = currentLocation.coordinate.latitude;
         CLLocationDegrees longitude = currentLocation.coordinate.longitude;
         [newManagedObject setValue:[NSNumber numberWithDouble:latitude] forKey:DB_TABLE_SIGNALRECORD_FIELD_LATITUDE];
@@ -96,7 +97,7 @@
          
          abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
          */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        DLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }    
 }
@@ -298,7 +299,7 @@
          
          */
         // TODO:
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        DLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }    
     
@@ -353,7 +354,7 @@
                  
                  abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
                  */
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                DLog(@"Unresolved error %@, %@", error, [error userInfo]);
                 abort();
             }            
         } 

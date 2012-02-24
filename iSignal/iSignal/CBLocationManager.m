@@ -20,10 +20,8 @@
 
 // Members of CBLocationManager
 @synthesize workMode;
-@synthesize locationManager;
-@synthesize lastLocation;
-@synthesize currentLocation;
 @synthesize regionRadius;
+@synthesize locationManager;
 
 // Static method
 +(BOOL) isLocationServiceEnabled
@@ -41,6 +39,12 @@
 +(BOOL) isRegionMonitoringEnabled
 {
     return [CLLocationManager regionMonitoringEnabled];
+}
+
+-(CLLocation*) currentLocation
+{
+    [self initLocationManagerIfNecessary];
+    return [self.locationManager location];
 }
 
 - (id)init
@@ -63,9 +67,6 @@
     [self releaseModule];
     
     [self.locationManager release];
-
-    [self.lastLocation release];
-    [self.currentLocation release];
     
     [super dealloc];
 }
@@ -156,7 +157,7 @@
 
 - (BOOL) registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier
 {
-    return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:self.currentLocation andCircleRadius:self.regionRadius andAccuracy:self.locationManager.desiredAccuracy];
+    return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:[self currentLocation] andCircleRadius:self.regionRadius andAccuracy:self.locationManager.desiredAccuracy];
 }
 
 // Method of CLLocationManagerDelegate protocol
@@ -169,14 +170,17 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     if (abs(howRecent) < EVENT_AVAILABLE_TIME_DIFFERENCE)
     {
-        self.lastLocation = self.currentLocation;
-        self.currentLocation = newLocation;
-        
         DLog(@"New location reported: latitude %+.6f, longitude %+.6f\n",
              newLocation.coordinate.latitude,
              newLocation.coordinate.longitude);
     }
     // else skip the event and process the next one.
+}
+
+// Method of CLLocationManagerDelegate protocol
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    DLog(@"Location error message: %@", [error localizedDescription]);
 }
 
 // Method of CLLocationManagerDelegate protocol
