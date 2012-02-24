@@ -39,14 +39,7 @@
     for (NSObject *obj in fetchedObjects) 
     {
         SignalRecord *signalRecord = (SignalRecord*)obj;
-        if(0 == signalRecord.latitude || 0 == signalRecord.longitude)
-        {
-            continue;
-        }
-        else
-        {
-            [self mapAnnotationFromSignalRecord:signalRecord];
-        }
+        [self mapAnnotationFromSignalRecord:signalRecord];
     }
     
     [_mapView removeAnnotations:_mapView.annotations];
@@ -74,18 +67,6 @@
         [self initTabBarItem];
     }
     return self;
-}
-
-- (void)viewDidUnload
-{
-    _mapView = nil;
-    
-    [_mapAnnotations removeAllObjects];
-    _mapAnnotations = nil;
-    
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -118,7 +99,10 @@
 
 - (void)dealloc 
 {
+    [_fetchedResultsController release];
+    [_mapAnnotations release];
     [_mapView release];
+    
     [super dealloc];
 }
 
@@ -135,10 +119,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.mapAnnotations = [NSMutableArray array];
-    
     // 3 map types: MKMapTypeStandard, MKMapTypeSatellite, MKMapTypeHybird
     _mapView.mapType = MKMapTypeStandard;
+    
+    _mapAnnotations = [[NSMutableArray alloc] init];
     
     // Attach object reference of NSFetchedResultsController
     iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
@@ -147,6 +131,19 @@
     _fetchedResultsController.delegate = self;
     
 //    [self rebuildMapAnnotations];
+}
+
+- (void)viewDidUnload
+{
+    _fetchedResultsController = nil;
+    
+    _mapAnnotations = nil;
+    
+    _mapView = nil;
+    
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 // Method of NSFetchedResultsControllerDelegate protocol
