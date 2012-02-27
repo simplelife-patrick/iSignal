@@ -23,6 +23,9 @@ static NSString* ISMapAnnotationIdentifier = @"ISMapAnnotationIdentifier";
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
 
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
+
 - (CLLocationCoordinate2D)coordinate;
 
 @end

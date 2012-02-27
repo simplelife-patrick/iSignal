@@ -14,6 +14,8 @@
 @synthesize latitude;
 @synthesize longitude;
 
+@synthesize title;
+@synthesize subtitle;
 
 - (CLLocationCoordinate2D)coordinate;
 {
@@ -26,6 +28,9 @@
 - (void)dealloc
 {
     [self.image release];
+    
+    [self.title release];
+    [self.subtitle release];
     
     [super dealloc];
 }
