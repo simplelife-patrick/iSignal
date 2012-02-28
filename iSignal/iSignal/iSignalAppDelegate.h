@@ -25,7 +25,7 @@
 
 @property (nonatomic, retain) IBOutlet ISSplashViewController *splashViewController;
 
-@property (nonatomic, retain) ISDummyTelephony* dummnyTelephonyModule;
+@property (nonatomic, retain) ISDummyTelephony* dummyTelephonyModule;
 @property (nonatomic, retain) CBLocationManager* locationModule;
 @property (nonatomic, retain) ISCoreDataManager* coreDataModule;
 

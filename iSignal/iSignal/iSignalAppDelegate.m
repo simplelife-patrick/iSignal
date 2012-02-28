@@ -16,18 +16,12 @@
 
 @synthesize splashViewController;
 
-@synthesize dummnyTelephonyModule;
+@synthesize dummyTelephonyModule;
 @synthesize locationModule;
 @synthesize coreDataModule;
 
 - (void)dealloc
 {
-    [self.splashViewController release];
-    
-    [self.dummnyTelephonyModule release];
-    [self.locationModule release];
-    [self.coreDataModule release];
-    
     [_window release];
 
     [super dealloc];
@@ -38,8 +32,8 @@
     // Override point for customization after application launch.
     
     // UI load
-    self.window.rootViewController = splashViewController.switchViewController;
-    [self.window addSubview:splashViewController.view];
+    self.window.rootViewController = self.splashViewController.switchViewController;
+    [self.window addSubview:self.splashViewController.view];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -53,7 +47,7 @@
     // TODO: Stop all modules' serive here.
     
     // ISDummyTelephony module stops
-    [self.dummnyTelephonyModule stopService];
+    [self.dummyTelephonyModule stopService];
     // CBLocation module stops 
     [self.locationModule stopService];
     // ISCoreDataManager stops
