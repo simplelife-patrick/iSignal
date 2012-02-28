@@ -26,6 +26,9 @@
         ISMapAnnotation *annotation = [[ISMapAnnotation alloc] init];
         annotation.latitude = record.latitude;
         annotation.longitude = record.longitude;
+        annotation.title = NSLocalizedString(@"STR_NOSIGNAL",nil);
+        annotation.subtitle = [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:record.time];        
+        
         [_mapAnnotations addObject:annotation];
 
         [annotation release];        
@@ -47,6 +50,17 @@
     {
         [_mapView addAnnotation:annotation];
     }
+}
+
+- (void)relocateUser
+{
+    CLLocationCoordinate2D coordinate = _mapView.userLocation.location.coordinate; 
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, SPAN_LATITUDE, SPAN_LONGITUDE);
+    MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
+    [_mapView setRegion:adjustedRegion animated:TRUE]; 
+    
+    [self rebuildMapAnnotations];    
 }
 
 - (void)initTabBarItem
@@ -78,13 +92,7 @@
 {
     [super viewDidAppear:animated];
     
-    CLLocationCoordinate2D coordinate = _mapView.userLocation.location.coordinate; 
-
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, SPAN_LATITUDE, SPAN_LONGITUDE);
-    MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
-    [_mapView setRegion:adjustedRegion animated:TRUE]; 
-    
-    [self rebuildMapAnnotations];
+    [self relocateUser];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -121,6 +129,7 @@
     
     // 3 map types: MKMapTypeStandard, MKMapTypeSatellite, MKMapTypeHybird
     _mapView.mapType = MKMapTypeStandard;
+    _mapView.delegate = self;
     
     _mapAnnotations = [[NSMutableArray alloc] init];
     
@@ -129,8 +138,6 @@
     _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
     // Inject delegate(self) to NSFetchedResultsController object
     _fetchedResultsController.delegate = self;
-    
-//    [self rebuildMapAnnotations];
 }
 
 - (void)viewDidUnload
@@ -177,25 +184,18 @@
     {
         case NSFetchedResultsChangeInsert:
         {
-//            NSArray* newObjectArray = [NSArray arrayWithObject:newIndexPath];
-
             break;
         }   
         case NSFetchedResultsChangeDelete:
         {
-//            NSArray* existObjectArray = [NSArray arrayWithObject:indexPath];
-
             break;
         }   
         case NSFetchedResultsChangeUpdate:
         {
-
             break;
         }   
         case NSFetchedResultsChangeMove:
         {
-//            NSArray* existObjectArray = [NSArray arrayWithObject:indexPath];
-
             break;
         }
     }
@@ -254,6 +254,11 @@
     return nil;
 }
 
+// Method of MKMapViewDelegate protocol
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+
+}
 
 
 // Manual Codes End

@@ -119,9 +119,8 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
-
-    id timeVal = [managedObject valueForKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
-    NSDate *time = (NSDate*)timeVal;
+    SignalRecord *record = (SignalRecord*)managedObject;
+    NSDate *time = record.time;
     NSString *timeString = [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:time];
     cell.textLabel.text = timeString;
 }

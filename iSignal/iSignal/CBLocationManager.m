@@ -21,7 +21,9 @@
 // Members of CBLocationManager
 @synthesize workMode;
 @synthesize regionRadius;
-@synthesize locationManager;
+@synthesize locationManager = _locationManager;
+@synthesize currentLocation = _currentLocation;
+@synthesize lastLocation = _lastLocation;
 
 // Static method
 +(BOOL) isLocationServiceEnabled
@@ -41,10 +43,12 @@
     return [CLLocationManager regionMonitoringEnabled];
 }
 
--(CLLocation*) currentLocation
+-(void) initLocationManagerIfNecessary: (CLLocationAccuracy) accuracy andDistance:(CLLocationDistance) distance andWorkMode:(CBLocationWorkMode)mode
 {
     [self initLocationManagerIfNecessary];
-    return [self.locationManager location];
+    [self setWorkMode:mode];
+    [self setAccuracy:accuracy];
+    [self setDistanceFilter:distance];  
 }
 
 - (id)init
@@ -52,7 +56,10 @@
     self = [super init];
     if (self) 
     {
-        // Initialization code here.        
+        // Initialization code here.  
+        // Instance member: locationManager must be initialized before any access.
+        [self initLocationManagerIfNecessary];
+        
         [self setWorkMode:WORKMODE_STANDARD];
         [self setAccuracy:ACCURACY_DEFAULT];
         [self setDistanceFilter:DISTANCE_DEFAULT];
@@ -66,7 +73,10 @@
 {
     [self releaseModule];
     
-    [self.locationManager release];
+    [_locationManager release];
+    
+    [_lastLocation release];
+    [_currentLocation release];
     
     [super dealloc];
 }
@@ -83,47 +93,35 @@
 
 -(void) initLocationManagerIfNecessary
 {
-    if (nil == locationManager)
+    if (nil == _locationManager)
     {
-        locationManager = [[CLLocationManager alloc] init];
+        _locationManager = [[CLLocationManager alloc] init];
     }
     
-    if (nil == locationManager.delegate)
+    if (nil == _locationManager.delegate)
     {
-        locationManager.delegate = self;
+        _locationManager.delegate = self;
     }
-}
-
--(void) initLocationManagerIfNecessary: (CLLocationAccuracy) accuracy andDistance:(CLLocationDistance) distance andWorkMode:(CBLocationWorkMode)mode
-{
-    [self initLocationManagerIfNecessary];
-    [self setWorkMode:mode];
-    [self setAccuracy:accuracy];
-    [self setDistanceFilter:distance];
 }
 
 -(void) startStandardUpdate
-{
-    [self initLocationManagerIfNecessary];
-    
-    [self.locationManager startUpdatingLocation]; 
+{    
+    [_locationManager startUpdatingLocation]; 
 }
 
 -(void) stopStandardUpdate
-{
-    [self.locationManager stopUpdatingLocation];
+{  
+    [_locationManager stopUpdatingLocation];
 }
 
 -(void) startSignificantChangeUpdates
-{
-    [self initLocationManagerIfNecessary];
-    
-    [self.locationManager startMonitoringSignificantLocationChanges];
+{  
+    [_locationManager startMonitoringSignificantLocationChanges];   
 }
 
 -(void) stopSignificantChangeUpdates
 {
-    [self.locationManager stopMonitoringSignificantLocationChanges];
+    [_locationManager stopMonitoringSignificantLocationChanges];
 }
 
 - (BOOL) registerRegionWithSpecificLocationAndCircularOverlay:(NSString *)identifier andLocation:(CLLocation*)location andCircleRadius:(CLLocationDegrees)radius andAccuracy:(CLLocationAccuracy)accuracy
@@ -140,15 +138,15 @@
         return NO;
     }
     
-    if (regionRadius > self.locationManager.maximumRegionMonitoringDistance)
+    if (regionRadius > _locationManager.maximumRegionMonitoringDistance)
     {
-        regionRadius = self.locationManager.maximumRegionMonitoringDistance;
+        regionRadius = _locationManager.maximumRegionMonitoringDistance;
     }
     
     // Create the region and start monitoring it.
     CLRegion* region = [[CLRegion alloc] initCircularRegionWithCenter:location.coordinate
                                                                radius:radius identifier:identifier];
-    [self.locationManager startMonitoringForRegion:region
+    [_locationManager startMonitoringForRegion:region
                                    desiredAccuracy:accuracy];
     [region release];
     
@@ -157,7 +155,7 @@
 
 - (BOOL) registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier
 {
-    return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:[self currentLocation] andCircleRadius:self.regionRadius andAccuracy:self.locationManager.desiredAccuracy];
+    return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:self.currentLocation andCircleRadius:self.regionRadius andAccuracy:_locationManager.desiredAccuracy];
 }
 
 // Method of CLLocationManagerDelegate protocol
@@ -166,21 +164,25 @@
            fromLocation:(CLLocation *)oldLocation
 {
     // If it's a relatively recent event, turn off updates to save power
-    NSDate* eventDate = newLocation.timestamp;
-    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    if (abs(howRecent) < EVENT_AVAILABLE_TIME_DIFFERENCE)
-    {
-        DLog(@"New location reported: latitude %+.6f, longitude %+.6f\n",
-             newLocation.coordinate.latitude,
-             newLocation.coordinate.longitude);
-    }
-    // else skip the event and process the next one.
+    _currentLocation = [newLocation copy];
+    _lastLocation = [oldLocation copy];
+
+//    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+//    if (abs(howRecent) < EVENT_AVAILABLE_TIME_DIFFERENCE)
+//    {
+//        DLog(@"New location reported: latitude %+.6f, longitude %+.6f\n",
+//             newLocation.coordinate.latitude,
+//             newLocation.coordinate.longitude);
+//    }
+
 }
 
 // Method of CLLocationManagerDelegate protocol
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     DLog(@"Location error message: %@", [error localizedDescription]);
+    _lastLocation = _currentLocation;
+    _currentLocation = nil;
 }
 
 // Method of CLLocationManagerDelegate protocol
@@ -244,7 +246,6 @@
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
     NSAutoreleasePool *serviceThreadPool = [[NSAutoreleasePool alloc] init];
     
-    [self initLocationManagerIfNecessary];
     while (self.keepAlive) 
     {
         switch (self.workMode) 

@@ -22,7 +22,7 @@
 
 #define REGION_RADIUS_DEFAULT 100.0
 
-#define ACCURACY_DEFAULT kCLLocationAccuracyBest
+#define ACCURACY_DEFAULT kCLLocationAccuracyNearestTenMeters
 #define DISTANCE_DEFAULT kCLDistanceFilterNone
 
 @interface CBLocationManager : NSObject <CLLocationManagerDelegate, CBModule>
@@ -35,12 +35,13 @@ typedef NSInteger CBLocationWorkMode;
 
 @property (nonatomic) CLLocationDegrees regionRadius;
 
+@property (nonatomic, retain) CLLocation *currentLocation;
+@property (nonatomic, retain) CLLocation *lastLocation;
+
 +(BOOL) isLocationServiceEnabled;
 
 +(BOOL) isRegionMonitoringAvailable;
 +(BOOL) isRegionMonitoringEnabled;
-
--(CLLocation*) currentLocation;
 
 -(void) setDistanceFilter:(CLLocationDistance) distance;
 -(void) setAccuracy:(CLLocationAccuracy) accuracy;
