@@ -38,13 +38,13 @@
 
 - (void)dealloc 
 {
-    [self.textView release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
-    [self setTextView:nil];
+    self.textView = nil;
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -65,6 +65,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     [self.textView setText:NSLocalizedString(@"STR_HELP_INFO", nil)];
 }
