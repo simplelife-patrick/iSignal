@@ -37,8 +37,6 @@
             {
                 return (UIWindow*) nextView;
             }
-            
-            [nextView release];
         }
         DLog(@"Can't find window for this view: %@", view);
         return nil;        
@@ -62,9 +60,6 @@
             {
                 return (UIViewController*) nextResponder;
             }
-            
-            [nextView release];
-            [nextResponder release];
         }
         DLog(@"Can't find controller for this view: %@", view);
         return nil;
