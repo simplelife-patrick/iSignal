@@ -79,15 +79,25 @@
     {
         // Custom initialization
         [self initTabBarItem];
+        
+        _mapAnnotations = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
+// Method of UIViewController
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // Attach object reference of NSFetchedResultsController
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
+    // Inject delegate(self) to NSFetchedResultsController object
+    _fetchedResultsController.delegate = self;    
 }
 
+// Method of UIViewController
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -95,11 +105,13 @@
     [self relocateUser];
 }
 
+// Method of UIViewController
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
 }
 
+// Method of UIViewController
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
@@ -129,23 +141,14 @@
     
     // 3 map types: MKMapTypeStandard, MKMapTypeSatellite, MKMapTypeHybird
     _mapView.mapType = MKMapTypeStandard;
+    // Inject delegate(self) to MKMapViewDelegate object
     _mapView.delegate = self;
-    
-    _mapAnnotations = [[NSMutableArray alloc] init];
-    
-    // Attach object reference of NSFetchedResultsController
-    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
-    _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
-    // Inject delegate(self) to NSFetchedResultsController object
-    _fetchedResultsController.delegate = self;
 }
 
 - (void)viewDidUnload
 {
     _fetchedResultsController = nil;
-    
     _mapAnnotations = nil;
-    
     _mapView = nil;
     
     [super viewDidUnload];

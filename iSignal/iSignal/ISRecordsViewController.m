@@ -70,12 +70,6 @@
 
     [self setDeleteEnabled:FALSE];
     _multiselectEnabled = FALSE;
-    
-    // Attach object reference of NSFetchedResultsController
-    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
-    _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
-    // Inject delegate(self) to NSFetchedResultsController object
-    _fetchedResultsController.delegate = self;
 }
 
 - (void)viewDidUnload
@@ -96,12 +90,20 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // Attach object reference of NSFetchedResultsController
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
+    // Inject delegate(self) to NSFetchedResultsController object
+    _fetchedResultsController.delegate = self;    
 }
 
 // Method of UIViewController
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 // Method of UIViewController
