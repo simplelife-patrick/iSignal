@@ -15,7 +15,7 @@
 
 @property BOOL keepAlive;
 
-@property (nonatomic, retain) NSString *moduleIdentity;
+@property (nonatomic, copy) NSString *moduleIdentity;
 @property (nonatomic, retain) NSThread *serviceThread;
 
 -(void) initModule;
