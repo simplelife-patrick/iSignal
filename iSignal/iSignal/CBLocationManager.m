@@ -74,7 +74,6 @@
     [self releaseModule];
     
     [_locationManager release];
-    
     [_lastLocation release];
     [_currentLocation release];
     
@@ -83,12 +82,12 @@
 
 -(void) setDistanceFilter:(CLLocationDistance) distance
 {
-    self.locationManager.distanceFilter = distance;
+    _locationManager.distanceFilter = distance;
 }
 
 -(void) setAccuracy:(CLLocationAccuracy) accuracy
 {
-    self.locationManager.desiredAccuracy = accuracy;
+    _locationManager.desiredAccuracy = accuracy;
 }
 
 -(void) initLocationManagerIfNecessary
@@ -155,7 +154,7 @@
 
 - (BOOL) registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier
 {
-    return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:self.currentLocation andCircleRadius:self.regionRadius andAccuracy:_locationManager.desiredAccuracy];
+    return [self registerRegionWithSpecificLocationAndCircularOverlay:identifier andLocation:_currentLocation andCircleRadius:self.regionRadius andAccuracy:_locationManager.desiredAccuracy];
 }
 
 // Method of CLLocationManagerDelegate protocol
@@ -163,9 +162,9 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    // If it's a relatively recent event, turn off updates to save power
-    _currentLocation = [newLocation copy];
-    _lastLocation = [oldLocation copy];
+    // If it's a relatively recent event, turn off updates to save power    
+    self.currentLocation = newLocation;
+    self.lastLocation = oldLocation;
 
 //    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
 //    if (abs(howRecent) < EVENT_AVAILABLE_TIME_DIFFERENCE)
@@ -181,8 +180,11 @@
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     DLog(@"Location error message: %@", [error localizedDescription]);
-    _lastLocation = _currentLocation;
-    _currentLocation = nil;
+//    _lastLocation = _currentLocation;
+//    _currentLocation = nil;
+    self.lastLocation = self.currentLocation;
+    self.currentLocation = nil;
+
 }
 
 // Method of CLLocationManagerDelegate protocol
@@ -216,8 +218,8 @@
 // Method of CBModule protocol
 -(void) releaseModule
 {
-    [self.serviceThread release];
-    [self.moduleIdentity release];
+    [serviceThread release];
+    [moduleIdentity release];
 }
 
 // Method of CBModule protocol
