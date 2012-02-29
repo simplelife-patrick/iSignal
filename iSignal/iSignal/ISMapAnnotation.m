@@ -27,10 +27,9 @@
 
 - (void)dealloc
 {
-    [self.image release];
-    
-    [self.title release];
-    [self.subtitle release];
+    [image release];
+    [title release];
+    [subtitle release];
     
     [super dealloc];
 }
