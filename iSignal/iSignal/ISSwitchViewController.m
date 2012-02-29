@@ -30,19 +30,29 @@
 
 - (void)loadTabViews
 {
-    self.homeViewController = [[ISHomeViewController alloc] initWithNibName:NIB_HOMEVIEW_CONTROLLER bundle:nil];
+    ISHomeViewController *isHomeVC = [[ISHomeViewController alloc] initWithNibName:NIB_HOMEVIEW_CONTROLLER bundle:nil];
+    self.homeViewController = isHomeVC;
+    [isHomeVC release];
     [self.homeViewController.view setTag:TAG_HOMEVIEW];
     
-    self.helpViewController = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
+    ISHelpViewController *isHelpVC = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
+    self.helpViewController = isHelpVC;
+    [isHelpVC release];
     [self.helpViewController.view setTag:TAG_HELPVIEW];
     
-    self.configViewController = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
+    ISConfigViewController *isConfigVC = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
+    self.configViewController = isConfigVC;
+    [isConfigVC release];
     [self.configViewController.view setTag:TAG_CONFIGVIEW];
     
-    self.mapViewController = [[ISMapViewController alloc] initWithNibName:NIB_MAPVIEW_CONTROLLER bundle:nil];
+    ISMapViewController *isMapVC = [[ISMapViewController alloc] initWithNibName:NIB_MAPVIEW_CONTROLLER bundle:nil];
+    self.mapViewController = isMapVC;
+    [isMapVC release];
     [self.mapViewController.view setTag:TAG_MAPVIEW];
     
-    self.recordsViewController = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
+    ISRecordsViewController *isRecordVC = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
+    self.recordsViewController = isRecordVC;
+    [isRecordVC release];
     [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
     
     [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewController, self.mapViewController, self.configViewController, self.helpViewController, nil] animated:TRUE];

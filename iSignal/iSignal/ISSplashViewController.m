@@ -95,25 +95,30 @@ static CGRect s_floatingView_popup;
     
     // Location module start
     // TODO: Location module should not be inited if location service is not supported or disabled currently.
-    appDelegate.locationModule = [[CBLocationManager alloc] init];
+    CBLocationManager *cbLocationM = [[CBLocationManager alloc] init];
+    appDelegate.locationModule = cbLocationM;
     if ([ISAppConfigs isLocationOn])
     {
         [appDelegate.locationModule initModule];
         [appDelegate.locationModule startService];
     }
+    [cbLocationM release];
     
     // CoreData module start
-    appDelegate.coreDataModule = [[ISCoreDataManager alloc] init];
+    ISCoreDataManager *isCoreDataM = [[ISCoreDataManager alloc] init];
+    appDelegate.coreDataModule = isCoreDataM;
     [appDelegate.coreDataModule initModule];
     [appDelegate.coreDataModule startService];
+    [isCoreDataM release];
     
     // ISDummyTelephony module start
-    appDelegate.dummyTelephonyModule = [[ISDummyTelephony alloc] init];
+    ISDummyTelephony *isDummyT = [[ISDummyTelephony alloc] init];
+    appDelegate.dummyTelephonyModule = isDummyT;
     [appDelegate.dummyTelephonyModule initModule];
     [appDelegate.dummyTelephonyModule registerDelegate:appDelegate.locationModule];
     [appDelegate.dummyTelephonyModule registerDelegate:appDelegate.coreDataModule];
-    [appDelegate.dummyTelephonyModule startService];  
-    
+    [appDelegate.dummyTelephonyModule startService]; 
+    [isDummyT release];
     
     DLog(@"Finished the load operation.");
     // Switch back to Splash UI

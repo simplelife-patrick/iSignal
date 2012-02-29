@@ -235,7 +235,9 @@
     
     if (nil == self.serviceThread) 
     {
-        self.serviceThread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
+        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
+        self.serviceThread = thread;
+        [thread release];
     }
     self.keepAlive = TRUE;
     

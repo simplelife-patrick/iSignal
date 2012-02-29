@@ -175,7 +175,9 @@ static NSArray* CARRIER_LIST;
 {
     if (nil == self.serviceThread) 
     {
-        self.serviceThread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
+        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
+        self.serviceThread = thread;
+        [thread release];
     }
     self.keepAlive = TRUE;
     
@@ -209,7 +211,9 @@ static NSArray* CARRIER_LIST;
     if (self) 
     {
         // Initialization code here.
-        self.delegateList = [[NSMutableArray alloc] init];
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        self.delegateList = array;
+        [array release];
         
         [self refreshCarrier];        
     }
