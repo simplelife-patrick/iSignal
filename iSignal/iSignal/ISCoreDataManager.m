@@ -75,8 +75,7 @@
     NSDate *time = [NSDate date];
     [newManagedObject setValue:time forKey:DB_TABLE_SIGNALRECORD_FIELD_TIME];
     
-    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_NULL forKey:DB_TABLE_SIGNALRECORD_FIELD_TAG];
-    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS forKey:DB_TABLE_SIGNALRECORD_FIELD_TYPE];
+    [newManagedObject setValue:DB_TABLE_SIGNALRECORD_VALUE_NOSIGNAL forKey:DB_TABLE_SIGNALRECORD_FIELD_TYPE];
     
     if([ISAppConfigs isLocationOn])
     {
@@ -121,8 +120,7 @@
     record.duration = 0;
     record.isSync = FALSE;
     record.time = [NSDate date];
-    record.tag = DB_TABLE_SIGNALRECORD_VALUE_NULL;
-    record.type = DB_TABLE_SIGNALRECORD_VALUE_SIGNALLOSS;
+    record.type = DB_TABLE_SIGNALRECORD_VALUE_NOSIGNAL;
     
     if([ISAppConfigs isLocationOn])
     {
