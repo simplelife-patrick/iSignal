@@ -33,20 +33,20 @@
 - (id)initWithTableName:(NSString*) table fetchBatchSize:(NSInteger) size ascending:(BOOL) isAscending descriptorName:(NSString*) descriptor tableCacheName:(NSString*) tableCache
 {
     self.tableName = table;
-    self.fetchBatchSize = size;
-    self.ascending = isAscending;
     self.descriptorName = descriptor;
     self.tableCacheName = tableCache;
+
+    self.fetchBatchSize = size;
+    self.ascending = isAscending;    
     
     return [self init];
 }
 
 - (void) dealloc
 {
-    [self.tableName release];
-    [self.descriptorName release];
-    [self.tableCacheName release];
-    [(NSObject*)self.delegate release]; 
+    [tableName release];
+    [descriptorName release];
+    [tableCacheName release]; 
     
     [super dealloc];
 }
