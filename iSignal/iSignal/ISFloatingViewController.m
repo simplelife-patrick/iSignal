@@ -8,6 +8,7 @@
 
 #import "ISFloatingViewController.h"
 
+// Obsoleted
 @implementation ISFloatingViewController
 
 // Manual Codes Begin
