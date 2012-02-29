@@ -28,25 +28,21 @@
         annotation.subtitle = [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:record.time];        
         
         [_mapAnnotations addObject:annotation];
-
+        [_mapView addAnnotation:annotation];
+        
         [annotation release];        
     }
 }
 
 - (void)rebuildMapAnnotations
 {
+    [_mapView removeAnnotations:_mapView.annotations];
     [_mapAnnotations removeAllObjects];
     NSArray *fetchedObjects = [_fetchedResultsController fetchedObjects];
     for (NSObject *obj in fetchedObjects) 
     {
         SignalRecord *signalRecord = (SignalRecord*)obj;
         [self mapAnnotationFromSignalRecord:signalRecord];
-    }
-    
-    [_mapView removeAnnotations:_mapView.annotations];
-    for (ISMapAnnotation *annotation in _mapAnnotations) 
-    {
-        [_mapView addAnnotation:annotation];
     }
 }
 
@@ -185,6 +181,8 @@
     {
         case NSFetchedResultsChangeInsert:
         {
+            SignalRecord *record = (SignalRecord*)[controller objectAtIndexPath:newIndexPath];
+            [self mapAnnotationFromSignalRecord:record];
             break;
         }   
         case NSFetchedResultsChangeDelete:
