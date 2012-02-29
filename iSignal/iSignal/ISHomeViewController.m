@@ -196,9 +196,9 @@
     
     // Load data from ISDummyTelephony module
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.dummnyTelephonyModule registerDelegate:self]; // Register callback delegate to module
+    [appDelegate.dummyTelephonyModule registerDelegate:self]; // Register callback delegate to module
 
-    [self updateCarrier:appDelegate.dummnyTelephonyModule.carrier];
+    [self updateCarrier:appDelegate.dummyTelephonyModule.carrier];
     [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
     
     // Audioplayer is initializing
