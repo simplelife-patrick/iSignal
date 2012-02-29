@@ -136,8 +136,7 @@ static NSArray* CARRIER_LIST;
     self.signalStrength = [ISDummyTelephony randomSignalStrength];
     // Notify listeners
     NSNumber *signalVal = [NSNumber numberWithInt:self.signalStrength];
-    [self notifyAllDelegates:signalVal];
-    [signalVal release];    
+    [self notifyAllDelegates:signalVal];    
 }
 
 // Method of CBModule protocol
@@ -152,8 +151,8 @@ static NSArray* CARRIER_LIST;
 // Method of CBModule protocol
 -(void) releaseModule
 {
-    [self.serviceThread release];
-    [self.moduleIdentity release];
+    [serviceThread release];
+    [moduleIdentity release];
 }
 
 // Method of CBModule protocol
@@ -198,9 +197,8 @@ static NSArray* CARRIER_LIST;
 - (void)dealloc
 {
     [self releaseModule];
-    [self.carrier release];
     
-    [self.delegateList release];
+    [delegateList release];
     
     [super dealloc];
 }
