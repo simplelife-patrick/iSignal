@@ -10,13 +10,14 @@
 
 @interface CBFetchedResultsControllerIdentifier : NSObject <NSCopying>
 
-@property (nonatomic, retain) NSString* tableName;
+@property (nonatomic, copy) NSString* tableName;
+@property (nonatomic, copy) NSString* descriptorName;
+@property (nonatomic, copy) NSString* tableCacheName;
+
 @property (nonatomic) NSInteger fetchBatchSize;
 @property (nonatomic) BOOL ascending;
-@property (nonatomic, retain) NSString* descriptorName;
-@property (nonatomic, retain) NSString* tableCacheName;
 
-@property (nonatomic, retain) id<NSFetchedResultsControllerDelegate> delegate;
+@property (nonatomic, assign) id<NSFetchedResultsControllerDelegate> delegate;
 
 - (id)initWithTableName:(NSString*) table fetchBatchSize:(NSInteger) size ascending:(BOOL) isAscending descriptorName:(NSString*) descriptor tableCacheName:(NSString*) tableCache;
 
