@@ -52,11 +52,12 @@ static CGRect s_floatingView_popup;
 }
 
 - (void)dealloc
-{
-    [self.timer release];
-    [self.splashImageView release];    
-    [self.switchViewController release];
-    [self.floatingViewController release];
+{   
+    [floatingViewController release];
+    [switchViewController release];
+    [splashImageView release];
+    [timer release];
+    
     [super dealloc];
 }
 
@@ -107,11 +108,11 @@ static CGRect s_floatingView_popup;
     [appDelegate.coreDataModule startService];
     
     // ISDummyTelephony module start
-    appDelegate.dummnyTelephonyModule = [[ISDummyTelephony alloc] init];
-    [appDelegate.dummnyTelephonyModule initModule];
-    [appDelegate.dummnyTelephonyModule registerDelegate:appDelegate.locationModule];
-    [appDelegate.dummnyTelephonyModule registerDelegate:appDelegate.coreDataModule];
-    [appDelegate.dummnyTelephonyModule startService];  
+    appDelegate.dummyTelephonyModule = [[ISDummyTelephony alloc] init];
+    [appDelegate.dummyTelephonyModule initModule];
+    [appDelegate.dummyTelephonyModule registerDelegate:appDelegate.locationModule];
+    [appDelegate.dummyTelephonyModule registerDelegate:appDelegate.coreDataModule];
+    [appDelegate.dummyTelephonyModule startService];  
     
     
     DLog(@"Finished the load operation.");
