@@ -26,7 +26,7 @@
 
 @interface ISDummyTelephony : NSObject <CBModule>
 
-@property (nonatomic, retain) NSString *carrier;
+@property (nonatomic, copy) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;
 
 +(NSString*) randomCarrier;
