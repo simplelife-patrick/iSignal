@@ -166,8 +166,8 @@
 // Method of CBModule protocol
 -(void) releaseModule
 {
-    [self.serviceThread release];
-    [self.moduleIdentity release];
+    [serviceThread release];
+    [moduleIdentity release];
 }
 
 // Method of CBModule protocol
