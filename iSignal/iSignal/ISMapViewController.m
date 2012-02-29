@@ -14,9 +14,7 @@
 // Manual Codes Begin
 
 @synthesize mapView = _mapView;
-
 @synthesize fetchedResultsController = _fetchedResultsController;
-
 @synthesize mapAnnotations = _mapAnnotations;
 
 - (void) mapAnnotationFromSignalRecord:(SignalRecord*) record
