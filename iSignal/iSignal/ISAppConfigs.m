@@ -106,6 +106,7 @@
 - (id)init
 {
     return nil;
+// Disable object initialization.
 //    self = [super init];
 //    if (self) 
 //    {

@@ -47,4 +47,17 @@
 	return date;
 }
 
+- (id)init
+{
+    return nil;
+    // Disable object initialization.
+    //    self = [super init];
+    //    if (self) 
+    //    {
+    //        // Initialization code here.
+    //    }
+    //    
+    //    return self;
+}
+
 @end

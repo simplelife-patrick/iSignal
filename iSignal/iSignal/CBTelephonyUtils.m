@@ -39,17 +39,19 @@
     return quality;
 }
 
-// Manual Codes End
-
 - (id)init
 {
-    self = [super init];
-    if (self) 
-    {
-        // Initialization code here.
-    }
-    
-    return self;
+    return nil;
+    // Disable object initialization.
+    //    self = [super init];
+    //    if (self) 
+    //    {
+    //        // Initialization code here.
+    //    }
+    //    
+    //    return self;
 }
+
+// Manual Codes End
 
 @end
