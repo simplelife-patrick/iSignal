@@ -72,7 +72,7 @@
                 ISHelpViewController *viewController = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
                 [viewController.view setTag:TAG_HELPVIEW];
                 self.helpViewController = viewController;
-                [self.helpViewController release];
+                [viewController release];
             }
             [self.view addSubview:self.helpViewController.view];      
             break;
