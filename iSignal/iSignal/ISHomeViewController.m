@@ -150,7 +150,7 @@
 
             if(ringAlarmOn)
             {
-                [self.audioPlayer play];                
+                [self.audioPlayer play];       
             }
 
             // TODO: Should be moved to a single module            
@@ -219,10 +219,22 @@
     { 
         [audioPlayer release]; 
     }
+    
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
+    UInt32 doSetProperty = 1;
+    AudioSessionSetProperty (kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(doSetProperty), &doSetProperty);
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    
     NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"signalLost" ofType:@"caf"]; 
     NSURL *soundUrl=[[NSURL alloc] initFileURLWithPath:soundPath]; 
+    
     audioPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil]; 
-    [audioPlayer prepareToPlay]; 
+
+    
+    [audioPlayer prepareToPlay];      
+
+    [[AVAudioSession sharedInstance] setActive: FALSE error: nil];  
+    
     [soundUrl release];     
 }
 
