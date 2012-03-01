@@ -37,6 +37,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *carrierLabel;
 @property (nonatomic, retain) IBOutlet UILabel *signalStrengthLabel;
 
+@property (nonatomic, retain) IBOutlet UIImageView *noSignalView;
+
 @property (nonatomic, retain) AVAudioPlayer *audioPlayer;
 
 

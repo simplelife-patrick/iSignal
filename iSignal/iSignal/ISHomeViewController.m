@@ -24,6 +24,7 @@
 @synthesize unitLabel;
 @synthesize carrierLabel;
 @synthesize signalStrengthLabel;
+@synthesize noSignalView;
 @synthesize qualityGradeLabel;
 
 @synthesize audioPlayer;
@@ -63,6 +64,9 @@
     [gradeIndicator03View release];
     [gradeIndicator04View release];
     [gradeIndicator05View release];
+    
+    [noSignalView release];
+    
     [super dealloc];
 }
 
@@ -157,9 +161,18 @@
             {
                 AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);                
             }
+            
+            [self.signalStrengthLabel setHidden:TRUE];
+            [self.noSignalView setHidden:FALSE];
         }
+        else 
+        {            
+            [self.signalStrengthLabel setText:strVal];
+            [self.signalStrengthLabel setHidden:FALSE];
+            [self.noSignalView setHidden:TRUE];            
+        }
+    
         [self updateSignalQualityGrade:qualityGrade];
-        [self.signalStrengthLabel setText:strVal];
     }
     else
     {
@@ -228,6 +241,8 @@
     [self setGradeIndicator03View:nil];
     [self setGradeIndicator04View:nil];
     [self setGradeIndicator05View:nil];
+    [self setNoSignalView:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
