@@ -16,8 +16,9 @@
 
 @synthesize splashViewController;
 
-@synthesize dummyTelephonyModule;
+@synthesize avModule;
 @synthesize locationModule;
+@synthesize dummyTelephonyModule;
 @synthesize coreDataModule;
 
 - (void)dealloc
@@ -46,12 +47,10 @@
     
     // TODO: Stop all modules' serive here.
     
-    // ISDummyTelephony module stops
     [self.dummyTelephonyModule stopService];
-    // CBLocation module stops 
     [self.locationModule stopService];
-    // ISCoreDataManager stops
     [self.coreDataModule stopService];
+    [self.avModule stopService];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

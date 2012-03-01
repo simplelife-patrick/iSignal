@@ -18,9 +18,6 @@
 #import "CBTelephonyUtils.h"
 #import "CBLocationManager.h"
 
-#import <AVFoundation/AVFoundation.h>
-#import <AudioToolbox/AudioToolbox.h>
-
 #import "ISSwitchViewController.h"
 
 @interface ISHomeViewController : UIViewController <CBListenable>
@@ -38,8 +35,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *signalStrengthLabel;
 
 @property (nonatomic, retain) IBOutlet UIImageView *noSignalView;
-
-@property (nonatomic, retain) AVAudioPlayer *audioPlayer;
 
 
 -(void) updateSignalStrength:(NSNumber*) signalVal;

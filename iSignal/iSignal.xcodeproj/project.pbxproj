@@ -44,6 +44,8 @@
 		C591DDC41407846600CB2C63 /* Star32Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC31407846600CB2C63 /* Star32Highlight.png */; };
 		C5B66186140CFE92000B1F74 /* CBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B66185140CFE92000B1F74 /* CBLocationManager.m */; };
 		C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B66188140D0249000B1F74 /* CoreLocation.framework */; };
+		C5B71C8314FFA93000CAE603 /* CBAVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B71C8214FFA93000CAE603 /* CBAVManager.m */; };
+		C5B71C8714FFAADD00CAE603 /* CBModuleAbstractImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B71C8614FFAADC00CAE603 /* CBModuleAbstractImpl.m */; };
 		C5B758231401E485004A051E /* CBUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B758221401E485004A051E /* CBUIUtils.m */; };
 		C5BAED85140153B100141ED7 /* ISSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BAED83140153B100141ED7 /* ISSwitchViewController.m */; };
 		C5BD38F8141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */; };
@@ -121,6 +123,10 @@
 		C5B66185140CFE92000B1F74 /* CBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBLocationManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C5B66188140D0249000B1F74 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5B6618E140E2CDB000B1F74 /* CBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBModule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5B71C8114FFA93000CAE603 /* CBAVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAVManager.h; sourceTree = "<group>"; };
+		C5B71C8214FFA93000CAE603 /* CBAVManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAVManager.m; sourceTree = "<group>"; };
+		C5B71C8514FFAADC00CAE603 /* CBModuleAbstractImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBModuleAbstractImpl.h; sourceTree = "<group>"; };
+		C5B71C8614FFAADC00CAE603 /* CBModuleAbstractImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBModuleAbstractImpl.m; sourceTree = "<group>"; };
 		C5B758211401E485004A051E /* CBUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUIUtils.h; sourceTree = "<group>"; };
 		C5B758221401E485004A051E /* CBUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBUIUtils.m; sourceTree = "<group>"; };
 		C5BAED82140153B100141ED7 /* ISSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSwitchViewController.h; sourceTree = "<group>"; };
@@ -224,6 +230,10 @@
 				C5A36EE8142070AD00C9E4D0 /* CBListenable.h */,
 				C5E5D77014EBE786007E0F2D /* CBDateUtils.h */,
 				C5E5D77114EBE786007E0F2D /* CBDateUtils.m */,
+				C5B71C8114FFA93000CAE603 /* CBAVManager.h */,
+				C5B71C8214FFA93000CAE603 /* CBAVManager.m */,
+				C5B71C8514FFAADC00CAE603 /* CBModuleAbstractImpl.h */,
+				C5B71C8614FFAADC00CAE603 /* CBModuleAbstractImpl.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -471,6 +481,8 @@
 				C5E5D77214EBE786007E0F2D /* CBDateUtils.m in Sources */,
 				C5CD004714EFEC5000FC0D02 /* ISMapAnnotation.m in Sources */,
 				C500B6C114F220C500B5FBEA /* SignalRecord.m in Sources */,
+				C5B71C8314FFA93000CAE603 /* CBAVManager.m in Sources */,
+				C5B71C8714FFAADD00CAE603 /* CBModuleAbstractImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

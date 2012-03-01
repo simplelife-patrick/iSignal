@@ -27,8 +27,6 @@
 @synthesize noSignalView;
 @synthesize qualityGradeLabel;
 
-@synthesize audioPlayer;
-
 - (void)initTabBarItem
 {
 //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
@@ -56,9 +54,7 @@
     [unitLabel release];
     [carrierLabel release];
     [signalStrengthLabel release];
-    
-    [audioPlayer release];
- 
+
     [gradeIndicator01View release];
     [gradeIndicator02View release];
     [gradeIndicator03View release];
@@ -141,16 +137,16 @@
         SIGNAL_QUALITY qualityGrade = [CBTelephonyUtils evaluateSignalQuality:intVal];
         if (qualityGrade == QUALITY_SIGNAL_LOSS) 
         {
+            iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+            
             strVal = NSLocalizedString(@"STR_NOSIGNAL",nil);
             DLog(@"Translate received signal strength: %d to text: %@", intVal, strVal);
             
-            // TODO: Should be moved to a single module
             // Ring
             BOOL ringAlarmOn = [ISAppConfigs isRingAlarmOn];
-
             if(ringAlarmOn)
             {
-                [self.audioPlayer play];       
+                [appDelegate.avModule playAudio];
             }
 
             // TODO: Should be moved to a single module            
@@ -214,28 +210,9 @@
     [self updateCarrier:appDelegate.dummyTelephonyModule.carrier];
     [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
     
-    // Audioplayer is initializing
-    if (audioPlayer) 
-    { 
-        [audioPlayer release]; 
-    }
-    
-    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
-    UInt32 doSetProperty = 1;
-    AudioSessionSetProperty (kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(doSetProperty), &doSetProperty);
-    [[AVAudioSession sharedInstance] setActive: YES error: nil];
-    
-    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"signalLost" ofType:@"caf"]; 
-    NSURL *soundUrl=[[NSURL alloc] initFileURLWithPath:soundPath]; 
-    
-    audioPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil]; 
-
-    
-    [audioPlayer prepareToPlay];      
-
-    [[AVAudioSession sharedInstance] setActive: FALSE error: nil];  
-    
-    [soundUrl release];     
+    [appDelegate.avModule audioSessionBegin];
+    [appDelegate.avModule preparePlayAudio:@"signalLost" andResourceType:@"caf"];
+    [appDelegate.avModule audioSessionEnd];
 }
 
 - (void)viewDidUnload
@@ -246,8 +223,6 @@
     [self setSignLabel:nil];
     [self setQualityGradeLabel:nil];
 
-    [self setAudioPlayer:nil];
-    
     [self setGradeIndicator01View:nil];
     [self setGradeIndicator02View:nil];
     [self setGradeIndicator03View:nil];

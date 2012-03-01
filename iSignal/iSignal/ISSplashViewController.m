@@ -111,6 +111,14 @@ static CGRect s_floatingView_popup;
     [appDelegate.coreDataModule startService];
     [isCoreDataM release];
     
+    // AV module start
+    CBAVManager *cbAVM = [[CBAVManager alloc] init];
+    appDelegate.avModule = cbAVM;
+    [appDelegate.avModule initModule];
+    // No need to startService()
+    //[appDelegate.avModule startService];
+    [cbAVM release];
+    
     // ISDummyTelephony module start
     ISDummyTelephony *isDummyT = [[ISDummyTelephony alloc] init];
     appDelegate.dummyTelephonyModule = isDummyT;
