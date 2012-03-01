@@ -19,8 +19,11 @@
 @interface ISMapViewController : UIViewController <NSFetchedResultsControllerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *locateMeButton;
 
 @property (retain, nonatomic, readonly) NSFetchedResultsController* fetchedResultsController;
+
+- (IBAction) locatePositionAndCenterMap:(id) sender;
 
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
 

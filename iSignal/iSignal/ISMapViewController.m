@@ -14,10 +14,28 @@
 // Manual Codes Begin
 
 @synthesize mapView = _mapView;
+@synthesize locateMeButton = _locateMeButton;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize mapAnnotations = _mapAnnotations;
 
-- (void) mapAnnotationFromSignalRecord:(SignalRecord*) record
+//- (BOOL)ifUserLocationInRegion
+//{
+//    CLLocation *currentLocation = _mapView.userLocation.location;
+//    CLLocationCoordinate2D userCenter = currentLocation.coordinate;
+//    
+//    MKCoordinateRegion region = _mapView.region;
+//    CLLocationCoordinate2D regionCenter = region.center;
+//    MKCoordinateSpan regionSpan = region.span;
+//    
+//    return FALSE;
+//}
+
+- (IBAction) locatePositionAndCenterMap:(id) sender
+{
+    [self relocateUser];
+}
+
+- (void)mapAnnotationFromSignalRecord:(SignalRecord*) record
 {
     if(nil != record)
     {
@@ -53,6 +71,8 @@
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, SPAN_LATITUDE, SPAN_LONGITUDE);
     MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
     [_mapView setRegion:adjustedRegion animated:TRUE]; 
+    
+    _mapView.showsUserLocation = TRUE;
     
     [self rebuildMapAnnotations];    
 }
@@ -117,6 +137,7 @@
     [_mapAnnotations release];
     [_mapView release];
     
+    [_locateMeButton release];
     [super dealloc];
 }
 
@@ -137,6 +158,8 @@
     _mapView.mapType = MKMapTypeStandard;
     // Inject delegate(self) to MKMapViewDelegate object
     _mapView.delegate = self;
+    
+    [self.navigationController pushViewController:self animated:TRUE];
 }
 
 - (void)viewDidUnload
@@ -145,6 +168,7 @@
     _mapAnnotations = nil;
     _mapView = nil;
     
+    [self setLocateMeButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -259,6 +283,11 @@
 
 }
 
+// Method of MKMapViewDelegate protocol
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    
+}
 
 // Manual Codes End
 

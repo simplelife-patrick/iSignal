@@ -182,17 +182,25 @@
 		C591DDB01407723100CB2C63 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C5B71C7A14FF352100CAE603 /* Images */,
+				C531221C140B18560046CD7F /* signalLost.caf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C5B71C7A14FF352100CAE603 /* Images */ = {
+			isa = PBXGroup;
+			children = (
 				C52871A714FF09F500B0630A /* Star128Gold.png */,
 				C52871A814FF09F500B0630A /* Star128Gray.png */,
 				C52871A914FF09F500B0630A /* Star128Black.png */,
 				C52871AA14FF09F500B0630A /* noSignal256.png */,
-				C531221C140B18560046CD7F /* signalLost.caf */,
 				C591DDC31407846600CB2C63 /* Star32Highlight.png */,
 				C591DDC11407840F00CB2C63 /* Star32.png */,
 				C591DDBD1407810700CB2C63 /* iSignal.png */,
 				C591DDBE1407810700CB2C63 /* iSignalX2.png */,
 			);
-			name = Resources;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		C5B7581D1401E3AC004A051E /* Common */ = {
