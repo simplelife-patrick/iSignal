@@ -80,6 +80,15 @@
     [super dealloc];
 }
 
+-(CLLocation*) obtainLocation
+{
+    if (!_currentLocation) 
+    {
+        [self setCurrentLocation:_locationManager.location];
+    }    
+    return _currentLocation;
+}
+
 -(void) setDistanceFilter:(CLLocationDistance) distance
 {
     _locationManager.distanceFilter = distance;
@@ -180,8 +189,7 @@
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     DLog(@"Location error message: %@", [error localizedDescription]);
-//    _lastLocation = _currentLocation;
-//    _currentLocation = nil;
+
     self.lastLocation = self.currentLocation;
     self.currentLocation = nil;
 

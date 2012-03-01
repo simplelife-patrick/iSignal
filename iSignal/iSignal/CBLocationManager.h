@@ -43,6 +43,8 @@ typedef NSInteger CBLocationWorkMode;
 +(BOOL) isRegionMonitoringAvailable;
 +(BOOL) isRegionMonitoringEnabled;
 
+-(CLLocation*) obtainLocation;
+
 -(void) setDistanceFilter:(CLLocationDistance) distance;
 -(void) setAccuracy:(CLLocationAccuracy) accuracy;
 

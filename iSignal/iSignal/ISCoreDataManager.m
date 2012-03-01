@@ -79,7 +79,7 @@
     
     if([ISAppConfigs isLocationOn])
     {
-        CLLocation *currentLocation = [appDelegate.locationModule currentLocation];
+        CLLocation *currentLocation = [appDelegate.locationModule obtainLocation];
         
         CLLocationDegrees latitude = currentLocation.coordinate.latitude;
         CLLocationDegrees longitude = currentLocation.coordinate.longitude;
@@ -124,17 +124,15 @@
     
     if([ISAppConfigs isLocationOn])
     {
-        CLLocation *currentLocation = appDelegate.locationModule.currentLocation;
+        // TODO: A potential issue is if location module can not get the first location here, for example: the application just started.
+        CLLocation *currentLocation = [appDelegate.locationModule obtainLocation];
+        DLog(@"Current location is %@", currentLocation);
         if(currentLocation)
         {
             CLLocationDegrees latitude = currentLocation.coordinate.latitude;
             record.latitude = [NSNumber numberWithDouble:latitude];
             CLLocationDegrees longitude = currentLocation.coordinate.longitude;
             record.longitude = [NSNumber numberWithDouble:longitude];
-        }
-        else
-        {
-            DLog(@"Current location is %@", currentLocation);
         }
     }
     
