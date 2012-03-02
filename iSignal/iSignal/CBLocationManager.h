@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-#import "CBModule.h"
+#import "CBModuleAbstractImpl.h"
 
 #define MODULE_IDENTITY_LOCATION_MANAGER @"LocationManager"
 
@@ -25,7 +25,7 @@
 #define ACCURACY_DEFAULT kCLLocationAccuracyNearestTenMeters
 #define DISTANCE_DEFAULT kCLDistanceFilterNone
 
-@interface CBLocationManager : NSObject <CLLocationManagerDelegate, CBModule>
+@interface CBLocationManager : CBModuleAbstractImpl <CLLocationManagerDelegate>
 
 typedef NSInteger CBLocationWorkMode;
 

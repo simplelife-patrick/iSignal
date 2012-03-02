@@ -12,12 +12,6 @@
 
 // Manual Codes Begin
 
-// Members of CBModule protocol
-@synthesize moduleIdentity;
-@synthesize serviceThread;
-@synthesize keepAlive;
-@synthesize delegateList;
-
 // Members of CBLocationManager
 @synthesize workMode;
 @synthesize regionRadius;
@@ -67,17 +61,6 @@
     }
     
     return self;
-}
-
--(void) dealloc
-{
-    [self releaseModule];
-    
-    [_locationManager release];
-    [_lastLocation release];
-    [_currentLocation release];
-    
-    [super dealloc];
 }
 
 -(CLLocation*) obtainLocation
@@ -214,7 +197,7 @@
     DLog(@"Failed to monitor this region: %@ with error: %@", region, error);
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) initModule
 {
     [self setModuleIdentity:MODULE_IDENTITY_LOCATION_MANAGER];
@@ -223,14 +206,17 @@
     [self setKeepAlive:FALSE];    
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) releaseModule
 {
-    [serviceThread release];
-    [moduleIdentity release];
+    [super releaseModule];
+    
+    [_locationManager release];
+    [_lastLocation release];
+    [_currentLocation release];    
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) startService
 {
     // Do not create regions if support is unavailable or disabled.
@@ -252,7 +238,7 @@
     [self.serviceThread start];
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) processService
 {
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
@@ -302,74 +288,6 @@
     }    
     
     [serviceThreadPool release];
-}
-
-// Method of CBModule protocol
--(void) stopService
-{
-    self.keepAlive = FALSE;
-}
-
-// Method of CBModule protocol
--(void) registerDelegate:(id<CBListenable>) delegate
-{
-    if(nil == delegate)
-    {
-        DLog(@"The delegate to be registered can not be nil.");
-        return;
-    }
-    
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        if (tmpDelegate == delegate) 
-        {
-            DLog(@"The delegate: %@ is already in registered list.", delegate);
-            return;
-        }
-    }
-    
-    [self.delegateList addObject:delegate];
-}
-
-// Method of CBModule protocol
--(void) unregisterDelegate:(id<CBListenable>) delegate
-{
-    if(nil == delegate)
-    {
-        DLog(@"The delegate to be registered can not be nil.");
-        return;
-    }
-    
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        if (tmpDelegate == delegate) 
-        {
-            [self.delegateList removeObject:delegate];
-            DLog(@"The delegate: %@ has been removed out from registered list.", delegate);
-            return;
-        }
-    }    
-}
-
-// Method of CBModule protocol
--(void) unregisterAllDelegates
-{
-    [self.delegateList removeAllObjects];
-}
-
-// Method of CBModule protocol
--(void) notifyAllDelegates:(id) message
-{
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        [tmpDelegate messageCallback: message];
-    }
-}
-
-// Method of CBModule protocol
--(void) messageCallback:(id) message
-{
-    
 }
 
 // Manual Coes End

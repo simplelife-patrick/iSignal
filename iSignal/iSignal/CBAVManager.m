@@ -31,7 +31,7 @@
     [super release];
     
     // Release resources here(after [super release])
-    [self.audioPlayer release];
+    [_audioPlayer release];
 }
 
 // Method of CBAVManager
@@ -56,6 +56,7 @@
     NSURL *soundUrl = [[NSURL alloc] initFileURLWithPath:soundPath]; 
     if(![soundUrl checkResourceIsReachableAndReturnError:nil])
     {
+        [soundUrl release];
         return FALSE;
     }
     

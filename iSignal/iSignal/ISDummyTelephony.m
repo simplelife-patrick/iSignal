@@ -16,12 +16,6 @@
 
 static NSArray* CARRIER_LIST;
 
-// Members of CBModule protocol
-@synthesize moduleIdentity;
-@synthesize serviceThread;
-@synthesize keepAlive;
-@synthesize delegateList;
-
 // Members of ISDummyTelephony
 @synthesize signalStrength;
 @synthesize carrier;
@@ -68,62 +62,6 @@ static NSArray* CARRIER_LIST;
     return signalVal;
 }
 
-// Method of CBModule protocol
--(void) registerDelegate:(id<CBListenable>) delegate
-{
-    if(nil == delegate)
-    {
-        DLog(@"The delegate to be registered can not be nil.");
-        return;
-    }
-    
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        if (tmpDelegate == delegate) 
-        {
-            DLog(@"The delegate: %@ is already in registered list.", delegate);
-            return;
-        }
-    }
-    
-    [self.delegateList addObject:delegate];
-}
-
-// Method of CBModule protocol
--(void) unregisterDelegate:(id<CBListenable>) delegate
-{
-    if(nil == delegate)
-    {
-        DLog(@"The delegate to be registered can not be nil.");
-        return;
-    }
-    
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        if (tmpDelegate == delegate) 
-        {
-            [self.delegateList removeObject:delegate];
-            DLog(@"The delegate: %@ has been removed out from registered list.", delegate);
-            return;
-        }
-    }    
-}
-
-// Method of CBModule protocol
--(void) unregisterAllDelegates
-{
-    [self.delegateList removeAllObjects];
-}
-
-// Method of CBModule protocol
--(void) notifyAllDelegates:(id) message
-{
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        [tmpDelegate messageCallback: message];
-    }
-}
-
 // Private method
 -(void) refreshCarrier
 {
@@ -139,7 +77,7 @@ static NSArray* CARRIER_LIST;
     [self notifyAllDelegates:signalVal];    
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) initModule
 {
     [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
@@ -148,14 +86,15 @@ static NSArray* CARRIER_LIST;
     [self setKeepAlive:FALSE];
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) releaseModule
 {
-    [serviceThread release];
-    [moduleIdentity release];
+    [super releaseModule];
+    
+    [carrier release];
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) processService
 {
     // Every NSThread need an individual NSAutoreleasePool to manage memory.
@@ -170,51 +109,13 @@ static NSArray* CARRIER_LIST;
     [serviceThreadPool release];
 }
 
-// Method of CBModule protocol
--(void) startService
-{
-    if (nil == self.serviceThread) 
-    {
-        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
-        self.serviceThread = thread;
-        [thread release];
-    }
-    self.keepAlive = TRUE;
-    
-    [self.serviceThread start];
-}
-
-// Method of CBModule protocol
--(void) stopService
-{
-    self.keepAlive = FALSE;
-}
-
-// Method of CBModule protocol
--(void) messageCallback:(id) message
-{
-    
-}
-
-- (void)dealloc
-{
-    [self releaseModule];
-    
-    [delegateList release];
-    
-    [super dealloc];
-}
-
 - (id)init
 {
     self = [super init];
     if (self) 
     {
         // Initialization code here.
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        self.delegateList = array;
-        [array release];
-        
+
         [self refreshCarrier];        
     }
     

@@ -12,12 +12,6 @@
 
 // Manual Codes Begin
 
-// Members of CBModule protocol
-@synthesize moduleIdentity;
-@synthesize serviceThread;
-@synthesize keepAlive;
-@synthesize delegateList;
-
 // Members of ISCoreDataManager
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -39,18 +33,6 @@
     }
     
     return self;
-}
-
--(void) dealloc
-{
-    [self releaseModule];
-    
-    [_persistentStoreCoordinator release];
-    [_managedObjectContext release];
-    [_managedObjectModel release];
-    [_fetchedResultsControllerMap release];
-    
-    [super dealloc];
 }
 
 // Deprecated, instead of -(void) insertNewSignalRecord
@@ -153,7 +135,7 @@
 }
 
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) initModule
 {    
     [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
@@ -161,90 +143,38 @@
     [self setKeepAlive:FALSE];
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) releaseModule
 {
-    [serviceThread release];
-    [moduleIdentity release];
+    [super releaseModule];
+    
+    [_persistentStoreCoordinator release];
+    [_managedObjectContext release];
+    [_managedObjectModel release];
+    [_fetchedResultsControllerMap release];
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) startService
 {
     DLog(@"Module:%@ is going to start.", self.moduleIdentity);
     [NSFetchedResultsController deleteCacheWithName:DB_TABLE_SIGNALRECORD_CACHE];    
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) processService;
 {
     DLog(@"Module:%@ is processing.", self.moduleIdentity);    
 }
 
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) stopService;
 {
     DLog(@"Module:%@ is going to stop.", self.moduleIdentity);
     [NSFetchedResultsController deleteCacheWithName:DB_TABLE_SIGNALRECORD_CACHE];
 }
 
-// Method of CBModule protocol
--(void) registerDelegate:(id<CBListenable>) delegate
-{
-    if(nil == delegate)
-    {
-        DLog(@"The delegate to be registered can not be nil.");
-        return;
-    }
-    
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        if (tmpDelegate == delegate) 
-        {
-            DLog(@"The delegate: %@ is already in registered list.", delegate);
-            return;
-        }
-    }
-    
-    [self.delegateList addObject:delegate];
-}
-
-// Method of CBModule protocol
--(void) unregisterDelegate:(id<CBListenable>) delegate
-{
-    if(nil == delegate)
-    {
-        DLog(@"The delegate to be registered can not be nil.");
-        return;
-    }
-    
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        if (tmpDelegate == delegate) 
-        {
-            [self.delegateList removeObject:delegate];
-            DLog(@"The delegate: %@ has been removed out from registered list.", delegate);
-            return;
-        }
-    }    
-}
-
-// Method of CBModule protocol
--(void) unregisterAllDelegates
-{
-    [self.delegateList removeAllObjects];
-}
-
-// Method of CBModule protocol
--(void) notifyAllDelegates:(id) message
-{
-    for (id<CBListenable> tmpDelegate in self.delegateList)
-    {
-        [tmpDelegate messageCallback: message];
-    }
-}
-
-// Method of CBModule protocol
+// Overrided Method of CBModule protocol
 -(void) messageCallback:(id) message
 {
     if (nil == message)
@@ -260,7 +190,6 @@
     }
 }
 
-// Methods derived from ISCoreDataManager
 - (NSMutableDictionary *) fetchedResultsControllerMap
 {
     if (nil != _fetchedResultsControllerMap) 
@@ -268,7 +197,6 @@
         return _fetchedResultsControllerMap;
     }
     
-//    _fetchResultsControllerMap = [NSMutableDictionary dictionary];
     _fetchedResultsControllerMap = [[NSMutableDictionary alloc] initWithCapacity:1];
     return _fetchedResultsControllerMap;
 }

@@ -10,7 +10,7 @@
 
 #import <Foundation/NSArray.h>
 
-#import "CBModule.h"
+#import "CBModuleAbstractImpl.h"
 
 #define CARRIER_CMCC 0
 #define CARRIER_CUNI 1
@@ -24,7 +24,7 @@
 
 #define MODULE_IDENTITY_DUMMYTEPLEPHONY @"DummyTelephony"
 
-@interface ISDummyTelephony : NSObject <CBModule>
+@interface ISDummyTelephony : CBModuleAbstractImpl
 
 @property (nonatomic, copy) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;

@@ -23,15 +23,20 @@
     self = [super init];
     if (self) 
     {
-        // Initialization code here.  
+        // Initialization code here.
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        self.delegateList = array;
+        [array release];
     }
     
     return self;
 }
 
--(void) dealloc
+- (void)dealloc
 {
     [self releaseModule];
+    
+    [delegateList release];
     
     [super dealloc];
 }

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#import "CBModule.h"
+#import "CBModuleAbstractImpl.h"
 
 #import "CBEnvironmentUtils.h"
 #import "CBFetchedResultsControllerIdentifier.h"
@@ -38,7 +38,7 @@
 
 CBFetchedResultsControllerIdentifier* gFetchedResultsControllerIdentifier_signalRecord;
 
-@interface ISCoreDataManager : NSObject <CBModule>
+@interface ISCoreDataManager : CBModuleAbstractImpl
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

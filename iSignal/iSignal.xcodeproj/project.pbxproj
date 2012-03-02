@@ -17,6 +17,7 @@
 		C52871AE14FF09F500B0630A /* noSignal256.png in Resources */ = {isa = PBXBuildFile; fileRef = C52871AA14FF09F500B0630A /* noSignal256.png */; };
 		C52D7C991406481F00B7B0DA /* CBTelephonyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */; };
 		C531221D140B18560046CD7F /* signalLost.caf in Resources */ = {isa = PBXBuildFile; fileRef = C531221C140B18560046CD7F /* signalLost.caf */; };
+		C53204711500772F0085061B /* home32.png in Resources */ = {isa = PBXBuildFile; fileRef = C53204701500772F0085061B /* home32.png */; };
 		C53386E01419A3D20000A553 /* ISCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C53386DF1419A3D20000A553 /* ISCoreDataManager.m */; };
 		C540250E140F74CD0047ABE3 /* ISMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C540250C140F74CD0047ABE3 /* ISMapViewController.m */; };
 		C540250F140F74CD0047ABE3 /* ISMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C540250D140F74CD0047ABE3 /* ISMapViewController.xib */; };
@@ -77,6 +78,7 @@
 		C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
+		C53204701500772F0085061B /* home32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home32.png; sourceTree = "<group>"; };
 		C53386DE1419A3D20000A553 /* ISCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISCoreDataManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C53386DF1419A3D20000A553 /* ISCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ISCoreDataManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C540250B140F74CD0047ABE3 /* ISMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMapViewController.h; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		C5B71C7A14FF352100CAE603 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C53204701500772F0085061B /* home32.png */,
 				C52871A714FF09F500B0630A /* Star128Gold.png */,
 				C52871A814FF09F500B0630A /* Star128Gray.png */,
 				C52871A914FF09F500B0630A /* Star128Black.png */,
@@ -431,6 +434,7 @@
 				C52871AC14FF09F500B0630A /* Star128Gray.png in Resources */,
 				C52871AD14FF09F500B0630A /* Star128Black.png in Resources */,
 				C52871AE14FF09F500B0630A /* noSignal256.png in Resources */,
+				C53204711500772F0085061B /* home32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
