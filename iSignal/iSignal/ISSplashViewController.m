@@ -117,6 +117,9 @@ static CGRect s_floatingView_popup;
     [appDelegate.avModule initModule];
     // No need to startService()
     //[appDelegate.avModule startService];
+    [appDelegate.avModule audioSessionBegin];
+    [appDelegate.avModule preparePlayAudio:@"signalLost" andResourceType:@"caf"];
+    [appDelegate.avModule audioSessionEnd];    
     [cbAVM release];
     
     // ISDummyTelephony module start

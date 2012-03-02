@@ -29,8 +29,8 @@
 
 - (void)initTabBarItem
 {
-//    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
-    UIImage* itemImage = nil;
+    UIImage* itemImage = [UIImage imageNamed:@"home32.png"];
+//    UIImage* itemImage = nil;
     UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HOME", nil) image:itemImage tag:TAG_HOMEVIEW];
     self.tabBarItem = theItem;
     [theItem release];    
@@ -209,10 +209,11 @@
 
     [self updateCarrier:appDelegate.dummyTelephonyModule.carrier];
     [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
-    
-    [appDelegate.avModule audioSessionBegin];
-    [appDelegate.avModule preparePlayAudio:@"signalLost" andResourceType:@"caf"];
-    [appDelegate.avModule audioSessionEnd];
+
+    // The first received signal strength value is ahead of views' loading, in this case UI, CoreData will lost this value. Below lines are gonna fix this issue.
+    NSInteger signalIntVal = appDelegate.dummyTelephonyModule.signalStrength;
+    [self updateSignalStrength:[NSNumber numberWithInteger:signalIntVal]];
+    [self updateSignalQualityGrade:signalIntVal];
 }
 
 - (void)viewDidUnload
