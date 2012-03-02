@@ -15,9 +15,10 @@
 
 // Import module headers
 #import "CBLocationManager.h"
-#import "CBAVManager.h"
-#import "ISDummyTelephony.h"
-#import "ISCoreDataManager.h"
+
+#import "ISDummyTelephonyModule.h"
+#import "ISCoreDataModule.h"
+#import "ISAudioModule.h"
 
 @interface iSignalAppDelegate : NSObject <UIApplicationDelegate>
 
@@ -27,10 +28,11 @@
 
 @property (nonatomic, retain) IBOutlet ISSplashViewController *splashViewController;
 
-@property (nonatomic, retain) CBAVManager* avModule;
 @property (nonatomic, retain) CBLocationManager* locationModule;
-@property (nonatomic, retain) ISDummyTelephony* dummyTelephonyModule;
-@property (nonatomic, retain) ISCoreDataManager* coreDataModule;
+
+@property (nonatomic, retain) ISDummyTelephonyModule* dummyTelephonyModule;
+@property (nonatomic, retain) ISCoreDataModule* coreDataModule;
+@property (nonatomic, retain) ISAudioModule* audioModule;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

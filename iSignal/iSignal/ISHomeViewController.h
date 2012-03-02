@@ -12,15 +12,13 @@
 
 #import "CBUIUtils.h"
 
-#import "CBListenable.h"
-
-#import "ISDummyTelephony.h"
+#import "ISDummyTelephonyModule.h"
 #import "CBTelephonyUtils.h"
 #import "CBLocationManager.h"
 
 #import "ISSwitchViewController.h"
 
-@interface ISHomeViewController : UIViewController <CBListenable>
+@interface ISHomeViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet UIImageView *gradeIndicator01View;
 @property (nonatomic, retain) IBOutlet UIImageView *gradeIndicator02View;

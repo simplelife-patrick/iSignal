@@ -10,8 +10,6 @@
 
 @implementation CBAVManager
 
-// Manual Codes Begin
-
 @synthesize audioPlayer = _audioPlayer;
 
 - (id)init
@@ -19,19 +17,16 @@
     self = [super init];
     if (self) 
     {
-        // Initialization code here.  
     }
     
     return self;
 }
 
-// Overrided Method of CBModule protocol
--(void) releaseModule
+-(void) dealloc
 {
-    [super release];
-    
-    // Release resources here(after [super release])
     [_audioPlayer release];
+    
+    [super dealloc];
 }
 
 // Method of CBAVManager
@@ -77,21 +72,6 @@
 -(void) playAudio
 {
     [_audioPlayer play]; 
-}
-
-// Overrided Method of CBModule protocol
--(void) initModule
-{
-    [self setModuleIdentity:MODULE_IDENTITY_AV_MANAGER];
-    [self.serviceThread setName:MODULE_IDENTITY_AV_MANAGER];
-    
-    [self setKeepAlive:FALSE];    
-}
-
-// Overrided Method of CBModule protocol
--(void) processService
-{
-    // It's unnecessary here
 }
 
 // Manual Codes End

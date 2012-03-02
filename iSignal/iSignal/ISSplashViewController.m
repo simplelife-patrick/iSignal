@@ -76,7 +76,7 @@
     
     // Location module start
     // TODO: Location module should not be inited if location service is not supported or disabled currently.
-    CBLocationManager *cbLocationM = [[CBLocationManager alloc] init];
+    CBLocationManager *cbLocationM = [[CBLocationManager alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.locationModule = cbLocationM;
     if ([ISAppConfigs isLocationOn])
     {
@@ -86,31 +86,27 @@
     [cbLocationM release];
     
     // CoreData module start
-    ISCoreDataManager *isCoreDataM = [[ISCoreDataManager alloc] init];
+    ISCoreDataModule *isCoreDataM = [[ISCoreDataModule alloc] init];
     appDelegate.coreDataModule = isCoreDataM;
     [appDelegate.coreDataModule initModule];
     [appDelegate.coreDataModule startService];
     [isCoreDataM release];
     
-    // AV module start
-    CBAVManager *cbAVM = [[CBAVManager alloc] init];
-    appDelegate.avModule = cbAVM;
-    [appDelegate.avModule initModule];
-    [appDelegate.avModule audioSessionBegin];
-    [appDelegate.avModule preparePlayAudio:@"signalLost" andResourceType:@"caf"];
-    [appDelegate.avModule audioSessionEnd];    
-    [cbAVM release];
+    // Audio module start
+    ISAudioModule *isAM = [[ISAudioModule alloc] init];
+    appDelegate.audioModule = isAM;
+    [appDelegate.audioModule initModule];
+    [appDelegate.audioModule startService];
+    [isAM release];
     
     // ISDummyTelephony module start
-    ISDummyTelephony *isDummyT = [[ISDummyTelephony alloc] init];
+    ISDummyTelephonyModule *isDummyT = [[ISDummyTelephonyModule alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.dummyTelephonyModule = isDummyT;
     [appDelegate.dummyTelephonyModule initModule];
-    [appDelegate.dummyTelephonyModule registerDelegate:appDelegate.locationModule];
-    [appDelegate.dummyTelephonyModule registerDelegate:appDelegate.coreDataModule];
     [appDelegate.dummyTelephonyModule startService]; 
     [isDummyT release];
     
-    DLog(@"Finished the load operation.");
+    DLog(@"Finished the modules load operation.");
     // Switch back to Splash UI
     [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:NO];
 }

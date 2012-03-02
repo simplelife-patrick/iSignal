@@ -30,7 +30,6 @@
 - (void)initTabBarItem
 {
     UIImage* itemImage = [UIImage imageNamed:@"home32.png"];
-//    UIImage* itemImage = nil;
     UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HOME", nil) image:itemImage tag:TAG_HOMEVIEW];
     self.tabBarItem = theItem;
     [theItem release];    
@@ -41,7 +40,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        // Custom initialization
         [self initTabBarItem];
     }
     return self;
@@ -76,7 +74,7 @@
     
     switch (quality) 
     {
-        case QUALITY_SIGNAL_LOSS:
+        case QUALITY_SIGNAL_NO:
         {
             break;
         }
@@ -135,28 +133,10 @@
         NSInteger intVal = [signalVal intValue];
         NSString* strVal = [signalVal stringValue];
         SIGNAL_QUALITY qualityGrade = [CBTelephonyUtils evaluateSignalQuality:intVal];
-        if (qualityGrade == QUALITY_SIGNAL_LOSS) 
+        if (qualityGrade == QUALITY_SIGNAL_NO) 
         {
-            iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-            
             strVal = NSLocalizedString(@"STR_NOSIGNAL",nil);
             DLog(@"Translate received signal strength: %d to text: %@", intVal, strVal);
-            
-            // Ring
-            BOOL ringAlarmOn = [ISAppConfigs isRingAlarmOn];
-            if(ringAlarmOn)
-            {
-                [appDelegate.avModule playAudio];
-            }
-
-            // TODO: Should be moved to a single module            
-            // Vibrate
-            BOOL vibrateAlarmOn = [ISAppConfigs isVibrateAlarmOn];
-
-            if(vibrateAlarmOn)
-            {
-                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);                
-            }
             
             [self.signalStrengthLabel setHidden:TRUE];
             [self.noSignalView setHidden:FALSE];
@@ -189,31 +169,15 @@
     }
 }
 
--(void) messageCallback:(id)message
-{
-    NSNumber *signalVal = (NSNumber*)message;
-    [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    // TODO: Multiple delegates should be supported here as notification will be sent to places inlcuding UIView, Sounds and Vibration, etc.
-    
-    // Load data from ISDummyTelephony module
-    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.dummyTelephonyModule registerDelegate:self]; // Register callback delegate to module
 
+    [self listenSignalStrengthChanged];
+
+    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     [self updateCarrier:appDelegate.dummyTelephonyModule.carrier];
     [self.qualityGradeLabel setText:NSLocalizedString(@"STR_SIGNALGRADE", nil)];
-
-    // The first received signal strength value is ahead of views' loading, in this case UI, CoreData will lost this value. Below lines are gonna fix this issue.
-    NSInteger signalIntVal = appDelegate.dummyTelephonyModule.signalStrength;
-    signalIntVal = -140;
-    [self updateSignalStrength:[NSNumber numberWithInteger:signalIntVal]];
-
 }
 
 - (void)viewDidUnload
@@ -232,6 +196,21 @@
     [self setNoSignalView:nil];
     
     [super viewDidUnload];
+}
+
+// Private Method
+-(void) listenSignalStrengthChanged
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSignalStrengthChanged:) name:
+     NOTIFICATION_ID_SIGNALSTRENGTH_CHANGED object:nil];      
+}
+
+// Private Method
+-(void) onSignalStrengthChanged:(NSNotification *) notification
+{
+    NSValue *nsValue = [[notification userInfo] objectForKey:NOTIFICATION_KV_SIGNALSTRENGTH_CHANGED]; 
+    NSNumber *signalVal = (NSNumber*)nsValue;
+    [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
 }
 
 // Manual Codes End

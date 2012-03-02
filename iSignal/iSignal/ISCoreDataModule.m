@@ -106,7 +106,7 @@
 -(void) serviceWithCallingThread
 {
     [super serviceWithCallingThread];
-    
+    [self listenSignalStrengthChanged];
     [NSFetchedResultsController deleteCacheWithName:DB_TABLE_SIGNALRECORD_CACHE];    
 }
 

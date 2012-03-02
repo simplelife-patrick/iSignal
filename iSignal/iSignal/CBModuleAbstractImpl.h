@@ -14,6 +14,6 @@
 
 @interface CBModuleAbstractImpl : NSObject <CBModule>
 
-@property (nonatomic, retain) NSMutableArray *delegateList;
+- (id)initWithIsIndividualThreadNecessary:(BOOL) necessary;
 
 @end

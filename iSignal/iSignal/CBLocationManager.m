@@ -154,10 +154,10 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    // If it's a relatively recent event, turn off updates to save power    
     self.currentLocation = newLocation;
     self.lastLocation = oldLocation;
 
+//  If it's a relatively recent event, turn off updates to save power    
 //    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
 //    if (abs(howRecent) < EVENT_AVAILABLE_TIME_DIFFERENCE)
 //    {
@@ -165,7 +165,6 @@
 //             newLocation.coordinate.latitude,
 //             newLocation.coordinate.longitude);
 //    }
-
 }
 
 // Method of CLLocationManagerDelegate protocol
@@ -197,7 +196,7 @@
     DLog(@"Failed to monitor this region: %@ with error: %@", region, error);
 }
 
-// Overrided Method of CBModule protocol
+// Overrided Method of CBModuleAbstractImpl
 -(void) initModule
 {
     [self setModuleIdentity:MODULE_IDENTITY_LOCATION_MANAGER];
@@ -206,7 +205,7 @@
     [self setKeepAlive:FALSE];    
 }
 
-// Overrided Method of CBModule protocol
+// Overrided Method of CBModuleAbstractImpl
 -(void) releaseModule
 {
     [super releaseModule];
@@ -216,7 +215,7 @@
     [_currentLocation release];    
 }
 
-// Overrided Method of CBModule protocol
+// Overrided Method of CBModuleAbstractImpl
 -(void) startService
 {
     // Do not create regions if support is unavailable or disabled.
@@ -227,18 +226,10 @@
         return;
     }    
     
-    if (nil == self.serviceThread) 
-    {
-        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
-        self.serviceThread = thread;
-        [thread release];
-    }
-    self.keepAlive = TRUE;
-    
-    [self.serviceThread start];
+    [super startService];
 }
 
-// Overrided Method of CBModule protocol
+// Overrided Method of CBModuleAbstractImpl
 -(void) processService
 {
     // Every NSThread need an individual NSAutoreleasePool to manage memory.

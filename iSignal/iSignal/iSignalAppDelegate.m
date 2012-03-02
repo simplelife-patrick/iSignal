@@ -16,10 +16,10 @@
 
 @synthesize splashViewController;
 
-@synthesize avModule;
 @synthesize locationModule;
 @synthesize dummyTelephonyModule;
 @synthesize coreDataModule;
+@synthesize audioModule;
 
 - (void)dealloc
 {
@@ -46,11 +46,10 @@
     [self saveContext];
     
     // TODO: Stop all modules' serive here.
-    
     [self.dummyTelephonyModule stopService];
     [self.locationModule stopService];
     [self.coreDataModule stopService];
-    [self.avModule stopService];
+    [self.audioModule stopService];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -76,6 +75,25 @@
     //        [app endBackgroundTask:bgTask];
     //        bgTask = UIBackgroundTaskInvalid;
     //    });    
+}
+
+- (void)saveContext
+{
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.coreDataModule.managedObjectContext;
+    if (managedObjectContext != nil)
+    {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
+        {
+            /*
+             TODO: Replace this implementation with code to handle the error appropriately.
+             
+             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+             */
+            DLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        } 
+    }
 }
 
 // Manual Codes End
@@ -108,25 +126,6 @@
      Typically you should set up the Core Data stack here, usually by passing the managed object context to the first view controller.
      self.<#View controller#>.managedObjectContext = self.managedObjectContext;
     */
-}
-
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.coreDataModule.managedObjectContext;
-    if (managedObjectContext != nil)
-    {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-             */
-            DLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
 }
 
 #pragma mark - Application's Documents directory

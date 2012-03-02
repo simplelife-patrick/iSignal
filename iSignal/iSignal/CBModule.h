@@ -11,8 +11,9 @@
 #import "CBListenable.h"
 #import "CBObservable.h"
 
-@protocol CBModule <NSObject, CBListenable, CBObservable>
+@protocol CBModule <NSObject>
 
+@property BOOL isIndividualThreadNecessary;
 @property BOOL keepAlive;
 
 @property (nonatomic, copy) NSString *moduleIdentity;
@@ -21,6 +22,8 @@
 -(void) initModule;
 -(void) startService;
 -(void) processService;
+-(void) serviceWithIndividualThread;
+-(void) serviceWithCallingThread;
 -(void) stopService;
 -(void) releaseModule;
 

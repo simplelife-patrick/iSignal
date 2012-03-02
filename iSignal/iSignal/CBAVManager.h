@@ -14,8 +14,7 @@
 
 #define MODULE_IDENTITY_AV_MANAGER @"AVManager"
 
-// TODO: Implment AVAudioPlayerDelegate protocol later
-@interface CBAVManager : CBModuleAbstractImpl <AVAudioPlayerDelegate>
+@interface CBAVManager : NSObject <AVAudioPlayerDelegate>
 
 @property (nonatomic, retain, readonly) AVAudioPlayer *audioPlayer;
 
