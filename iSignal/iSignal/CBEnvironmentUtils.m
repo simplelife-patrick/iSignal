@@ -8,16 +8,10 @@
 
 #import "CBEnvironmentUtils.h"
 
-@interface CBEnvironmentUtils (privateMethods)
-
--(void)realRelease;
-
-@end
-
-
 @implementation CBEnvironmentUtils
 
 // Manual Codes Begin
+
 +(BOOL) isBackgroundRunningEnabled
 {
     UIDevice* device = [UIDevice currentDevice];  
