@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ISFloatingViewController.h"
 #import "ISSwitchViewController.h"
 
 #import "CBFetchedResultsControllerIdentifier.h"
 
 @interface ISSplashViewController : UIViewController
 
-//@property (nonatomic, retain) IBOutlet ISFloatingViewController *floatingViewController;
 @property (nonatomic, retain) IBOutlet ISSwitchViewController *switchViewController;
 @property (nonatomic, retain) IBOutlet UIImageView *splashImageView;
 
