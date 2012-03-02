@@ -8,22 +8,22 @@
 
 #import "ISSplashViewController.h"
 
-static CGRect s_floatingView_retract;
-static CGRect s_floatingView_popup;
+//static CGRect s_floatingView_retract;
+//static CGRect s_floatingView_popup;
 
 @implementation ISSplashViewController
 
 // Manual Codes Begin
 
-@synthesize floatingViewController;
+//@synthesize floatingViewController;
 @synthesize switchViewController;
 @synthesize splashImageView;
 @synthesize timer;
 
 +(void) initialize
 {
-    s_floatingView_retract = CGRectMake(280, 435, 280, 40);
-    s_floatingView_popup = CGRectMake(0, 435, 280, 40);
+//    s_floatingView_retract = CGRectMake(280, 435, 280, 40);
+//    s_floatingView_popup = CGRectMake(0, 435, 280, 40);
 }
 
 - (void)viewDidLoad
@@ -31,11 +31,12 @@ static CGRect s_floatingView_popup;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Init floatingViewController
-    [self.floatingViewController setIsViewRected:TRUE];
-    [self.floatingViewController setPopupRect:s_floatingView_popup];
-    [self.floatingViewController setRetractRect:s_floatingView_retract];
-    self.floatingViewController.view.frame = s_floatingView_retract;
+//    // Init floatingViewController
+//    [self.floatingViewController setIsViewRected:TRUE];
+//    [self.floatingViewController setPopupRect:s_floatingView_popup];
+//    [self.floatingViewController setRetractRect:s_floatingView_retract];
+//    self.floatingViewController.view.frame = s_floatingView_retract;
+
     // Init timer
     self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];
 }
@@ -44,7 +45,7 @@ static CGRect s_floatingView_popup;
 {
     [self setTimer:nil];
     [self setSplashImageView:nil];
-    [self setFloatingViewController:nil];
+//    [self setFloatingViewController:nil];
     [self setSwitchViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -53,7 +54,7 @@ static CGRect s_floatingView_popup;
 
 - (void)dealloc
 {   
-    [floatingViewController release];
+//    [floatingViewController release];
     [switchViewController release];
     [splashImageView release];
     [timer release];
