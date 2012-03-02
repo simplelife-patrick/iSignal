@@ -23,9 +23,6 @@
 
 @interface CBEnvironmentUtils : NSObject
 
-// Sample for singleton in Objective-C, unnecessary to use.
-+(CBEnvironmentUtils *)singletonInstance;
-
 +(BOOL) isBackgroundRunningEnabled;
 
 +(NSURL*) applicationDocumentsDirectory;
