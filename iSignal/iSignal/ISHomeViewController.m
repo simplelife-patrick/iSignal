@@ -167,7 +167,7 @@
             [self.signalStrengthLabel setHidden:FALSE];
             [self.noSignalView setHidden:TRUE];            
         }
-    
+                    
         [self updateSignalQualityGrade:qualityGrade];
     }
     else
@@ -191,7 +191,6 @@
 
 -(void) messageCallback:(id)message
 {
-//    DLog(@"CallbackDelegate(ISHomeViewController) received a message: %@", message);
     NSNumber *signalVal = (NSNumber*)message;
     [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
 }
@@ -212,8 +211,9 @@
 
     // The first received signal strength value is ahead of views' loading, in this case UI, CoreData will lost this value. Below lines are gonna fix this issue.
     NSInteger signalIntVal = appDelegate.dummyTelephonyModule.signalStrength;
+    signalIntVal = -140;
     [self updateSignalStrength:[NSNumber numberWithInteger:signalIntVal]];
-    [self updateSignalQualityGrade:signalIntVal];
+
 }
 
 - (void)viewDidUnload
@@ -232,8 +232,6 @@
     [self setNoSignalView:nil];
     
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 // Manual Codes End
