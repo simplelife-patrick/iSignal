@@ -48,12 +48,12 @@
 	[UIView beginAnimations:nil context:nil]; // begins animation block
 	[UIView setAnimationDuration:0.75];        // sets animation duration
 	[UIView setAnimationDelegate:self];        // sets delegate for this block
-	[UIView setAnimationDidStopSelector:@selector(finishedFadingSplashScreen)];   // calls the finishedFadingSplashScreen method when the animation is done (or done fading out)	
+	[UIView setAnimationDidStopSelector:@selector(finishFadingSplashScreen)];   // calls the finishFadingSplashScreen method when the animation is done (or done fading out)	
 	self.view.alpha = 0.0;       // Fades the alpha channel of this view to "0.0" over the animationDuration of "0.75" seconds
 	[UIView commitAnimations];   // commits the animation block.  This Block is done.
 }
 
-- (void) finishedFadingSplashScreen
+- (void) finishFadingSplashScreen
 {
 	[splashImageView removeFromSuperview];
     UIWindow* window = [CBUIUtils getWindow:self.view];
