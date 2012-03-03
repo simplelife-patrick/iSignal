@@ -43,7 +43,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        // Custom initialization
         [self initTabBarItem];
     }
     return self;
@@ -64,7 +63,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     _deletingRecords = [[NSMutableDictionary alloc] init];
 
@@ -82,8 +80,6 @@
     _deletingRecords = nil;
     
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 // Method of UIViewController
