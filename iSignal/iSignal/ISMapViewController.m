@@ -25,7 +25,7 @@
 
 - (void)mapAnnotationFromSignalRecord:(SignalRecord*) record
 {
-    if(nil != record)
+    if(nil != record && nil != record.latitude && nil != record.longitude)
     {
         ISMapAnnotation *annotation = [[ISMapAnnotation alloc] init];
         annotation.latitude = record.latitude;
