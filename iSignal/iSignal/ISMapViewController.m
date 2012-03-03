@@ -15,7 +15,7 @@
 
 @synthesize mapView = _mapView;
 @synthesize locateMeButton = _locateMeButton;
-@synthesize fetchedResultsController = _fetchedResultsController;
+
 @synthesize mapAnnotations = _mapAnnotations;
 
 - (IBAction) locatePositionAndCenterMap:(id) sender
@@ -42,6 +42,8 @@
 
 - (void)rebuildMapAnnotations
 {
+    NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController]; 
+    
     [_mapView removeAnnotations:_mapView.annotations];
     [_mapAnnotations removeAllObjects];
     NSArray *fetchedObjects = [_fetchedResultsController fetchedObjects];
@@ -91,11 +93,7 @@
 {
     [super viewWillAppear:animated];
     
-    // Attach object reference of NSFetchedResultsController
-    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
-    _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
-    // Inject delegate(self) to NSFetchedResultsController object
-    _fetchedResultsController.delegate = self;    
+    [self registerNSFetchedResultsControllerDelegate];  
 }
 
 // Method of UIViewController
@@ -118,9 +116,22 @@
     [super viewDidDisappear:animated];
 }
 
+// Private method
+- (NSFetchedResultsController*) getNSFetchedResultsController
+{
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    return [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];   
+}
+
+// Private method
+- (void) registerNSFetchedResultsControllerDelegate
+{
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    [appDelegate.coreDataModule registerNSFetchedResultsControllerDelegate:gFetchedResultsControllerIdentifier_signalRecord andDelegate:self];        
+}
+
 - (void)dealloc 
 {
-    [_fetchedResultsController release];
     [_mapAnnotations release];
     [_mapView release];
     
@@ -147,11 +158,12 @@
     _mapView.delegate = self;
     
     [self.navigationController pushViewController:self animated:TRUE];
+    
+    [self registerNSFetchedResultsControllerDelegate];    
 }
 
 - (void)viewDidUnload
 {
-    _fetchedResultsController = nil;
     _mapAnnotations = nil;
     _mapView = nil;
     

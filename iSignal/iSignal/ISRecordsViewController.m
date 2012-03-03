@@ -21,7 +21,6 @@
 @synthesize tableView = _tableView;
 
 @synthesize deletingRecords = _deletingRecords;
-@synthesize fetchedResultsController = _fetchedResultsController;
 
 -(void) setDeleteEnabled:(BOOL) flag
 {
@@ -50,8 +49,6 @@
 
 - (void)dealloc 
 {  
-    [_fetchedResultsController release];
-    
     [_tableView release];
     [_rightBarButton release];
     [_leftBarButton release];
@@ -60,20 +57,33 @@
     [super dealloc];
 }
 
+// Private method
+- (NSFetchedResultsController*) getNSFetchedResultsController
+{
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    return [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];   
+}
+
+// Private method
+- (void) registerNSFetchedResultsControllerDelegate
+{
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    [appDelegate.coreDataModule registerNSFetchedResultsControllerDelegate:gFetchedResultsControllerIdentifier_signalRecord andDelegate:self];        
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     _deletingRecords = [[NSMutableDictionary alloc] init];
-
     [self setDeleteEnabled:FALSE];
     _multiselectEnabled = FALSE;
+    
+    [self registerNSFetchedResultsControllerDelegate];
 }
 
 - (void)viewDidUnload
 {
-    _fetchedResultsController = nil;
-    
     _tableView = nil;
     _rightBarButton = nil;
     _leftBarButton = nil;
@@ -87,11 +97,7 @@
 {
     [super viewWillAppear:animated];
     
-    // Attach object reference of NSFetchedResultsController
-    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
-    _fetchedResultsController = [appDelegate.coreDataModule obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
-    // Inject delegate(self) to NSFetchedResultsController object
-    _fetchedResultsController.delegate = self;    
+    [self registerNSFetchedResultsControllerDelegate];
 }
 
 // Method of UIViewController
@@ -116,6 +122,8 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController]; 
+
     NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
     SignalRecord *record = (SignalRecord*)managedObject;
     NSDate *time = record.time;
@@ -126,6 +134,8 @@
 // Method of UITableViewController
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController];     
+    
     NSArray* sectionArray = [_fetchedResultsController sections];
     return [sectionArray count];
 }
@@ -133,6 +143,8 @@
 // Method of UITableViewController
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController];     
+    
     NSArray* sectionArray = [_fetchedResultsController sections];
     id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];
     NSInteger numberOfObjects = [sectionInfo numberOfObjects];
@@ -161,6 +173,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete the managed object for the given index path
+        NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController];         
+        
         NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];
         [context deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
         
@@ -337,6 +351,8 @@
 
 - (IBAction)deleteRecords:(id)sender
 {
+    NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController];
+    
     NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];
     NSArray* deletingRecordIndexPathes = [_deletingRecords allValues];
     for (NSInteger i = 0; i < deletingRecordIndexPathes.count; i++) 

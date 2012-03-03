@@ -24,6 +24,14 @@
     gFetchedResultsControllerIdentifier_signalRecord = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
 }
 
+-(void) registerNSFetchedResultsControllerDelegate:(CBFetchedResultsControllerIdentifier*) frcIdentifier andDelegate:(NSObject<NSFetchedResultsControllerDelegate>*) delegate
+{
+    // Attach object reference of NSFetchedResultsController
+    NSFetchedResultsController* _fetchedResultsController = [self obtainFetchedResultsController:gFetchedResultsControllerIdentifier_signalRecord];
+    // Inject delegate(self) to NSFetchedResultsController object
+    _fetchedResultsController.delegate = delegate;        
+}
+
 // Private method
 - (void) insertNewSignalRecord:(NSNumber*) signalVal
 {

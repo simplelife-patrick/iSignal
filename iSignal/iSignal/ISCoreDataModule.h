@@ -48,4 +48,6 @@ CBFetchedResultsControllerIdentifier* gFetchedResultsControllerIdentifier_signal
 
 -(NSFetchedResultsController*) obtainFetchedResultsController:(CBFetchedResultsControllerIdentifier*) identifier;
 
+-(void) registerNSFetchedResultsControllerDelegate:(CBFetchedResultsControllerIdentifier*) frcIdentifier andDelegate:(NSObject<NSFetchedResultsControllerDelegate>*) delegate;
+
 @end

@@ -57,6 +57,8 @@
     
     [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewController, self.mapViewController, self.configViewController, self.helpViewController, nil] animated:FALSE];
     
+    [self setSelectedViewController:homeViewController];
+    
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     [appDelegate.dummyTelephonyModule startService];    
 }

@@ -25,8 +25,6 @@
 
 @property (retain, nonatomic, readonly)	NSMutableDictionary *deletingRecords;
 
-@property (retain, nonatomic, readonly) NSFetchedResultsController* fetchedResultsController;
-
 - (IBAction) deleteRecords:(id) sender;
 - (IBAction) selectRecords:(id) sender;
 
