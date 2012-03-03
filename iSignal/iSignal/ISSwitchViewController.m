@@ -55,7 +55,7 @@
     [isRecordVC release];
     [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
     
-    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewController, self.mapViewController, self.configViewController, self.helpViewController, nil] animated:TRUE];
+    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewController, self.mapViewController, self.configViewController, self.helpViewController, nil] animated:FALSE];
     
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     [appDelegate.dummyTelephonyModule startService];

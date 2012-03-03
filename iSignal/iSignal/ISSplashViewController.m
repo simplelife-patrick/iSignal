@@ -14,14 +14,13 @@
 
 @synthesize switchViewController;
 @synthesize progressLabel;
+@synthesize progressView;
 @synthesize timer;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    // Init timer
     self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];
 }
 
@@ -30,6 +29,7 @@
     [self setTimer:nil];
     [self setProgressLabel:nil];
     [self setSwitchViewController:nil];
+    [self setProgressView:nil];
     [super viewDidUnload];
 }
 
@@ -39,6 +39,7 @@
     [progressLabel release];
     [timer release];
     
+    [progressView release];
     [super dealloc];
 }
 
@@ -68,12 +69,14 @@
     DLog(@"Start to load anything necessary for this app.");
     
     // App Configs module start
-    [ISAppConfigs initConfigsIfNecessary];
-        
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+    
+    [self updateProgress:@"Configuration Module" andPercents:0.2];
+    [ISAppConfigs initConfigsIfNecessary];
     
     // Location module start
     // TODO: Location module should not be inited if location service is not supported or disabled currently.
+    [self updateProgress:@"Location Module" andPercents:0.4];    
     CBLocationManager *cbLocationM = [[CBLocationManager alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.locationModule = cbLocationM;
     if ([ISAppConfigs isLocationOn])
@@ -84,6 +87,7 @@
     [cbLocationM release];
     
     // CoreData module start
+    [self updateProgress:@"Data Persistent Module" andPercents:0.6];
     ISCoreDataModule *isCoreDataM = [[ISCoreDataModule alloc] init];
     appDelegate.coreDataModule = isCoreDataM;
     [appDelegate.coreDataModule initModule];
@@ -91,13 +95,15 @@
     [isCoreDataM release];
     
     // Audio module start
+    [self updateProgress:@"Audio Module" andPercents:0.8];
     ISAudioModule *isAM = [[ISAudioModule alloc] init];
     appDelegate.audioModule = isAM;
     [appDelegate.audioModule initModule];
     [appDelegate.audioModule startService];
     [isAM release];
     
-    // ISDummyTelephony module start
+    // ISDummyTelephony module start 
+    [self updateProgress:@"Dummy Telephony Module" andPercents:1.0];    
     ISDummyTelephonyModule *isDummyT = [[ISDummyTelephonyModule alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.dummyTelephonyModule = isDummyT;
     [appDelegate.dummyTelephonyModule initModule];
@@ -110,9 +116,33 @@
     [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:NO];
 }
 
--(void) updateProgress:(NSString*) progress
+-(void) updateProgress:(NSString*) text andPercents:(float) percents 
 {
-    [self.progressLabel setText:progress];
+    [[NSRunLoop currentRunLoop]runUntilDate:[NSDate distantPast]];  
+    [self performSelectorOnMainThread:@selector(updateProgressText:) withObject:text waitUntilDone:NO];
+    NSNumber *percentsVal = [NSNumber numberWithFloat:percents];
+    [self performSelectorOnMainThread:@selector(updateProgressPercents:) withObject:percentsVal waitUntilDone:NO];        
+}
+
+-(void) updateProgressText:(NSString*) text
+{
+    if ([self.progressLabel isHidden]) 
+    {
+        [self.progressLabel setHidden:FALSE];
+    }
+    
+    text = (nil != text) ? text : @"Loading...";
+    [self.progressLabel setText:text];
+}
+
+-(void) updateProgressPercents:(NSNumber*) percentsVal
+{
+    if ([self.progressView isHidden]) 
+    {
+        [self.progressView setHidden:FALSE];
+    }
+    
+    [self.progressView setProgress:percentsVal.floatValue animated:TRUE];    
 }
 
 // Manual Codes End
