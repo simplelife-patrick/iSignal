@@ -43,7 +43,7 @@
 					<object class="IBUIImageView" id="299941976">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">-2147483356</int>
-						<string key="NSFrame">{{64, 144}, {192, 192}}</string>
+						<string key="NSFrame">{{70, 144}, {180, 180}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="752918747"/>
@@ -61,7 +61,7 @@
 						<string key="NSFrame">{{0, 68}, {320, 290}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="299941976"/>
+						<reference key="NSNextKeyView" ref="1040390134"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -96,6 +96,7 @@
 						<string key="NSFrame">{{220, 318}, {90, 40}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -156,7 +157,7 @@
 						<string key="NSFrame">{{158, 20}, {152, 40}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1040390134"/>
+						<reference key="NSNextKeyView" ref="562647856"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -241,7 +242,7 @@
 								<string key="NSFrame">{{248, 4}, {32, 32}}</string>
 								<reference key="NSSuperview" ref="1040390134"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="562647856"/>
+								<reference key="NSNextKeyView" ref="299941976"/>
 								<string key="NSReuseIdentifierKey">_NS:541</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
