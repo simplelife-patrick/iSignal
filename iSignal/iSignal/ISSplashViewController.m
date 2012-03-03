@@ -13,7 +13,7 @@
 // Manual Codes Begin
 
 @synthesize switchViewController;
-@synthesize splashImageView;
+@synthesize progressLabel;
 @synthesize timer;
 
 - (void)viewDidLoad
@@ -28,8 +28,7 @@
 - (void)viewDidUnload
 {
     [self setTimer:nil];
-    [self setSplashImageView:nil];
-
+    [self setProgressLabel:nil];
     [self setSwitchViewController:nil];
     [super viewDidUnload];
 }
@@ -37,7 +36,7 @@
 - (void)dealloc
 {   
     [switchViewController release];
-    [splashImageView release];
+    [progressLabel release];
     [timer release];
     
     [super dealloc];
@@ -55,7 +54,6 @@
 
 - (void) finishFadingSplashScreen
 {
-	[splashImageView removeFromSuperview];
     UIWindow* window = [CBUIUtils getWindow:self.view];
     if(nil != window)
     {
@@ -109,6 +107,11 @@
     DLog(@"Finished the modules load operation.");
     // Switch back to Splash UI
     [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:NO];
+}
+
+-(void) updateProgress:(NSString*) progress
+{
+    [self.progressLabel setText:progress];
 }
 
 // Manual Codes End
