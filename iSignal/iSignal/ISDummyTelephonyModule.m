@@ -79,6 +79,7 @@ static NSArray* CARRIER_LIST;
 // Private method
 -(void) broadcastSignalStengthChanged:(NSNumber*) signalVal
 {
+//    signalVal = [NSNumber numberWithInt:-150];
     NSDictionary *_dic=[[[NSDictionary alloc] initWithObjectsAndKeys:signalVal, NOTIFICATION_KV_SIGNALSTRENGTH_CHANGED, nil] autorelease];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ID_SIGNALSTRENGTH_CHANGED object:self userInfo:_dic];
 }

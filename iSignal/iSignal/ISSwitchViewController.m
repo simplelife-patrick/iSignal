@@ -58,7 +58,7 @@
     [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewController, self.mapViewController, self.configViewController, self.helpViewController, nil] animated:FALSE];
     
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.dummyTelephonyModule startService];
+    [appDelegate.dummyTelephonyModule startService];    
 }
 
 // Obsoleted
@@ -206,7 +206,6 @@
 
 - (void)viewDidLoad
 {
-    // Do any additional setup after loading the view from its nib.
     [self loadTabViews];
     [super viewDidLoad];
 }
@@ -219,8 +218,6 @@
     [self setMapViewController:nil];
     [self setRecordsViewController:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -229,7 +226,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated
-{
+{    
     [super viewDidAppear:animated];
 }
 
