@@ -26,7 +26,7 @@
 -(void) setDeleteEnabled:(BOOL) flag
 {
     _deleteEnabled = flag;
-    [_leftBarButton setEnabled:_deleteEnabled];
+    [_rightBarButton setEnabled:_deleteEnabled];
 }
 
 - (void)initTabBarItem
@@ -54,8 +54,8 @@
     [_fetchedResultsController release];
     
     [_tableView release];
-    [_leftBarButton release];
     [_rightBarButton release];
+    [_leftBarButton release];
     [_deletingRecords release];
     
     [super dealloc];
@@ -77,8 +77,8 @@
     _fetchedResultsController = nil;
     
     _tableView = nil;
-    _leftBarButton = nil;
     _rightBarButton = nil;
+    _leftBarButton = nil;
     _deletingRecords = nil;
     
     [super viewDidUnload];
