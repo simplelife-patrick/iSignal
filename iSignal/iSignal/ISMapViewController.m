@@ -18,18 +18,6 @@
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize mapAnnotations = _mapAnnotations;
 
-//- (BOOL)ifUserLocationInRegion
-//{
-//    CLLocation *currentLocation = _mapView.userLocation.location;
-//    CLLocationCoordinate2D userCenter = currentLocation.coordinate;
-//    
-//    MKCoordinateRegion region = _mapView.region;
-//    CLLocationCoordinate2D regionCenter = region.center;
-//    MKCoordinateSpan regionSpan = region.span;
-//    
-//    return FALSE;
-//}
-
 - (IBAction) locatePositionAndCenterMap:(id) sender
 {
     [self relocateUser];
@@ -91,7 +79,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        // Custom initialization
         [self initTabBarItem];
         
         _mapAnnotations = [[NSMutableArray alloc] init];
@@ -170,8 +157,6 @@
     
     [self setLocateMeButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 // Method of NSFetchedResultsControllerDelegate protocol
@@ -187,11 +172,8 @@
     switch(type)
     {
         case NSFetchedResultsChangeInsert:
-
             break;
-            
         case NSFetchedResultsChangeDelete:
-
             break;
     }
 }
