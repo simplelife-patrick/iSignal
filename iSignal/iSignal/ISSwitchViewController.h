@@ -36,7 +36,6 @@
 @property (nonatomic, retain) IBOutlet ISMapViewController *mapViewController;
 @property (nonatomic, retain) IBOutlet ISRecordsViewController *recordsViewController;
 
-- (void)switchView:(NSInteger) viewTag;
 - (void)loadTabViews;
 
 @end
