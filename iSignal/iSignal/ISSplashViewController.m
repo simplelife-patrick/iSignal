@@ -101,7 +101,8 @@
     ISDummyTelephonyModule *isDummyT = [[ISDummyTelephonyModule alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.dummyTelephonyModule = isDummyT;
     [appDelegate.dummyTelephonyModule initModule];
-    [appDelegate.dummyTelephonyModule startService]; 
+    // Start this module after all UI loading done.
+    // [appDelegate.dummyTelephonyModule startService]; 
     [isDummyT release];
     
     DLog(@"Finished the modules load operation.");
