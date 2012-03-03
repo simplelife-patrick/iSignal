@@ -12,13 +12,18 @@
 
 #import "CBFetchedResultsControllerIdentifier.h"
 
+#define PROGRESS_STR_LOADING @"Loading..."
+
 @interface ISSplashViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet ISSwitchViewController *switchViewController;
-@property (nonatomic, retain) IBOutlet UIImageView *splashImageView;
+
+@property (nonatomic, retain) IBOutlet UILabel *progressLabel;
 
 @property (nonatomic, retain) NSTimer *timer;
 
 -(void) loadAnyNecessaryStuff;
+
+-(void) updateProgress:(NSString*) progress;
 
 @end
