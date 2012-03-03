@@ -112,7 +112,7 @@
     
     DLog(@"Finished the modules load operation.");
     // Switch back to Splash UI
-    [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:YES];
 }
 
 -(void) updateProgress:(NSString*) text andPercents:(float) percents 
