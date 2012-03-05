@@ -56,10 +56,10 @@
     NSEntityDescription *runEntity = [[model entitiesByName] objectForKey:DB_TABLE_SIGNALRECORD];
     SignalRecord *record = [[SignalRecord alloc] initWithEntity:runEntity insertIntoManagedObjectContext:context];   
     
-    record.duration = 0;
+    record.duration = QUALITY_SIGNAL_NO;
     record.isSync = FALSE;
     record.time = [NSDate date];
-    record.type = DB_TABLE_SIGNALRECORD_VALUE_NOSIGNAL;
+    record.type = QUALITY_SIGNAL_NO;
     
     if([ISAppConfigs isLocationOn])
     {

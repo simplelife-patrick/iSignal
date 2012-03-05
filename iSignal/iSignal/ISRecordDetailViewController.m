@@ -22,7 +22,7 @@
 // Private method
 - (void)gotoLocation
 {
-    if(nil != _signalRecord && nil != _signalRecord.latitude && nil != _signalRecord.longitude)
+    if(nil != _signalRecord && 0 != _signalRecord.latitude && 0 != _signalRecord.longitude)
     {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([_signalRecord.latitude doubleValue], [_signalRecord.longitude doubleValue]);
         
@@ -31,6 +31,10 @@
         [_mapView setRegion:adjustedRegion animated:TRUE]; 
         
         [self mapAnnotationFromSignalRecord];          
+    }
+    else
+    {
+        _mapView.hidden = TRUE;
     }
 }
 
@@ -54,7 +58,7 @@
 {
     [super viewDidAppear:animated];
     
-    [self gotoLocation];
+    [_detailTableView reloadData];    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -71,7 +75,7 @@
 {
     [super viewDidLoad];
     
-
+    [self gotoLocation];    
 }
 
 - (void)viewDidUnload
@@ -100,8 +104,7 @@
 // Method of UITableViewDataSource protocol
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    // TODO: Need to be updated once here are more than one section.
-    return DETAILTABLE_SECTION_COUNT;
+    return DETAILTABLE_SECTION_DETAIL_ITEM_COUNT;
 }
 
 // Method of UITableViewDataSource protocol
@@ -120,16 +123,16 @@
     {
         case DETAILTABLE_SECTION_DETAIL_ITEM_TYPE_INDEX:
         {
-            cell.textLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_RING_NAME;
-            cell.detailTextLabel.text = _signalRecord.type;
+            cell.textLabel.text = DETAILTABLE_SECTION_DETAIL_ITEM_TYPE_NAME;
+            cell.detailTextLabel.text = [CBTelephonyUtils signalQualityText:[_signalRecord.type intValue]];
             break;
         }
         case DETAILTABLE_SECTION_DETAIL_ITEM_TIME_INDEX:
         {
-            cell.textLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_VIBRATE_NAME;
+            cell.textLabel.text = DETAILTABLE_SECTION_DETAIL_ITEM_TIME_NAME;
             NSDate *time = _signalRecord.time;
             NSString *timeString = [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:time];
-            cell.textLabel.text = timeString;
+            cell.detailTextLabel.text = timeString;
             break;
         }
         default:

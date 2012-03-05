@@ -8,7 +8,7 @@
         <attribute name="strength" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="tag" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Date"/>
-        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
     </entity>
     <fetchRequest name="FetchRequest" entity="SignalRecord"/>
     <elements>
