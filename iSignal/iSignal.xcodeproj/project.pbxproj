@@ -267,7 +267,9 @@
 				C5BEB0191400C32F0083A86A /* ISHelpViewController.m */,
 				C5720659140E602C00FD108F /* ISConfigViewController.m */,
 				C569E3DA14072B5B00BE938D /* ISSplashViewController.m */,
+				C549680D1504DFAE004480D8 /* ISMapViewNavigationController.m */,
 				C540250C140F74CD0047ABE3 /* ISMapViewController.m */,
+				C54968111504DFC1004480D8 /* ISRecordsViewNavigationController.m */,
 				C56F97DA141065F5002FC302 /* ISRecordsViewController.m */,
 				C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */,
 				C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */,
@@ -348,15 +350,13 @@
 				C5BEB0181400C32F0083A86A /* ISHelpViewController.h */,
 				C57329C514009A2F0061D973 /* ISConfigViewController.h */,
 				C569E3D914072B5B00BE938D /* ISSplashViewController.h */,
+				C549680C1504DFAE004480D8 /* ISMapViewNavigationController.h */,
 				C540250B140F74CD0047ABE3 /* ISMapViewController.h */,
+				C54968101504DFC1004480D8 /* ISRecordsViewNavigationController.h */,
 				C56F97DB141065F5002FC302 /* ISRecordsViewController.h */,
 				C54E84DC15045763006A9C4A /* ISRecordDetailViewController.h */,
 				C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */,
 				C5AC052514EFEF0700AAD6FA /* ISMapAnnotation.h */,
-				C549680C1504DFAE004480D8 /* ISMapViewNavigationController.h */,
-				C549680D1504DFAE004480D8 /* ISMapViewNavigationController.m */,
-				C54968101504DFC1004480D8 /* ISRecordsViewNavigationController.h */,
-				C54968111504DFC1004480D8 /* ISRecordsViewNavigationController.m */,
 			);
 			name = Headers;
 			sourceTree = "<group>";

@@ -14,6 +14,11 @@
 @synthesize mapView;
 @synthesize detailTableView;
 
+- (IBAction) onClickLeftBarButton:(id) sender
+{
+    [self.navigationController popViewControllerAnimated:TRUE];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
 }
 
 - (void)viewDidUnload

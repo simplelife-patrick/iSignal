@@ -30,4 +30,6 @@
 @property (retain, nonatomic) IBOutlet MKMapView *mapView;
 @property (retain, nonatomic) IBOutlet UITableView *detailTableView;
 
+- (IBAction) onClickLeftBarButton:(id) sender;
+
 @end
