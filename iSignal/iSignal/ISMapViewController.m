@@ -279,12 +279,9 @@
     if ([view.annotation isKindOfClass:[ISMapAnnotation class]])
     {
         SignalRecord *record = ((ISMapAnnotation*)view.annotation).signalRecord;
-        
         [_recordDetailViewController setSignalRecord:record];
-        [self.view removeFromSuperview];
-        
-//        [self.navigationController setToolbarHidden:YES animated:NO];          
-//        [self.navigationController pushViewController:_recordDetailViewController animated:TRUE];
+                 
+        [self.navigationController pushViewController:_recordDetailViewController animated:TRUE];
     }
 }
 

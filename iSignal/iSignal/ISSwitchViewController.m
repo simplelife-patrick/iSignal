@@ -13,6 +13,8 @@
 @synthesize homeViewController;
 @synthesize configViewController;
 @synthesize mapViewController;
+@synthesize recordsViewNavigationController;
+@synthesize mapViewNavigationController;
 @synthesize recordsViewController;
 @synthesize helpViewController;
 
@@ -25,6 +27,8 @@
     [configViewController release];
     [mapViewController release];
     [recordsViewController release];
+    [recordsViewNavigationController release];
+    [mapViewNavigationController release];
     [super dealloc];
 }
 
@@ -50,12 +54,20 @@
     [isMapVC release];
     [self.mapViewController.view setTag:TAG_MAPVIEW];
     
+    ISMapViewNavigationController *isMVNC = [[ISMapViewNavigationController alloc] initWithRootViewController:self.mapViewController];
+    self.mapViewNavigationController = isMVNC;
+    [isMVNC release];
+    
     ISRecordsViewController *isRecordVC = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
     self.recordsViewController = isRecordVC;
     [isRecordVC release];
     [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
     
-    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewController, self.mapViewController, self.configViewController, self.helpViewController, nil] animated:FALSE];
+    ISRecordsViewNavigationController *isRVNC = [[ISRecordsViewNavigationController alloc] initWithRootViewController: self.recordsViewController];
+    self.recordsViewNavigationController = isRVNC;
+    [isRVNC release];
+    
+    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController, self.configViewController, self.helpViewController, nil] animated:FALSE];
     
     [self setSelectedViewController:homeViewController];
     
@@ -76,6 +88,8 @@
     [self setConfigViewController:nil];
     [self setMapViewController:nil];
     [self setRecordsViewController:nil];
+    [self setRecordsViewNavigationController:nil];
+    [self setMapViewNavigationController:nil];
     [super viewDidUnload];
 }
 

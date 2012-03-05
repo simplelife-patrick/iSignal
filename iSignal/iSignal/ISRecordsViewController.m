@@ -220,6 +220,12 @@
 	}
     else
     {
+        NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController]; 
+        NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
+        SignalRecord *record = (SignalRecord*)managedObject;
+        
+        [_recordDetailViewController setSignalRecord:record];        
+        
         [self.navigationController pushViewController:_recordDetailViewController animated:YES];
     }
 }

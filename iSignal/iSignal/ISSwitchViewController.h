@@ -13,6 +13,8 @@
 #import "ISConfigViewController.h"
 #import "ISMapViewController.h"
 #import "ISRecordsViewController.h"
+#import "ISMapViewNavigationController.h"
+#import "ISRecordsViewNavigationController.h"
 
 #define TAG_SWITCHVIEW 0
 #define TAG_HOMEVIEW 1
@@ -35,6 +37,9 @@
 @property (nonatomic, retain) IBOutlet ISConfigViewController *configViewController;
 @property (nonatomic, retain) IBOutlet ISMapViewController *mapViewController;
 @property (nonatomic, retain) IBOutlet ISRecordsViewController *recordsViewController;
+
+@property (nonatomic, retain) IBOutlet ISMapViewNavigationController *mapViewNavigationController;
+@property (nonatomic, retain) IBOutlet ISRecordsViewNavigationController *recordsViewNavigationController;
 
 - (void)loadTabViews;
 
