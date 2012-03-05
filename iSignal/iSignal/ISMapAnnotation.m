@@ -17,6 +17,8 @@
 @synthesize title;
 @synthesize subtitle;
 
+@synthesize signalRecord = _signalRecord;
+
 - (CLLocationCoordinate2D)coordinate;
 {
     CLLocationCoordinate2D theCoordinate;
@@ -30,6 +32,8 @@
     [image release];
     [title release];
     [subtitle release];
+    
+    [_signalRecord release];
     
     [super dealloc];
 }

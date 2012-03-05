@@ -7,21 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <MapKit/MapKit.h>
+
+#import "SignalRecord.h"
 
 static NSString* ISMapAnnotationIdentifier = @"ISMapAnnotationIdentifier";
 
 @interface ISMapAnnotation : NSObject <MKAnnotation>
-{
-    UIImage *image;
-    NSNumber *latitude;
-    NSNumber *longitude;
-}
 
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
+@property (nonatomic, retain) SignalRecord *signalRecord;
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;

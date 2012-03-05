@@ -24,6 +24,8 @@
 		C540250F140F74CD0047ABE3 /* ISMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C540250D140F74CD0047ABE3 /* ISMapViewController.xib */; };
 		C547B44C1409D3690037B63F /* ISConfigSwitcherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */; };
 		C547B44F1409D3C70037B63F /* ISConfigSwitcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */; };
+		C54E84DF15045763006A9C4A /* ISRecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */; };
+		C54E84E015045763006A9C4A /* ISRecordDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54E84DE15045763006A9C4A /* ISRecordDetailViewController.xib */; };
 		C569E3BD14068B7700BE938D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BC14068B7700BE938D /* AVFoundation.framework */; };
 		C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569E3BF14068B7F00BE938D /* AudioToolbox.framework */; };
 		C569E3DC14072B5B00BE938D /* ISSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C569E3DA14072B5B00BE938D /* ISSplashViewController.m */; };
@@ -90,6 +92,9 @@
 		C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISConfigSwitcherCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ISConfigSwitcherCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISConfigSwitcherCell.xib; sourceTree = "<group>"; };
+		C54E84DC15045763006A9C4A /* ISRecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRecordDetailViewController.h; sourceTree = "<group>"; };
+		C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRecordDetailViewController.m; sourceTree = "<group>"; };
+		C54E84DE15045763006A9C4A /* ISRecordDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISRecordDetailViewController.xib; sourceTree = "<group>"; };
 		C569E3BC14068B7700BE938D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C569E3BF14068B7F00BE938D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C569E3D914072B5B00BE938D /* ISSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSplashViewController.h; sourceTree = "<group>"; };
@@ -258,6 +263,7 @@
 				C569E3DA14072B5B00BE938D /* ISSplashViewController.m */,
 				C540250C140F74CD0047ABE3 /* ISMapViewController.m */,
 				C56F97DA141065F5002FC302 /* ISRecordsViewController.m */,
+				C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */,
 				C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */,
 				C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */,
 			);
@@ -338,6 +344,7 @@
 				C569E3D914072B5B00BE938D /* ISSplashViewController.h */,
 				C540250B140F74CD0047ABE3 /* ISMapViewController.h */,
 				C56F97DB141065F5002FC302 /* ISRecordsViewController.h */,
+				C54E84DC15045763006A9C4A /* ISRecordDetailViewController.h */,
 				C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */,
 				C5AC052514EFEF0700AAD6FA /* ISMapAnnotation.h */,
 			);
@@ -356,6 +363,7 @@
 				C569E3DB14072B5B00BE938D /* ISSplashViewController.xib */,
 				C540250D140F74CD0047ABE3 /* ISMapViewController.xib */,
 				C56F97D9141065F5002FC302 /* ISRecordsViewController.xib */,
+				C54E84DE15045763006A9C4A /* ISRecordDetailViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -434,6 +442,7 @@
 				C52871AC14FF09F500B0630A /* Star128Gray.png in Resources */,
 				C52871AD14FF09F500B0630A /* Star128Black.png in Resources */,
 				C52871AE14FF09F500B0630A /* noSignal256.png in Resources */,
+				C54E84E015045763006A9C4A /* ISRecordDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +496,7 @@
 				C5B71C8714FFAADD00CAE603 /* CBModuleAbstractImpl.m in Sources */,
 				C53204781500AAF60085061B /* CBNotificationManager.m in Sources */,
 				C5320483150103F10085061B /* ISAudioModule.m in Sources */,
+				C54E84DF15045763006A9C4A /* ISRecordDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@
 @synthesize multiselectEnabled = _multiselectEnabled;
 
 @synthesize tableView = _tableView;
+@synthesize recordDetailViewController = _recordDetailViewController;
 
 @synthesize deletingRecords = _deletingRecords;
 
@@ -54,6 +55,7 @@
     [_leftBarButton release];
     [_deletingRecords release];
     
+    [_recordDetailViewController release];
     [super dealloc];
 }
 
@@ -88,6 +90,7 @@
     _rightBarButton = nil;
     _leftBarButton = nil;
     _deletingRecords = nil;
+    _recordDetailViewController = nil;
     
     [super viewDidUnload];
 }
@@ -203,14 +206,6 @@
 // Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
-
     if (_multiselectEnabled)
     {
         [_deletingRecords setObject:indexPath forKey:indexPath];
@@ -223,6 +218,10 @@
             [self setDeleteEnabled:FALSE];
         }
 	}
+    else
+    {
+        [self.navigationController pushViewController:_recordDetailViewController animated:YES];
+    }
 }
 
 // Method of UITableViewDelegate protocol

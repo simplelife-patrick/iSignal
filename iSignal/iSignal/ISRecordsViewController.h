@@ -22,6 +22,7 @@
 @property (nonatomic) BOOL multiselectEnabled;
 
 @property (retain, nonatomic, readonly) IBOutlet UITableView *tableView;
+@property (retain, nonatomic, readonly) IBOutlet ISRecordDetailViewController *recordDetailViewController;
 
 @property (retain, nonatomic, readonly)	NSMutableDictionary *deletingRecords;
 

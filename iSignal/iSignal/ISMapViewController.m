@@ -15,6 +15,7 @@
 
 @synthesize mapView = _mapView;
 @synthesize locateMeButton = _locateMeButton;
+@synthesize recordDetailViewController = _recordDetailViewController;
 
 @synthesize mapAnnotations = _mapAnnotations;
 
@@ -32,6 +33,7 @@
         annotation.longitude = record.longitude;
         annotation.title = NSLocalizedString(@"STR_NOSIGNAL",nil);
         annotation.subtitle = [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:record.time];        
+        annotation.SignalRecord = record;
         
         [_mapAnnotations addObject:annotation];
         [_mapView addAnnotation:annotation];
@@ -136,6 +138,7 @@
     [_mapView release];
     
     [_locateMeButton release];
+    [_recordDetailViewController release];
     [super dealloc];
 }
 
@@ -168,6 +171,7 @@
     _mapView = nil;
     
     [self setLocateMeButton:nil];
+    [self setRecordDetailViewController:nil];
     [super viewDidUnload];
 }
 
@@ -248,16 +252,8 @@
             customPinView.animatesDrop = YES;
             customPinView.canShowCallout = YES;
             
-            // add a detail disclosure button to the callout which will open a new view controller page
-            //
-            // note: you can assign a specific call out accessory view, or as MKMapViewDelegate you can implement:
-            //  - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control;
-            //
-//            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//            [rightButton addTarget:self
-//                            action:@selector(showDetails:)
-//                  forControlEvents:UIControlEventTouchUpInside];
-//            customPinView.rightCalloutAccessoryView = rightButton;
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            customPinView.rightCalloutAccessoryView = rightButton;
             
             return customPinView;
         }
@@ -269,6 +265,27 @@
     }
     
     return nil;
+}
+
+// Method of MKMapViewDelegate protocol
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{    
+    // if it's the user location, just return nil.
+    if ([view.annotation isKindOfClass:[MKUserLocation class]])
+    {
+        return;
+    }
+    
+    if ([view.annotation isKindOfClass:[ISMapAnnotation class]])
+    {
+        SignalRecord *record = ((ISMapAnnotation*)view.annotation).signalRecord;
+        
+        [_recordDetailViewController setSignalRecord:record];
+        [self.view removeFromSuperview];
+        
+//        [self.navigationController setToolbarHidden:YES animated:NO];          
+//        [self.navigationController pushViewController:_recordDetailViewController animated:TRUE];
+    }
 }
 
 // Method of MKMapViewDelegate protocol
