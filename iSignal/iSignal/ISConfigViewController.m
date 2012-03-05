@@ -8,8 +8,6 @@
 
 #import "ISConfigViewController.h"
 
-#import "ISSwitchViewController.h"
-
 @implementation ISConfigViewController
 
 // Manual Codes Begin
@@ -147,18 +145,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    // Initialize table data
-    
-    // Initialize config data
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 // Manual Codes End
