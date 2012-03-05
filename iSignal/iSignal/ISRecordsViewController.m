@@ -29,21 +29,11 @@
     [_rightBarButton setEnabled:_deleteEnabled];
 }
 
-- (void)initTabBarItem
-{
-    //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
-    UIImage* itemImage = nil;
-    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_RECORDS", nil) image:itemImage tag:TAG_RECORDSVIEW];
-    self.tabBarItem = theItem;
-    [theItem release];
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        [self initTabBarItem];
     }
     return self;
 }
