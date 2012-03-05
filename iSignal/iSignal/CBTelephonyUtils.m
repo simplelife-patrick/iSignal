@@ -39,17 +39,26 @@
     return quality;
 }
 
-- (id)init
++(NSString*) signalQualityText:(SIGNAL_QUALITY) signalQuality
 {
-    return nil;
-    // Disable object initialization.
-    //    self = [super init];
-    //    if (self) 
-    //    {
-    //        // Initialization code here.
-    //    }
-    //    
-    //    return self;
+    switch (signalQuality) 
+    {
+        case QUALITY_SIGNAL_0:
+            return QUALITY_SIGNAL_0_TEXT;
+        case QUALITY_SIGNAL_1:
+            return QUALITY_SIGNAL_1_TEXT;
+        case QUALITY_SIGNAL_2:
+            return QUALITY_SIGNAL_2_TEXT;
+        case QUALITY_SIGNAL_3:
+            return QUALITY_SIGNAL_3_TEXT;
+        case QUALITY_SIGNAL_4:
+            return QUALITY_SIGNAL_4_TEXT;
+        case QUALITY_SIGNAL_5:
+            return QUALITY_SIGNAL_5_TEXT;            
+        default:
+            // TODO: Need replace a "N/A" marco definition with below one
+            return QUALITY_SIGNAL_0_TEXT;
+    }
 }
 
 // Manual Codes End

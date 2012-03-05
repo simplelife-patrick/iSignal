@@ -1,5 +1,5 @@
 //
-//  CBTelephonyEvaluater.h
+//  CBTelephonyUtils.h
 //  iSignal
 //
 //  Created by Patrick Deng on 11-8-25.
@@ -38,10 +38,20 @@
 #define QUALITY_SIGNAL_5 5
 #define QUALITY_SIGNAL_BEST QUALITY_SIGNAL_5
 
+#define QUALITY_SIGNAL_0_TEXT NSLocalizedString(@"STR_QUALITY_SIGNAL_0", nil)
+#define QUALITY_SIGNAL_1_TEXT NSLocalizedString(@"STR_QUALITY_SIGNAL_1", nil)
+#define QUALITY_SIGNAL_2_TEXT NSLocalizedString(@"STR_QUALITY_SIGNAL_2", nil)
+#define QUALITY_SIGNAL_3_TEXT NSLocalizedString(@"STR_QUALITY_SIGNAL_3", nil)
+#define QUALITY_SIGNAL_4_TEXT NSLocalizedString(@"STR_QUALITY_SIGNAL_4", nil)
+#define QUALITY_SIGNAL_5_TEXT NSLocalizedString(@"STR_QUALITY_SIGNAL_5", nil)
+
+
 typedef NSInteger SIGNAL_QUALITY;
 
 @interface CBTelephonyUtils : NSObject
 
 +(SIGNAL_QUALITY) evaluateSignalQuality:(NSInteger) signalStrength;
+
++(NSString*) signalQualityText:(SIGNAL_QUALITY) signalQuality;
 
 @end
