@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import <CoreData/CoreData.h>
+
+#import "ISRecordDetailViewController.h"
 
 #define KEY_CELL_IDENTIFIER @"Cell"
 #define KEY_CELL_CUSTOMER_IDENTIFIER @"CustomCellIdentifier"
