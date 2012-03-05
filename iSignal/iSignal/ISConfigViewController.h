@@ -27,6 +27,8 @@
 #define CONFIG_TABLE_SECTION_CONFIG_ITEM_LOCATION_INDEX 2
 #define CONFIG_TABLE_SECTION_CONFIG_ITEM_LOCATION_NAME NSLocalizedString(@"STR_LOCATION", nil)
 
+#define CELL_IDENTIFIER_APPCONFIG @"CellIdentifier_AppConfig"
+
 @interface ISConfigViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

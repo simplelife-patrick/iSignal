@@ -62,7 +62,7 @@
 //    // Configure the cell.
 //    cell.textLabel.text = [self.configItemArray objectAtIndex: [indexPath row]];
     
-    static NSString *CustomCellIdentifier = @"CustomCellIdentifier";
+    static NSString *CustomCellIdentifier = CELL_IDENTIFIER_APPCONFIG;
     ISConfigSwitcherCell *cell = (ISConfigSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
     if (nil == cell) 
     {  
