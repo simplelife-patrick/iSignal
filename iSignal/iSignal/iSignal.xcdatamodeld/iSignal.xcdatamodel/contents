@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1170" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="SignalRecord" representedClassName="SignalRecord">
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0"/>
         <attribute name="isSync" optional="YES" attributeType="Boolean"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0"/>
+        <attribute name="strength" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="tag" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Date"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
     <fetchRequest name="FetchRequest" entity="SignalRecord"/>
     <elements>
-        <element name="SignalRecord" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="SignalRecord" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>
