@@ -11,12 +11,50 @@
 @implementation ISRecordDetailViewController
 
 @synthesize signalRecord = _signalRecord;
-@synthesize mapView;
-@synthesize detailTableView;
+@synthesize mapView = _mapView;
+@synthesize detailTableView = _detailTableView;
 
 - (IBAction) onClickLeftBarButton:(id) sender
 {
     [self.navigationController popViewControllerAnimated:TRUE];
+}
+
+// Private method
+- (void)gotoLocation
+{
+    if(nil != _signalRecord && nil != _signalRecord.latitude && nil != _signalRecord.longitude)
+    {
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([_signalRecord.latitude doubleValue], [_signalRecord.longitude doubleValue]);
+        
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, SPAN_LATITUDE, SPAN_LONGITUDE);
+        MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
+        [_mapView setRegion:adjustedRegion animated:TRUE]; 
+        
+        [self mapAnnotationFromSignalRecord];          
+    }
+}
+
+// Private method
+- (void)mapAnnotationFromSignalRecord
+{
+    if(nil != _signalRecord && nil != _signalRecord.latitude && nil != _signalRecord.longitude)
+    {
+        ISMapAnnotation *annotation = [[ISMapAnnotation alloc] init];
+        
+        annotation.latitude = _signalRecord.latitude;
+        annotation.longitude = _signalRecord.longitude;
+        [_mapView addAnnotation:annotation];
+        
+        [annotation release];        
+    }
+}
+
+// Method of UIViewController
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self gotoLocation];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -52,8 +90,8 @@
 
 - (void)dealloc 
 {
-    [mapView release];
-    [detailTableView release];
+    [_mapView release];
+    [_detailTableView release];
     [_signalRecord release];
 
     [super dealloc];
