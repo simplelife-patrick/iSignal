@@ -22,7 +22,7 @@
 #define REFRESH_PERIOD_SMALL 5
 #define REFRESH_PERIOD_LONG 10
 
-#define MODULE_IDENTITY_DUMMYTEPLEPHONY @"DummyTelephony"
+#define MODULE_IDENTITY_DUMMYTEPLEPHONY @"Dummy Telephony Module"
 
 @interface ISDummyTelephonyModule : CBModuleAbstractImpl
 

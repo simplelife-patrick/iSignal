@@ -95,9 +95,10 @@
 // Overrided Method of CBModuleAbstractImpl
 -(void) initModule
 {    
+    [super initModule];
+    
     [self setModuleIdentity:MODULE_IDENTITY_COREDATA_MANAGER];
     [self.serviceThread setName:MODULE_IDENTITY_COREDATA_MANAGER];
-    [self setKeepAlive:FALSE];
 }
 
 // Overrided Method of CBModuleAbstractImpl

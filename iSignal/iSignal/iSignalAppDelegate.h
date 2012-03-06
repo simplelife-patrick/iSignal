@@ -19,6 +19,7 @@
 #import "ISDummyTelephonyModule.h"
 #import "ISCoreDataModule.h"
 #import "ISAudioModule.h"
+#import "ISUILocalNotificationModule.h"
 
 @interface iSignalAppDelegate : NSObject <UIApplicationDelegate>
 
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) ISDummyTelephonyModule* dummyTelephonyModule;
 @property (nonatomic, retain) ISCoreDataModule* coreDataModule;
 @property (nonatomic, retain) ISAudioModule* audioModule;
+@property (nonatomic, retain) ISUILocalNotificationModule* uiLocalNotificationModule;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

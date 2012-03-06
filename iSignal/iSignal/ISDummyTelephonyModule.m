@@ -87,9 +87,10 @@ static NSArray* CARRIER_LIST;
 // Overrided Method of CBModuleAbstractImpl
 -(void) initModule
 {
+    [super initModule];
+    
     [self setModuleIdentity:MODULE_IDENTITY_DUMMYTEPLEPHONY];
     [self.serviceThread setName:MODULE_IDENTITY_DUMMYTEPLEPHONY];
-    [self setKeepAlive:FALSE];
 }
 
 // Overrided Method of CBModuleAbstractImpl

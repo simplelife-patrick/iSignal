@@ -70,12 +70,12 @@
     // App Configs module start
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     
-    [self updateProgress:@"Configuration Module" andPercents:0.2];
+    [self updateProgress:MODULE_IDENTITY_APP_CONFIGS andPercents:0.2];
     [ISAppConfigs initConfigsIfNecessary];
     
     // Location module start
     // TODO: Location module should not be inited if location service is not supported or disabled currently.
-    [self updateProgress:@"Location Module" andPercents:0.4];    
+    [self updateProgress:MODULE_IDENTITY_LOCATION_MANAGER andPercents:0.4];    
     CBLocationManager *cbLocationM = [[CBLocationManager alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.locationModule = cbLocationM;
     if ([ISAppConfigs isLocationOn])
@@ -86,7 +86,7 @@
     [cbLocationM release];
     
     // CoreData module start
-    [self updateProgress:@"Data Persistent Module" andPercents:0.6];
+    [self updateProgress:MODULE_IDENTITY_COREDATA_MANAGER andPercents:0.6];
     ISCoreDataModule *isCoreDataM = [[ISCoreDataModule alloc] init];
     appDelegate.coreDataModule = isCoreDataM;
     [appDelegate.coreDataModule initModule];
@@ -94,7 +94,7 @@
     [isCoreDataM release];
     
     // Audio module start
-    [self updateProgress:@"Audio Module" andPercents:0.8];
+    [self updateProgress:MODULE_IDENTITY_AUDIO_MODULE andPercents:0.8];
     ISAudioModule *isAM = [[ISAudioModule alloc] init];
     appDelegate.audioModule = isAM;
     [appDelegate.audioModule initModule];
@@ -102,13 +102,21 @@
     [isAM release];
     
     // ISDummyTelephony module start 
-    [self updateProgress:@"Dummy Telephony Module" andPercents:1.0];    
+    [self updateProgress:MODULE_IDENTITY_DUMMYTEPLEPHONY andPercents:0.9];    
     ISDummyTelephonyModule *isDummyT = [[ISDummyTelephonyModule alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.dummyTelephonyModule = isDummyT;
     [appDelegate.dummyTelephonyModule initModule];
     // Start this module after all UI loading done.
     // [appDelegate.dummyTelephonyModule startService]; 
     [isDummyT release];
+    
+    // ISUILocalNotification module start
+    [self updateProgress:MODULE_IDENTITY_UILOCALNOTIFICATION_MODULE andPercents:1.0];
+    ISUILocalNotificationModule *isULNM = [[ISUILocalNotificationModule alloc] initWithIsIndividualThreadNecessary: FALSE];
+    appDelegate.uiLocalNotificationModule = isULNM;
+    [appDelegate.uiLocalNotificationModule initModule];
+    [appDelegate.uiLocalNotificationModule startService];
+    [isULNM release];
     
     DLog(@"Finished the modules load operation.");
     // Switch back to Splash UI

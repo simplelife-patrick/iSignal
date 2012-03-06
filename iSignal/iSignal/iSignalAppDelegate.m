@@ -20,6 +20,7 @@
 @synthesize dummyTelephonyModule;
 @synthesize coreDataModule;
 @synthesize audioModule;
+@synthesize uiLocalNotificationModule;
 
 - (void)dealloc
 {
@@ -28,9 +29,26 @@
     [super dealloc];
 }
 
+// In charge of checking two condition: is app "suspended in the background" or "frontmost"
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    if (notification) 
+    {
+        NSString* notificationType = [[notification userInfo] objectForKey:NOTIFICATION_TYPE];
+        if ([notificationType isEqualToString: NOTIFICATION_NOSIGNAL]) 
+        {
+            ISSwitchViewController *switchController = self.splashViewController.switchViewController;
+            [switchController setSelectedViewController:switchController.recordsViewController];
+        }
+    }
+}
+
+// In charge of checking another condition: app isn't running
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    application.applicationIconBadgeNumber = 0; 
     
     // UI load
     self.window.rootViewController = self.splashViewController.switchViewController;
@@ -47,6 +65,7 @@
     
     // TODO: Stop all modules' serive here.
     [self.dummyTelephonyModule stopService];
+    [self.uiLocalNotificationModule stopService];    
     [self.locationModule stopService];
     [self.coreDataModule stopService];
     [self.audioModule stopService];

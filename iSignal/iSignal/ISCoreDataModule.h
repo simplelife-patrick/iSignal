@@ -16,7 +16,7 @@
 
 #import "CBDateUtils.h"
 
-#define MODULE_IDENTITY_COREDATA_MANAGER @"CoreDataManager"
+#define MODULE_IDENTITY_COREDATA_MANAGER @"Core Data Module"
 
 #define DB_ISIGNAL_PATH_COMPONENT @"iSignal.sqlite"
 #define DB_ISIGNAL_MANAGEMENT_MODEL_NAME @"iSignal"

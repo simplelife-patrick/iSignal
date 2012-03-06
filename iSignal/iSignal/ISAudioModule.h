@@ -12,7 +12,7 @@
 
 #import "CBAVManager.h"
 
-#define MODULE_IDENTITY_AUDIO_MODULE @"AudioModule"
+#define MODULE_IDENTITY_AUDIO_MODULE @"Audio Module"
 
 #define AUDIO_NO_SIGNAL @"signalLost"
 

@@ -50,18 +50,7 @@
 // Method of UITableViewDataSource protocol
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
-{    
-//    static NSString *CellIdentifier = @"Cell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) 
-//    {
-//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-//    }
-//    
-//    // Configure the cell.
-//    cell.textLabel.text = [self.configItemArray objectAtIndex: [indexPath row]];
-    
+{
     static NSString *CustomCellIdentifier = CELL_IDENTIFIER_APPCONFIG;
     ISConfigSwitcherCell *cell = (ISConfigSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
     if (nil == cell) 
@@ -97,6 +86,14 @@
                 {
                     [cell.switcher setEnabled:FALSE];
                 }
+                break;
+            }
+            case CONFIG_TABLE_SECTION_CONFIG_ITEM_NOTIFICATION_INDEX:
+            {
+                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_NOTIFICATION_NAME;
+                [cell.switcher setOn:[ISAppConfigs isNotificationOn]];
+                [cell.switcher addTarget:self action:@selector(notificationStateChanged:) forControlEvents:UIControlEventValueChanged];
+                // TODO: If user set notification disabled outside of this app(in system configurations), here should be same by codes check
             }
             default:
                 break;
@@ -140,6 +137,15 @@
         UISwitch *switcher = (UISwitch*) sender;
         [ISAppConfigs setLocationOn:[switcher isOn]];
     }
+}
+
+- (void)notificationStateChanged:(id) sender
+{
+    if(nil != sender && ([sender isKindOfClass:[UISwitch class]]))
+    {
+        UISwitch *switcher = (UISwitch*) sender;
+        [ISAppConfigs setNotificationOn:[switcher isOn]];
+    }      
 }
 
 - (void)viewDidLoad

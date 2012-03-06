@@ -98,6 +98,18 @@
     }
 }
 
++(BOOL) isNotificationOn
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];    
+    return [configs boolForKey:CONFIG_NOTIFICATION];    
+}
+
++(void) setNotificationOn:(BOOL) flag
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];    
+    [configs setBool:flag forKey:CONFIG_NOTIFICATION];   
+}
+
 - (void)dealloc 
 {
     [super dealloc];
