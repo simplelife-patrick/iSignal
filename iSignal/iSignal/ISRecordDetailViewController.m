@@ -28,7 +28,7 @@
         
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, SPAN_LATITUDE, SPAN_LONGITUDE);
         MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
-        [_mapView setRegion:adjustedRegion animated:TRUE]; 
+        [_mapView setRegion:adjustedRegion animated:FALSE]; 
         
         [self mapAnnotationFromSignalRecord];          
     }
@@ -43,6 +43,8 @@
 {
     if(nil != _signalRecord && nil != _signalRecord.latitude && nil != _signalRecord.longitude)
     {
+        [_mapView removeAnnotations:_mapView.annotations];
+        
         ISMapAnnotation *annotation = [[ISMapAnnotation alloc] init];
         
         annotation.latitude = _signalRecord.latitude;
