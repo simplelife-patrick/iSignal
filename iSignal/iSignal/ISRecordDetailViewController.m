@@ -58,7 +58,8 @@
 {
     [super viewDidAppear:animated];
     
-    [_detailTableView reloadData];    
+    [_detailTableView reloadData]; 
+    [self gotoLocation]; 
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -74,8 +75,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self gotoLocation];    
 }
 
 - (void)viewDidUnload
