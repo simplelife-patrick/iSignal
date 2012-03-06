@@ -19,5 +19,6 @@
 @property (nonatomic, retain) NSString * tag;
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * carrier;
 
 @end

@@ -18,5 +18,6 @@
 @dynamic tag;
 @dynamic time;
 @dynamic type;
+@dynamic carrier;
 
 @end

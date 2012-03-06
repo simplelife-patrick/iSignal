@@ -22,6 +22,7 @@ STR_LOCATION = "位置";
 STR_EDIT = "编辑";
 STR_OK = "确定";
 STR_DETAIL = "详细";
+STR_CARRIER = "运营商";
 STR_TYPE = "类型";
 STR_TIME = "时间";
 STR_QUALITY_SIGNAL_0 = "无信号";

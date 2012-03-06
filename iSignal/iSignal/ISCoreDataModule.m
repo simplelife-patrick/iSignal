@@ -56,6 +56,7 @@
     NSEntityDescription *runEntity = [[model entitiesByName] objectForKey:DB_TABLE_SIGNALRECORD];
     SignalRecord *record = [[SignalRecord alloc] initWithEntity:runEntity insertIntoManagedObjectContext:context];   
     
+    record.carrier = appDelegate.dummyTelephonyModule.carrier;    
     record.duration = QUALITY_SIGNAL_NO;
     record.isSync = FALSE;
     record.time = [NSDate date];

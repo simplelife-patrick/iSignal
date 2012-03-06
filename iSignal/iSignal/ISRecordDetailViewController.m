@@ -121,6 +121,12 @@
     NSInteger rowIndex = [indexPath row];
     switch (rowIndex) 
     {
+        case DETAILTABLE_SECTION_DETAIL_ITEM_CARRIER_INDEX:
+        {
+            cell.textLabel.text = DETAILTABLE_SECTION_DETAIL_ITEM_CARRIER_NAME;
+            cell.detailTextLabel.text = _signalRecord.carrier;
+            break;            
+        }
         case DETAILTABLE_SECTION_DETAIL_ITEM_TYPE_INDEX:
         {
             cell.textLabel.text = DETAILTABLE_SECTION_DETAIL_ITEM_TYPE_NAME;
