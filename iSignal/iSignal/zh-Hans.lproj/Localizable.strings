@@ -6,7 +6,7 @@
   Copyright 2011 CodeBeaver. All rights reserved.
 */
 
-STR_TAB_HOME = "主页";
+STR_TAB_HOME = "主屏";
 STR_TAB_MAP = "地图";
 STR_TAB_CONFIG = "配置";
 STR_TAB_RECORDS = "记录";
