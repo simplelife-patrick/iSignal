@@ -30,7 +30,7 @@
 - (void)initTabBarItem
 {
     UIImage* itemImage = [UIImage imageNamed:@"home32.png"];
-    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HOME", nil) image:itemImage tag:TAG_HOMEVIEW];
+    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HOME", nil) image:itemImage tag:TABVIEW_INDEX_ISHOMEVIEW];
     self.tabBarItem = theItem;
     [theItem release];    
 }

@@ -75,6 +75,7 @@
 		C500B6C014F220C500B5FBEA /* SignalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalRecord.m; sourceTree = "<group>"; };
 		C5027274140A2BA40013175B /* ISAppConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ISAppConfigs.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C50F9D75140A1FA9000589BB /* ISAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISAppConfigs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5126FE21508D7C6007B5BAA /* ISMacroDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISMacroDefinitions.h; sourceTree = "<group>"; };
 		C522B3A215062564006FCFFF /* ISUILocalNotificationModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUILocalNotificationModule.h; sourceTree = "<group>"; };
 		C522B3A315062564006FCFFF /* ISUILocalNotificationModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUILocalNotificationModule.m; sourceTree = "<group>"; };
 		C52871A714FF09F500B0630A /* Star128Gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star128Gold.png; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
-		C53204751500A7990085061B /* ISNotificationDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISNotificationDefinitions.h; sourceTree = "<group>"; };
 		C53204761500AAF50085061B /* CBNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNotificationManager.h; sourceTree = "<group>"; };
 		C53204771500AAF60085061B /* CBNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNotificationManager.m; sourceTree = "<group>"; };
 		C5320481150103F10085061B /* ISAudioModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAudioModule.h; sourceTree = "<group>"; };
@@ -343,9 +343,9 @@
 		C5CD42E513FF886F009C5741 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				C5126FE21508D7C6007B5BAA /* ISMacroDefinitions.h */,
 				C50F9D75140A1FA9000589BB /* ISAppConfigs.h */,
 				C5CD42D713FF8826009C5741 /* iSignalAppDelegate.h */,
-				C53204751500A7990085061B /* ISNotificationDefinitions.h */,
 				C5320481150103F10085061B /* ISAudioModule.h */,
 				C53386DE1419A3D20000A553 /* ISCoreDataModule.h */,
 				C5882A9A14032E9D00EC29A6 /* ISDummyTelephonyModule.h */,

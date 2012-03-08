@@ -86,7 +86,7 @@
     [cbLocationM release];
     
     // CoreData module start
-    [self updateProgress:MODULE_IDENTITY_COREDATA_MANAGER andPercents:0.6];
+    [self updateProgress:MODULE_ID_COREDATA andPercents:0.6];
     ISCoreDataModule *isCoreDataM = [[ISCoreDataModule alloc] init];
     appDelegate.coreDataModule = isCoreDataM;
     [appDelegate.coreDataModule initModule];
@@ -102,7 +102,7 @@
     [isAM release];
     
     // ISDummyTelephony module start 
-    [self updateProgress:MODULE_IDENTITY_DUMMYTEPLEPHONY andPercents:0.9];    
+    [self updateProgress:MODULE_ID_DUMMYTEPLEPHONY andPercents:0.9];    
     ISDummyTelephonyModule *isDummyT = [[ISDummyTelephonyModule alloc] initWithIsIndividualThreadNecessary: TRUE];
     appDelegate.dummyTelephonyModule = isDummyT;
     [appDelegate.dummyTelephonyModule initModule];

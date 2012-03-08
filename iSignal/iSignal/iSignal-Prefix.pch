@@ -18,6 +18,6 @@
     #import "CBEnvironmentUtils.h"
     #import "CBTelephonyUtils.h"
 
+    #import "ISMacroDefinitions.h"
     #import "ISAppConfigs.h"
-    #import "ISNotificationDefinitions.h"
 #endif

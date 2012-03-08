@@ -14,7 +14,7 @@
 {
     //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
     UIImage* itemImage = nil;
-    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_RECORDS", nil) image:itemImage tag:TAG_RECORDSVIEW];
+    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_RECORDS", nil) image:itemImage tag:TABVIEW_INDEX_ISRECORDSVIEW];
     self.tabBarItem = theItem;
     [theItem release];
 }

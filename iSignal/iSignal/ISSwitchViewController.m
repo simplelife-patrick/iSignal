@@ -37,35 +37,35 @@
     ISHomeViewController *isHomeVC = [[ISHomeViewController alloc] initWithNibName:NIB_HOMEVIEW_CONTROLLER bundle:nil];
     self.homeViewController = isHomeVC;
     [isHomeVC release];
-    [self.homeViewController.view setTag:TAG_HOMEVIEW];
+    [self.homeViewController.view setTag:TABVIEW_INDEX_ISHOMEVIEW];
     
-    ISHelpViewController *isHelpVC = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
-    self.helpViewController = isHelpVC;
-    [isHelpVC release];
-    [self.helpViewController.view setTag:TAG_HELPVIEW];
+    ISRecordsViewController *isRecordVC = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
+    self.recordsViewController = isRecordVC;
+    [isRecordVC release];
+    [self.recordsViewController.view setTag:TABVIEW_INDEX_ISRECORDSVIEW];
     
-    ISConfigViewController *isConfigVC = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
-    self.configViewController = isConfigVC;
-    [isConfigVC release];
-    [self.configViewController.view setTag:TAG_CONFIGVIEW];
+    ISRecordsViewNavigationController *isRVNC = [[ISRecordsViewNavigationController alloc] initWithRootViewController: self.recordsViewController];
+    self.recordsViewNavigationController = isRVNC;
+    [isRVNC release];    
     
     ISMapViewController *isMapVC = [[ISMapViewController alloc] initWithNibName:NIB_MAPVIEW_CONTROLLER bundle:nil];
     self.mapViewController = isMapVC;
     [isMapVC release];
-    [self.mapViewController.view setTag:TAG_MAPVIEW];
+    [self.mapViewController.view setTag:TABVIEW_INDEX_ISMAPVIEW];
     
     ISMapViewNavigationController *isMVNC = [[ISMapViewNavigationController alloc] initWithRootViewController:self.mapViewController];
     self.mapViewNavigationController = isMVNC;
     [isMVNC release];
     
-    ISRecordsViewController *isRecordVC = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
-    self.recordsViewController = isRecordVC;
-    [isRecordVC release];
-    [self.recordsViewController.view setTag:TAG_RECORDSVIEW];
+    ISConfigViewController *isConfigVC = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
+    self.configViewController = isConfigVC;
+    [isConfigVC release];
+    [self.configViewController.view setTag:TABVIEW_INDEX_ISCONFIGVIEW];    
     
-    ISRecordsViewNavigationController *isRVNC = [[ISRecordsViewNavigationController alloc] initWithRootViewController: self.recordsViewController];
-    self.recordsViewNavigationController = isRVNC;
-    [isRVNC release];
+    ISHelpViewController *isHelpVC = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
+    self.helpViewController = isHelpVC;
+    [isHelpVC release];
+    [self.helpViewController.view setTag:TABVIEW_INDEX_ISHELPVIEW];
     
     [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController, self.configViewController, self.helpViewController, nil] animated:FALSE];
     

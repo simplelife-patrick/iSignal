@@ -11,9 +11,6 @@
 
 #import "ISRecordDetailViewController.h"
 
-#define KEY_CELL_IDENTIFIER @"Cell"
-#define KEY_CELL_SIGNALRECORD_IDENTIFIER @"SignalRecordCell"
-
 @interface ISRecordsViewController : UIViewController <UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (retain, nonatomic, readonly) IBOutlet UIBarButtonItem *leftBarButton;

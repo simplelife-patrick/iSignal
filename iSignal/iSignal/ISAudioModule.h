@@ -12,12 +12,6 @@
 
 #import "CBAVManager.h"
 
-#define MODULE_IDENTITY_AUDIO_MODULE @"Audio Module"
-
-#define AUDIO_NO_SIGNAL @"signalLost"
-
-#define AUDIO_TYPE_CAF @"caf"
-
 @interface ISAudioModule : CBModuleAbstractImpl
 
 @property (nonatomic, retain, readonly) CBAVManager *audioManager;

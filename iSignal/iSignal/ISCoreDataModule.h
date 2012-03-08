@@ -16,25 +16,6 @@
 
 #import "CBDateUtils.h"
 
-#define MODULE_IDENTITY_COREDATA_MANAGER @"Core Data Module"
-
-#define DB_ISIGNAL_PATH_COMPONENT @"iSignal.sqlite"
-#define DB_ISIGNAL_MANAGEMENT_MODEL_NAME @"iSignal"
-#define DB_ISIGNAL_MANAGEMENT_MODEL_EXTENSION @"momd"
-#define DB_TABLE_SIGNALRECORD_CACHE @"SignalRecord_CoreData_Cache"
-#define DB_TABLE_SIGNALRECORD @"SignalRecord"
-#define DB_TABLE_SIGNALRECORD_FIELD_DURATION @"duration"
-#define DB_TABLE_SIGNALRECORD_FIELD_TIME @"time"
-#define DB_TABLE_SIGNALRECORD_FIELD_ISSYNC @"isSync"
-#define DB_TABLE_SIGNALRECORD_FIELD_LATITUDE @"latitude"
-#define DB_TABLE_SIGNALRECORD_FIELD_LONGITUDE @"longitude"
-#define DB_TABLE_SIGNALRECORD_FIELD_TAG @"tag"
-#define DB_TABLE_SIGNALRECORD_FIELD_TYPE @"type"
-
-#define DB_TABLE_SIGNALRECORD_VALUE_NOSIGNAL QUALITY_SIGNAL_NO
-#define DB_TABLE_SIGNALRECORD_VALUE_NULL @"N/A"
-#define DB_FETCH_BTACH_SIZE 20
-#define DB_ASCENDING NO
 
 CBFetchedResultsControllerIdentifier* gFetchedResultsControllerIdentifier_signalRecord;
 

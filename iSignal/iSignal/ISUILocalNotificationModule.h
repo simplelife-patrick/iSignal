@@ -10,12 +10,6 @@
 
 #import "CBModuleAbstractImpl.h"
 
-#define MODULE_IDENTITY_UILOCALNOTIFICATION_MODULE @"UI LocalNotification Module"
-
-#define NOTIFICATION_TYPE @"NotificationType"
-
-#define NOTIFICATION_NOSIGNAL @"NoSignal"
-
 @interface ISUILocalNotificationModule : CBModuleAbstractImpl
 
 -(void) popUILocalNotificationForNoSignal:(NSNumber*) signalVal;

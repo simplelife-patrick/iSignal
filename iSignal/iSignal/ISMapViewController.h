@@ -14,9 +14,6 @@
 #import "SignalRecord.h"
 #import "ISRecordDetailViewController.h"
 
-#define SPAN_LONGITUDE 2000
-#define SPAN_LATITUDE 2000
-
 @interface ISMapViewController : UIViewController <MKMapViewDelegate,NSFetchedResultsControllerDelegate>
 
 @property (retain, nonatomic) IBOutlet MKMapView *mapView;
