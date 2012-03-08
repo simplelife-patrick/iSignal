@@ -24,24 +24,16 @@
 #define MODULE_IDENTITY_APP_CONFIGS @"App Configugration Module"
 
 
-// UI - TabViews
-#define TABVIEW_COUNT 5
-#define TABVIEW_INDEX_ISSWITCHVIEW 0
-#define TABVIEW_INDEX_ISHOMEVIEW 1
-#define TABVIEW_INDEX_ISRECORDSVIEW 2
-#define TABVIEW_INDEX_ISMAPVIEW 3
-#define TABVIEW_INDEX_ISCONFIGVIEW 4
-#define TABVIEW_INDEX_ISHELPVIEW 5
-
-
 // Notifications
+#define NOTIFICATION_TYPE @"NotificationType"
+#define NOTIFICATION_NOSIGNAL @"NoSignal"
 #define NOTIFICATION_ID_SIGNALSTRENGTH_CHANGED @"NO_SIGNAL"
 #define NOTIFICATION_KV_SIGNALSTRENGTH_CHANGED @"SIGNALSTRENGTH_VALUE"
 
 
 // Resources
-#define AUDIO_NO_SIGNAL @"signalLost"
 #define AUDIO_TYPE_CAF @"caf"
+#define AUDIO_NO_SIGNAL @"signalLost"
 
 
 // Database
@@ -75,18 +67,20 @@
 #define REFRESH_PERIOD_LONG 10
 
 
-
-
-#define NOTIFICATION_TYPE @"NotificationType"
-
-#define NOTIFICATION_NOSIGNAL @"NoSignal"
-
+// UI - TabViews
+#define TABVIEW_COUNT 5
+#define TABVIEW_INDEX_ISSWITCHVIEW 0
+#define TABVIEW_INDEX_ISHOMEVIEW 1
+#define TABVIEW_INDEX_ISRECORDSVIEW 2
+#define TABVIEW_INDEX_ISMAPVIEW 3
+#define TABVIEW_INDEX_ISCONFIGVIEW 4
+#define TABVIEW_INDEX_ISHELPVIEW 5
 
 #define NIB_HOMEVIEW_CONTROLLER @"ISHomeViewController"
-#define NIB_HELPVIEW_CONTROLLER @"ISHelpViewController"
-#define NIB_CONFIGVIEW_CONTROLLER @"ISConfigViewController"
-#define NIB_MAPVIEW_CONTROLLER @"ISMapViewController"
 #define NIB_RECORDSVIEW_CONTROLLER @"ISRecordsViewController"
+#define NIB_MAPVIEW_CONTROLLER @"ISMapViewController"
+#define NIB_CONFIGVIEW_CONTROLLER @"ISConfigViewController"
+#define NIB_HELPVIEW_CONTROLLER @"ISHelpViewController"
 
 
 // UI - Tables

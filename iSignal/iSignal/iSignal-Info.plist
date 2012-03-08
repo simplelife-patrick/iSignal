@@ -31,6 +31,8 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIApplicationExitsOnSuspend</key>
+	<false/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>UISupportedInterfaceOrientations</key>

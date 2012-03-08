@@ -44,12 +44,9 @@
 // Private method
 -(void) onSignalStrengthChanged:(NSNotification *) notification
 {
-    if ([ISAppConfigs isNotificationOn]) 
-    {
-        NSValue *nsValue = [[notification userInfo] objectForKey:NOTIFICATION_KV_SIGNALSTRENGTH_CHANGED]; 
-        NSNumber *signalVal = (NSNumber*)nsValue;  
-        [self performSelectorOnMainThread:@selector(popUILocalNotificationForNoSignal:) withObject:(signalVal) waitUntilDone:YES];    
-    }
+    NSValue *nsValue = [[notification userInfo] objectForKey:NOTIFICATION_KV_SIGNALSTRENGTH_CHANGED]; 
+    NSNumber *signalVal = (NSNumber*)nsValue;  
+    [self performSelectorOnMainThread:@selector(popUILocalNotificationForNoSignal:) withObject:(signalVal) waitUntilDone:YES];    
 }
 
 -(void) cancelAllUILocalNotifications
@@ -73,26 +70,33 @@
 
 -(void) popUILocalNotificationForNoSignal:(NSNumber*) signalVal
 {
-    NSInteger intVal = [signalVal intValue];
-    SIGNAL_QUALITY qualityGrade = [CBTelephonyUtils evaluateSignalQuality:intVal];
-    if (qualityGrade == QUALITY_SIGNAL_NO) 
+    if ([ISAppConfigs isNotificationOn])
     {
-        UILocalNotification *notification=[[UILocalNotification alloc] init];   
-        NSDate *now1 = [NSDate date];    
-        notification.timeZone = [NSTimeZone defaultTimeZone];   
-        notification.repeatInterval = NSDayCalendarUnit;   
-        ++notification.applicationIconBadgeNumber;   
-        notification.alertAction = NSLocalizedString(@"STR_DISPLAY", nil);   
-        notification.fireDate = [now1 dateByAddingTimeInterval:10];   
-        notification.alertBody = NSLocalizedString(@"STR_NOSIGNAL", nil);
-        [notification setSoundName:UILocalNotificationDefaultSoundName]; 
-        
-        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:   
-                              NOTIFICATION_TYPE, NOTIFICATION_NOSIGNAL, nil];   
-        [notification setUserInfo:dict];   
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];   
-        [notification release];
-    }    
+        NSInteger intVal = [signalVal intValue];
+        SIGNAL_QUALITY qualityGrade = [CBTelephonyUtils evaluateSignalQuality:intVal];
+        if (qualityGrade == QUALITY_SIGNAL_NO) 
+        {
+            UILocalNotification *notification=[[UILocalNotification alloc] init];   
+            NSDate *now = [NSDate date];    
+            notification.timeZone = [NSTimeZone defaultTimeZone];   
+            notification.repeatInterval = NSDayCalendarUnit;   
+            ++notification.applicationIconBadgeNumber;   
+            notification.alertAction = NSLocalizedString(@"STR_DISPLAY", nil);   
+            notification.fireDate = [now dateByAddingTimeInterval:0];  
+            
+            NSArray *stringArray = [NSArray arrayWithObjects:NSLocalizedString(@"STR_NOSIGNAL", nil), [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:now], nil];
+            NSString *bodyString = [stringArray componentsJoinedByString:@" "];
+            
+            notification.alertBody = bodyString;
+            [notification setSoundName:UILocalNotificationDefaultSoundName]; 
+            
+            NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:   
+                                  NOTIFICATION_NOSIGNAL, NOTIFICATION_TYPE, nil];   
+            [notification setUserInfo:dict];   
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];   
+            [notification release];
+        }          
+    }
 }
 
 @end
