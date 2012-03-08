@@ -9,7 +9,4 @@
 #ifndef iSignal_ISNotificationDefinitions_h
 #define iSignal_ISNotificationDefinitions_h
 
-#define NOTIFICATION_ID_SIGNALSTRENGTH_CHANGED @"NO_SIGNAL"
-#define NOTIFICATION_KV_SIGNALSTRENGTH_CHANGED @"SIGNALSTRENGTH_VALUE"
-
 #endif
