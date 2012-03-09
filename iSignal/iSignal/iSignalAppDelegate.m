@@ -33,13 +33,16 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     DLog(@"[application didReceiveLocalNotification]");
+
     if (notification) 
     {
         NSString* notificationType = [[notification userInfo] objectForKey:NOTIFICATION_TYPE];
-        DLog(@"Application state is %@", application.applicationState);
         if ([notificationType isEqualToString: NOTIFICATION_NOSIGNAL]) 
         {
-            --application.applicationIconBadgeNumber;
+            if (0 < application.applicationIconBadgeNumber) 
+            {
+                application.applicationIconBadgeNumber = application.applicationIconBadgeNumber - 1;
+            }
         }
     }
 }
@@ -50,7 +53,15 @@
     // Override point for customization after application launch.
     DLog(@"[application didFinishLaunchingWithOptions]");
     
-    application.applicationIconBadgeNumber = 0; 
+    UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (localNotification) 
+    {
+        application.applicationIconBadgeNumber = 0;
+    }
+    else 
+    {
+        [uiLocalNotificationModule cancelAllUILocalNotifications];
+    }
     
     // UI load
     self.window.rootViewController = self.splashViewController.switchViewController;
@@ -101,6 +112,7 @@
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
     DLog(@"[application applicationWillEnterForeground]");
+    application.applicationIconBadgeNumber = 0;    
     [self.uiLocalNotificationModule cancelAllUILocalNotifications];
 }
 
@@ -124,6 +136,8 @@
     [self.locationModule stopService];
     [self.coreDataModule stopService];
     [self.audioModule stopService];
+    
+    [self.uiLocalNotificationModule popUILocalNotificationForAppIsTerminated];
 }
 
 - (void)saveContext

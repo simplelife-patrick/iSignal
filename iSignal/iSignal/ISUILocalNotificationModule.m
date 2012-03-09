@@ -68,6 +68,31 @@
     }       
 }
 
+-(void) popUILocalNotificationForAppIsTerminated
+{
+    if ([ISAppConfigs isNotificationOn]) 
+    {
+        UILocalNotification *notification=[[UILocalNotification alloc] init];   
+        NSDate *now = [NSDate date];    
+        notification.timeZone = [NSTimeZone defaultTimeZone];   
+        notification.repeatInterval = NSDayCalendarUnit;   
+        notification.alertAction = NSLocalizedString(@"STR_OK", nil);   
+        notification.fireDate = [now dateByAddingTimeInterval:0];  
+        
+        NSArray *stringArray = [NSArray arrayWithObjects:NSLocalizedString(@"STR_APPISTERMINATED", nil), [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:now], nil];
+        NSString *bodyString = [stringArray componentsJoinedByString:@" "];
+        
+        notification.alertBody = bodyString;
+        [notification setSoundName:UILocalNotificationDefaultSoundName]; 
+        
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:   
+                              NOTIFICATION_APPISTERMINATED, NOTIFICATION_TYPE, nil];   
+        [notification setUserInfo:dict];   
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];   
+        [notification release];        
+    }
+}
+
 -(void) popUILocalNotificationForNoSignal:(NSNumber*) signalVal
 {
     if ([ISAppConfigs isNotificationOn])
@@ -80,7 +105,10 @@
             NSDate *now = [NSDate date];    
             notification.timeZone = [NSTimeZone defaultTimeZone];   
             notification.repeatInterval = NSDayCalendarUnit;   
-            notification.applicationIconBadgeNumber = notification.applicationIconBadgeNumber + 1;   
+
+            UIApplication *application = [UIApplication sharedApplication];
+            application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;   
+           
             notification.alertAction = NSLocalizedString(@"STR_DISPLAY", nil);   
             notification.fireDate = [now dateByAddingTimeInterval:0];  
             
@@ -94,6 +122,7 @@
                                   NOTIFICATION_NOSIGNAL, NOTIFICATION_TYPE, nil];   
             [notification setUserInfo:dict];   
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];   
+   
             [notification release];
         }          
     }

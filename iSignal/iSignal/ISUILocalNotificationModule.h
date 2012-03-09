@@ -14,8 +14,11 @@
 
 -(void) popUILocalNotificationForNoSignal:(NSNumber*) signalVal;
 
+-(void) popUILocalNotificationForAppIsTerminated;
+
 -(void) cancelUILocalNotifications:(NSString*) type;
 
 -(void) cancelAllUILocalNotifications;
+
 
 @end

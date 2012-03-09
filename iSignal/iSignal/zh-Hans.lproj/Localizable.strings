@@ -33,4 +33,5 @@ STR_QUALITY_SIGNAL_2 = "信号质量二级";
 STR_QUALITY_SIGNAL_3 = "信号质量三级";
 STR_QUALITY_SIGNAL_4 = "信号质量四级";
 STR_QUALITY_SIGNAL_5 = "信号质量五级";
+STR_APPISTERMINATED = "应用已被终止";
 STR_HELP_INFO = "iSignal是一个可以用来监视你的iPhone蜂窝信号质量并在信号丢失时发出警报的应用程序，通过使用它你可以清楚地知道何时何地你的手机曾经没有信号过。";
