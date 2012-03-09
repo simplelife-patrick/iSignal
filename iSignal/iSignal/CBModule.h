@@ -22,6 +22,7 @@
 -(void) initModule;
 -(void) startService;
 -(void) processService;
+-(void) pauseService;
 -(void) serviceWithIndividualThread;
 -(void) serviceWithCallingThread;
 -(void) stopService;

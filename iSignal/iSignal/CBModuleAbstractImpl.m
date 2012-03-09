@@ -82,6 +82,12 @@
 }
 
 // Method of CBModule protocol
+-(void) pauseService
+{
+    
+}
+
+// Method of CBModule protocol
 -(void) serviceWithIndividualThread
 {
     DLog(@"Module:%@ is in service with individual thread.", self.moduleIdentity);
