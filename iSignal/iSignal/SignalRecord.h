@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSString * carrier;
+@property (nonatomic, retain) NSNumber * speed;
 
 @end

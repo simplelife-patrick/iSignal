@@ -19,5 +19,6 @@
 @dynamic time;
 @dynamic type;
 @dynamic carrier;
+@dynamic speed;
 
 @end

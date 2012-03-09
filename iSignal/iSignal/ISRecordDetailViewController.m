@@ -142,6 +142,14 @@
             cell.detailTextLabel.text = timeString;
             break;
         }
+        case TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_SPEED_INDEX:
+        {
+            cell.textLabel.text = TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_SPEED_NAME;
+            double speedVal = [_signalRecord.speed doubleValue];
+            NSString *speedString = (0 < speedVal) ? [NSString stringWithFormat:@"%.2f", speedVal] : NSLocalizedString(@"STR_UNAVAILABLE", nil);
+            cell.detailTextLabel.text = speedString;
+            break;
+        }
         default:
         {
             break;

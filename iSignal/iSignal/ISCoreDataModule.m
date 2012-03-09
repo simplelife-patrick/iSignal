@@ -72,6 +72,8 @@
             record.latitude = [NSNumber numberWithDouble:latitude];
             CLLocationDegrees longitude = currentLocation.coordinate.longitude;
             record.longitude = [NSNumber numberWithDouble:longitude];
+            CLLocationSpeed speedVal = currentLocation.speed;
+            record.speed = [NSNumber numberWithDouble:speedVal];
         }
     }
     
