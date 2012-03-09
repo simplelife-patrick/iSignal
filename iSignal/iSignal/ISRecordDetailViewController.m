@@ -105,13 +105,13 @@
 // Method of UITableViewDataSource protocol
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return DETAILTABLE_SECTION_DETAIL_ITEM_COUNT;
+    return TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_COUNT;
 }
 
 // Method of UITableViewDataSource protocol
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {    
-    static NSString *CustomCellIdentifier = CELL_IDENTIFIER_SIGNALRECORD_DETAIL;
+    static NSString *CustomCellIdentifier = TABLECELL_TYPE_SIGNALRECORDDETAIL;
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
     if (nil == cell) 
@@ -122,21 +122,21 @@
     NSInteger rowIndex = [indexPath row];
     switch (rowIndex) 
     {
-        case DETAILTABLE_SECTION_DETAIL_ITEM_CARRIER_INDEX:
+        case TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_CARRIER_INDEX:
         {
-            cell.textLabel.text = DETAILTABLE_SECTION_DETAIL_ITEM_CARRIER_NAME;
+            cell.textLabel.text = TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_NAME_CARRIER;
             cell.detailTextLabel.text = _signalRecord.carrier;
             break;            
         }
-        case DETAILTABLE_SECTION_DETAIL_ITEM_TYPE_INDEX:
+        case TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_TYPE_INDEX:
         {
-            cell.textLabel.text = DETAILTABLE_SECTION_DETAIL_ITEM_TYPE_NAME;
+            cell.textLabel.text = TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_TYPE_NAME;
             cell.detailTextLabel.text = [CBTelephonyUtils signalQualityText:[_signalRecord.type intValue]];
             break;
         }
-        case DETAILTABLE_SECTION_DETAIL_ITEM_TIME_INDEX:
+        case TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_TIME_INDEX:
         {
-            cell.textLabel.text = DETAILTABLE_SECTION_DETAIL_ITEM_TIME_NAME;
+            cell.textLabel.text = TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_TIME_NAME;
             NSDate *time = _signalRecord.time;
             NSString *timeString = [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:time];
             cell.detailTextLabel.text = timeString;
@@ -154,7 +154,7 @@
 // Method of UITableViewDataSource protocol
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return DETAILTABLE_SECTION_NAME_DETAIL;
+    return TABLE_SIGNALRECORDDETAIL_NAME_DETAIL;
 }
 
 @end

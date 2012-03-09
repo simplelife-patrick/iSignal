@@ -20,7 +20,7 @@
 {
     //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
     UIImage* itemImage = nil;
-    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HELP", nil) image:itemImage tag:TABVIEW_INDEX_ISHELPVIEW];
+    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HELP", nil) image:itemImage tag:TABVIEW_INDEX_HELPVIEW];
     self.tabBarItem = theItem;
     [theItem release];    
 }

@@ -15,8 +15,8 @@
 {    
     [super initModule];
     
-    [self setModuleIdentity:MODULE_IDENTITY_UILOCALNOTIFICATION_MODULE];
-    [self.serviceThread setName:MODULE_IDENTITY_UILOCALNOTIFICATION_MODULE];
+    [self setModuleIdentity:MODULE_ID_LOCALNOTIFICATION];
+    [self.serviceThread setName:MODULE_ID_LOCALNOTIFICATION];
 }
 
 // Overrided Method of CBModuleAbstractImpl
@@ -80,7 +80,7 @@
             NSDate *now = [NSDate date];    
             notification.timeZone = [NSTimeZone defaultTimeZone];   
             notification.repeatInterval = NSDayCalendarUnit;   
-            ++notification.applicationIconBadgeNumber;   
+            notification.applicationIconBadgeNumber = notification.applicationIconBadgeNumber + 1;   
             notification.alertAction = NSLocalizedString(@"STR_DISPLAY", nil);   
             notification.fireDate = [now dateByAddingTimeInterval:0];  
             

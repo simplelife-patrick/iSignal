@@ -147,7 +147,7 @@
 // Method of UITableViewController
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = KEY_CELL_IDENTIFIER;
+    static NSString *CellIdentifier = TABLECELL_TYPE_SIGNALRECORD;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 

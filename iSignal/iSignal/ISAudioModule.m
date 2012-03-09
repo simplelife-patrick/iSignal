@@ -17,8 +17,8 @@
 {    
     [super initModule];
     
-    [self setModuleIdentity:MODULE_IDENTITY_AUDIO_MODULE];
-    [self.serviceThread setName:MODULE_IDENTITY_AUDIO_MODULE];
+    [self setModuleIdentity:MODULE_ID_AUDIO];
+    [self.serviceThread setName:MODULE_ID_AUDIO];
 }
 
 // Overrided Method of CBModuleAbstractImpl

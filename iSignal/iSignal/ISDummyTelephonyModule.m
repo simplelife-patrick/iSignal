@@ -54,9 +54,9 @@ static NSArray* CARRIER_LIST;
 // Static method
 +(NSInteger) randomSignalStrength
 {
-    NSInteger loss = CELLULAR_SIGNAL_STRENGTH_LOSS;
-    NSInteger low = CELLULAR_SIGNAL_STRENGTH_LOWEST;
-    NSInteger high = CELLULAR_SIGNAL_STRENGTH_HIGHEST;
+    NSInteger loss = CELLULAR_SIGNALSTRENGTH_LOSS;
+    NSInteger low = CELLULAR_SIGNALSTRENGTH_LOWEST;
+    NSInteger high = CELLULAR_SIGNALSTRENGTH_HIGHEST;
     NSInteger signalVal = [CBMathUtils generateRandomNSInteger:(low - loss) andMax:high];
     
     return signalVal;
@@ -106,7 +106,7 @@ static NSArray* CARRIER_LIST;
 {
     [self refreshSignalStrength];
     // Here current thread need to sleep for a small period
-    NSInteger interval = [CBMathUtils generateRandomNSInteger:REFRESH_PERIOD_SMALL andMax:REFRESH_PERIOD_LONG];
+    NSInteger interval = [CBMathUtils generateRandomNSInteger:DUMMY_REFRESH_PERIOD_SMALL andMax:DUMMY_REFRESH_PERIOD_LONG];
     [NSThread sleepForTimeInterval:interval];    
 }
 

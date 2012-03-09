@@ -16,30 +16,30 @@
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
         
-    id ringAlarmVal = [configs valueForKey:CONFIG_ALARM_RING];
+    id ringAlarmVal = [configs valueForKey:APPCONFIG_ALARM_RING];
     if(nil == ringAlarmVal)
     {
-        [configs setBool:TRUE forKey:CONFIG_ALARM_RING];
+        [configs setBool:TRUE forKey:APPCONFIG_ALARM_RING];
     }
         
-    id vibrateAlarmVal = [configs valueForKey:CONFIG_ALARM_VIBRATE];
+    id vibrateAlarmVal = [configs valueForKey:APPCONFIG_ALARM_VIBRATE];
     if (nil == vibrateAlarmVal) 
     {
-        [configs setBool:TRUE forKey:CONFIG_ALARM_VIBRATE];
+        [configs setBool:TRUE forKey:APPCONFIG_ALARM_VIBRATE];
     }
 
     BOOL isLocationServiceEnabled = [CBLocationManager isLocationServiceEnabled];
     if(isLocationServiceEnabled)
     {
-        id locationVal = [configs valueForKey:CONFIG_LOCATION];
+        id locationVal = [configs valueForKey:APPCONFIG_LOCATION];
         if(nil == locationVal)
         {
-            [configs setBool:isLocationServiceEnabled forKey:CONFIG_LOCATION];
+            [configs setBool:isLocationServiceEnabled forKey:APPCONFIG_LOCATION];
         }
     }
     else
     {
-        [configs setBool:FALSE forKey:CONFIG_LOCATION];
+        [configs setBool:FALSE forKey:APPCONFIG_LOCATION];
     }
 }
 
@@ -47,37 +47,37 @@
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
     
-    return [configs boolForKey:CONFIG_ALARM_RING];
+    return [configs boolForKey:APPCONFIG_ALARM_RING];
 }
 
 +(void) setRingAlarmOn:(BOOL)flag
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
-    [configs setBool:flag forKey:CONFIG_ALARM_RING];
+    [configs setBool:flag forKey:APPCONFIG_ALARM_RING];
 }
 
 +(BOOL) isVibrateAlarmOn
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];    
-    return [configs boolForKey:CONFIG_ALARM_VIBRATE];
+    return [configs boolForKey:APPCONFIG_ALARM_VIBRATE];
 }
 
 +(void) setVibrateAlarmOn:(BOOL)flag
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];    
-    [configs setBool:flag forKey:CONFIG_ALARM_VIBRATE];
+    [configs setBool:flag forKey:APPCONFIG_ALARM_VIBRATE];
 }
 
 +(BOOL) isLocationOn
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
-    return [configs boolForKey:CONFIG_LOCATION];
+    return [configs boolForKey:APPCONFIG_LOCATION];
 }
 
 +(void) setLocationOn:(BOOL)flag
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
-    [configs setBool:flag forKey:CONFIG_LOCATION];
+    [configs setBool:flag forKey:APPCONFIG_LOCATION];
     
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     if(flag)
@@ -101,13 +101,13 @@
 +(BOOL) isNotificationOn
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];    
-    return [configs boolForKey:CONFIG_NOTIFICATION];    
+    return [configs boolForKey:APPCONFIG_NOTIFICATION];    
 }
 
 +(void) setNotificationOn:(BOOL) flag
 {
     NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];    
-    [configs setBool:flag forKey:CONFIG_NOTIFICATION];   
+    [configs setBool:flag forKey:APPCONFIG_NOTIFICATION];   
 }
 
 - (void)dealloc 

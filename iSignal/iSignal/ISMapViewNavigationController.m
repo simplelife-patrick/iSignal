@@ -14,7 +14,7 @@
 {
     //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
     UIImage* itemImage = nil;
-    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_MAP", nil) image:itemImage tag:TABVIEW_INDEX_ISMAPVIEW];
+    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_MAP", nil) image:itemImage tag:TABVIEW_INDEX_MAPVIEW];
     self.tabBarItem = theItem;
     [theItem release];    
 }

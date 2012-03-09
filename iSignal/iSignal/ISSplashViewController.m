@@ -70,7 +70,7 @@
     // App Configs module start
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     
-    [self updateProgress:MODULE_IDENTITY_APP_CONFIGS andPercents:0.2];
+    [self updateProgress:MODULE_ID_APPCONFIGS andPercents:0.2];
     [ISAppConfigs initConfigsIfNecessary];
     
     // Location module start
@@ -94,7 +94,7 @@
     [isCoreDataM release];
     
     // Audio module start
-    [self updateProgress:MODULE_IDENTITY_AUDIO_MODULE andPercents:0.8];
+    [self updateProgress:MODULE_ID_AUDIO andPercents:0.8];
     ISAudioModule *isAM = [[ISAudioModule alloc] init];
     appDelegate.audioModule = isAM;
     [appDelegate.audioModule initModule];
@@ -111,7 +111,7 @@
     [isDummyT release];
     
     // ISUILocalNotification module start
-    [self updateProgress:MODULE_IDENTITY_UILOCALNOTIFICATION_MODULE andPercents:1.0];
+    [self updateProgress:MODULE_ID_LOCALNOTIFICATION andPercents:1.0];
     ISUILocalNotificationModule *isULNM = [[ISUILocalNotificationModule alloc] initWithIsIndividualThreadNecessary: FALSE];
     appDelegate.uiLocalNotificationModule = isULNM;
     [appDelegate.uiLocalNotificationModule initModule];

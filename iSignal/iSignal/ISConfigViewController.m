@@ -16,7 +16,7 @@
 {
     //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
     UIImage* itemImage = nil;
-    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_CONFIG", nil) image:itemImage tag:TABVIEW_INDEX_ISCONFIGVIEW];
+    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_CONFIG", nil) image:itemImage tag:TABVIEW_INDEX_CONFIGVIEW];
     self.tabBarItem = theItem;
     [theItem release];    
 }
@@ -44,14 +44,14 @@
     // TODO: Need to be updated once here are more than one section.
 
     // Only one section's item here
-    return CONFIG_TABLE_SECTION_CONFIG_ITEM_COUNT;
+    return TABLE_CONFIG_SECTION_CONFIG_ITEM_COUNT;
 }
 
 // Method of UITableViewDataSource protocol
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    static NSString *CustomCellIdentifier = CELL_IDENTIFIER_APPCONFIG;
+    static NSString *CustomCellIdentifier = TABLECELL_TYPE_APPCONFIG;
     ISConfigSwitcherCell *cell = (ISConfigSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
     if (nil == cell) 
     {  
@@ -63,23 +63,23 @@
         NSInteger rowIndex = [indexPath row];
         switch (rowIndex) 
         {
-            case CONFIG_TABLE_SECTION_CONFIG_ITEM_RING_INDEX:
+            case TABLE_CONFIG_SECTION_CONFIG_ITEM_RING_INDEX:
             {
-                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_RING_NAME;
+                cell.switcherLabel.text = TABLE_CONFIG_SECTION_CONFIG_ITEM_RING_NAME;
                 [cell.switcher setOn:[ISAppConfigs isRingAlarmOn]];
                 [cell.switcher addTarget:self action:@selector(ringAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
                 break;
             }
-            case CONFIG_TABLE_SECTION_CONFIG_ITEM_VIBRATE_INDEX:
+            case TABLE_CONFIG_SECTION_CONFIG_ITEM_VIBRATE_INDEX:
             {
-                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_VIBRATE_NAME;
+                cell.switcherLabel.text = TABLE_CONFIG_SECTION_CONFIG_ITEM_VIBRATE_NAME;
                 [cell.switcher setOn:[ISAppConfigs isVibrateAlarmOn]];
                 [cell.switcher addTarget:self action:@selector(vibrateAlarmStateChanged:) forControlEvents:UIControlEventValueChanged];
                 break;
             }
-            case CONFIG_TABLE_SECTION_CONFIG_ITEM_LOCATION_INDEX:
+            case TABLE_CONFIG_SECTION_CONFIG_ITEM_LOCATION_INDEX:
             {
-                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_LOCATION_NAME;
+                cell.switcherLabel.text = TABLE_CONFIG_SECTION_CONFIG_ITEM_LOCATION_NAME;
                 [cell.switcher setOn:[ISAppConfigs isLocationOn]];
                 [cell.switcher addTarget:self action:@selector(locationStateChanged:) forControlEvents:UIControlEventValueChanged];
                 if (![CBLocationManager isLocationServiceEnabled]) 
@@ -88,9 +88,9 @@
                 }
                 break;
             }
-            case CONFIG_TABLE_SECTION_CONFIG_ITEM_NOTIFICATION_INDEX:
+            case TABLE_CONFIG_SECTION_CONFIG_ITEM_NOTIFICATION_INDEX:
             {
-                cell.switcherLabel.text = CONFIG_TABLE_SECTION_CONFIG_ITEM_NOTIFICATION_NAME;
+                cell.switcherLabel.text = TABLE_CONFIG_SECTION_CONFIG_ITEM_NOTIFICATION_NAME;
                 [cell.switcher setOn:[ISAppConfigs isNotificationOn]];
                 [cell.switcher addTarget:self action:@selector(notificationStateChanged:) forControlEvents:UIControlEventValueChanged];
                 // TODO: If user set notification disabled outside of this app(in system configurations), here should be same by codes check
@@ -109,7 +109,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     // Only one section here
-    return CONFIG_TABLE_SECTION_NAME_CONFIG;
+    return TABLE_CONFIG_SECTION_NAME_CONFIG;
 }
 
 - (void)ringAlarmStateChanged:(id) sender

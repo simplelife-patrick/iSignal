@@ -37,12 +37,12 @@
     ISHomeViewController *isHomeVC = [[ISHomeViewController alloc] initWithNibName:NIB_HOMEVIEW_CONTROLLER bundle:nil];
     self.homeViewController = isHomeVC;
     [isHomeVC release];
-    [self.homeViewController.view setTag:TABVIEW_INDEX_ISHOMEVIEW];
+    [self.homeViewController.view setTag:TABVIEW_INDEX_HOMEVIEW];
     
     ISRecordsViewController *isRecordVC = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
     self.recordsViewController = isRecordVC;
     [isRecordVC release];
-    [self.recordsViewController.view setTag:TABVIEW_INDEX_ISRECORDSVIEW];
+    [self.recordsViewController.view setTag:TABVIEW_INDEX_RECORDSVIEW];
     
     ISRecordsViewNavigationController *isRVNC = [[ISRecordsViewNavigationController alloc] initWithRootViewController: self.recordsViewController];
     self.recordsViewNavigationController = isRVNC;
@@ -51,7 +51,7 @@
     ISMapViewController *isMapVC = [[ISMapViewController alloc] initWithNibName:NIB_MAPVIEW_CONTROLLER bundle:nil];
     self.mapViewController = isMapVC;
     [isMapVC release];
-    [self.mapViewController.view setTag:TABVIEW_INDEX_ISMAPVIEW];
+    [self.mapViewController.view setTag:TABVIEW_INDEX_MAPVIEW];
     
     ISMapViewNavigationController *isMVNC = [[ISMapViewNavigationController alloc] initWithRootViewController:self.mapViewController];
     self.mapViewNavigationController = isMVNC;
@@ -60,12 +60,12 @@
     ISConfigViewController *isConfigVC = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
     self.configViewController = isConfigVC;
     [isConfigVC release];
-    [self.configViewController.view setTag:TABVIEW_INDEX_ISCONFIGVIEW];    
+    [self.configViewController.view setTag:TABVIEW_INDEX_CONFIGVIEW];    
     
     ISHelpViewController *isHelpVC = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
     self.helpViewController = isHelpVC;
     [isHelpVC release];
-    [self.helpViewController.view setTag:TABVIEW_INDEX_ISHELPVIEW];
+    [self.helpViewController.view setTag:TABVIEW_INDEX_HELPVIEW];
     
     [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController, self.configViewController, self.helpViewController, nil] animated:FALSE];
     

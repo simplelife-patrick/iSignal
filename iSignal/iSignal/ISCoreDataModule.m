@@ -21,7 +21,7 @@
 // Static block
 +(void) initialize
 {
-    gFetchedResultsControllerIdentifier_signalRecord = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_FETCH_BTACH_SIZE ascending:DB_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
+    gFetchedResultsControllerIdentifier_signalRecord = [[CBFetchedResultsControllerIdentifier alloc] initWithTableName:DB_TABLE_SIGNALRECORD fetchBatchSize:DB_TABLE_SIGNALRECORD_FETCH_BATCH_SIZE ascending:DB_TABLE_SIGNALRECORD_FETCH_ASCENDING descriptorName:DB_TABLE_SIGNALRECORD_FIELD_TIME tableCacheName:DB_TABLE_SIGNALRECORD_CACHE];
 }
 
 -(void) registerNSFetchedResultsControllerDelegate:(CBFetchedResultsControllerIdentifier*) frcIdentifier andDelegate:(NSObject<NSFetchedResultsControllerDelegate>*) delegate
