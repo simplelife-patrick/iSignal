@@ -41,6 +41,8 @@
     {
         [configs setBool:FALSE forKey:APPCONFIG_LOCATION];
     }
+    
+    [configs setBool:TRUE forKey:APPCONFIG_NOTIFICATION];
 }
 
 +(BOOL) isRingAlarmOn
