@@ -57,6 +57,7 @@
 		C5BD38F8141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BD38F7141EEF2200A1D4E6 /* CBFetchedResultsControllerIdentifier.m */; };
 		C5BEB01B1400C32F0083A86A /* ISHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BEB0191400C32F0083A86A /* ISHelpViewController.m */; };
 		C5BEB01C1400C32F0083A86A /* ISHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */; };
+		C5C10BC3150E15980088944D /* ISSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5C10BC2150E15980088944D /* ISSwitchViewController.xib */; };
 		C5CD004714EFEC5000FC0D02 /* ISMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */; };
 		C5CD42C713FF8826009C5741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42C613FF8826009C5741 /* UIKit.framework */; };
 		C5CD42C913FF8826009C5741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42C813FF8826009C5741 /* Foundation.framework */; };
@@ -69,7 +70,6 @@
 		C5CD42DF13FF8826009C5741 /* iSignal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */; };
 		C5E5D77214EBE786007E0F2D /* CBDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E5D77114EBE786007E0F2D /* CBDateUtils.m */; };
 		C5E6C8BC140F2D9400D81647 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E6C8BB140F2D9400D81647 /* MapKit.framework */; };
-		C5F5AF2B150DF1C200AA6B0D /* ISSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F5AF2A150DF1C100AA6B0D /* ISSwitchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +157,7 @@
 		C5BEB0181400C32F0083A86A /* ISHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHelpViewController.h; sourceTree = "<group>"; };
 		C5BEB0191400C32F0083A86A /* ISHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewController.m; sourceTree = "<group>"; };
 		C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHelpViewController.xib; sourceTree = "<group>"; };
+		C5C10BC2150E15980088944D /* ISSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSwitchViewController.xib; sourceTree = "<group>"; };
 		C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMapAnnotation.m; sourceTree = "<group>"; };
 		C5CD42C213FF8826009C5741 /* iSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CD42C613FF8826009C5741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -174,7 +175,6 @@
 		C5E5D77014EBE786007E0F2D /* CBDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDateUtils.h; sourceTree = "<group>"; };
 		C5E5D77114EBE786007E0F2D /* CBDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBDateUtils.m; sourceTree = "<group>"; };
 		C5E6C8BB140F2D9400D81647 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C5F5AF2A150DF1C100AA6B0D /* ISSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSwitchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,7 +378,7 @@
 			children = (
 				C5CD42DA13FF8826009C5741 /* MainWindow.xib */,
 				C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */,
-				C5F5AF2A150DF1C100AA6B0D /* ISSwitchViewController.xib */,
+				C5C10BC2150E15980088944D /* ISSwitchViewController.xib */,
 				C57329C2140096B40061D973 /* ISHomeViewController.xib */,
 				C57329C714009A2F0061D973 /* ISConfigViewController.xib */,
 				C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */,
@@ -466,7 +466,7 @@
 				C52871AE14FF09F500B0630A /* noSignal256.png in Resources */,
 				C54E84E015045763006A9C4A /* ISRecordDetailViewController.xib in Resources */,
 				C5883CC2150D9C8700359C1A /* ISMonitorViewController.xib in Resources */,
-				C5F5AF2B150DF1C200AA6B0D /* ISSwitchViewController.xib in Resources */,
+				C5C10BC3150E15980088944D /* ISSwitchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
