@@ -58,13 +58,18 @@
 
 - (void)relocateUser
 {
-    CLLocationCoordinate2D coordinate = _mapView.userLocation.location.coordinate; 
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, ISMAPVIEW_SPAN_LATITUDE, ISMAPVIEW_SPAN_LONGITUDE);
-    MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
-    [_mapView setRegion:adjustedRegion animated:TRUE]; 
-    
     _mapView.showsUserLocation = TRUE;
+    
+    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+    CLLocation *curLocation = appDelegate.locationModule.currentLocation;
+    
+    if (curLocation) 
+    {
+        CLLocationCoordinate2D coordinate = curLocation.coordinate;
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, ISMAPVIEW_SPAN_LATITUDE, ISMAPVIEW_SPAN_LONGITUDE);
+        MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
+        [_mapView setRegion:adjustedRegion animated:TRUE]; 
+    }
     
     [self rebuildMapAnnotations];    
 }
