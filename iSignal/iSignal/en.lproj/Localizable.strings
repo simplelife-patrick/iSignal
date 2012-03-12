@@ -8,8 +8,9 @@
 
 STR_TAB_HOME = "HOME";
 STR_TAB_MAP = "MAP";
-STR_TAB_CONFIG = "CONFIG";
 STR_TAB_RECORDS = "RECORDS";
+STR_TAB_MONITOR = "MONITOR";
+STR_TAB_CONFIG = "CONFIG";
 STR_TAB_HELP = "HELP";
 STR_CMCC = "CMCC";
 STR_CUNI = "CUNI";
@@ -29,6 +30,7 @@ STR_TYPE = "Type";
 STR_TIME = "Time";
 STR_SPEED = "Speed(m/s)";
 STR_UNAVAILABLE = "Unavailable";
+STR_ADDRESS = "Address";
 STR_QUALITY_SIGNAL_0 = "No Signal";
 STR_QUALITY_SIGNAL_1 = "Signal Quality Level 1";
 STR_QUALITY_SIGNAL_2 = "Signal Quality Level 2";

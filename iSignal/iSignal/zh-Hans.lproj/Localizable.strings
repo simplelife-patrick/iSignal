@@ -8,8 +8,9 @@
 
 STR_TAB_HOME = "主屏";
 STR_TAB_MAP = "地图";
-STR_TAB_CONFIG = "配置";
 STR_TAB_RECORDS = "记录";
+STR_TAB_MONITOR = "监控";
+STR_TAB_CONFIG = "配置";
 STR_TAB_HELP = "帮助";
 STR_CMCC = "中国移动";
 STR_CUNI = "中国联通";
@@ -29,6 +30,7 @@ STR_TYPE = "类型";
 STR_TIME = "时间";
 STR_SPEED = "速度（米/秒）";
 STR_UNAVAILABLE = "无效";
+STR_ADDRESS = "地址";
 STR_QUALITY_SIGNAL_0 = "无信号";
 STR_QUALITY_SIGNAL_1 = "信号质量一级";
 STR_QUALITY_SIGNAL_2 = "信号质量二级";
