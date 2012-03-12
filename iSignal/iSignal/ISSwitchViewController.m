@@ -79,7 +79,7 @@
     self.helpViewController = isHelpVC;
     [isHelpVC release];
     
-    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController,self.configViewController, self.helpViewController, nil] animated:FALSE];
+    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController,self.monitorViewController, self.configViewController, self.helpViewController, nil] animated:FALSE];
 
     [self setSelectedViewController:homeViewController];
     
