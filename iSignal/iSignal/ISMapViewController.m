@@ -149,8 +149,6 @@
     // Inject delegate(self) to MKMapViewDelegate object
     _mapView.delegate = self;
     
-    [self.navigationController pushViewController:self animated:TRUE];
-    
     [self registerNSFetchedResultsControllerDelegate];    
 }
 

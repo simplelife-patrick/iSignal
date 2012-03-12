@@ -150,6 +150,12 @@
             cell.detailTextLabel.text = speedString;
             break;
         }
+        case TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_ADDRESS_INDEX:
+        {
+            cell.textLabel.text = TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_ADDRESS_NAME;
+            cell.detailTextLabel.text = nil;
+            break;
+        }
         default:
         {
             break;

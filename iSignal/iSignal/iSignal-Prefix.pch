@@ -20,4 +20,5 @@
 
     #import "ISMacroDefinitions.h"
     #import "ISAppConfigs.h"
+    #import "SignalRecord.h"
 #endif

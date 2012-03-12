@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-#import "SignalRecord.h"
-
 static NSString* ISMapAnnotationIdentifier = @"ISMapAnnotationIdentifier";
 
 @interface ISMapAnnotation : NSObject <MKAnnotation>

@@ -11,7 +11,6 @@
 #import <CoreData/CoreData.h>
 
 #import "ISMapAnnotation.h"
-#import "SignalRecord.h"
 #import "ISRecordDetailViewController.h"
 
 @interface ISMapViewController : UIViewController <MKMapViewDelegate,NSFetchedResultsControllerDelegate>

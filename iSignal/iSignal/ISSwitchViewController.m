@@ -11,11 +11,17 @@
 @implementation ISSwitchViewController
 
 @synthesize homeViewController;
-@synthesize configViewController;
-@synthesize mapViewController;
-@synthesize recordsViewNavigationController;
-@synthesize mapViewNavigationController;
+
 @synthesize recordsViewController;
+@synthesize recordsViewNavigationController;
+
+@synthesize mapViewController;
+@synthesize mapViewNavigationController;
+
+@synthesize monitorViewController;
+
+@synthesize configViewController;
+
 @synthesize helpViewController;
 
 // Manual Codes Begins
@@ -23,12 +29,19 @@
 - (void)dealloc 
 {
     [homeViewController release];
-    [helpViewController release];
-    [configViewController release];
-    [mapViewController release];
-    [recordsViewController release];
+
+    [recordsViewController release];    
     [recordsViewNavigationController release];
+    
+    [mapViewController release];
     [mapViewNavigationController release];
+    
+    [monitorViewController release];
+
+    [configViewController release];
+    
+    [helpViewController release];
+
     [super dealloc];
 }
 
@@ -37,12 +50,10 @@
     ISHomeViewController *isHomeVC = [[ISHomeViewController alloc] initWithNibName:NIB_HOMEVIEW_CONTROLLER bundle:nil];
     self.homeViewController = isHomeVC;
     [isHomeVC release];
-    [self.homeViewController.view setTag:TABVIEW_INDEX_HOMEVIEW];
     
     ISRecordsViewController *isRecordVC = [[ISRecordsViewController alloc] initWithNibName:NIB_RECORDSVIEW_CONTROLLER bundle:nil];
     self.recordsViewController = isRecordVC;
     [isRecordVC release];
-    [self.recordsViewController.view setTag:TABVIEW_INDEX_RECORDSVIEW];
     
     ISRecordsViewNavigationController *isRVNC = [[ISRecordsViewNavigationController alloc] initWithRootViewController: self.recordsViewController];
     self.recordsViewNavigationController = isRVNC;
@@ -51,45 +62,53 @@
     ISMapViewController *isMapVC = [[ISMapViewController alloc] initWithNibName:NIB_MAPVIEW_CONTROLLER bundle:nil];
     self.mapViewController = isMapVC;
     [isMapVC release];
-    [self.mapViewController.view setTag:TABVIEW_INDEX_MAPVIEW];
     
     ISMapViewNavigationController *isMVNC = [[ISMapViewNavigationController alloc] initWithRootViewController:self.mapViewController];
     self.mapViewNavigationController = isMVNC;
     [isMVNC release];
     
+    ISMonitorViewController *isMonVC = [[ISMonitorViewController alloc] initWithNibName:NIB_MONITORVIEW_CONTROLLER bundle:nil];
+    self.monitorViewController = isMonVC;
+    [isMonVC release];
+    
     ISConfigViewController *isConfigVC = [[ISConfigViewController alloc] initWithNibName:NIB_CONFIGVIEW_CONTROLLER bundle:nil];
     self.configViewController = isConfigVC;
-    [isConfigVC release];
-    [self.configViewController.view setTag:TABVIEW_INDEX_CONFIGVIEW];    
+    [isConfigVC release];  
     
     ISHelpViewController *isHelpVC = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
     self.helpViewController = isHelpVC;
     [isHelpVC release];
-    [self.helpViewController.view setTag:TABVIEW_INDEX_HELPVIEW];
     
-    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController, self.configViewController, self.helpViewController, nil] animated:FALSE];
-    
+    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController,self.configViewController, self.helpViewController, nil] animated:FALSE];
+
     [self setSelectedViewController:homeViewController];
     
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
-    [appDelegate.dummyTelephonyModule startService];    
+    [appDelegate.dummyTelephonyModule startService];   
 }
 
 - (void)viewDidLoad
 {
-    [self loadTabViews];
     [super viewDidLoad];
+    [self loadTabViews];
 }
 
 - (void)viewDidUnload
 {
     [self setHomeViewController:nil];
-    [self setHelpViewController:nil];
-    [self setConfigViewController:nil];
-    [self setMapViewController:nil];
+
     [self setRecordsViewController:nil];
     [self setRecordsViewNavigationController:nil];
-    [self setMapViewNavigationController:nil];
+    
+    [self setMapViewController:nil];
+    [self setMapViewNavigationController:nil];    
+    
+    [self setMonitorViewController:nil];    
+    
+    [self setConfigViewController:nil];    
+    
+    [self setHelpViewController:nil];
+    
     [super viewDidUnload];
 }
 
@@ -116,25 +135,28 @@
 // Method of UITabBarControllerDelegate protocol
 - (void) tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
 {
-    
+
 }
 
 // Method of UITabBarControllerDelegate protocol
 - (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    
+    if ([viewController isKindOfClass:[UINavigationController class]]) 
+    {
+        [(UINavigationController *)viewController popToRootViewControllerAnimated:YES];
+    }    
 }
 
 // Method of UITabBarControllerDelegate protocol
 - (void) tabBarController:(UITabBarController *)tabBarController willBeginCustomizingViewControllers:(NSArray *)viewControllers
 {
-    
+
 }
 
 // Method of UITabBarControllerDelegate protocol
 - (void) tabBarController:(UITabBarController *)tabBarController willEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
 {
-    
+
 }
 
 // Manual Codes Ends
@@ -144,7 +166,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        // Custom initialization
     }
     return self;
 }

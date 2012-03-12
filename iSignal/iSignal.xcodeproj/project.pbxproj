@@ -36,7 +36,6 @@
 		C56F97DC141065F5002FC302 /* ISRecordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C56F97D9141065F5002FC302 /* ISRecordsViewController.xib */; };
 		C56F97DD141065F5002FC302 /* ISRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56F97DA141065F5002FC302 /* ISRecordsViewController.m */; };
 		C572065A140E602C00FD108F /* ISConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5720659140E602C00FD108F /* ISConfigViewController.m */; };
-		C572066D140E66DD00FD108F /* ISSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C572066C140E66DD00FD108F /* ISSwitchViewController.xib */; };
 		C57329C3140096B40061D973 /* ISHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57329C1140096B40061D973 /* ISHomeViewController.m */; };
 		C57329C4140096B40061D973 /* ISHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C2140096B40061D973 /* ISHomeViewController.xib */; };
 		C57329C914009A2F0061D973 /* ISConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C714009A2F0061D973 /* ISConfigViewController.xib */; };
@@ -45,6 +44,8 @@
 		C5882A8C140240F900EC29A6 /* CBEnvironmentUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */; };
 		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
 		C5882A9C14032E9D00EC29A6 /* ISDummyTelephonyModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummyTelephonyModule.m */; };
+		C5883CC1150D9C8700359C1A /* ISMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5883CBF150D9C8700359C1A /* ISMonitorViewController.m */; };
+		C5883CC2150D9C8700359C1A /* ISMonitorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5883CC0150D9C8700359C1A /* ISMonitorViewController.xib */; };
 		C591DDC21407840F00CB2C63 /* Star32.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC11407840F00CB2C63 /* Star32.png */; };
 		C591DDC41407846600CB2C63 /* Star32Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC31407846600CB2C63 /* Star32Highlight.png */; };
 		C5B66186140CFE92000B1F74 /* CBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B66185140CFE92000B1F74 /* CBLocationManager.m */; };
@@ -68,6 +69,7 @@
 		C5CD42DF13FF8826009C5741 /* iSignal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */; };
 		C5E5D77214EBE786007E0F2D /* CBDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E5D77114EBE786007E0F2D /* CBDateUtils.m */; };
 		C5E6C8BC140F2D9400D81647 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E6C8BB140F2D9400D81647 /* MapKit.framework */; };
+		C5F5AF2B150DF1C200AA6B0D /* ISSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F5AF2A150DF1C100AA6B0D /* ISSwitchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,7 +115,6 @@
 		C56F97DA141065F5002FC302 /* ISRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRecordsViewController.m; sourceTree = "<group>"; };
 		C56F97DB141065F5002FC302 /* ISRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRecordsViewController.h; sourceTree = "<group>"; };
 		C5720659140E602C00FD108F /* ISConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISConfigViewController.m; sourceTree = "<group>"; };
-		C572066C140E66DD00FD108F /* ISSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSwitchViewController.xib; sourceTree = "<group>"; };
 		C57329C0140096B40061D973 /* ISHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISHomeViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C57329C1140096B40061D973 /* ISHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHomeViewController.m; sourceTree = "<group>"; };
 		C57329C2140096B40061D973 /* ISHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHomeViewController.xib; sourceTree = "<group>"; };
@@ -128,6 +129,9 @@
 		C5882A9614027EA700EC29A6 /* Requiremens.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Requiremens.rtf; sourceTree = "<group>"; };
 		C5882A9A14032E9D00EC29A6 /* ISDummyTelephonyModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDummyTelephonyModule.h; sourceTree = "<group>"; };
 		C5882A9B14032E9D00EC29A6 /* ISDummyTelephonyModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDummyTelephonyModule.m; sourceTree = "<group>"; };
+		C5883CBE150D9C8700359C1A /* ISMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMonitorViewController.h; sourceTree = "<group>"; };
+		C5883CBF150D9C8700359C1A /* ISMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMonitorViewController.m; sourceTree = "<group>"; };
+		C5883CC0150D9C8700359C1A /* ISMonitorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISMonitorViewController.xib; sourceTree = "<group>"; };
 		C591DDBD1407810700CB2C63 /* iSignal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iSignal.png; sourceTree = SOURCE_ROOT; };
 		C591DDBE1407810700CB2C63 /* iSignalX2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iSignalX2.png; sourceTree = SOURCE_ROOT; };
 		C591DDC11407840F00CB2C63 /* Star32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32.png; sourceTree = SOURCE_ROOT; };
@@ -170,6 +174,7 @@
 		C5E5D77014EBE786007E0F2D /* CBDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDateUtils.h; sourceTree = "<group>"; };
 		C5E5D77114EBE786007E0F2D /* CBDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBDateUtils.m; sourceTree = "<group>"; };
 		C5E6C8BB140F2D9400D81647 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C5F5AF2A150DF1C100AA6B0D /* ISSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSwitchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +281,7 @@
 				C54968111504DFC1004480D8 /* ISRecordsViewNavigationController.m */,
 				C56F97DA141065F5002FC302 /* ISRecordsViewController.m */,
 				C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */,
+				C5883CBF150D9C8700359C1A /* ISMonitorViewController.m */,
 				C547B44B1409D3690037B63F /* ISConfigSwitcherCell.m */,
 				C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */,
 			);
@@ -360,6 +366,7 @@
 				C54968101504DFC1004480D8 /* ISRecordsViewNavigationController.h */,
 				C56F97DB141065F5002FC302 /* ISRecordsViewController.h */,
 				C54E84DC15045763006A9C4A /* ISRecordDetailViewController.h */,
+				C5883CBE150D9C8700359C1A /* ISMonitorViewController.h */,
 				C547B44A1409D3690037B63F /* ISConfigSwitcherCell.h */,
 				C5AC052514EFEF0700AAD6FA /* ISMapAnnotation.h */,
 			);
@@ -371,7 +378,7 @@
 			children = (
 				C5CD42DA13FF8826009C5741 /* MainWindow.xib */,
 				C547B44E1409D3C70037B63F /* ISConfigSwitcherCell.xib */,
-				C572066C140E66DD00FD108F /* ISSwitchViewController.xib */,
+				C5F5AF2A150DF1C100AA6B0D /* ISSwitchViewController.xib */,
 				C57329C2140096B40061D973 /* ISHomeViewController.xib */,
 				C57329C714009A2F0061D973 /* ISConfigViewController.xib */,
 				C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */,
@@ -379,6 +386,7 @@
 				C540250D140F74CD0047ABE3 /* ISMapViewController.xib */,
 				C56F97D9141065F5002FC302 /* ISRecordsViewController.xib */,
 				C54E84DE15045763006A9C4A /* ISRecordDetailViewController.xib */,
+				C5883CC0150D9C8700359C1A /* ISMonitorViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -450,7 +458,6 @@
 				C50F9D6B1409E44B000589BB /* iSignal.png in Resources */,
 				C50F9D6C1409E450000589BB /* iSignalX2.png in Resources */,
 				C531221D140B18560046CD7F /* signalLost.caf in Resources */,
-				C572066D140E66DD00FD108F /* ISSwitchViewController.xib in Resources */,
 				C540250F140F74CD0047ABE3 /* ISMapViewController.xib in Resources */,
 				C56F97DC141065F5002FC302 /* ISRecordsViewController.xib in Resources */,
 				C52871AB14FF09F500B0630A /* Star128Gold.png in Resources */,
@@ -458,6 +465,8 @@
 				C52871AD14FF09F500B0630A /* Star128Black.png in Resources */,
 				C52871AE14FF09F500B0630A /* noSignal256.png in Resources */,
 				C54E84E015045763006A9C4A /* ISRecordDetailViewController.xib in Resources */,
+				C5883CC2150D9C8700359C1A /* ISMonitorViewController.xib in Resources */,
+				C5F5AF2B150DF1C200AA6B0D /* ISSwitchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +524,7 @@
 				C549680E1504DFAE004480D8 /* ISMapViewNavigationController.m in Sources */,
 				C54968121504DFC1004480D8 /* ISRecordsViewNavigationController.m in Sources */,
 				C522B3A415062564006FCFFF /* ISUILocalNotificationModule.m in Sources */,
+				C5883CC1150D9C8700359C1A /* ISMonitorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

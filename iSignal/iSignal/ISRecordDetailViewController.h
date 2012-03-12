@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreData/CoreData.h>
 
+#import "SignalRecord.h"
+
 @interface ISRecordDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (retain, nonatomic) SignalRecord *signalRecord;
