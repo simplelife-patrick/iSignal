@@ -8,8 +8,6 @@
 
 #import "ISDummyTelephonyModule.h"
 
-#import "CBMathUtils.h"
-
 @implementation ISDummyTelephonyModule
 
 // Manual Codes Begin

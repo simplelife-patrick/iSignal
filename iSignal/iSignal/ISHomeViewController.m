@@ -6,8 +6,6 @@
 //  Copyright 2011 CodeBeaver. All rights reserved.
 //
 
-#include <Foundation/Foundation.h>
-
 #import "ISHomeViewController.h"
 
 @implementation ISHomeViewController

@@ -8,8 +8,6 @@
 
 #import "ISHelpViewController.h"
 
-#import "ISSwitchViewController.h"
-
 @implementation ISHelpViewController
 
 // Manual Codes Begin

@@ -11,6 +11,7 @@
 #import <Foundation/NSArray.h>
 
 #import "CBModuleAbstractImpl.h"
+#import "CBMathUtils.h"
 
 @interface ISDummyTelephonyModule : CBModuleAbstractImpl
 
