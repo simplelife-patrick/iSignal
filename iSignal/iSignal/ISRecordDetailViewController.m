@@ -110,7 +110,9 @@
 
 // Method of UITableViewDataSource protocol
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
-{    
+{   
+    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
+    
     static NSString *CustomCellIdentifier = TABLECELL_TYPE_SIGNALRECORDDETAIL;
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
@@ -152,8 +154,13 @@
         }
         case TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_ADDRESS_INDEX:
         {
-            cell.textLabel.text = TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_ADDRESS_NAME;
-            cell.detailTextLabel.text = nil;
+            cell.textLabel.text = TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_ITEM_ADDRESS_NAME;            
+            
+            CLPlacemark* placemark = [appDelegate.locationModule reverseGeocodeLocationToPrimaryPlaceMark];
+            if (placemark) 
+            {
+                cell.detailTextLabel.text = placemark.country;
+            }
             break;
         }
         default:
