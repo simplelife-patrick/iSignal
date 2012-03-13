@@ -90,6 +90,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Attach UITabBarControllerDelegate
+    self.delegate = self;
     [self loadTabViews];
 }
 
@@ -143,7 +145,7 @@
 {
     if ([viewController isKindOfClass:[UINavigationController class]]) 
     {
-        [(UINavigationController *)viewController popToRootViewControllerAnimated:YES];
+        [(UINavigationController *)viewController popToRootViewControllerAnimated:TRUE];
     }    
 }
 
