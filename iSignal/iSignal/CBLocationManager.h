@@ -38,6 +38,8 @@ typedef NSInteger CBLocationWorkMode;
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) CLLocation *lastLocation;
 
+@property (nonatomic, retain) CLGeocoder *geocoder;
+
 +(BOOL) isLocationServiceEnabled;
 
 +(BOOL) isRegionMonitoringAvailable;
@@ -59,5 +61,8 @@ typedef NSInteger CBLocationWorkMode;
 
 -(BOOL) registerRegionWithSpecificLocationAndCircularOverlay:(NSString*)identifier andLocation:(CLLocation*) location andCircleRadius:(CLLocationDegrees) radius andAccuracy:(CLLocationAccuracy) accuracy;
 -(BOOL) registerRegionWithCurrentLocationAndCircularOverlay:(NSString*)identifier;
+
+-(CLPlacemark*) reverseGeocodeLocationToPrimaryPlaceMark;
+-(NSArray*) reverseGeocodeLocationToPlaceMarks;
 
 @end

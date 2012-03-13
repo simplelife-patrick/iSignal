@@ -18,6 +18,7 @@
 @synthesize locationManager = _locationManager;
 @synthesize currentLocation = _currentLocation;
 @synthesize lastLocation = _lastLocation;
+@synthesize geocoder = _geocoder;
 
 // Static method
 +(BOOL) isLocationServiceEnabled
@@ -212,7 +213,8 @@
     
     [_locationManager release];
     [_lastLocation release];
-    [_currentLocation release];    
+    [_currentLocation release];  
+    [_geocoder release];
 }
 
 // Overrided Method of CBModuleAbstractImpl
@@ -281,6 +283,25 @@
     [serviceThreadPool release];
 }
 
-// Manual Coes End
+-(CLPlacemark*) reverseGeocodeLocationToPrimaryPlaceMark
+{
+    NSArray* placemarkArray = [self reverseGeocodeLocationToPlaceMarks];
+    CLPlacemark *primaryPlacemark = (nil != placemarkArray) ? [placemarkArray objectAtIndex:0] : nil;
+    return primaryPlacemark;
+}
+
+-(NSArray*) reverseGeocodeLocationToPlaceMarks
+{
+    __block NSArray* placemarkArray = nil;
+    
+    [_geocoder reverseGeocodeLocation: self.currentLocation completionHandler:^(NSArray *placemarks, NSError *error)
+    {
+        placemarkArray = placemarks;
+    }];
+    
+    return placemarkArray;
+}
+
+// Manual Codes End
 
 @end
