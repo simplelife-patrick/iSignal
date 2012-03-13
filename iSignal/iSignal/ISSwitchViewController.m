@@ -78,10 +78,10 @@
     ISHelpViewController *isHelpVC = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
     self.helpViewController = isHelpVC;
     [isHelpVC release];
-    
-    [self setViewControllers:[NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController,self.monitorViewController, self.configViewController, self.helpViewController, nil] animated:FALSE];
 
-    [self setSelectedViewController:homeViewController];
+    self.viewControllers = [NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController,self.monitorViewController, self.configViewController, self.helpViewController, nil];
+    self.customizableViewControllers = nil;
+    [self setSelectedViewController:homeViewController];    
     
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
     [appDelegate.dummyTelephonyModule startService];   
