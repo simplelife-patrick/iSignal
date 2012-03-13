@@ -68,10 +68,12 @@
     {
         if (nil == self.serviceThread) 
         {
-            NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
-            self.serviceThread = thread;
-            [thread release];
+            [self.serviceThread release];
         }    
+        
+        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(processService) object:nil]; 
+        self.serviceThread = thread;
+        [thread release];        
         
         [self.serviceThread start];
     }
