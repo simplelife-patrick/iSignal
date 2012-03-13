@@ -34,6 +34,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
+        [self registerNSFetchedResultsControllerDelegate];
     }
     return self;
 }
@@ -70,8 +71,6 @@
     _deletingRecords = [[NSMutableDictionary alloc] init];
     [self setDeleteEnabled:FALSE];
     _multiselectEnabled = FALSE;
-    
-    [self registerNSFetchedResultsControllerDelegate];
 }
 
 - (void)viewDidUnload
