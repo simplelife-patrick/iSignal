@@ -12,7 +12,7 @@
 
 - (void)initTabBarItem
 {
-    UIImage* itemImage = nil;//[UIImage imageNamed:@"home32.png"];
+    UIImage* itemImage = [UIImage imageNamed:@"tab_monitor.png"];
     UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_MONITOR", nil) image:itemImage tag:TABVIEW_INDEX_MONITORVIEW];
     self.tabBarItem = theItem;
     [theItem release];    

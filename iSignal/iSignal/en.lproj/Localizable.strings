@@ -6,12 +6,12 @@
   Copyright 2011 CodeBeaver. All rights reserved.
 */
 
-STR_TAB_HOME = "HOME";
-STR_TAB_MAP = "MAP";
-STR_TAB_RECORDS = "RECORDS";
-STR_TAB_MONITOR = "MONITOR";
-STR_TAB_CONFIG = "CONFIG";
-STR_TAB_HELP = "HELP";
+STR_TAB_HOME = "Home";
+STR_TAB_MAP = "Map";
+STR_TAB_RECORDS = "Records";
+STR_TAB_MONITOR = "Monitor";
+STR_TAB_CONFIG = "Config";
+STR_TAB_HELP = "Help";
 STR_CMCC = "CMCC";
 STR_CUNI = "CUNI";
 STR_NOSIGNAL = "NO SIGNAL";
@@ -21,6 +21,8 @@ STR_RING = "Ring";
 STR_VIBRATE = "Vibrate";
 STR_LOCATION = "Location";
 STR_NOTIFICATION = "Notification";
+STR_DATA = "Data";
+STR_DATA_CLEAR = "Clear Data";
 STR_EDIT = "Edit";
 STR_OK = "OK";
 STR_DISPLAY = "Display";
@@ -28,7 +30,7 @@ STR_DETAIL = "Detail";
 STR_CARRIER = "Carrier";
 STR_TYPE = "Type";
 STR_TIME = "Time";
-STR_SPEED = "Speed(m/s)";
+STR_SPEED = "Speed";
 STR_UNAVAILABLE = "Unavailable";
 STR_ADDRESS = "Address";
 STR_QUALITY_SIGNAL_0 = "No Signal";

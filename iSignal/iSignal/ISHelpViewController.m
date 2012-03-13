@@ -16,8 +16,7 @@
 
 - (void)initTabBarItem
 {
-    //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
-    UIImage* itemImage = nil;
+    UIImage* itemImage = [UIImage imageNamed:@"tab_help.png"];
     UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HELP", nil) image:itemImage tag:TABVIEW_INDEX_HELPVIEW];
     self.tabBarItem = theItem;
     [theItem release];    

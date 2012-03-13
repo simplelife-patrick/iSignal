@@ -14,8 +14,7 @@
 
 - (void)initTabBarItem
 {
-    //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
-    UIImage* itemImage = nil;
+    UIImage* itemImage = [UIImage imageNamed:@"tab_config.png"];
     UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_CONFIG", nil) image:itemImage tag:TABVIEW_INDEX_CONFIGVIEW];
     self.tabBarItem = theItem;
     [theItem release];    
@@ -108,8 +107,21 @@
 // Method of UITableViewDataSource protocol
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    // Only one section here
-    return TABLE_CONFIG_SECTION_NAME_CONFIG;
+    switch (section) 
+    {
+        case TABLE_CONFIG_SECTION_INDEX_CONFIG:
+        {
+            return TABLE_CONFIG_SECTION_NAME_CONFIG;
+        }
+        case TABLE_CONFIG_SECTION_INDEX_DATA:
+        {
+            return TABLE_CONFIG_SECTION_NAME_DATA;
+        }
+        default:
+        {
+            return nil;
+        }
+    }
 }
 
 - (void)ringAlarmStateChanged:(id) sender

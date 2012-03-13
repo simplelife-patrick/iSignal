@@ -14,6 +14,7 @@
 #define APPCONFIG_ALARM_VIBRATE @"cfg_alarm_vibrate"
 #define APPCONFIG_LOCATION @"cfg_location"
 #define APPCONFIG_NOTIFICATION @"cfg_notification"
+#define APPCONFIG_DATA_CLEAR @"cfg_cleardata"
 
 
 // Modules
@@ -88,7 +89,7 @@
 // UI - Tables
 // ISConfigView Config Table
 #define TABLECELL_TYPE_APPCONFIG @"CellType_AppConfig"
-#define TABLE_CONFIG_SECTION_COUNT 1
+#define TABLE_CONFIG_SECTION_COUNT 2
 #define TABLE_CONFIG_SECTION_INDEX_CONFIG 0
 #define TABLE_CONFIG_SECTION_NAME_CONFIG NSLocalizedString(@"STR_CONFIG", nil)
 #define TABLE_CONFIG_SECTION_CONFIG_ITEM_COUNT 4
@@ -100,6 +101,9 @@
 #define TABLE_CONFIG_SECTION_CONFIG_ITEM_LOCATION_NAME NSLocalizedString(@"STR_LOCATION", nil)
 #define TABLE_CONFIG_SECTION_CONFIG_ITEM_NOTIFICATION_INDEX 3
 #define TABLE_CONFIG_SECTION_CONFIG_ITEM_NOTIFICATION_NAME NSLocalizedString(@"STR_NOTIFICATION", nil)
+#define TABLE_CONFIG_SECTION_INDEX_DATA 1
+#define TABLE_CONFIG_SECTION_NAME_DATA NSLocalizedString(@"STR_DATA", nil)
+
 // ISRecordsView Records Table
 #define TABLECELL_TYPE_SIGNALRECORD @"CellType_SignalRecord"
 // ISRecordDetailView RecordDetail Table

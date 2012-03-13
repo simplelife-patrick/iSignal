@@ -12,8 +12,7 @@
 
 - (void)initTabBarItem
 {
-    //    UIImage* itemImage = [UIImage imageNamed:@"MyViewControllerImage.png"];
-    UIImage* itemImage = nil;
+    UIImage* itemImage = [UIImage imageNamed:@"tab_records.png"];
     UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_RECORDS", nil) image:itemImage tag:TABVIEW_INDEX_RECORDSVIEW];
     self.tabBarItem = theItem;
     [theItem release];
