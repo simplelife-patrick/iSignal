@@ -22,7 +22,7 @@
 // Private method
 - (void)gotoLocation
 {
-    if(nil != _signalRecord && 0 != _signalRecord.latitude && 0 != _signalRecord.longitude)
+    if(nil != _signalRecord)
     {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([_signalRecord.latitude doubleValue], [_signalRecord.longitude doubleValue]);
         
