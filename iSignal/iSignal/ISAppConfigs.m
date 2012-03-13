@@ -112,11 +112,6 @@
     [configs setBool:flag forKey:APPCONFIG_NOTIFICATION];   
 }
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
-
 // Manual Codes End
 
 @end
