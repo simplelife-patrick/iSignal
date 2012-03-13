@@ -196,6 +196,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5067C43150E4D4B008D489E /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Temp;
+			sourceTree = "<group>";
+		};
 		C50B2B8E141122A700FA8D38 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +337,7 @@
 				C50B2B8E141122A700FA8D38 /* CoreData */,
 				C5CD42CF13FF8826009C5741 /* Configs */,
 				C591DDB01407723100CB2C63 /* Resources */,
+				C5067C43150E4D4B008D489E /* Temp */,
 			);
 			path = iSignal;
 			sourceTree = "<group>";
