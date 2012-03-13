@@ -16,6 +16,8 @@
 
 -(void) popUILocalNotificationForAppIsTerminated;
 
+-(void) popUILocalNotificationForAppEntersBackground;
+
 -(void) cancelUILocalNotifications:(NSString*) type;
 
 -(void) cancelAllUILocalNotifications;

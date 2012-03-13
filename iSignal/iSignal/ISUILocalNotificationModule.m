@@ -68,23 +68,37 @@
     }       
 }
 
+-(void) popUILocalNotificationForAppEntersBackground
+{
+    if ([ISAppConfigs isNotificationOn]) 
+    {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        
+        NSDate *now = [NSDate date];
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        NSArray *stringArray = [NSArray arrayWithObjects:NSLocalizedString(@"STR_APPENTERSBACKGROUND", nil), [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:now], nil];
+        NSString *bodyString = [stringArray componentsJoinedByString:@" "];        
+        notification.alertBody = bodyString;
+        [notification setSoundName:UILocalNotificationDefaultSoundName];         
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:   
+                              NOTIFICATION_APPENTERSBACKGROUND, NOTIFICATION_TYPE, nil];   
+        [notification setUserInfo:dict];   
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];   
+        [notification release];        
+    }
+}
+
 -(void) popUILocalNotificationForAppIsTerminated
 {
     if ([ISAppConfigs isNotificationOn]) 
     {
-        UILocalNotification *notification=[[UILocalNotification alloc] init];   
+        UILocalNotification *notification = [[UILocalNotification alloc] init];   
         NSDate *now = [NSDate date];    
         notification.timeZone = [NSTimeZone defaultTimeZone];   
-        notification.repeatInterval = NSDayCalendarUnit;   
-        notification.alertAction = NSLocalizedString(@"STR_OK", nil);   
-        notification.fireDate = [now dateByAddingTimeInterval:0];  
-        
         NSArray *stringArray = [NSArray arrayWithObjects:NSLocalizedString(@"STR_APPISTERMINATED", nil), [CBDateUtils dateStringInLocalTimeZoneWithStandardFormat:now], nil];
-        NSString *bodyString = [stringArray componentsJoinedByString:@" "];
-        
+        NSString *bodyString = [stringArray componentsJoinedByString:@" "];        
         notification.alertBody = bodyString;
-        [notification setSoundName:UILocalNotificationDefaultSoundName]; 
-        
+        [notification setSoundName:UILocalNotificationDefaultSoundName];
         NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:   
                               NOTIFICATION_APPISTERMINATED, NOTIFICATION_TYPE, nil];   
         [notification setUserInfo:dict];   

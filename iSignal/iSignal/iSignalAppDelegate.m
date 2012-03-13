@@ -104,6 +104,8 @@
     //        bgTask = UIBackgroundTaskInvalid;
     //    });    
     DLog(@"[application applicationDidEnterBackground]");
+    
+    [uiLocalNotificationModule popUILocalNotificationForAppEntersBackground];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
