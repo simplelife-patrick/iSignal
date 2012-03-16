@@ -11,8 +11,198 @@
 @implementation ISHelpViewController
 
 // Manual Codes Begin
+@synthesize helpTableView;
 
-@synthesize textView;
+// Method of UITableViewDelegate protocol
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    if (_multiselectEnabled)
+//    {
+//        [_deletingRecords setObject:indexPath forKey:indexPath];
+//        if (0 < _deletingRecords.count) 
+//        {
+//            [self setDeleteEnabled:TRUE];
+//        }
+//        else 
+//        {
+//            [self setDeleteEnabled:FALSE];
+//        }
+//	}
+//    else
+//    {
+//        NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController]; 
+//        NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
+//        SignalRecord *record = (SignalRecord*)managedObject;
+//        
+//        [_recordDetailViewController setSignalRecord:record];        
+//        
+//        [self.navigationController pushViewController:_recordDetailViewController animated:YES];
+//    }
+}
+
+// Method of UITableViewDataSource protocol
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return TABLE_HELPITEM_SECTION_COUNT;
+}
+
+// Private method
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellText = nil;
+    NSString *cellDetailText = nil;
+    NSInteger accessoryTypeVal = UITableViewCellAccessoryNone;
+    
+    NSInteger section = indexPath.section;
+    NSUInteger rowInSection = indexPath.row;
+    switch (section) 
+    {
+        case TABLE_HELPITEM_SECTION_COPYRIGHT_INDEX:
+        {
+            switch (rowInSection) 
+            {
+                case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_VERSION_INDEX:
+                {
+                    cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_VERSION_NAME;
+                    break;
+                }   
+                case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_USERID_INDEX:
+                {
+                    cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_USERID_NAME;
+                    break;
+                }
+                case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_REGISTERCODE_INDEX:
+                {
+                    cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_REGISTERCODE_NAME;
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
+            
+            break;
+        }
+        case TABLE_HELPITEM_SECTION_ABOUT_INDEX:
+        {
+            switch (rowInSection) 
+            {
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_ABOUT_INDEX:
+                {
+                    cellText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_ABOUT_NAME;
+                    accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;
+                    break;
+                }
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_INDEX:
+                {
+                    cellText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_NAME;
+                    accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;                    
+                    break;
+                }
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_INDEX:
+                {
+                    cellText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_NAME;
+                    cellDetailText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_DETAIL;
+                    accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
+            
+            break;
+        }
+        case TABLE_HELPITEM_SECTION_MOREAPPS_INDEX:
+        {
+            switch (rowInSection) 
+            {
+                case TABLE_HELPITEM_SECTION_MOREAPPS_ITEM_MOREAPPS_INDEX:
+                {
+                    cellText = TABLE_HELPITEM_SECTION_MOREAPPS_ITEM_MOREAPPS_NAME;
+                    accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;                    
+                    break;
+                }   
+                default:
+                {
+                    break;
+                }
+            }
+            
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }    
+    
+    cell.accessoryType = accessoryTypeVal;
+    cell.textLabel.text = cellText;
+    cell.detailTextLabel.text = cellDetailText;
+}
+
+// Method of UITableViewDataSource protocol
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = TABLECELL_TYPE_HELPITEM;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) 
+    {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    // Configure the cell.
+    [self configureCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+// Method of UITableViewDataSource protocol
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) 
+    {
+        case TABLE_HELPITEM_SECTION_COPYRIGHT_INDEX:
+        {
+            return TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_COUNT;
+        }
+        case TABLE_HELPITEM_SECTION_ABOUT_INDEX:
+        {
+            return TABLE_HELPITEM_SECTION_ABOUT_ITEM_COUNT;
+        }
+        case TABLE_HELPITEM_SECTION_MOREAPPS_INDEX:
+        {
+            return TABLE_HELPITEM_SECTION_MOREAPPS_ITEM_COUNT;
+        }
+    }
+    
+    return 0;
+}
+
+// Method of UITableViewDataSource protocol
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) 
+    {
+        case TABLE_HELPITEM_SECTION_COPYRIGHT_INDEX:
+        {
+            return TABLE_HELPITEM_SECTION_COPYRIGHT_NAME;
+        }
+        case TABLE_HELPITEM_SECTION_ABOUT_INDEX:
+        {
+            return TABLE_HELPITEM_SECTION_ABOUT_NAME;
+        }
+        case TABLE_HELPITEM_SECTION_MOREAPPS_INDEX:
+        {
+            return nil;
+        }
+    }    
+    
+    return nil;
+}
 
 - (void)initTabBarItem
 {
@@ -27,7 +217,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        // Custom initialization
         [self initTabBarItem];
     }
     return self;
@@ -35,16 +224,14 @@
 
 - (void)dealloc 
 {
+    [helpTableView release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
-    self.textView = nil;
-    
+    [self setHelpTableView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 // Manual Codes End
@@ -62,9 +249,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view from its nib.
-    [self.textView setText:NSLocalizedString(@"STR_HELP_INFO", nil)];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -10,8 +10,8 @@
 
 #import "CBUIUtils.h"
 
-@interface ISHelpViewController : UIViewController 
+@interface ISHelpViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, retain) IBOutlet UITextView *textView;
+@property (retain, nonatomic) IBOutlet UITableView *helpTableView;
 
 @end

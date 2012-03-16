@@ -175,7 +175,7 @@
 // Method of UITableViewDataSource protocol
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return TABLE_SIGNALRECORDDETAIL_NAME_DETAIL;
+    return TABLE_SIGNALRECORDDETAIL_SECTION_DETAIL_NAME;
 }
 
 @end
