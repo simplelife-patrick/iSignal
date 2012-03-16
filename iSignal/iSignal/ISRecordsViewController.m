@@ -208,7 +208,7 @@
         
         [_recordDetailViewController setSignalRecord:record];        
         
-        [self.navigationController pushViewController:_recordDetailViewController animated:YES];
+        [self.navigationController pushViewController:_recordDetailViewController animated:YES];        
     }
 }
 
