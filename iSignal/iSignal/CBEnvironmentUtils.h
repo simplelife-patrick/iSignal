@@ -27,4 +27,6 @@
 
 +(NSURL*) applicationDocumentsDirectory;
 
++(NSString*) applicationVersion;
+
 @end

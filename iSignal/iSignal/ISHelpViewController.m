@@ -59,7 +59,6 @@
                     _detailViewController.view = _aboutTextView;
                     [self.navigationController pushViewController:_detailViewController animated:TRUE];
 
-
                     break;
                 }
                 case TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_INDEX:
@@ -125,16 +124,19 @@
                 case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_VERSION_INDEX:
                 {
                     cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_VERSION_NAME;
+                    cellDetailText = [CBEnvironmentUtils applicationVersion];
                     break;
                 }   
                 case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_USERID_INDEX:
                 {
                     cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_USERID_NAME;
+                    cellDetailText = NSLocalizedString(@"STR_USER_DEV", nil);
                     break;
                 }
                 case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_REGISTERCODE_INDEX:
                 {
                     cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_REGISTERCODE_NAME;
+                    cellDetailText = NSLocalizedString(@"STR_VERSION_DEV", nil);                    
                     break;
                 }
                 default:
@@ -213,7 +215,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
     {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];        
     }
     
     // Configure the cell.

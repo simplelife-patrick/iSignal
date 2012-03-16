@@ -28,6 +28,13 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
++(NSString*) applicationVersion
+{
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];    
+    
+    return version;
+}
+
 // Manual Codes End
 
 @end
