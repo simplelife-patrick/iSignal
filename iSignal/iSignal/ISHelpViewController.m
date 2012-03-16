@@ -58,6 +58,8 @@
                     _aboutTextView.text = NSLocalizedString(@"STR_HELP_INFO", nil);                    
                     _detailViewController.view = _aboutTextView;
                     [self.navigationController pushViewController:_detailViewController animated:TRUE];
+
+
                     break;
                 }
                 case TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_INDEX:
@@ -268,7 +270,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-
+        self.navigationItem.title = NSLocalizedString(@"STR_TAB_HELP", nil);
     }
     return self;
 }
