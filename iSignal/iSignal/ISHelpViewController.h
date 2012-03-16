@@ -14,4 +14,8 @@
 
 @property (retain, nonatomic) IBOutlet UITableView *helpTableView;
 
+@property (retain, nonatomic) IBOutlet UIViewController *detailViewController;
+
+@property (retain, nonatomic) IBOutlet UITextView *aboutTextView;
+
 @end

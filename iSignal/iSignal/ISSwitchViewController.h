@@ -21,23 +21,24 @@
 #import "ISConfigViewController.h"
 
 #import "ISHelpViewController.h"
-
+#import "ISHelpViewNavigationController.h"
 
 @interface ISSwitchViewController : UITabBarController <UITabBarControllerDelegate>
 
-@property (nonatomic, retain) IBOutlet ISHomeViewController *homeViewController;
+@property (nonatomic, retain) ISHomeViewController *homeViewController;
 
-@property (nonatomic, retain) IBOutlet ISRecordsViewController *recordsViewController;
-@property (nonatomic, retain) IBOutlet ISRecordsViewNavigationController *recordsViewNavigationController;
+@property (nonatomic, retain) ISRecordsViewController *recordsViewController;
+@property (nonatomic, retain) ISRecordsViewNavigationController *recordsViewNavigationController;
 
-@property (nonatomic, retain) IBOutlet ISMonitorViewController *monitorViewController;
+@property (nonatomic, retain) ISMonitorViewController *monitorViewController;
 
-@property (nonatomic, retain) IBOutlet ISMapViewController *mapViewController;
-@property (nonatomic, retain) IBOutlet ISMapViewNavigationController *mapViewNavigationController;
+@property (nonatomic, retain) ISMapViewController *mapViewController;
+@property (nonatomic, retain) ISMapViewNavigationController *mapViewNavigationController;
 
-@property (nonatomic, retain) IBOutlet ISConfigViewController *configViewController;
+@property (nonatomic, retain) ISConfigViewController *configViewController;
 
-@property (nonatomic, retain) IBOutlet ISHelpViewController *helpViewController;
+@property (nonatomic, retain) ISHelpViewController *helpViewController;
+@property (nonatomic, retain) ISHelpViewNavigationController *helpViewNavigationController;
 
 - (void)loadTabViews;
 

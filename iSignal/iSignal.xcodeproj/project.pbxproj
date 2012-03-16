@@ -41,6 +41,7 @@
 		C57329C914009A2F0061D973 /* ISConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C714009A2F0061D973 /* ISConfigViewController.xib */; };
 		C573E5A6140355BF00BB24B3 /* CBMathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C573E5A5140355BF00BB24B3 /* CBMathUtils.m */; };
 		C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C573E5BD1403A91500BB24B3 /* Localizable.strings */; };
+		C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */; };
 		C5882A8C140240F900EC29A6 /* CBEnvironmentUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */; };
 		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
 		C5882A9C14032E9D00EC29A6 /* ISDummyTelephonyModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummyTelephonyModule.m */; };
@@ -136,6 +137,8 @@
 		C573E5A5140355BF00BB24B3 /* CBMathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMathUtils.m; sourceTree = "<group>"; };
 		C573E5BE1403A91500BB24B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C573E5C81403BDBD00BB24B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C57FB7871513180F00B78F19 /* ISHelpViewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHelpViewNavigationController.h; sourceTree = "<group>"; };
+		C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewNavigationController.m; sourceTree = "<group>"; };
 		C5882A8A140240F900EC29A6 /* CBEnvironmentUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBEnvironmentUtils.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBEnvironmentUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C5882A9614027EA700EC29A6 /* Requiremens.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Requiremens.rtf; sourceTree = "<group>"; };
@@ -316,6 +319,7 @@
 				C522B3A315062564006FCFFF /* ISUILocalNotificationModule.m */,
 				C5BAED83140153B100141ED7 /* ISSwitchViewController.m */,
 				C57329C1140096B40061D973 /* ISHomeViewController.m */,
+				C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */,
 				C5BEB0191400C32F0083A86A /* ISHelpViewController.m */,
 				C5720659140E602C00FD108F /* ISConfigViewController.m */,
 				C569E3DA14072B5B00BE938D /* ISSplashViewController.m */,
@@ -402,6 +406,7 @@
 				C522B3A215062564006FCFFF /* ISUILocalNotificationModule.h */,
 				C5BAED82140153B100141ED7 /* ISSwitchViewController.h */,
 				C57329C0140096B40061D973 /* ISHomeViewController.h */,
+				C57FB7871513180F00B78F19 /* ISHelpViewNavigationController.h */,
 				C5BEB0181400C32F0083A86A /* ISHelpViewController.h */,
 				C57329C514009A2F0061D973 /* ISConfigViewController.h */,
 				C569E3D914072B5B00BE938D /* ISSplashViewController.h */,
@@ -581,6 +586,7 @@
 				C54968121504DFC1004480D8 /* ISRecordsViewNavigationController.m in Sources */,
 				C522B3A415062564006FCFFF /* ISUILocalNotificationModule.m in Sources */,
 				C5883CC1150D9C8700359C1A /* ISMonitorViewController.m in Sources */,
+				C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

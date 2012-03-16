@@ -13,31 +13,90 @@
 // Manual Codes Begin
 @synthesize helpTableView;
 
+@synthesize detailViewController = _detailViewController;
+@synthesize aboutTextView = _aboutTextView;
+
 // Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (_multiselectEnabled)
-//    {
-//        [_deletingRecords setObject:indexPath forKey:indexPath];
-//        if (0 < _deletingRecords.count) 
-//        {
-//            [self setDeleteEnabled:TRUE];
-//        }
-//        else 
-//        {
-//            [self setDeleteEnabled:FALSE];
-//        }
-//	}
-//    else
-//    {
-//        NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController]; 
-//        NSManagedObject *managedObject = [_fetchedResultsController objectAtIndexPath:indexPath];
-//        SignalRecord *record = (SignalRecord*)managedObject;
-//        
-//        [_recordDetailViewController setSignalRecord:record];        
-//        
-//        [self.navigationController pushViewController:_recordDetailViewController animated:YES];
-//    }
+    NSInteger section = indexPath.section;
+    NSUInteger rowInSection = indexPath.row;
+    
+    switch (section) 
+    {
+        case TABLE_HELPITEM_SECTION_COPYRIGHT_INDEX:
+        {
+            switch (rowInSection) 
+            {
+                case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_VERSION_INDEX:
+                {
+                    break;
+                }   
+                case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_USERID_INDEX:
+                {
+                    break;
+                }
+                case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_REGISTERCODE_INDEX:
+                {
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
+            
+            break;
+        }
+        case TABLE_HELPITEM_SECTION_ABOUT_INDEX:
+        {
+            switch (rowInSection) 
+            {
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_ABOUT_INDEX:
+                {
+                    _aboutTextView.editable = FALSE;
+                    _aboutTextView.text = NSLocalizedString(@"STR_HELP_INFO", nil);                    
+                    _detailViewController.view = _aboutTextView;
+                    [self.navigationController pushViewController:_detailViewController animated:TRUE];
+                    break;
+                }
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_INDEX:
+                {                   
+                    break;
+                }
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_INDEX:
+                {
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
+            
+            break;
+        }
+        case TABLE_HELPITEM_SECTION_MOREAPPS_INDEX:
+        {
+            switch (rowInSection) 
+            {
+                case TABLE_HELPITEM_SECTION_MOREAPPS_ITEM_MOREAPPS_INDEX:
+                {                   
+                    break;
+                }   
+                default:
+                {
+                    break;
+                }
+            }
+            
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }     
 }
 
 // Method of UITableViewDataSource protocol
@@ -204,20 +263,12 @@
     return nil;
 }
 
-- (void)initTabBarItem
-{
-    UIImage* itemImage = [UIImage imageNamed:@"tab_help.png"];
-    UITabBarItem* theItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"STR_TAB_HELP", nil) image:itemImage tag:TABVIEW_INDEX_HELPVIEW];
-    self.tabBarItem = theItem;
-    [theItem release];    
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        [self initTabBarItem];
+
     }
     return self;
 }
@@ -225,12 +276,16 @@
 - (void)dealloc 
 {
     [helpTableView release];
+    [_detailViewController release];
+    [_aboutTextView release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
     [self setHelpTableView:nil];
+    [self setDetailViewController:nil];
+    [self setAboutTextView:nil];
     [super viewDidUnload];
 }
 

@@ -23,6 +23,7 @@
 @synthesize configViewController;
 
 @synthesize helpViewController;
+@synthesize helpViewNavigationController;
 
 // Manual Codes Begins
 
@@ -41,6 +42,7 @@
     [configViewController release];
     
     [helpViewController release];
+    [helpViewNavigationController release];
 
     [super dealloc];
 }
@@ -78,8 +80,12 @@
     ISHelpViewController *isHelpVC = [[ISHelpViewController alloc] initWithNibName:NIB_HELPVIEW_CONTROLLER bundle:nil];
     self.helpViewController = isHelpVC;
     [isHelpVC release];
+    
+    ISHelpViewNavigationController *isHVNC = [[ISHelpViewNavigationController alloc] initWithRootViewController: self.helpViewController];
+    self.helpViewNavigationController = isHVNC;
+    [isHVNC release];
 
-    self.viewControllers = [NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController,self.monitorViewController, self.configViewController, self.helpViewController, nil];
+    self.viewControllers = [NSArray arrayWithObjects:self.homeViewController, self.recordsViewNavigationController, self.mapViewNavigationController,self.monitorViewController, self.configViewController, self.helpViewNavigationController, nil];
     self.customizableViewControllers = nil;
     [self setSelectedViewController:homeViewController];    
     
