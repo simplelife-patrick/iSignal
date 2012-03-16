@@ -65,10 +65,6 @@
                 {                   
                     break;
                 }
-                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_INDEX:
-                {
-                    break;
-                }
                 default:
                 {
                     break;
@@ -161,13 +157,6 @@
                 {
                     cellText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_NAME;
                     accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;                    
-                    break;
-                }
-                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_INDEX:
-                {
-                    cellText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_NAME;
-                    cellDetailText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_OFFICIALWEBSITE_DETAIL;
-                    accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;
                     break;
                 }
                 default:
