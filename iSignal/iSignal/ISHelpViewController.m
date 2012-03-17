@@ -108,6 +108,7 @@
     NSString *cellText = nil;
     NSString *cellDetailText = nil;
     NSInteger accessoryTypeVal = UITableViewCellAccessoryNone;
+    UITableViewCellSelectionStyle selectionStyleVal = UITableViewCellSelectionStyleBlue;
     
     NSInteger section = indexPath.section;
     NSUInteger rowInSection = indexPath.row;
@@ -121,18 +122,21 @@
                 {
                     cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_VERSION_NAME;
                     cellDetailText = [CBEnvironmentUtils applicationVersion];
+                    selectionStyleVal = UITableViewCellSelectionStyleNone;
                     break;
                 }   
                 case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_USERID_INDEX:
                 {
                     cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_USERID_NAME;
                     cellDetailText = NSLocalizedString(@"STR_USER_DEV", nil);
+                    selectionStyleVal = UITableViewCellSelectionStyleNone;
                     break;
                 }
                 case TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_REGISTERCODE_INDEX:
                 {
                     cellText = TABLE_HELPITEM_SECTION_COPYRIGHT_ITEM_REGISTERCODE_NAME;
                     cellDetailText = NSLocalizedString(@"STR_VERSION_DEV", nil);                    
+                    selectionStyleVal = UITableViewCellSelectionStyleNone;
                     break;
                 }
                 default:
@@ -174,7 +178,8 @@
                 case TABLE_HELPITEM_SECTION_MOREAPPS_ITEM_MOREAPPS_INDEX:
                 {
                     cellText = TABLE_HELPITEM_SECTION_MOREAPPS_ITEM_MOREAPPS_NAME;
-                    accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;                    
+                    accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator; 
+                    selectionStyleVal = UITableViewCellSelectionStyleGray;
                     break;
                 }   
                 default:
@@ -192,6 +197,7 @@
     }    
     
     cell.accessoryType = accessoryTypeVal;
+    cell.selectionStyle = selectionStyleVal;
     cell.textLabel.text = cellText;
     cell.detailTextLabel.text = cellDetailText;
 }
