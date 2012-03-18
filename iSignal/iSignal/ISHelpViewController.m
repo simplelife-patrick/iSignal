@@ -13,8 +13,12 @@
 // Manual Codes Begin
 @synthesize helpTableView;
 
-@synthesize detailViewController = _detailViewController;
-@synthesize aboutTextView = _aboutTextView;
+// Method of UITableViewDelegate protocol
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;    
+}
 
 // Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -54,15 +58,14 @@
             {
                 case TABLE_HELPITEM_SECTION_ABOUT_ITEM_ABOUT_INDEX:
                 {
-                    _aboutTextView.editable = FALSE;
-                    _aboutTextView.text = NSLocalizedString(@"STR_HELP_INFO", nil);                    
-                    _detailViewController.view = _aboutTextView;
-                    [self.navigationController pushViewController:_detailViewController animated:TRUE];
+//                    [self.navigationController pushViewController:_detailViewController animated:TRUE];
 
                     break;
                 }
                 case TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_INDEX:
-                {                   
+                {     
+//                    [self.navigationController pushViewController:_detailViewController animated:TRUE];
+//                    
                     break;
                 }
                 default:
@@ -104,7 +107,7 @@
 
 // Private method
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
+{ 
     NSString *cellText = nil;
     NSString *cellDetailText = nil;
     NSInteger accessoryTypeVal = UITableViewCellAccessoryNone;
@@ -210,7 +213,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
     {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];        
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];         
     }
     
     // Configure the cell.
@@ -275,16 +278,12 @@
 - (void)dealloc 
 {
     [helpTableView release];
-    [_detailViewController release];
-    [_aboutTextView release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
     [self setHelpTableView:nil];
-    [self setDetailViewController:nil];
-    [self setAboutTextView:nil];
     [super viewDidUnload];
 }
 
