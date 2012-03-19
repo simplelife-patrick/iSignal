@@ -113,13 +113,50 @@
     // Configure the cell.
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
-
 }
 
 // Method of TableViewDataSource protocol
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return TABLE_ABOUTITEM_SECTION_COUNT;
+    switch (section) 
+    {
+        case TABLE_ABOUTITEM_SECTION_ABOUT_INDEX:
+        {
+            return TABLE_ABOUTITEM_SECTION_ABOUT_ITEM_COUNT;
+        }
+        case TABLE_ABOUTITEM_SECTION_AUTHOR_INDEX:
+        {
+            return TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_COUNT;
+        }
+        default:
+        {
+            break;
+        }
+    }
+    
+    return 0;
+}
+
+// Method of UITableViewDataSource protocol
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) 
+    {
+        case TABLE_ABOUTITEM_SECTION_ABOUT_INDEX:
+        {
+            return nil;
+        }
+        case TABLE_ABOUTITEM_SECTION_AUTHOR_INDEX:
+        {
+            return TABLE_ABOUTITEM_SECTION_AUTHOR_NAME;
+        }
+        case TABLE_HELPITEM_SECTION_MOREAPPS_INDEX:
+        {
+            return nil;
+        }
+    }    
+    
+    return nil;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

@@ -16,16 +16,78 @@
 
 @synthesize versionHistoryTableView;
 
+// Private method
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{ 
+    NSString *cellText = nil;
+    NSString *cellDetailText = nil;
+    NSInteger accessoryTypeVal = UITableViewCellAccessoryNone;
+    UITableViewCellSelectionStyle selectionStyleVal = UITableViewCellSelectionStyleBlue;
+    
+    NSInteger section = indexPath.section;
+    NSUInteger rowInSection = indexPath.row;
+    switch (section) 
+    {
+        case TABLE_VERSIONITEM_SECTION_0_1_0_INDEX:
+        {
+            switch (rowInSection) 
+            {
+                case TABLE_ABOUTITEM_SECTION_ABOUT_ITEM_ABOUT_INDEX:
+                {
+                    break;
+                }   
+                default:
+                {
+                    break;
+                }
+            }
+            
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }    
+    
+    cell.accessoryType = accessoryTypeVal;
+    cell.selectionStyle = selectionStyleVal;
+    cell.textLabel.text = cellText;
+    cell.detailTextLabel.text = cellDetailText;
+}
+
+// Method of UITableViewDataSource protocol
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return TABLE_VERSIONITEM_SECTION_COUNT;
+}
+
 // Method of TableViewDataSource protocol
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    static NSString *CellIdentifier = TABLECELL_TYPE_VERSIONITEM;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) 
+    {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];         
+    }
+    
+    // Configure the cell.
+    [self configureCell:cell atIndexPath:indexPath];
+    return cell;
 }
 
 // Method of TableViewDataSource protocol
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return TABLE_VERSIONITEM_SECTION_ITEM_COUNT;
+}
+
+// Method of UITableViewDataSource protocol
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return nil;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
