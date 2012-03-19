@@ -11,14 +11,9 @@
 @implementation ISHelpViewController
 
 // Manual Codes Begin
-@synthesize helpTableView;
-
-// Method of UITableViewDelegate protocol
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;    
-}
+@synthesize helpTableView = _helpTableView;
+@synthesize aboutViewController = _aboutViewController;
+@synthesize versionHistoryViewController = _versionHistoryViewController;
 
 // Method of UITableViewDelegate protocol
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,14 +53,14 @@
             {
                 case TABLE_HELPITEM_SECTION_ABOUT_ITEM_ABOUT_INDEX:
                 {
-//                    [self.navigationController pushViewController:_detailViewController animated:TRUE];
+                    [self.navigationController pushViewController:_aboutViewController animated:TRUE];
 
                     break;
                 }
-                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_INDEX:
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_VERSIONHISTORY_INDEX:
                 {     
-//                    [self.navigationController pushViewController:_detailViewController animated:TRUE];
-//                    
+                    [self.navigationController pushViewController:_versionHistoryViewController animated:TRUE];
+                    
                     break;
                 }
                 default:
@@ -160,9 +155,9 @@
                     accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;
                     break;
                 }
-                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_INDEX:
+                case TABLE_HELPITEM_SECTION_ABOUT_ITEM_VERSIONHISTORY_INDEX:
                 {
-                    cellText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_NEWFEATURES_NAME;
+                    cellText = TABLE_HELPITEM_SECTION_ABOUT_ITEM_VERSIONHISTORY_NAME;
                     accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;                    
                     break;
                 }
@@ -277,13 +272,17 @@
 
 - (void)dealloc 
 {
-    [helpTableView release];
+    [_helpTableView release];
+    [_aboutViewController release];
+    [_versionHistoryViewController release];
     [super dealloc];
 }
 
 - (void)viewDidUnload
 {
     [self setHelpTableView:nil];
+    [self setAboutViewController:nil];
+    [self setVersionHistoryViewController:nil];
     [super viewDidUnload];
 }
 

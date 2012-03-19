@@ -39,6 +39,7 @@ STR_USER_ID = "User ID";
 STR_REGISTER_CODE = "Register Code";
 STR_ABOUT = "About";
 STR_NEW_FEATURES = "New Features";
+STR_VERSION_HISTORY = "Version History";
 STR_OFFICIAL_WEBSITE = "Official Website";
 STR_OFFICIAL_WEIBO = "Sina Weibo";
 STR_OFFICIAL_TWITTER = "Twitter";

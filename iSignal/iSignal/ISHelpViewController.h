@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CBUIUtils.h"
+#import "ISAboutViewController.h"
+#import "ISVersionHistoryViewController.h"
 
 @interface ISHelpViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (retain, nonatomic) IBOutlet UITableView *helpTableView;
+
+@property (retain, nonatomic) IBOutlet ISAboutViewController *aboutViewController;
+@property (retain, nonatomic) IBOutlet ISVersionHistoryViewController *versionHistoryViewController;
 
 @end
