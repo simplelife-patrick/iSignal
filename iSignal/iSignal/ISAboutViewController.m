@@ -52,24 +52,30 @@
                 case TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALWEBSITE_INDEX:
                 {
                     cellText = TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALWEBSITE_NAME;
+                    cellDetailText = AUTHOR_WEBSITE;
                     accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;
                     break;
                 }
                 case TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALEMAIL_INDEX:
                 {
                     cellText = TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALEMAIL_NAME;
+                    cellDetailText = AUTHOR_EMAIL;
                     accessoryTypeVal = UITableViewCellAccessoryDisclosureIndicator;                    
                     break;
                 }
                 case TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALWEIBO_INDEX:
                 {
                     cellText = TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALWEIBO_NAME;
+                    cellDetailText = AUTHOR_WEIBO;
                     accessoryTypeVal = UITableViewCellAccessoryNone;
+                    selectionStyleVal = UITableViewCellSelectionStyleNone;
                     break;
                 }
                 case TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALTWITTER_INDEX:
                 {
                     cellText = TABLE_ABOUTITEM_SECTION_AUTHOR_ITEM_OFFICIALTWITTER_NAME;
+                    cellDetailText = AUTHOR_TWITTER;                    
+                    selectionStyleVal = UITableViewCellSelectionStyleNone;
                     accessoryTypeVal = UITableViewCellAccessoryNone;
                     break;
                 }

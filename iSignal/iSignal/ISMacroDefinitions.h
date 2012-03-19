@@ -10,10 +10,10 @@
 #define iSignal_ISMacroDefinitions_h
 
 // Author Information
-#define AUTHOR_WEBSITE @"http://"
-#define AUTHOR_EMAIL @"codingbeaver@gmail.com"
-#define AUTHOR_WEIBO @"@codingbeaver"
-#define AUTHOR_TWITTER @"@codingbeaver"
+#define AUTHOR_WEBSITE @""
+#define AUTHOR_EMAIL @"motodexter@gmail.com"
+#define AUTHOR_WEIBO @"@Patrick_Deng"
+#define AUTHOR_TWITTER @"@motodexter"
 
 // App Configs
 #define APPCONFIG_ALARM_RING @"cfg_alarm_ring"
@@ -178,7 +178,7 @@
 #define TABLE_VERSIONITEM_SECTION_COUNT 1
 #define TABLE_VERSIONITEM_SECTION_ITEM_COUNT 1 // Item count in one section is always 1
 #define TABLE_VERSIONITEM_SECTION_0_1_0_INDEX 0
-#define TABLE_VERSIONITEM_SECTION_0_1_0_NAME @"0.1.0"
+#define TABLE_VERSIONITEM_SECTION_0_1_0_NAME @"Version 0.1.0"
 #define TABLE_VERSIONITEM_SECTION_0_1_0_ITEM_DESCRIPTION NSLocalizedString(@"STR_VERSION_DESCRIPTION_0_1_0", nil)
 
 // UI - Maps

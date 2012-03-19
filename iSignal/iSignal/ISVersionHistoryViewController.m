@@ -32,8 +32,9 @@
         {
             switch (rowInSection) 
             {
-                case TABLE_ABOUTITEM_SECTION_ABOUT_ITEM_ABOUT_INDEX:
+                case TABLE_VERSIONITEM_SECTION_0_1_0_INDEX:
                 {
+                    cellDetailText = TABLE_VERSIONITEM_SECTION_0_1_0_ITEM_DESCRIPTION;
                     break;
                 }   
                 default:
@@ -70,7 +71,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
     {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];         
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];         
     }
     
     // Configure the cell.
@@ -87,6 +88,18 @@
 // Method of UITableViewDataSource protocol
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    switch (section)
+    {
+        case TABLE_VERSIONITEM_SECTION_0_1_0_INDEX:
+        {
+            return TABLE_VERSIONITEM_SECTION_0_1_0_NAME;
+        }   
+        default:
+        {
+            break;
+        }
+    }
+    
     return nil;
 }
 
