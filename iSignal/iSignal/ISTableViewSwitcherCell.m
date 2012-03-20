@@ -1,5 +1,5 @@
 //
-//  ISConfigSwitchCell.m
+//  ISTableViewSwitcherCell.m
 //  iSignal
 //
 //  Created by Patrick Deng on 11-8-28.
