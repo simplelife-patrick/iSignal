@@ -113,9 +113,9 @@
         {
             return TABLE_CONFIG_SECTION_NAME_CONFIG;
         }
-        case TABLE_CONFIG_SECTION_INDEX_DATA:
+        case TABLE_CONFIG_SECTION_DATA_INDEX:
         {
-            return TABLE_CONFIG_SECTION_NAME_DATA;
+            return TABLE_CONFIG_SECTION_DATA_NAME;
         }
         default:
         {
