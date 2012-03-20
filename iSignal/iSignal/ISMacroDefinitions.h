@@ -90,7 +90,7 @@
 #define NIB_MONITORVIEW_CONTROLLER @"ISMonitorViewController"
 #define NIB_CONFIGVIEW_CONTROLLER @"ISConfigViewController"
 #define NIB_HELPVIEW_CONTROLLER @"ISHelpViewController"
-
+#define NIB_TABLEVIEW_SWITCHERCELL @"ISTableViewSwitcherCell"
 
 // UI - Tables
 #define TABLECELL_TYPE_GENERIC @"CellType_Generic"

@@ -10,7 +10,7 @@
 
 #import "CBUIUtils.h"
 
-#import "ISConfigSwitcherCell.h"
+#import "ISTableViewSwitcherCell.h"
 
 #import "iSignalAppDelegate.h"
 

@@ -51,11 +51,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     static NSString *CustomCellIdentifier = TABLECELL_TYPE_APPCONFIG;
-    ISConfigSwitcherCell *cell = (ISConfigSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
+    ISTableViewSwitcherCell *cell = (ISTableViewSwitcherCell *)[tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];  
     if (nil == cell) 
     {  
         NSBundle *mainBundle = [NSBundle mainBundle];
-        NSArray *array = [mainBundle loadNibNamed:@"ISConfigSwitcherCell" owner:self options:nil];
+        NSArray *array = [mainBundle loadNibNamed:NIB_TABLEVIEW_SWITCHERCELL owner:self options:nil];
         cell = [array objectAtIndex:0];  
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];  
 
