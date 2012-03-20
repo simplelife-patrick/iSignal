@@ -45,6 +45,8 @@
 		C57329C914009A2F0061D973 /* ISConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C714009A2F0061D973 /* ISConfigViewController.xib */; };
 		C573E5A6140355BF00BB24B3 /* CBMathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C573E5A5140355BF00BB24B3 /* CBMathUtils.m */; };
 		C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C573E5BD1403A91500BB24B3 /* Localizable.strings */; };
+		C5799AAE15183B1C000C1B5A /* ISTableViewSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */; };
+		C5799AB015183B34000C1B5A /* ISTableViewSegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5799AAF15183B34000C1B5A /* ISTableViewSegmentCell.xib */; };
 		C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */; };
 		C5882A8C140240F900EC29A6 /* CBEnvironmentUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */; };
 		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
@@ -147,6 +149,9 @@
 		C573E5A5140355BF00BB24B3 /* CBMathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMathUtils.m; sourceTree = "<group>"; };
 		C573E5BE1403A91500BB24B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C573E5C81403BDBD00BB24B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C5799AAC15183B1C000C1B5A /* ISTableViewSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewSegmentCell.h; sourceTree = "<group>"; };
+		C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewSegmentCell.m; sourceTree = "<group>"; };
+		C5799AAF15183B34000C1B5A /* ISTableViewSegmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISTableViewSegmentCell.xib; sourceTree = "<group>"; };
 		C57FB7871513180F00B78F19 /* ISHelpViewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHelpViewNavigationController.h; sourceTree = "<group>"; };
 		C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewNavigationController.m; sourceTree = "<group>"; };
 		C5882A8A140240F900EC29A6 /* CBEnvironmentUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBEnvironmentUtils.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -342,6 +347,7 @@
 				C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */,
 				C5883CBF150D9C8700359C1A /* ISMonitorViewController.m */,
 				C547B44B1409D3690037B63F /* ISTableViewSwitcherCell.m */,
+				C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */,
 				C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */,
 			);
 			name = Classes;
@@ -431,6 +437,7 @@
 				C54E84DC15045763006A9C4A /* ISRecordDetailViewController.h */,
 				C5883CBE150D9C8700359C1A /* ISMonitorViewController.h */,
 				C547B44A1409D3690037B63F /* ISTableViewSwitcherCell.h */,
+				C5799AAC15183B1C000C1B5A /* ISTableViewSegmentCell.h */,
 				C5AC052514EFEF0700AAD6FA /* ISMapAnnotation.h */,
 			);
 			name = Headers;
@@ -441,6 +448,7 @@
 			children = (
 				C5CD42DA13FF8826009C5741 /* MainWindow.xib */,
 				C547B44E1409D3C70037B63F /* ISTableViewSwitcherCell.xib */,
+				C5799AAF15183B34000C1B5A /* ISTableViewSegmentCell.xib */,
 				C5C10BC2150E15980088944D /* ISSwitchViewController.xib */,
 				C57329C2140096B40061D973 /* ISHomeViewController.xib */,
 				C57329C714009A2F0061D973 /* ISConfigViewController.xib */,
@@ -546,6 +554,7 @@
 				C5E24D29150F8A24004AF8A8 /* tab_monitor@2x.png in Resources */,
 				C5222AF015163BBB00F5024D /* ISAboutViewController.xib in Resources */,
 				C5222AF515163BC900F5024D /* ISVersionHistoryViewController.xib in Resources */,
+				C5799AB015183B34000C1B5A /* ISTableViewSegmentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +616,7 @@
 				C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */,
 				C5222AEF15163BBB00F5024D /* ISAboutViewController.m in Sources */,
 				C5222AF415163BC900F5024D /* ISVersionHistoryViewController.m in Sources */,
+				C5799AAE15183B1C000C1B5A /* ISTableViewSegmentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
