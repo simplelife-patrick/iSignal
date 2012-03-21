@@ -75,6 +75,10 @@
 		C5CD42D913FF8826009C5741 /* iSignalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */; };
 		C5CD42DC13FF8826009C5741 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5CD42DA13FF8826009C5741 /* MainWindow.xib */; };
 		C5CD42DF13FF8826009C5741 /* iSignal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5CD42DD13FF8826009C5741 /* iSignal.xcdatamodeld */; };
+		C5CEC2281518BB5500C08799 /* noSignal128.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CEC2241518BB5500C08799 /* noSignal128.png */; };
+		C5CEC2291518BB5500C08799 /* noSignal32.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CEC2251518BB5500C08799 /* noSignal32.png */; };
+		C5CEC22A1518BB5500C08799 /* noSignal64.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CEC2261518BB5500C08799 /* noSignal64.png */; };
+		C5CEC22B1518BB5500C08799 /* noSignal24.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CEC2271518BB5500C08799 /* noSignal24.png */; };
 		C5E24CFA150F7BFB004AF8A8 /* tab_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E24CF9150F7BFB004AF8A8 /* tab_home@2x.png */; };
 		C5E24D00150F81C8004AF8A8 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E24CFF150F81C8004AF8A8 /* tab_home.png */; };
 		C5E24D20150F8A24004AF8A8 /* tab_records.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D16150F8A24004AF8A8 /* tab_records.png */; };
@@ -202,6 +206,10 @@
 		C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSignalAppDelegate.m; sourceTree = "<group>"; };
 		C5CD42DB13FF8826009C5741 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		C5CD42DE13FF8826009C5741 /* iSignal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSignal.xcdatamodel; sourceTree = "<group>"; };
+		C5CEC2241518BB5500C08799 /* noSignal128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSignal128.png; sourceTree = "<group>"; };
+		C5CEC2251518BB5500C08799 /* noSignal32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSignal32.png; sourceTree = "<group>"; };
+		C5CEC2261518BB5500C08799 /* noSignal64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSignal64.png; sourceTree = "<group>"; };
+		C5CEC2271518BB5500C08799 /* noSignal24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSignal24.png; sourceTree = "<group>"; };
 		C5E24CF9150F7BFB004AF8A8 /* tab_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_home@2x.png"; sourceTree = "<group>"; };
 		C5E24CFF150F81C8004AF8A8 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_home.png; sourceTree = "<group>"; };
 		C5E24D16150F8A24004AF8A8 /* tab_records.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_records.png; sourceTree = "<group>"; };
@@ -267,6 +275,10 @@
 		C5B71C7A14FF352100CAE603 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C5CEC2241518BB5500C08799 /* noSignal128.png */,
+				C5CEC2251518BB5500C08799 /* noSignal32.png */,
+				C5CEC2261518BB5500C08799 /* noSignal64.png */,
+				C5CEC2271518BB5500C08799 /* noSignal24.png */,
 				C5E24D16150F8A24004AF8A8 /* tab_records.png */,
 				C5E24D17150F8A24004AF8A8 /* tab_records@2x.png */,
 				C5E24D18150F8A24004AF8A8 /* tab_config.png */,
@@ -555,6 +567,10 @@
 				C5222AF015163BBB00F5024D /* ISAboutViewController.xib in Resources */,
 				C5222AF515163BC900F5024D /* ISVersionHistoryViewController.xib in Resources */,
 				C5799AB015183B34000C1B5A /* ISTableViewSegmentCell.xib in Resources */,
+				C5CEC2281518BB5500C08799 /* noSignal128.png in Resources */,
+				C5CEC2291518BB5500C08799 /* noSignal32.png in Resources */,
+				C5CEC22A1518BB5500C08799 /* noSignal64.png in Resources */,
+				C5CEC22B1518BB5500C08799 /* noSignal24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

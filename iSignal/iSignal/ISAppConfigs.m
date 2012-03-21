@@ -112,6 +112,18 @@
     [configs setBool:flag forKey:APPCONFIG_NOTIFICATION];   
 }
 
++(BOOL) isTrackingRealSignal
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
+    return [configs boolForKey:APPCONFIG_TRACK_REAL_SIGNAL];
+}
+
++(void) setTrackingRealSignal:(BOOL) flag
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
+    [configs setBool:flag forKey:APPCONFIG_TRACK_REAL_SIGNAL];
+}
+
 // Manual Codes End
 
 @end

@@ -24,4 +24,7 @@
 +(BOOL) isNotificationOn;
 +(void) setNotificationOn:(BOOL) flag;
 
++(BOOL) isTrackingRealSignal;
++(void) setTrackingRealSignal:(BOOL) flag;
+
 @end

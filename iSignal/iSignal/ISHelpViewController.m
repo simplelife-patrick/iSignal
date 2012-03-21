@@ -249,7 +249,7 @@
         }
         case TABLE_HELPITEM_SECTION_ABOUT_INDEX:
         {
-            return TABLE_HELPITEM_SECTION_ABOUT_NAME;
+            return nil;
         }
         case TABLE_HELPITEM_SECTION_MOREAPPS_INDEX:
         {

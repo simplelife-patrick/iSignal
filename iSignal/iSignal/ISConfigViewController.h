@@ -11,9 +11,10 @@
 #import "CBUIUtils.h"
 
 #import "ISTableViewSwitcherCell.h"
+#import "ISTableViewSegmentCell.h"
 
 #import "iSignalAppDelegate.h"
 
-@interface ISConfigViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ISConfigViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 
 @end
