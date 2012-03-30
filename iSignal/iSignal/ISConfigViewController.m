@@ -360,21 +360,34 @@
     
     NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];    
     
-    NSError ** error;
-    // retrieve the store URL
-    NSURL * storeURL = [[context persistentStoreCoordinator] URLForPersistentStore:[[[context persistentStoreCoordinator] persistentStores] lastObject]];
-    // lock the current context
-    [context lock];
-    [context reset];//to drop pending changes
-    //delete the store from the current managedObjectContext
-    if ([[context persistentStoreCoordinator] removePersistentStore:[[[context persistentStoreCoordinator] persistentStores] lastObject] error:error])
+    NSFetchRequest * allRecordsFetchRequest = [[NSFetchRequest alloc] init];
+    [allRecordsFetchRequest setEntity:[NSEntityDescription entityForName:DB_TABLE_SIGNALRECORD inManagedObjectContext:context]];
+    [allRecordsFetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError * error = nil;
+    NSArray * allRecords = [context executeFetchRequest:allRecordsFetchRequest error:&error];
+    if (nil != error) 
     {
-        // remove the file containing the data
-        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:error];
-        //recreate the store like in the  appDelegate method
-        [[context persistentStoreCoordinator] addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:error];//recreates the persistent store
+        DLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        [CBUIUtils showInformationAlertWindow:nil andError:error];
+        [allRecordsFetchRequest release];
+        return;
     }
-    [context unlock]; 
+    else 
+    {
+        for (NSManagedObject * record in allRecords) 
+        {
+            [context deleteObject:record];
+        }
+        [allRecordsFetchRequest release]; 
+    }
+    
+    [appDelegate.coreDataModule saveContext:context andError:error];
+    if (nil != error) 
+    {
+        DLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        [CBUIUtils showInformationAlertWindow:nil andError:error];        
+    }
 }
 
 - (void)dataClearStarted:(id) sender

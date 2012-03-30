@@ -77,18 +77,8 @@
         }
     }
     
-    // Save the context.
     NSError *error = nil;
-    if (![context save:&error])
-    {
-        /*
-         TODO: Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        DLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }     
+    [self saveContextByController:fetchedResultsController andError:error];
     
     [record release];
 }
@@ -295,6 +285,38 @@
     
     return frController;
 }
+
+-(void) saveContextByController:(NSFetchedResultsController*) fetchedResultsController andError:(NSError*) error
+{
+    if (fetchedResultsController) 
+    {
+        NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
+        
+        [self saveContext:context andError:error];
+    }
+}
+
+-(void) saveContext:(NSManagedObjectContext *)context andError:(NSError *)error
+{
+    if (nil != context)
+    {
+        if ([context hasChanges] && ![context save:&error])
+        {
+            /*
+             TODO: Replace this implementation with code to handle the error appropriately.
+             
+             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+             */
+            DLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }          
+    }
+    else 
+    {
+        DLog(@"The NSManagedObjectContext object is nil.");
+    }
+}
+
 
 // Manual Codes End
 

@@ -132,7 +132,6 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
     
-    // TODO: Stop all modules' serive here.
     [self.dummyTelephonyModule stopService];
     [self.uiLocalNotificationModule stopService];    
     [self.locationModule stopService];
@@ -146,18 +145,11 @@
 {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.coreDataModule.managedObjectContext;
-    if (managedObjectContext != nil)
+    [self.coreDataModule saveContext:managedObjectContext andError:error];
+    if (nil != error) 
     {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
-            /*
-             TODO: Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-             */
-            DLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
+        DLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        [CBUIUtils showInformationAlertWindow:nil andError:error]; 
     }
 }
 

@@ -54,6 +54,7 @@ STR_MORE_APPS = "更多应用";
 STR_VERSION_DEV = "开发版";
 STR_USER_DEV = "开发者";
 STR_AUTHOR = "作者";
+STR_ALERT = "警告";
 STR_QUALITY_SIGNAL_0 = "无信号";
 STR_QUALITY_SIGNAL_1 = "信号质量一级";
 STR_QUALITY_SIGNAL_2 = "信号质量二级";

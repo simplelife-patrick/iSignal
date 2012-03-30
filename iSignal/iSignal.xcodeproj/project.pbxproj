@@ -100,6 +100,7 @@
 		C500B6C014F220C500B5FBEA /* SignalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalRecord.m; sourceTree = "<group>"; };
 		C5027274140A2BA40013175B /* ISAppConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ISAppConfigs.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C50F9D75140A1FA9000589BB /* ISAppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ISAppConfigs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5113B71152574E400913FF3 /* CBErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBErrorCodes.h; sourceTree = "<group>"; };
 		C5126FE21508D7C6007B5BAA /* ISMacroDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISMacroDefinitions.h; sourceTree = "<group>"; };
 		C5222AEC15163BBB00F5024D /* ISAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAboutViewController.h; sourceTree = "<group>"; };
 		C5222AED15163BBB00F5024D /* ISAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAboutViewController.m; sourceTree = "<group>"; };
@@ -306,6 +307,7 @@
 		C5B7581D1401E3AC004A051E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C5113B71152574E400913FF3 /* CBErrorCodes.h */,
 				C5B590BD140E488700A56CF0 /* CBLog.h */,
 				C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */,
 				C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */,

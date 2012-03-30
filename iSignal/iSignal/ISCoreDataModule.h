@@ -31,4 +31,7 @@ CBFetchedResultsControllerIdentifier* gFetchedResultsControllerIdentifier_signal
 
 -(void) registerNSFetchedResultsControllerDelegate:(CBFetchedResultsControllerIdentifier*) frcIdentifier andDelegate:(NSObject<NSFetchedResultsControllerDelegate>*) delegate;
 
+-(void) saveContextByController:(NSFetchedResultsController*) fetchedResultsController andError:(NSError*) error;
+-(void) saveContext:(NSManagedObjectContext*) context andError:(NSError*) error;
+
 @end

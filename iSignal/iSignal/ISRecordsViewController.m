@@ -162,6 +162,8 @@
 // Method of UITableViewController
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete the managed object for the given index path
@@ -172,16 +174,7 @@
         
         // Save the context.
         NSError *error = nil;
-        if (![context save:&error])
-        {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-             */
-            DLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
+        [appDelegate.coreDataModule saveContext:context andError:error];
     }   
 }
 
@@ -338,6 +331,8 @@
 
 - (IBAction)deleteRecords:(id)sender
 {
+    iSignalAppDelegate* appDelegate = (iSignalAppDelegate*) [CBUIUtils getAppDelegate];
+    
     NSFetchedResultsController* _fetchedResultsController = [self getNSFetchedResultsController];
     
     NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];
@@ -348,18 +343,8 @@
         [context deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];    
     }
     
-    // Save the context.
     NSError *error = nil;
-    if (![context save:&error])
-    {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        DLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }    
+    [appDelegate.coreDataModule saveContext:context andError:error];
         
     [_deletingRecords removeAllObjects];
     

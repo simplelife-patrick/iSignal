@@ -66,22 +66,18 @@
     }
 }
 
-- (void)dealloc
++(void) showInformationAlertWindow:(id) delegate andMessage:(NSString*) message
 {
-    [super dealloc];
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"STR_ALERT", nil) message:message delegate:delegate cancelButtonTitle:NSLocalizedString(@"STR_OK", nil) otherButtonTitles: nil];
+	[alert show];	
+	[alert release];    
 }
 
-- (id)init
-{
-    return nil;
-    // Disable object initialization.
-    //    self = [super init];
-    //    if (self) 
-    //    {
-    //        // Initialization code here.
-    //    }
-    //    
-    //    return self;
++(void) showInformationAlertWindow:(id)delegate andError:(NSError *)error
+{    
+    NSString *message = [error localizedDescription];
+    
+    [CBUIUtils showInformationAlertWindow:delegate andMessage: message];
 }
 
 // Manual Codes End

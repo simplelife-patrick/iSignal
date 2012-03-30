@@ -20,4 +20,7 @@
 
 +(UIWindow*) getKeyWindow;
 
++(void) showInformationAlertWindow:(id) delegate andMessage:(NSString*) message;
++(void) showInformationAlertWindow:(id) delegate andError:(NSError*) error;
+
 @end
