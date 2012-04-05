@@ -344,7 +344,7 @@ UIAlertView *_dataClearAlertView;
         }
         case 1:
         {
-            _dataClearAlertView = [CBUIUtils createProgressAlertView:NSLocalizedString(@"STR_PROCESSING", nil) andMessage:NSLocalizedString(@"STR_DATA_IS_DELETING", nil) andActivity:TRUE andDelegate:nil];
+            _dataClearAlertView = [CBUIUtils createProgressAlertView:NSLocalizedString(@"STR_PROCESS", nil) andMessage:NSLocalizedString(@"STR_DATA_IS_DELETING", nil) andActivity:TRUE andDelegate:nil];
             
             [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector: @selector(dataClearCommitted)
                                            userInfo:nil repeats:NO];            
