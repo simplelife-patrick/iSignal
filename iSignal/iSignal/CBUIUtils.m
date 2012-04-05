@@ -80,6 +80,58 @@
     [CBUIUtils showInformationAlertWindow:delegate andMessage: message];
 }
 
++(UIAlertView*) createProgressAlertView:(NSString *) title andMessage:(NSString *) message andActivity:(BOOL) activity andDelegate:(id)delegate
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle: title
+                                                        message: message
+                                                       delegate: delegate
+                                              cancelButtonTitle: nil
+                                              otherButtonTitles: nil];  
+    
+    CGFloat x = 0;
+    CGFloat y = 0;
+    CGFloat width = 0;
+    CGFloat height = 0;
+    
+    if (activity) 
+    {
+        x = 139.0f - 18.0f;
+        y = 80.0f;
+        width = 37.0f;
+        height = 37.0f;
+        
+        if (nil == title) 
+        {
+            y = y - 20.0f;
+        }
+        
+        if (nil == message)
+        {
+            y = y - 20.0f;
+        }
+        
+        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        activityView.frame = CGRectMake(x, y, width, height);
+        [alertView addSubview:activityView];
+        [activityView startAnimating];
+    } 
+    else 
+    {
+        x = 30.0f;
+        y = 80.0f;
+        width = 225.0f;
+        height = 90.0f;       
+        
+        // TODO: Need adjust x and y values if title or message is NULL.
+        
+        UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+        [alertView addSubview:progressView];
+        [progressView setProgressViewStyle: UIProgressViewStyleBar];
+    }
+    
+    return alertView;
+}
+
 // Manual Codes End
 
 @end

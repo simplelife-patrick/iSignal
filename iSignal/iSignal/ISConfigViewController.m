@@ -12,6 +12,8 @@
 
 // Manual Codes Begin
 
+UIAlertView *_dataClearAlertView;
+
 - (void)initTabBarItem
 {
     UIImage* itemImage = [UIImage imageNamed:@"tab_config.png"];
@@ -342,7 +344,13 @@
         }
         case 1:
         {
-            [self dataClearCommitted];            
+            _dataClearAlertView = [CBUIUtils createProgressAlertView:NSLocalizedString(@"STR_PROCESSING", nil) andMessage:NSLocalizedString(@"STR_DATA_IS_DELETING", nil) andActivity:TRUE andDelegate:nil];
+            
+            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector: @selector(dataClearCommitted)
+                                           userInfo:nil repeats:NO];            
+            
+            [_dataClearAlertView show];
+                      
             break;
         }
         default:
@@ -388,6 +396,10 @@
         DLog(@"Unresolved error %@, %@", error, [error userInfo]);
         [CBUIUtils showInformationAlertWindow:nil andError:error];        
     }
+    
+    [_dataClearAlertView dismissWithClickedButtonIndex:0 animated:FALSE];
+    [_dataClearAlertView release];
+    _dataClearAlertView = nil;
 }
 
 - (void)dataClearStarted:(id) sender

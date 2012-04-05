@@ -23,4 +23,6 @@
 +(void) showInformationAlertWindow:(id) delegate andMessage:(NSString*) message;
 +(void) showInformationAlertWindow:(id) delegate andError:(NSError*) error;
 
++(UIAlertView*) createProgressAlertView:(NSString *) title andMessage:(NSString *) message andActivity:(BOOL) activity andDelegate:(id) delegate;
+
 @end
