@@ -45,6 +45,9 @@
 		C57329C914009A2F0061D973 /* ISConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57329C714009A2F0061D973 /* ISConfigViewController.xib */; };
 		C573E5A6140355BF00BB24B3 /* CBMathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C573E5A5140355BF00BB24B3 /* CBMathUtils.m */; };
 		C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C573E5BD1403A91500BB24B3 /* Localizable.strings */; };
+		C57733AF152E844500D51C29 /* ISMonitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57733AE152E844500D51C29 /* ISMonitorView.xib */; };
+		C57733B3152E84D400D51C29 /* ISMonitorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57733B2152E84D400D51C29 /* ISMonitorView.m */; };
+		C57733BB152FC2A500D51C29 /* CBQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57733BA152FC2A500D51C29 /* CBQuartzView.m */; };
 		C5799AAE15183B1C000C1B5A /* ISTableViewSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */; };
 		C5799AB015183B34000C1B5A /* ISTableViewSegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5799AAF15183B34000C1B5A /* ISTableViewSegmentCell.xib */; };
 		C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */; };
@@ -154,6 +157,11 @@
 		C573E5A5140355BF00BB24B3 /* CBMathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMathUtils.m; sourceTree = "<group>"; };
 		C573E5BE1403A91500BB24B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C573E5C81403BDBD00BB24B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C57733AE152E844500D51C29 /* ISMonitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISMonitorView.xib; sourceTree = "<group>"; };
+		C57733B1152E84D400D51C29 /* ISMonitorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMonitorView.h; sourceTree = "<group>"; };
+		C57733B2152E84D400D51C29 /* ISMonitorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMonitorView.m; sourceTree = "<group>"; };
+		C57733B9152FC2A500D51C29 /* CBQuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBQuartzView.h; sourceTree = "<group>"; };
+		C57733BA152FC2A500D51C29 /* CBQuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBQuartzView.m; sourceTree = "<group>"; };
 		C5799AAC15183B1C000C1B5A /* ISTableViewSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewSegmentCell.h; sourceTree = "<group>"; };
 		C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewSegmentCell.m; sourceTree = "<group>"; };
 		C5799AAF15183B34000C1B5A /* ISTableViewSegmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISTableViewSegmentCell.xib; sourceTree = "<group>"; };
@@ -332,6 +340,8 @@
 				C5B71C8614FFAADC00CAE603 /* CBModuleAbstractImpl.m */,
 				C53204761500AAF50085061B /* CBNotificationManager.h */,
 				C53204771500AAF60085061B /* CBNotificationManager.m */,
+				C57733B9152FC2A500D51C29 /* CBQuartzView.h */,
+				C57733BA152FC2A500D51C29 /* CBQuartzView.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -359,6 +369,7 @@
 				C54968111504DFC1004480D8 /* ISRecordsViewNavigationController.m */,
 				C56F97DA141065F5002FC302 /* ISRecordsViewController.m */,
 				C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */,
+				C57733B2152E84D400D51C29 /* ISMonitorView.m */,
 				C5883CBF150D9C8700359C1A /* ISMonitorViewController.m */,
 				C547B44B1409D3690037B63F /* ISTableViewSwitcherCell.m */,
 				C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */,
@@ -449,6 +460,7 @@
 				C54968101504DFC1004480D8 /* ISRecordsViewNavigationController.h */,
 				C56F97DB141065F5002FC302 /* ISRecordsViewController.h */,
 				C54E84DC15045763006A9C4A /* ISRecordDetailViewController.h */,
+				C57733B1152E84D400D51C29 /* ISMonitorView.h */,
 				C5883CBE150D9C8700359C1A /* ISMonitorViewController.h */,
 				C547B44A1409D3690037B63F /* ISTableViewSwitcherCell.h */,
 				C5799AAC15183B1C000C1B5A /* ISTableViewSegmentCell.h */,
@@ -471,6 +483,7 @@
 				C540250D140F74CD0047ABE3 /* ISMapViewController.xib */,
 				C56F97D9141065F5002FC302 /* ISRecordsViewController.xib */,
 				C54E84DE15045763006A9C4A /* ISRecordDetailViewController.xib */,
+				C57733AE152E844500D51C29 /* ISMonitorView.xib */,
 				C5883CC0150D9C8700359C1A /* ISMonitorViewController.xib */,
 				C5222AEE15163BBB00F5024D /* ISAboutViewController.xib */,
 				C5222AF315163BC900F5024D /* ISVersionHistoryViewController.xib */,
@@ -573,6 +586,7 @@
 				C5CEC2291518BB5500C08799 /* noSignal32.png in Resources */,
 				C5CEC22A1518BB5500C08799 /* noSignal64.png in Resources */,
 				C5CEC22B1518BB5500C08799 /* noSignal24.png in Resources */,
+				C57733AF152E844500D51C29 /* ISMonitorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +649,8 @@
 				C5222AEF15163BBB00F5024D /* ISAboutViewController.m in Sources */,
 				C5222AF415163BC900F5024D /* ISVersionHistoryViewController.m in Sources */,
 				C5799AAE15183B1C000C1B5A /* ISTableViewSegmentCell.m in Sources */,
+				C57733B3152E84D400D51C29 /* ISMonitorView.m in Sources */,
+				C57733BB152FC2A500D51C29 /* CBQuartzView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
