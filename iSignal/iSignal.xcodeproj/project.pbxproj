@@ -569,7 +569,6 @@
 		C5CD42B713FF8826009C5741 = {
 			isa = PBXGroup;
 			children = (
-				C57CCD6615822CC4006077FE /* QuartzCore.framework */,
 				C5CD42CE13FF8826009C5741 /* iSignal */,
 				C5CD42C513FF8826009C5741 /* Frameworks */,
 				C5CD42C313FF8826009C5741 /* Products */,
@@ -587,6 +586,7 @@
 		C5CD42C513FF8826009C5741 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C57CCD6615822CC4006077FE /* QuartzCore.framework */,
 				C5E6C8BB140F2D9400D81647 /* MapKit.framework */,
 				C5B66188140D0249000B1F74 /* CoreLocation.framework */,
 				C569E3BF14068B7F00BE938D /* AudioToolbox.framework */,
