@@ -114,6 +114,8 @@
         activityView.frame = CGRectMake(x, y, width, height);
         [alertView addSubview:activityView];
         [activityView startAnimating];
+        
+        [activityView release];
     } 
     else 
     {
@@ -127,6 +129,8 @@
         UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(x, y, width, height)];
         [alertView addSubview:progressView];
         [progressView setProgressViewStyle: UIProgressViewStyleBar];
+        
+        [progressView release];
     }
     
     return alertView;
