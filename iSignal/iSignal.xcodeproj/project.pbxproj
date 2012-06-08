@@ -51,7 +51,7 @@
 		C5799AAE15183B1C000C1B5A /* ISTableViewSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */; };
 		C5799AB015183B34000C1B5A /* ISTableViewSegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5799AAF15183B34000C1B5A /* ISTableViewSegmentCell.xib */; };
 		C57CCD6415822C62006077FE /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57CCD6315822C62006077FE /* libCorePlot-CocoaTouch.a */; };
-		C57CCD6715822CC4006077FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57CCD6615822CC4006077FE /* QuartzCore.framework */; };
+		C57CCD6815823E0E006077FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57CCD6615822CC4006077FE /* QuartzCore.framework */; };
 		C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */; };
 		C5882A8C140240F900EC29A6 /* CBEnvironmentUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */; };
 		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
@@ -324,7 +324,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C57CCD6715822CC4006077FE /* QuartzCore.framework in Frameworks */,
+				C57CCD6815823E0E006077FE /* QuartzCore.framework in Frameworks */,
 				C5E6C8BC140F2D9400D81647 /* MapKit.framework in Frameworks */,
 				C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */,
 				C569E3C014068B7F00BE938D /* AudioToolbox.framework in Frameworks */,
