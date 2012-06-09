@@ -21,6 +21,7 @@
     #import "CBTelephonyUtils.h"
 
     #import "ISMacroDefinitions.h"
+    #import "ISConstDefinitions.h"
     #import "ISAppConfigs.h"
     #import "SignalRecord.h"
 #endif
