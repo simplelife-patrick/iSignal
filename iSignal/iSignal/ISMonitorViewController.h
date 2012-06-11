@@ -10,4 +10,8 @@
 
 @interface ISMonitorViewController : UIViewController
 
+@property (retain, nonatomic) NSMutableArray *plotData;
+@property NSUInteger currentIndex;
+@property (retain, nonatomic) NSTimer *dataTimer;
+
 @end

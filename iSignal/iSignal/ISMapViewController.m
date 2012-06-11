@@ -66,7 +66,7 @@
     if (curLocation) 
     {
         CLLocationCoordinate2D coordinate = curLocation.coordinate;
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, ISMAPVIEW_SPAN_LATITUDE, ISMAPVIEW_SPAN_LONGITUDE);
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, kMapViewSpanLatitude, kMapViewSpanLongitude);
         MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
         [_mapView setRegion:adjustedRegion animated:TRUE]; 
     }

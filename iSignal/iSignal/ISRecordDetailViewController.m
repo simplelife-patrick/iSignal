@@ -26,7 +26,7 @@
     {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([_signalRecord.latitude doubleValue], [_signalRecord.longitude doubleValue]);
         
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, ISMAPVIEW_SPAN_LATITUDE, ISMAPVIEW_SPAN_LONGITUDE);
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, kMapViewSpanLatitude, kMapViewSpanLongitude);
         MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
         [_mapView setRegion:adjustedRegion animated:FALSE]; 
         

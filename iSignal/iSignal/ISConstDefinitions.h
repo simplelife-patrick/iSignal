@@ -9,4 +9,14 @@
 #ifndef iSignal_ISConstDefinitions_h
 #define iSignal_ISConstDefinitions_h
 
+// UI - MonitorView
+extern const NSUInteger kMonitorViewPlotDataPoints;
+
+
+// UI - MapView
+extern const NSUInteger kMapViewSpanLatitude;
+extern const NSUInteger kMapViewSpanLongitude;
+
+
+
 #endif

@@ -52,6 +52,7 @@
 		C5799AB015183B34000C1B5A /* ISTableViewSegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5799AAF15183B34000C1B5A /* ISTableViewSegmentCell.xib */; };
 		C57CCD6415822C62006077FE /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57CCD6315822C62006077FE /* libCorePlot-CocoaTouch.a */; };
 		C57CCD6815823E0E006077FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57CCD6615822CC4006077FE /* QuartzCore.framework */; };
+		C57CCD6B15823ED3006077FE /* ISMonitorScatterPlotTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C57CCD6A15823ED3006077FE /* ISMonitorScatterPlotTheme.m */; };
 		C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */; };
 		C5882A8C140240F900EC29A6 /* CBEnvironmentUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */; };
 		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
@@ -98,6 +99,7 @@
 		C5E24D29150F8A24004AF8A8 /* tab_monitor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E24D1F150F8A24004AF8A8 /* tab_monitor@2x.png */; };
 		C5E5D77214EBE786007E0F2D /* CBDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E5D77114EBE786007E0F2D /* CBDateUtils.m */; };
 		C5E6C8BC140F2D9400D81647 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E6C8BB140F2D9400D81647 /* MapKit.framework */; };
+		C5E7F0661585FF1700C1EACB /* ISConstDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E7F0651585FF1700C1EACB /* ISConstDefinitions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +250,8 @@
 		C57CCD6215822C62006077FE /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		C57CCD6315822C62006077FE /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		C57CCD6615822CC4006077FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C57CCD6915823ED3006077FE /* ISMonitorScatterPlotTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMonitorScatterPlotTheme.h; sourceTree = "<group>"; };
+		C57CCD6A15823ED3006077FE /* ISMonitorScatterPlotTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMonitorScatterPlotTheme.m; sourceTree = "<group>"; };
 		C57FB7871513180F00B78F19 /* ISHelpViewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHelpViewNavigationController.h; sourceTree = "<group>"; };
 		C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewNavigationController.m; sourceTree = "<group>"; };
 		C5882A8A140240F900EC29A6 /* CBEnvironmentUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBEnvironmentUtils.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -317,6 +321,8 @@
 		C5E5D77014EBE786007E0F2D /* CBDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDateUtils.h; sourceTree = "<group>"; };
 		C5E5D77114EBE786007E0F2D /* CBDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBDateUtils.m; sourceTree = "<group>"; };
 		C5E6C8BB140F2D9400D81647 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C5E7EFF8158392BB00C1EACB /* ISConstDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISConstDefinitions.h; sourceTree = "<group>"; };
+		C5E7F0651585FF1700C1EACB /* ISConstDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISConstDefinitions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				C5CD42D413FF8826009C5741 /* main.m */,
+				C5E7F0651585FF1700C1EACB /* ISConstDefinitions.m */,
 				C5027274140A2BA40013175B /* ISAppConfigs.m */,
 				C5CD42D813FF8826009C5741 /* iSignalAppDelegate.m */,
 				C5320482150103F10085061B /* ISAudioModule.m */,
@@ -559,6 +566,7 @@
 				C54E84DD15045763006A9C4A /* ISRecordDetailViewController.m */,
 				C57733B2152E84D400D51C29 /* ISMonitorView.m */,
 				C5883CBF150D9C8700359C1A /* ISMonitorViewController.m */,
+				C57CCD6A15823ED3006077FE /* ISMonitorScatterPlotTheme.m */,
 				C547B44B1409D3690037B63F /* ISTableViewSwitcherCell.m */,
 				C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */,
 				C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */,
@@ -631,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				C5126FE21508D7C6007B5BAA /* ISMacroDefinitions.h */,
+				C5E7EFF8158392BB00C1EACB /* ISConstDefinitions.h */,
 				C50F9D75140A1FA9000589BB /* ISAppConfigs.h */,
 				C5CD42D713FF8826009C5741 /* iSignalAppDelegate.h */,
 				C5320481150103F10085061B /* ISAudioModule.h */,
@@ -652,6 +661,7 @@
 				C54E84DC15045763006A9C4A /* ISRecordDetailViewController.h */,
 				C57733B1152E84D400D51C29 /* ISMonitorView.h */,
 				C5883CBE150D9C8700359C1A /* ISMonitorViewController.h */,
+				C57CCD6915823ED3006077FE /* ISMonitorScatterPlotTheme.h */,
 				C547B44A1409D3690037B63F /* ISTableViewSwitcherCell.h */,
 				C5799AAC15183B1C000C1B5A /* ISTableViewSegmentCell.h */,
 				C5AC052514EFEF0700AAD6FA /* ISMapAnnotation.h */,
@@ -841,6 +851,8 @@
 				C5799AAE15183B1C000C1B5A /* ISTableViewSegmentCell.m in Sources */,
 				C57733B3152E84D400D51C29 /* ISMonitorView.m in Sources */,
 				C57733BB152FC2A500D51C29 /* CBQuartzView.m in Sources */,
+				C57CCD6B15823ED3006077FE /* ISMonitorScatterPlotTheme.m in Sources */,
+				C5E7F0661585FF1700C1EACB /* ISConstDefinitions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

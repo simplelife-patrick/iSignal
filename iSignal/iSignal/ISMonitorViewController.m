@@ -10,6 +10,10 @@
 
 @implementation ISMonitorViewController
 
+@synthesize dataTimer = _dataTimer;
+@synthesize plotData = _plotData;
+@synthesize currentIndex = _currentIndex;
+
 - (void)initTabBarItem
 {
     UIImage* itemImage = [UIImage imageNamed:@"tab_monitor.png"];
@@ -24,6 +28,13 @@
     if (self) 
     {
         [self initTabBarItem];
+        
+        _dataTimer = [[NSTimer timerWithTimeInterval:1.0
+                                              target:self
+                                            selector:@selector(newData:)
+                                            userInfo:nil
+                                             repeats:YES] retain];
+        [[NSRunLoop mainRunLoop] addTimer:_dataTimer forMode:NSDefaultRunLoopMode];
     }
     return self;
 }
@@ -44,6 +55,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)newData:(NSTimer *)theTimer
+{
+    
 }
 
 @end
