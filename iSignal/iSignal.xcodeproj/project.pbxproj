@@ -20,6 +20,8 @@
 		C52871AC14FF09F500B0630A /* Star128Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = C52871A814FF09F500B0630A /* Star128Gray.png */; };
 		C52871AD14FF09F500B0630A /* Star128Black.png in Resources */ = {isa = PBXBuildFile; fileRef = C52871A914FF09F500B0630A /* Star128Black.png */; };
 		C52871AE14FF09F500B0630A /* noSignal256.png in Resources */ = {isa = PBXBuildFile; fileRef = C52871AA14FF09F500B0630A /* noSignal256.png */; };
+		C528D732158989A500C8EE71 /* CBPlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C528D731158989A500C8EE71 /* CBPlotItem.m */; };
+		C528D73615898A4600C8EE71 /* CBPlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = C528D73515898A4600C8EE71 /* CBPlotGallery.m */; };
 		C52D7C991406481F00B7B0DA /* CBTelephonyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */; };
 		C531221D140B18560046CD7F /* signalLost.caf in Resources */ = {isa = PBXBuildFile; fileRef = C531221C140B18560046CD7F /* signalLost.caf */; };
 		C53204781500AAF60085061B /* CBNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C53204771500AAF60085061B /* CBNotificationManager.m */; };
@@ -121,6 +123,10 @@
 		C52871A814FF09F500B0630A /* Star128Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star128Gray.png; sourceTree = "<group>"; };
 		C52871A914FF09F500B0630A /* Star128Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star128Black.png; sourceTree = "<group>"; };
 		C52871AA14FF09F500B0630A /* noSignal256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSignal256.png; sourceTree = "<group>"; };
+		C528D730158989A500C8EE71 /* CBPlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPlotItem.h; sourceTree = "<group>"; };
+		C528D731158989A500C8EE71 /* CBPlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPlotItem.m; sourceTree = "<group>"; };
+		C528D73415898A4600C8EE71 /* CBPlotGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPlotGallery.h; sourceTree = "<group>"; };
+		C528D73515898A4600C8EE71 /* CBPlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPlotGallery.m; sourceTree = "<group>"; };
 		C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
@@ -536,6 +542,10 @@
 				C53204771500AAF60085061B /* CBNotificationManager.m */,
 				C57733B9152FC2A500D51C29 /* CBQuartzView.h */,
 				C57733BA152FC2A500D51C29 /* CBQuartzView.m */,
+				C528D730158989A500C8EE71 /* CBPlotItem.h */,
+				C528D731158989A500C8EE71 /* CBPlotItem.m */,
+				C528D73415898A4600C8EE71 /* CBPlotGallery.h */,
+				C528D73515898A4600C8EE71 /* CBPlotGallery.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -853,6 +863,8 @@
 				C57733BB152FC2A500D51C29 /* CBQuartzView.m in Sources */,
 				C57CCD6B15823ED3006077FE /* ISMonitorScatterPlotTheme.m in Sources */,
 				C5E7F0661585FF1700C1EACB /* ISConstDefinitions.m in Sources */,
+				C528D732158989A500C8EE71 /* CBPlotItem.m in Sources */,
+				C528D73615898A4600C8EE71 /* CBPlotGallery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
