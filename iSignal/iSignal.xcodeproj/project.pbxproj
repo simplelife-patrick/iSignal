@@ -22,6 +22,7 @@
 		C52871AE14FF09F500B0630A /* noSignal256.png in Resources */ = {isa = PBXBuildFile; fileRef = C52871AA14FF09F500B0630A /* noSignal256.png */; };
 		C528D732158989A500C8EE71 /* CBPlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C528D731158989A500C8EE71 /* CBPlotItem.m */; };
 		C528D73615898A4600C8EE71 /* CBPlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = C528D73515898A4600C8EE71 /* CBPlotGallery.m */; };
+		C528D7391589E9BF00C8EE71 /* ISSignalStrengthRealTimePlot.m in Sources */ = {isa = PBXBuildFile; fileRef = C528D7381589E9BF00C8EE71 /* ISSignalStrengthRealTimePlot.m */; };
 		C52D7C991406481F00B7B0DA /* CBTelephonyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */; };
 		C531221D140B18560046CD7F /* signalLost.caf in Resources */ = {isa = PBXBuildFile; fileRef = C531221C140B18560046CD7F /* signalLost.caf */; };
 		C53204781500AAF60085061B /* CBNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C53204771500AAF60085061B /* CBNotificationManager.m */; };
@@ -73,6 +74,7 @@
 		C5BEB01B1400C32F0083A86A /* ISHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BEB0191400C32F0083A86A /* ISHelpViewController.m */; };
 		C5BEB01C1400C32F0083A86A /* ISHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */; };
 		C5C10BC3150E15980088944D /* ISSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5C10BC2150E15980088944D /* ISSwitchViewController.xib */; };
+		C5C1C10C158DFD1D004DD128 /* ISSimpleScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C1C10B158DFD1D004DD128 /* ISSimpleScatterPlot.m */; };
 		C5CD004714EFEC5000FC0D02 /* ISMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */; };
 		C5CD42C713FF8826009C5741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42C613FF8826009C5741 /* UIKit.framework */; };
 		C5CD42C913FF8826009C5741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CD42C813FF8826009C5741 /* Foundation.framework */; };
@@ -127,6 +129,8 @@
 		C528D731158989A500C8EE71 /* CBPlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPlotItem.m; sourceTree = "<group>"; };
 		C528D73415898A4600C8EE71 /* CBPlotGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPlotGallery.h; sourceTree = "<group>"; };
 		C528D73515898A4600C8EE71 /* CBPlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPlotGallery.m; sourceTree = "<group>"; };
+		C528D7371589E9BF00C8EE71 /* ISSignalStrengthRealTimePlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSignalStrengthRealTimePlot.h; sourceTree = "<group>"; };
+		C528D7381589E9BF00C8EE71 /* ISSignalStrengthRealTimePlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSignalStrengthRealTimePlot.m; sourceTree = "<group>"; };
 		C52D7C971406481F00B7B0DA /* CBTelephonyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTelephonyUtils.h; sourceTree = "<group>"; };
 		C52D7C981406481F00B7B0DA /* CBTelephonyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTelephonyUtils.m; sourceTree = "<group>"; };
 		C531221C140B18560046CD7F /* signalLost.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signalLost.caf; sourceTree = SOURCE_ROOT; };
@@ -294,6 +298,8 @@
 		C5BEB0191400C32F0083A86A /* ISHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewController.m; sourceTree = "<group>"; };
 		C5BEB01A1400C32F0083A86A /* ISHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISHelpViewController.xib; sourceTree = "<group>"; };
 		C5C10BC2150E15980088944D /* ISSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISSwitchViewController.xib; sourceTree = "<group>"; };
+		C5C1C10A158DFD1D004DD128 /* ISSimpleScatterPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSimpleScatterPlot.h; sourceTree = "<group>"; };
+		C5C1C10B158DFD1D004DD128 /* ISSimpleScatterPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSimpleScatterPlot.m; sourceTree = "<group>"; };
 		C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMapAnnotation.m; sourceTree = "<group>"; };
 		C5CD42C213FF8826009C5741 /* iSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CD42C613FF8826009C5741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -580,6 +586,8 @@
 				C547B44B1409D3690037B63F /* ISTableViewSwitcherCell.m */,
 				C5799AAD15183B1C000C1B5A /* ISTableViewSegmentCell.m */,
 				C5CD004614EFEC5000FC0D02 /* ISMapAnnotation.m */,
+				C528D7381589E9BF00C8EE71 /* ISSignalStrengthRealTimePlot.m */,
+				C5C1C10B158DFD1D004DD128 /* ISSimpleScatterPlot.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -675,6 +683,8 @@
 				C547B44A1409D3690037B63F /* ISTableViewSwitcherCell.h */,
 				C5799AAC15183B1C000C1B5A /* ISTableViewSegmentCell.h */,
 				C5AC052514EFEF0700AAD6FA /* ISMapAnnotation.h */,
+				C528D7371589E9BF00C8EE71 /* ISSignalStrengthRealTimePlot.h */,
+				C5C1C10A158DFD1D004DD128 /* ISSimpleScatterPlot.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -865,6 +875,8 @@
 				C5E7F0661585FF1700C1EACB /* ISConstDefinitions.m in Sources */,
 				C528D732158989A500C8EE71 /* CBPlotItem.m in Sources */,
 				C528D73615898A4600C8EE71 /* CBPlotGallery.m in Sources */,
+				C528D7391589E9BF00C8EE71 /* ISSignalStrengthRealTimePlot.m in Sources */,
+				C5C1C10C158DFD1D004DD128 /* ISSimpleScatterPlot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
