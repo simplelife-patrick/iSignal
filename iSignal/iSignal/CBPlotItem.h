@@ -13,6 +13,10 @@
 
 @interface CBPlotItem : NSObject
 {
+    CPTGraphHostingView *defaultLayerHostingView;
+    NSMutableArray *graphs;
+    NSString *title;
+    
     CPTNativeImage *cachedImage;
 }
 

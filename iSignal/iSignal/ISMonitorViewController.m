@@ -10,9 +10,8 @@
 
 @implementation ISMonitorViewController
 
-@synthesize dataTimer = _dataTimer;
-@synthesize plotData = _plotData;
-@synthesize currentIndex = _currentIndex;
+@dynamic detailItem;
+@synthesize hostingView;
 
 - (void)initTabBarItem
 {
@@ -29,27 +28,35 @@
     {
         [self initTabBarItem];
         
-        _dataTimer = [[NSTimer timerWithTimeInterval:1.0
-                                              target:self
-                                            selector:@selector(newData:)
-                                            userInfo:nil
-                                             repeats:YES] retain];
-        [[NSRunLoop mainRunLoop] addTimer:_dataTimer forMode:NSDefaultRunLoopMode];
+        
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [detailItem release];
+    [hostingView release];
+    
+    [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+    ISSignalStrengthRealTimePlot *realTimePlot = [[ISSignalStrengthRealTimePlot alloc] init];
+    [self setDetailItem:realTimePlot];
+    [realTimePlot release];
 }
 
 - (void)viewDidUnload
 {
+    detailItem = nil;
+    hostingView = nil;    
+    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -57,9 +64,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void)newData:(NSTimer *)theTimer
+-(CBPlotItem *)detailItem
 {
-    
+	return self.detailItem;
+}
+
+-(void)setDetailItem:(id)newDetailItem
+{
+	if (detailItem != newDetailItem) 
+    {
+		[detailItem killGraph];
+		[detailItem release];
+        
+		detailItem = [newDetailItem retain];
+        //TODO: deal with the temp theme.
+        CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
+        [detailItem renderInView:hostingView withTheme:theme];
+	}
 }
 
 @end

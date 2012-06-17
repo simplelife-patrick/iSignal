@@ -12,9 +12,9 @@
 
 @implementation CBPlotItem
 
-@synthesize defaultLayerHostingView = _defaultLayerHostingView;
-@synthesize graphs = _graphs;
-@synthesize title = _title;
+@synthesize defaultLayerHostingView;
+@synthesize graphs;
+@synthesize title;
 
 + (void)registerPlotItem:(id)item
 {
@@ -37,7 +37,7 @@
 {
 	if ((self = [super init])) 
     {
-		_graphs = [[NSMutableArray alloc] init];
+		graphs = [[NSMutableArray alloc] init];
 	}
     
 	return self;
@@ -47,15 +47,15 @@
 {
 	[self killGraph];
     
-    [_graphs release];
-    [_title release];
+    [graphs release];
+    [title release];
     
 	[super dealloc];
 }
 
 - (void)addGraph:(CPTGraph *)graph toHostingView:(CPTGraphHostingView *)layerHostingView
 {
-	[_graphs addObject:graph];
+	[graphs addObject:graph];
     
 	if (layerHostingView) 
     {
@@ -71,19 +71,19 @@
 - (void)killGraph
 {
 	// Remove the CPTLayerHostingView
-	if (_defaultLayerHostingView) 
+	if (defaultLayerHostingView) 
     {
-		[_defaultLayerHostingView removeFromSuperview];
+		[defaultLayerHostingView removeFromSuperview];
         
-		_defaultLayerHostingView.hostedGraph = nil;
-		[_defaultLayerHostingView release];
-		_defaultLayerHostingView = nil;
+		defaultLayerHostingView.hostedGraph = nil;
+		[defaultLayerHostingView release];
+		defaultLayerHostingView = nil;
 	}
     
 	[cachedImage release];
 	cachedImage = nil;
     
-	[_graphs removeAllObjects];
+	[graphs removeAllObjects];
 }
 
 // Override to generate data for the plot if needed
@@ -94,12 +94,12 @@
 
 - (NSComparisonResult)titleCompare:(CBPlotItem *)other
 {
-	return [_title caseInsensitiveCompare:other.title];
+	return [title caseInsensitiveCompare:other.title];
 }
 
 - (void)setTitleDefaultsForGraph:(CPTGraph *)graph withBounds:(CGRect)bounds
 {
-	graph.title = _title;
+	graph.title = title;
 	CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
 	textStyle.color				   = [CPTColor grayColor];
 	textStyle.fontName			   = @"Helvetica-Bold";
@@ -189,13 +189,13 @@
 {
 	[self killGraph];
     
-	_defaultLayerHostingView = [(CPTGraphHostingView *)[CPTGraphHostingView alloc] initWithFrame:hostingView.bounds];
+	defaultLayerHostingView = [(CPTGraphHostingView *)[CPTGraphHostingView alloc] initWithFrame:hostingView.bounds];
     
-	_defaultLayerHostingView.collapsesLayers = NO;
+	defaultLayerHostingView.collapsesLayers = NO;
 
-	[hostingView addSubview:_defaultLayerHostingView];
+	[hostingView addSubview:defaultLayerHostingView];
 	[self generateData];
-	[self renderInLayer:_defaultLayerHostingView withTheme:theme];
+	[self renderInLayer:defaultLayerHostingView withTheme:theme];
 }
 
 - (void)renderInLayer:(CPTGraphHostingView *)layerHostingView withTheme:(CPTTheme *)theme
@@ -205,7 +205,7 @@
 
 - (void)reloadData
 {
-	for (CPTGraph *g in _graphs) 
+	for (CPTGraph *g in graphs) 
     {
 		[g reloadData];
 	}

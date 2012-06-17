@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISMonitorViewController : UIViewController
+#import "CBPlotItem.h"
 
-@property (retain, nonatomic) NSMutableArray *plotData;
-@property NSUInteger currentIndex;
-@property (retain, nonatomic) NSTimer *dataTimer;
+#import "ISSimpleScatterPlot.h"
+#import "ISSignalStrengthRealTimePlot.h"
+
+@interface ISMonitorViewController : UIViewController
+{
+    CBPlotItem *detailItem;
+}
+
+@property (nonatomic, retain) CBPlotItem *detailItem;
+@property (nonatomic, retain) IBOutlet UIView *hostingView;
 
 @end
