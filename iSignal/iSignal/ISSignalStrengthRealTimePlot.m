@@ -8,12 +8,10 @@
 
 #import "ISSignalStrengthRealTimePlot.h"
 
-const NSUInteger kMaxDataPoints = 51;
-
 const double kFrameRate			= 5.0;  // frames per second
 const double kAlpha				= 0.25; // smoothing constant
 
-NSString *kPlotIdentifier		= @"Data Source Plot";
+NSString *kPlotIdentifier		= @"Real Time Signal Strength Plot";
 
 
 @implementation ISSignalStrengthRealTimePlot
@@ -27,12 +25,17 @@ NSString *kPlotIdentifier		= @"Data Source Plot";
 {
 	if ((self = [super init])) 
     {
-		title	  = @"Real Time Plot";
-		plotData  = [[NSMutableArray alloc] initWithCapacity:kMaxDataPoints];
+		title	  = @"Real Time Signal Strength";
+		plotData  = [[NSMutableArray alloc] initWithCapacity:kSignalStrengthPlotDataPoints];
 		dataTimer = nil;
 	}
     
 	return self;
+}
+
+- (void)setTitleDefaultsForGraph:(CPTGraph *)graph withBounds:(CGRect)bounds
+{
+    [super setTitleDefaultsForGraph:graph withBounds:bounds];
 }
 
 - (void)killGraph
@@ -65,14 +68,18 @@ NSString *kPlotIdentifier		= @"Data Source Plot";
 	[self addGraph:graph toHostingView:layerHostingView];
 	[self applyTheme:theme toGraph:graph withDefault:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
     
-	[self setTitleDefaultsForGraph:graph withBounds:bounds];
+//	[self setTitleDefaultsForGraph:graph withBounds:bounds];
 	[self setPaddingDefaultsForGraph:graph withBounds:bounds];
     
-	graph.plotAreaFrame.paddingTop	  = 15.0;
-	graph.plotAreaFrame.paddingRight  = 15.0;
+	graph.plotAreaFrame.paddingTop	  = 5.0;
+	graph.plotAreaFrame.paddingRight  = 5.0;
 	graph.plotAreaFrame.paddingBottom = 55.0;
-	graph.plotAreaFrame.paddingLeft	  = 55.0;
+	graph.plotAreaFrame.paddingLeft	  = 50.0;
     
+    // No border line for graph
+    graph.plotAreaFrame.borderLineStyle = nil;
+    graph.plotAreaFrame.cornerRadius = 0.0f;
+
 	// Grid line styles
 	CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
 	majorGridLineStyle.lineWidth = 0.75;
@@ -91,7 +98,7 @@ NSString *kPlotIdentifier		= @"Data Source Plot";
 	x.majorGridLineStyle		  = majorGridLineStyle;
 	x.minorGridLineStyle		  = minorGridLineStyle;
 	x.minorTicksPerInterval		  = 9;
-	x.title						  = @"X Axis";
+	x.title						  = @"Time(seconds)";
 	x.titleOffset				  = 35.0;
 	NSNumberFormatter *labelFormatter = [[NSNumberFormatter alloc] init];
 	labelFormatter.numberStyle = NSNumberFormatterNoStyle;
@@ -106,7 +113,7 @@ NSString *kPlotIdentifier		= @"Data Source Plot";
 	y.minorGridLineStyle		  = minorGridLineStyle;
 	y.minorTicksPerInterval		  = 3;
 	y.labelOffset				  = 5.0;
-	y.title						  = @"Y Axis";
+	y.title						  = @"Signal Strength(dbm)";
 	y.titleOffset				  = 30.0;
 	y.axisConstraints			  = [CPTConstraints constraintWithLowerOffset:0.0];
     
@@ -128,7 +135,8 @@ NSString *kPlotIdentifier		= @"Data Source Plot";
     
 	// Plot space
 	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(0) length:CPTDecimalFromUnsignedInteger(kMaxDataPoints - 1)];
+    plotSpace.allowsUserInteraction = NO;
+	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(0) length:CPTDecimalFromUnsignedInteger(kSignalStrengthPlotDataPoints - 1)];
 	plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(0) length:CPTDecimalFromUnsignedInteger(1)];
 }
 
@@ -148,16 +156,16 @@ NSString *kPlotIdentifier		= @"Data Source Plot";
     
 	if (thePlot) 
     {
-		if (plotData.count >= kMaxDataPoints) 
+		if (plotData.count >= kSignalStrengthPlotDataPoints) 
         {
 			[plotData removeObjectAtIndex:0];
 			[thePlot deleteDataInIndexRange:NSMakeRange(0, 1)];
 		}
         
 		CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)theGraph.defaultPlotSpace;
-		NSUInteger location		  = (currentIndex >= kMaxDataPoints ? currentIndex - kMaxDataPoints + 1 : 0);
+		NSUInteger location		  = (currentIndex >= kSignalStrengthPlotDataPoints ? currentIndex - kSignalStrengthPlotDataPoints + 1 : 0);
 		plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(location)
-														length:CPTDecimalFromUnsignedInteger(kMaxDataPoints - 1)];
+														length:CPTDecimalFromUnsignedInteger(kSignalStrengthPlotDataPoints - 1)];
         
 		currentIndex++;
 		[plotData addObject:[NSNumber numberWithDouble:(1.0 - kAlpha) * [[plotData lastObject] doubleValue] + kAlpha * rand() / (double)RAND_MAX]];

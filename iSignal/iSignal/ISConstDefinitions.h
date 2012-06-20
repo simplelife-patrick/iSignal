@@ -10,7 +10,8 @@
 #define iSignal_ISConstDefinitions_h
 
 // UI - MonitorView
-extern const NSUInteger kMonitorViewPlotDataPoints;
+extern const NSUInteger kSignalStrengthPlotDataPoints;
+extern const NSUInteger kRadiationStrengthPlotDataPoints;
 
 // UI - MapView
 extern const NSUInteger kMapViewSpanLatitude;

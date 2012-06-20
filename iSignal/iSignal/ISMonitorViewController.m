@@ -49,6 +49,10 @@
     ISSignalStrengthRealTimePlot *realTimePlot = [[ISSignalStrengthRealTimePlot alloc] init];
     [self setDetailItem:realTimePlot];
     [realTimePlot release];
+    
+//    ISSimpleScatterPlot *simplePlot = [[ISSimpleScatterPlot alloc] init];
+//    [self setDetailItem:simplePlot];
+//    [simplePlot release];
 }
 
 - (void)viewDidUnload

@@ -18,7 +18,7 @@
 
 + (void)registerPlotItem:(id)item
 {
-	DLog(@"registerPlotItem for class %@", [item class]);
+	DLog(@"Regitester CBPlotItem sub class %@ into CBPlotGallery.", [item class]);
     
 	Class itemClass = [item class];
 	if ( itemClass ) 
@@ -105,7 +105,7 @@
 	textStyle.fontName			   = @"Helvetica-Bold";
 	textStyle.fontSize			   = round(bounds.size.height / (CGFloat)20.0);
 	graph.titleTextStyle		   = textStyle;
-	graph.titleDisplacement		   = CGPointMake( 0.0f, round(bounds.size.height / (CGFloat)18.0) ); // Ensure that title displacement falls on an integral pixel
+	graph.titleDisplacement		   = CGPointMake(0.0f, round(bounds.size.height / (CGFloat)18.0) ); // Ensure that title displacement falls on an integral pixel
 	graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
 }
 
@@ -189,7 +189,11 @@
 {
 	[self killGraph];
     
-	defaultLayerHostingView = [(CPTGraphHostingView *)[CPTGraphHostingView alloc] initWithFrame:hostingView.bounds];
+    CGRect rect = hostingView.bounds;
+    //TODO: Need remove hard code for CGRect
+    rect = CGRectMake(0,0,320,378);
+    
+	defaultLayerHostingView = [(CPTGraphHostingView *)[CPTGraphHostingView alloc] initWithFrame:rect];
     
 	defaultLayerHostingView.collapsesLayers = NO;
 

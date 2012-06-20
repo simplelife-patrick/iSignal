@@ -9,7 +9,8 @@
 #import "ISConstDefinitions.h"
 
 // UI - MonitorView
-const NSUInteger kMonitorViewPlotDataPoints = 100;
+const NSUInteger kSignalStrengthPlotDataPoints = 100;
+const NSUInteger kRadiationStrengthPlotDataPoints = 100;
 
 // UI - MapView
 const NSUInteger kMapViewSpanLongitude = 2000;
