@@ -27,8 +27,7 @@
     if (self) 
     {
         [self initTabBarItem];
-        
-        
+
     }
     return self;
 }
@@ -46,9 +45,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-    ISSignalStrengthRealTimePlot *realTimePlot = [[ISSignalStrengthRealTimePlot alloc] init];
-    [self setDetailItem:realTimePlot];
-    [realTimePlot release];
+    ISSignalStrengthRealTimePlot *signalStrengthPlot = [[ISSignalStrengthRealTimePlot alloc] init];
+    [self setDetailItem:signalStrengthPlot];
+    [signalStrengthPlot release];
     
 //    ISSimpleScatterPlot *simplePlot = [[ISSimpleScatterPlot alloc] init];
 //    [self setDetailItem:simplePlot];
@@ -82,8 +81,9 @@
         
 		detailItem = [newDetailItem retain];
         //TODO: deal with the temp theme.
-        CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
+        CPTTheme *theme = [[ISMonitorScatterPlotTheme alloc] init];
         [detailItem renderInView:hostingView withTheme:theme];
+        [theme release];
 	}
 }
 

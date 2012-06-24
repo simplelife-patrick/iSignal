@@ -12,9 +12,6 @@
 {
 	NSMutableArray *plotData;
 	NSUInteger currentIndex;
-	NSTimer *dataTimer;
 }
-
--(void)newData:(NSTimer *)theTimer;
 
 @end

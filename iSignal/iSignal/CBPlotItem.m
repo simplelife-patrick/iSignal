@@ -191,15 +191,15 @@
     
     CGRect rect = hostingView.bounds;
     //TODO: Need remove hard code for CGRect
-    rect = CGRectMake(0,0,320,378);
+//    rect = CGRectMake(0,0,320,378);
     
 	defaultLayerHostingView = [(CPTGraphHostingView *)[CPTGraphHostingView alloc] initWithFrame:rect];
     
 	defaultLayerHostingView.collapsesLayers = NO;
 
 	[hostingView addSubview:defaultLayerHostingView];
-	[self generateData];
 	[self renderInLayer:defaultLayerHostingView withTheme:theme];
+    [self generateData];
 }
 
 - (void)renderInLayer:(CPTGraphHostingView *)layerHostingView withTheme:(CPTTheme *)theme

@@ -10,6 +10,7 @@
 
 #import "CBPlotItem.h"
 
+#import "ISMonitorScatterPlotTheme.h"
 #import "ISSimpleScatterPlot.h"
 #import "ISSignalStrengthRealTimePlot.h"
 

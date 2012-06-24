@@ -14,6 +14,10 @@
 #import "CBMathUtils.h"
 
 @interface ISDummyTelephonyModule : CBModuleAbstractImpl
+{
+    NSString *carrier;
+    NSInteger signalStrength;
+}
 
 @property (nonatomic, copy) NSString *carrier;
 @property (nonatomic) NSInteger signalStrength;

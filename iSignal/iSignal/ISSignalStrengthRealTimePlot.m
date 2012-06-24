@@ -8,12 +8,6 @@
 
 #import "ISSignalStrengthRealTimePlot.h"
 
-const double kFrameRate			= 5.0;  // frames per second
-const double kAlpha				= 0.25; // smoothing constant
-
-NSString *kPlotIdentifier		= @"Real Time Signal Strength Plot";
-
-
 @implementation ISSignalStrengthRealTimePlot
 
 + (void)load
@@ -25,9 +19,8 @@ NSString *kPlotIdentifier		= @"Real Time Signal Strength Plot";
 {
 	if ((self = [super init])) 
     {
-		title	  = @"Real Time Signal Strength";
+		title	  = PLOT_ID_REALTIME_SIGNALSTRENGTH;
 		plotData  = [[NSMutableArray alloc] initWithCapacity:kSignalStrengthPlotDataPoints];
-		dataTimer = nil;
 	}
     
 	return self;
@@ -35,14 +28,16 @@ NSString *kPlotIdentifier		= @"Real Time Signal Strength Plot";
 
 - (void)setTitleDefaultsForGraph:(CPTGraph *)graph withBounds:(CGRect)bounds
 {
-    [super setTitleDefaultsForGraph:graph withBounds:bounds];
+//    [super setTitleDefaultsForGraph:graph withBounds:bounds];
+}
+
+- (void)setPaddingDefaultsForGraph:(CPTGraph *)graph withBounds:(CGRect)bounds
+{
+//    [super setPaddingDefaultsForGraph:graph withBounds:bounds];
 }
 
 - (void)killGraph
 {
-	[dataTimer invalidate];
-	[dataTimer release];
-	dataTimer = nil;
     
 	[super killGraph];
 }
@@ -51,78 +46,29 @@ NSString *kPlotIdentifier		= @"Real Time Signal Strength Plot";
 {
 	[plotData removeAllObjects];
 	currentIndex = 0;
-	[dataTimer release];
-	dataTimer = [[NSTimer timerWithTimeInterval:1.0 / kFrameRate
-										 target:self
-									   selector:@selector(newData:)
-									   userInfo:nil
-										repeats:YES] retain];
-	[[NSRunLoop mainRunLoop] addTimer:dataTimer forMode:NSDefaultRunLoopMode];
+
+//    iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate]; 
+//    NSNumber *firstVal = [NSNumber numberWithInt:[appDelegate.dummyTelephonyModule signalStrength]];
+//    [self updateSignalStrength:firstVal];
+    
+    [self listenSignalStrengthChanged];
 }
 
 - (void)renderInLayer:(CPTGraphHostingView *)layerHostingView withTheme:(CPTTheme *)theme
 {
+
 	CGRect bounds = layerHostingView.bounds;
     
 	CPTGraph *graph = [[[CPTXYGraph alloc] initWithFrame:bounds] autorelease];
 	[self addGraph:graph toHostingView:layerHostingView];
 	[self applyTheme:theme toGraph:graph withDefault:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
     
-//	[self setTitleDefaultsForGraph:graph withBounds:bounds];
+	[self setTitleDefaultsForGraph:graph withBounds:bounds];
 	[self setPaddingDefaultsForGraph:graph withBounds:bounds];
-    
-	graph.plotAreaFrame.paddingTop	  = 5.0;
-	graph.plotAreaFrame.paddingRight  = 5.0;
-	graph.plotAreaFrame.paddingBottom = 55.0;
-	graph.plotAreaFrame.paddingLeft	  = 50.0;
-    
-    // No border line for graph
-    graph.plotAreaFrame.borderLineStyle = nil;
-    graph.plotAreaFrame.cornerRadius = 0.0f;
-
-	// Grid line styles
-	CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
-	majorGridLineStyle.lineWidth = 0.75;
-	majorGridLineStyle.lineColor = [[CPTColor colorWithGenericGray:0.2] colorWithAlphaComponent:0.75];
-    
-	CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
-	minorGridLineStyle.lineWidth = 0.25;
-	minorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
-    
-	// Axes
-	// X axis
-	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
-	CPTXYAxis *x		  = axisSet.xAxis;
-	x.labelingPolicy			  = CPTAxisLabelingPolicyAutomatic;
-	x.orthogonalCoordinateDecimal = CPTDecimalFromUnsignedInteger(0);
-	x.majorGridLineStyle		  = majorGridLineStyle;
-	x.minorGridLineStyle		  = minorGridLineStyle;
-	x.minorTicksPerInterval		  = 9;
-	x.title						  = @"Time(seconds)";
-	x.titleOffset				  = 35.0;
-	NSNumberFormatter *labelFormatter = [[NSNumberFormatter alloc] init];
-	labelFormatter.numberStyle = NSNumberFormatterNoStyle;
-	x.labelFormatter		   = labelFormatter;
-	[labelFormatter release];
-    
-	// Y axis
-	CPTXYAxis *y = axisSet.yAxis;
-	y.labelingPolicy			  = CPTAxisLabelingPolicyAutomatic;
-	y.orthogonalCoordinateDecimal = CPTDecimalFromUnsignedInteger(0);
-	y.majorGridLineStyle		  = majorGridLineStyle;
-	y.minorGridLineStyle		  = minorGridLineStyle;
-	y.minorTicksPerInterval		  = 3;
-	y.labelOffset				  = 5.0;
-	y.title						  = @"Signal Strength(dbm)";
-	y.titleOffset				  = 30.0;
-	y.axisConstraints			  = [CPTConstraints constraintWithLowerOffset:0.0];
-    
-	// Rotate the labels by 45 degrees, just to show it can be done.
-	x.labelRotation = M_PI * 0.25;
     
 	// Create the plot
 	CPTScatterPlot *dataSourceLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
-	dataSourceLinePlot.identifier	  = kPlotIdentifier;
+	dataSourceLinePlot.identifier	  = PLOT_ID_REALTIME_SIGNALSTRENGTH;
 	dataSourceLinePlot.cachePrecision = CPTPlotCachePrecisionDouble;
     
 	CPTMutableLineStyle *lineStyle = [[dataSourceLinePlot.dataLineStyle mutableCopy] autorelease];
@@ -131,46 +77,30 @@ NSString *kPlotIdentifier		= @"Real Time Signal Strength Plot";
 	dataSourceLinePlot.dataLineStyle = lineStyle;
     
 	dataSourceLinePlot.dataSource = self;
+    
 	[graph addPlot:dataSourceLinePlot];
     
 	// Plot space
 	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = NO;
+    plotSpace.allowsUserInteraction = YES;
 	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(0) length:CPTDecimalFromUnsignedInteger(kSignalStrengthPlotDataPoints - 1)];
-	plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(0) length:CPTDecimalFromUnsignedInteger(1)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(CELLULAR_SIGNALSTRENGTH_LOWEST) length:CPTDecimalFromFloat(CELLULAR_SIGNALSTRENGTH_HIGHEST - CELLULAR_SIGNALSTRENGTH_LOWEST)];
+    
+    // Plot symbol
+    CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    plotSymbol.fill = [CPTFill fillWithColor:[CPTColor blueColor]];
+    CPTMutableLineStyle *symbolLineStyle = [[CPTMutableLineStyle alloc] autorelease];
+    symbolLineStyle.lineColor = [CPTColor blackColor];
+    plotSymbol.lineStyle = symbolLineStyle;
+    plotSymbol.size = CGSizeMake(6, 6);
+    dataSourceLinePlot.plotSymbol = plotSymbol;    
 }
 
 - (void)dealloc
 {
 	[plotData release];
-	[dataTimer invalidate];
-	[dataTimer release];
-    
-	[super dealloc];
-}
 
-- (void)newData:(NSTimer *)theTimer
-{
-	CPTGraph *theGraph = [graphs objectAtIndex:0];
-	CPTPlot *thePlot   = [theGraph plotWithIdentifier:kPlotIdentifier];
-    
-	if (thePlot) 
-    {
-		if (plotData.count >= kSignalStrengthPlotDataPoints) 
-        {
-			[plotData removeObjectAtIndex:0];
-			[thePlot deleteDataInIndexRange:NSMakeRange(0, 1)];
-		}
-        
-		CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)theGraph.defaultPlotSpace;
-		NSUInteger location		  = (currentIndex >= kSignalStrengthPlotDataPoints ? currentIndex - kSignalStrengthPlotDataPoints + 1 : 0);
-		plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(location)
-														length:CPTDecimalFromUnsignedInteger(kSignalStrengthPlotDataPoints - 1)];
-        
-		currentIndex++;
-		[plotData addObject:[NSNumber numberWithDouble:(1.0 - kAlpha) * [[plotData lastObject] doubleValue] + kAlpha * rand() / (double)RAND_MAX]];
-		[thePlot insertDataAtIndex:plotData.count - 1 numberOfRecords:1];
-	}
+	[super dealloc];
 }
 
 // Method of CPTPlotDataSource protocol
@@ -201,5 +131,58 @@ NSString *kPlotIdentifier		= @"Real Time Signal Strength Plot";
 	return num;
 }
 
+// Private Method
+- (void)listenSignalStrengthChanged
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSignalStrengthChanged:) name:
+     NOTIFICATION_ID_SIGNALSTRENGTH_CHANGED object:nil];      
+}
+
+// Private Method
+- (void)onSignalStrengthChanged:(NSNotification *) notification
+{
+    NSValue *nsValue = [[notification userInfo] objectForKey:NOTIFICATION_KV_SIGNALSTRENGTH_CHANGED]; 
+    NSNumber *signalVal = (NSNumber*)nsValue;
+    [self performSelectorOnMainThread:@selector(updateSignalStrength:) withObject:(signalVal) waitUntilDone:NO];
+}
+
+// Private Method
+- (void)updateSignalStrength:(NSNumber*) signalVal
+{
+    if (nil != signalVal)
+    {
+        CPTGraph *theGraph = [graphs objectAtIndex:0];
+        CPTPlot *thePlot   = [theGraph plotWithIdentifier:PLOT_ID_REALTIME_SIGNALSTRENGTH];
+
+        NSInteger intVal = [signalVal intValue];
+        SIGNAL_QUALITY qualityGrade = [CBTelephonyUtils evaluateSignalQuality:intVal];
+        if (qualityGrade == QUALITY_SIGNAL_NO) 
+        {
+            signalVal = [NSNumber numberWithInt:CELLULAR_SIGNALSTRENGTH_LOWEST];
+        }
+        
+        if (thePlot) 
+        {
+            if (plotData.count >= kSignalStrengthPlotDataPoints) 
+            {
+                [plotData removeObjectAtIndex:0];
+                [thePlot deleteDataInIndexRange:NSMakeRange(0, 1)];
+            }
+            
+            CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)theGraph.defaultPlotSpace;
+            NSUInteger location		  = (currentIndex >= kSignalStrengthPlotDataPoints ? currentIndex - kSignalStrengthPlotDataPoints + 1 : 0);
+            plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(location)
+                                                            length:CPTDecimalFromUnsignedInteger(kSignalStrengthPlotDataPoints - 1)];
+            
+            currentIndex = currentIndex + 1;
+            [plotData addObject:signalVal];
+            [thePlot insertDataAtIndex:plotData.count - 1 numberOfRecords:1];
+        }        
+    }
+    else
+    {
+        DLog(@"Can not update scatter plot with nil value.");
+    }
+}
 
 @end
