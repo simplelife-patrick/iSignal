@@ -58,7 +58,6 @@
 		C57CCD6B15823ED3006077FE /* ISMonitorScatterPlotTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C57CCD6A15823ED3006077FE /* ISMonitorScatterPlotTheme.m */; };
 		C57FB7891513180F00B78F19 /* ISHelpViewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */; };
 		C5882A8C140240F900EC29A6 /* CBEnvironmentUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */; };
-		C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5882A9614027EA700EC29A6 /* Requiremens.rtf */; };
 		C5882A9C14032E9D00EC29A6 /* ISDummyTelephonyModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C5882A9B14032E9D00EC29A6 /* ISDummyTelephonyModule.m */; };
 		C5883CC1150D9C8700359C1A /* ISMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5883CBF150D9C8700359C1A /* ISMonitorViewController.m */; };
 		C5883CC2150D9C8700359C1A /* ISMonitorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5883CC0150D9C8700359C1A /* ISMonitorViewController.xib */; };
@@ -266,7 +265,6 @@
 		C57FB7881513180F00B78F19 /* ISHelpViewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHelpViewNavigationController.m; sourceTree = "<group>"; };
 		C5882A8A140240F900EC29A6 /* CBEnvironmentUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBEnvironmentUtils.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C5882A8B140240F900EC29A6 /* CBEnvironmentUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBEnvironmentUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C5882A9614027EA700EC29A6 /* Requiremens.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Requiremens.rtf; sourceTree = "<group>"; };
 		C5882A9A14032E9D00EC29A6 /* ISDummyTelephonyModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDummyTelephonyModule.h; sourceTree = "<group>"; };
 		C5882A9B14032E9D00EC29A6 /* ISDummyTelephonyModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDummyTelephonyModule.m; sourceTree = "<group>"; };
 		C5883CBE150D9C8700359C1A /* ISMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMonitorViewController.h; sourceTree = "<group>"; };
@@ -676,7 +674,6 @@
 				C5CD42D013FF8826009C5741 /* iSignal-Info.plist */,
 				C5CD42D113FF8826009C5741 /* InfoPlist.strings */,
 				C5CD42D613FF8826009C5741 /* iSignal-Prefix.pch */,
-				C5882A9614027EA700EC29A6 /* Requiremens.rtf */,
 			);
 			name = Configs;
 			sourceTree = "<group>";
@@ -769,7 +766,6 @@
 				C57329C4140096B40061D973 /* ISHomeViewController.xib in Resources */,
 				C57329C914009A2F0061D973 /* ISConfigViewController.xib in Resources */,
 				C5BEB01C1400C32F0083A86A /* ISHelpViewController.xib in Resources */,
-				C5882A9714027EA700EC29A6 /* Requiremens.rtf in Resources */,
 				C573E5BF1403A91500BB24B3 /* Localizable.strings in Resources */,
 				C569E3DD14072B5B00BE938D /* ISSplashViewController.xib in Resources */,
 				C591DDC21407840F00CB2C63 /* Star32.png in Resources */,

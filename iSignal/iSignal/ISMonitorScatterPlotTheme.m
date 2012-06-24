@@ -81,7 +81,7 @@
     
     CPTMutableLineStyle *yAxisLineStyle = [[CPTMutableLineStyle alloc] autorelease];
 	yAxisLineStyle.lineWidth				 = 2.0;
-	yAxisLineStyle.lineColor				 = [CPTColor blackColor];
+	yAxisLineStyle.lineColor				 = [CPTColor blueColor];
 
     CPTXYAxis *x = axisSet.xAxis;
 	x.labelingPolicy			  = CPTAxisLabelingPolicyNone;
@@ -89,7 +89,7 @@
 	x.majorGridLineStyle		  = majorGridLineStyle;
 	x.minorGridLineStyle		  = minorGridLineStyle;
 	x.minorTicksPerInterval		  = 9;
-	x.title						  = @"Time: ";
+	x.title						  = @"Time(seconds):";
 	x.titleOffset				  = 5.0;
     x.axisLineStyle = xAxisLineStyle;
     
