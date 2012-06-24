@@ -42,6 +42,13 @@
     // No border line for graph
     plotAreaFrame.borderLineStyle = nil;
     plotAreaFrame.cornerRadius = 0.0f;
+    
+//    CPTColor *beginningColor = [CPTColor colorWithComponentRed:0.0 green:1.0 blue:0.0 alpha:0.8];
+//    CPTColor *endingColor = [CPTColor colorWithComponentRed:1.0 green:0.0 blue:0.0 alpha:0.8];
+//    CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:beginningColor endingColor:endingColor];
+//    areaGradient.angle = -90.0f;
+//    CPTFill *areaGradientFill = [CPTFill fillWithGradient:areaGradient];
+//    plotAreaFrame.fill = areaGradientFill;   
 }
 
 -(void)applyThemeToAxisSet:(CPTXYAxisSet *)axisSet

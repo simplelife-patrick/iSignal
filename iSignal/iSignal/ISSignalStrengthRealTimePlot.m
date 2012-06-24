@@ -67,25 +67,15 @@
 	[self setPaddingDefaultsForGraph:graph withBounds:bounds];
     
 	// Create the plot
-	CPTScatterPlot *dataSourceLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
-	dataSourceLinePlot.identifier	  = PLOT_ID_REALTIME_SIGNALSTRENGTH;
-	dataSourceLinePlot.cachePrecision = CPTPlotCachePrecisionDouble;
+	CPTScatterPlot *signalStrengthLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
+	signalStrengthLinePlot.identifier	  = PLOT_ID_REALTIME_SIGNALSTRENGTH;
+	signalStrengthLinePlot.cachePrecision = CPTPlotCachePrecisionDouble;
     
-	CPTMutableLineStyle *lineStyle = [[dataSourceLinePlot.dataLineStyle mutableCopy] autorelease];
+	CPTMutableLineStyle *lineStyle = [[signalStrengthLinePlot.dataLineStyle mutableCopy] autorelease];
 	lineStyle.lineWidth				 = 3.0;
 	lineStyle.lineColor				 = [CPTColor greenColor];
-	dataSourceLinePlot.dataLineStyle = lineStyle;
-    
-	dataSourceLinePlot.dataSource = self;
-    
-	[graph addPlot:dataSourceLinePlot];
-    
-	// Plot space
-	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = YES;
-	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(0) length:CPTDecimalFromUnsignedInteger(kSignalStrengthPlotDataPoints - 1)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(CELLULAR_SIGNALSTRENGTH_LOWEST) length:CPTDecimalFromFloat(CELLULAR_SIGNALSTRENGTH_HIGHEST - CELLULAR_SIGNALSTRENGTH_LOWEST)];
-    
+	signalStrengthLinePlot.dataLineStyle = lineStyle;    
+
     // Plot symbol
     CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
     plotSymbol.fill = [CPTFill fillWithColor:[CPTColor blueColor]];
@@ -93,7 +83,29 @@
     symbolLineStyle.lineColor = [CPTColor blackColor];
     plotSymbol.lineStyle = symbolLineStyle;
     plotSymbol.size = CGSizeMake(6, 6);
-    dataSourceLinePlot.plotSymbol = plotSymbol;    
+    signalStrengthLinePlot.plotSymbol = plotSymbol;      
+    
+    // Plot gradient color zone
+    CPTColor *beginningColor = [CPTColor colorWithComponentRed:0.0 green:1.0 blue:0.0 alpha:0.8];
+    CPTColor *endingColor = [CPTColor colorWithComponentRed:1.0 green:0.0 blue:0.0 alpha:0.8];
+    CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:beginningColor endingColor:endingColor];
+    areaGradient.angle = -90.0f;
+    CPTFill *areaGradientFill = [CPTFill fillWithGradient:areaGradient];
+    signalStrengthLinePlot.areaFill = areaGradientFill;
+    signalStrengthLinePlot.areaBaseValue = CPTDecimalFromDouble(CELLULAR_SIGNALSTRENGTH_LOWEST);    
+    
+    // Plot annotation
+    
+    
+    // Add plot into graph
+	signalStrengthLinePlot.dataSource = self;
+	[graph addPlot:signalStrengthLinePlot];
+      
+	// Plot space
+	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
+    plotSpace.allowsUserInteraction = YES;
+	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromUnsignedInteger(0) length:CPTDecimalFromUnsignedInteger(kSignalStrengthPlotDataPoints - 1)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(CELLULAR_SIGNALSTRENGTH_LOWEST) length:CPTDecimalFromFloat(CELLULAR_SIGNALSTRENGTH_HIGHEST - CELLULAR_SIGNALSTRENGTH_LOWEST)];
 }
 
 - (void)dealloc
