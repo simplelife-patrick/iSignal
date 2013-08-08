@@ -65,7 +65,6 @@
 - (void) loadAnyNecessaryStuff
 {
     // All CBModules should start here    
-    DLog(@"Start to load anything necessary for this app.");
     
     // App Configs module start
     iSignalAppDelegate *appDelegate = (iSignalAppDelegate*)[CBUIUtils getAppDelegate];
@@ -118,7 +117,6 @@
     [appDelegate.uiLocalNotificationModule startService];
     [isULNM release];
     
-    DLog(@"Finished the modules load operation.");
     // Switch back to Splash UI
     [self performSelectorOnMainThread:@selector(startFadingSplashScreen) withObject:self waitUntilDone:YES];
 }

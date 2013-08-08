@@ -63,6 +63,7 @@
 		C5883CC2150D9C8700359C1A /* ISMonitorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5883CC0150D9C8700359C1A /* ISMonitorViewController.xib */; };
 		C591DDC21407840F00CB2C63 /* Star32.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC11407840F00CB2C63 /* Star32.png */; };
 		C591DDC41407846600CB2C63 /* Star32Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = C591DDC31407846600CB2C63 /* Star32Highlight.png */; };
+		C5AE6B3616D8E23300A1690B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B3516D8E23300A1690B /* Default-568h@2x.png */; };
 		C5B66186140CFE92000B1F74 /* CBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B66185140CFE92000B1F74 /* CBLocationManager.m */; };
 		C5B66189140D0249000B1F74 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B66188140D0249000B1F74 /* CoreLocation.framework */; };
 		C5B71C8314FFA93000CAE603 /* CBAVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B71C8214FFA93000CAE603 /* CBAVManager.m */; };
@@ -276,6 +277,7 @@
 		C591DDC31407846600CB2C63 /* Star32Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star32Highlight.png; sourceTree = SOURCE_ROOT; };
 		C5A36EE8142070AD00C9E4D0 /* CBListenable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBListenable.h; sourceTree = "<group>"; };
 		C5AC052514EFEF0700AAD6FA /* ISMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMapAnnotation.h; sourceTree = "<group>"; };
+		C5AE6B3516D8E23300A1690B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		C5B590BD140E488700A56CF0 /* CBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLog.h; sourceTree = "<group>"; };
 		C5B66184140CFE92000B1F74 /* CBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBLocationManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C5B66185140CFE92000B1F74 /* CBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBLocationManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -512,6 +514,7 @@
 				C591DDC11407840F00CB2C63 /* Star32.png */,
 				C591DDBD1407810700CB2C63 /* iSignal.png */,
 				C591DDBE1407810700CB2C63 /* iSignalX2.png */,
+				C5AE6B3516D8E23300A1690B /* Default-568h@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -735,7 +738,7 @@
 		C5CD42B913FF8826009C5741 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = CodeBeaver;
 			};
 			buildConfigurationList = C5CD42BC13FF8826009C5741 /* Build configuration list for PBXProject "iSignal" */;
@@ -803,6 +806,7 @@
 				C5CEC22A1518BB5500C08799 /* noSignal64.png in Resources */,
 				C5CEC22B1518BB5500C08799 /* noSignal24.png in Resources */,
 				C57733AF152E844500D51C29 /* ISMonitorView.xib in Resources */,
+				C5AE6B3616D8E23300A1690B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
